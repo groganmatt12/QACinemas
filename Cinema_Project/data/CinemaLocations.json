@@ -1,0 +1,15 @@
+{
+	"cinemas" : {
+				"location" : "Manchester"	
+				},
+				{
+				"location" : "London"	
+				},
+				{
+				"location" : "Gloucester"
+				},
+				{
+				"location" : "Cardiff"	
+				}
+
+}

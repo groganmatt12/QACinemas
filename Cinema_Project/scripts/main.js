@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import App from './App';
+import ListingGallery from './ListingGallery';
+
 
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
-			<IndexRoute component={Home}></IndexRoute>
-			<Route path='/ListingsPage' component={ListingsPage}></Route>
-			<Route path='/MovieDetails' component={MovieDetails}>
-				<Route path='/MovieDetails:Showings' component={MovieShowings}>
-			</Route>
-			<Route path='/Booking' component={Booking}></Route>
-			<Route path='/Confirmation' component={Confirmation}></Route>
+			<IndexRoute component={ListingGallery}></IndexRoute>
+			
 		</Route>	
-	</Router>	
+	</Router>
 , document.querySelector('#app'));

@@ -16,12 +16,11 @@ export default class Showings extends React.Component{
 	}
 	
 	componentWillMount(){
-		let movieID = this.props.params.movieID;
+		let movieID = this.props.movieID;
 		this.setState({movieID: movieID});
 		
 	}
-	
-	
+		
 
 		render(){
 	
@@ -265,3 +264,8 @@ export default class Showings extends React.Component{
 	}
 	
 }
+
+Showings.defaultProps = {
+		movieID: '1'
+		
+	}

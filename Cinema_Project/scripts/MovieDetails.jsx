@@ -18,10 +18,6 @@ export default class MovieDetails extends React.Component{
 
     render(){
 
-        //console.log(movieJson);
-        //movieJson.movieDetails[i].value
-        // console.log(movieJson.movieDetails[0].name);
-
         return(
             <div className="container" >
                 <div className="row">

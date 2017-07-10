@@ -1,7 +1,6 @@
 {
   "name": "Cinema_Project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "babel-core": "^6.25.0",
@@ -16,11 +15,14 @@
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "json-loader": "^0.5.4"
+  },
   "scripts": {
     "start": "webpack-dev-server --hot"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }

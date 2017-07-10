@@ -6,17 +6,16 @@ import ListingGallery from './ListingGallery';
 import Home from './Home';
 import MovieDetails from './MovieDetails';
 import Booking from './Booking';
-import Showings from './Showings';
+
 
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
-			<Route path='/ListingGallery' component={ListingGallery}>
-				
-			</Route>
+			<Route path='/ListingGallery' component={ListingGallery} />	
+			<Route path='/MovieDetails' component={MovieDetails} />
 			<Route path='/Booking' component={Booking} />
-			<Route path='/Showings' component={Showings} />
+			
 		</Route>	
 	</Router>
 

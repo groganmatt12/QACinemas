@@ -15,8 +15,8 @@ ReactDOM.render(
 			<Route path='/ListingGallery' component={ListingGallery}>
 				
 			</Route>
-			<Route path='/Booking' component={Booking}>
-			<Route path='/Showings' component={Showings}>
+			<Route path='/Booking' component={Booking} />
+			<Route path='/Showings' component={Showings} />
 		</Route>	
 	</Router>
 , document.querySelector('#app'));

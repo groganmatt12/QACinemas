@@ -1,5 +1,6 @@
 import React from 'react';
 import movieJson from '../data/MovieDetails.json';
+import Showings from './Showings';
 
 export default class MovieDetails extends React.Component{
     
@@ -34,6 +35,7 @@ export default class MovieDetails extends React.Component{
                         <div id="movTime">
                         </div>
                     </div>
+                    <div className="listingTime"><Showings /></div>
                 </div>
             </div>
 

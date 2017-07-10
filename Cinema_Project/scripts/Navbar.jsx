@@ -10,7 +10,7 @@ export default class MainNav extends React.Component{
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/ListingGallery">Listing Gallery</Link></li>
 					<li><Link to="/Booking">Booking</Link></li>
-	
+					<li><Link to="/MovieDetails">Movie Details</Link></li>
 				</ul>
 			</nav>
 		);

@@ -3,8 +3,8 @@ import movieJson from '../data/MovieDetails.json';
 
 export default class MovieDetails extends React.Component{
     
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
 
     componentWillMount(){
@@ -26,7 +26,7 @@ export default class MovieDetails extends React.Component{
             <div className="container" >
                 <div className="row">
                     <div className="col-sm-12">
-                    Title
+					Title
                     </div>
                 </div>
                 <div className="row"> 

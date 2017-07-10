@@ -1,5 +1,6 @@
 {
-	"bookingInfo" : {
+	"bookingInfo" : [
+					{
 					"showingID" : "0",
 					"ticketQuantity" : "2"	
 					},
@@ -15,4 +16,5 @@
 					"showingID" : "2",
 					"ticketQuantity" : "4"	
 					}
+					]
 }

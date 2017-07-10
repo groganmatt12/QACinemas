@@ -1,5 +1,6 @@
 {
-	"cinemas" : {
+	"cinemas" : [
+				{
 				"location" : "Manchester"	
 				},
 				{
@@ -11,5 +12,5 @@
 				{
 				"location" : "Cardiff"	
 				}
-
+				]
 }

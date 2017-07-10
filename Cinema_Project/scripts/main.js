@@ -4,7 +4,9 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import App from './App';
 import ListingGallery from './ListingGallery';
 import Home from './Home';
-import MovieDetails from './MovieDetails'
+import MovieDetails from './MovieDetails';
+import Booking from './Booking';
+import Showings from './Showings';
 
 ReactDOM.render(
 	<Router history = {browserHistory}>
@@ -13,6 +15,8 @@ ReactDOM.render(
 			<Route path='/ListingGallery' component={ListingGallery}>
 				<Route path='/MovieDetails' component={MovieDetails}>
 			</Route>
+			<Route path='/Booking' component={Booking}>
+			<Route path='/Showings' component={Showings}>
 		</Route>	
 	</Router>
 , document.querySelector('#app'));

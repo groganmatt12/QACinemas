@@ -7,19 +7,22 @@ export default class MovieDetails extends React.Component{
     constructor(){
         super();
         this.state = {
-            movieID: "-1";
+            movieID: "-1"
         }
 
     }
 
     componentWillMount(){
-        let filmIndex = {this.props.param}
+        let filmIndex = this.props.params.key;
+        this.setState({movieID: filmIndex});
+        this.pullFilmInfo();
     }
-
-    getTitle(){
-
-
+    
+    pullFilmInfo(movieID) {
+        
     }
+    
+
 
     render(){
 
@@ -29,7 +32,7 @@ export default class MovieDetails extends React.Component{
                     <div className="col-sm-12">
 					Title
                     </div>
-                    <div className="col-sm-12">Movie Name</div>
+                    <div className="col-sm-12">Movie Name: {this.state.movieID}</div>
                 </div>
                 <div className="row"> 
                     <div className="col-sm-6" id="rInfo">Movie Info</div>

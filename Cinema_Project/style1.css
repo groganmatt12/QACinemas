@@ -36,14 +36,11 @@
 	width: 1.5em;
 }
 
-<<<<<<< HEAD
-}
 
 .listingTime{
+}
     
-=======
 #mainNav{
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
->>>>>>> 65b489010f80778e0aab382e82af89b20a8e7766
 }

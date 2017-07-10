@@ -1,4 +1,5 @@
 import React from 'react';
+import Sort from './Sort';
 
 export default class ListingGallery extends React.Component{
 	constructor(){
@@ -14,7 +15,7 @@ export default class ListingGallery extends React.Component{
 		
 		return(
 			<div>
-				
+				<Sort />
 				<div>
 					{this.state.movieListings}
 				</div>
@@ -35,7 +36,7 @@ export default class ListingGallery extends React.Component{
 		console.log(array[0])
 		for(let i=0; i<10; i++){
 			array.push(
-				<div key={i} style={{backgroundColor:'#00FFFF', width:'auto', height:100}}></div>
+				<div key={i} style={{backgroundColor:'#00FFFF', width:'auto', height:100}}>Movie {i+1}</div>
 				
 			);
 			

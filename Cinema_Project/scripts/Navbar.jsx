@@ -12,9 +12,8 @@ export default class MainNav extends React.Component{
             <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/ListingGallery">Listing Gallery</Link></li>
-            <li><Link to="/Booking">Booking</Link></li>
-            <li><Link to="/MovieDetails">Movie Details</Link></li>
-            <li><Link to="/Showings/2">Show times prototype</Link></li>
+            <li><Link to="/Booking">Booking</Link></li>          
+            <li><Link to="/Showings/1">Show times prototype</Link></li>
             </ul>
             </div>
             </div>

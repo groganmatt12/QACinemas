@@ -9,6 +9,7 @@ export default class MovieDetails extends React.Component{
         this.state = {
             movieID: "-1";
         }
+
     }
 
     componentWillMount(){
@@ -25,6 +26,9 @@ export default class MovieDetails extends React.Component{
         return(
             <div className="container" >
                 <div className="row">
+                    <div className="col-sm-12">
+					Title
+                    </div>
                     <div className="col-sm-12">Movie Name</div>
                 </div>
                 <div className="row"> 

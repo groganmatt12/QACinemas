@@ -7,12 +7,12 @@ export default class MovieDetails extends React.Component{
     constructor(){
         super();
         this.state = {
-
+            movieID: "-1";
         }
     }
 
     componentWillMount(){
-
+        let filmIndex = {this.props.param}
     }
 
     getTitle(){

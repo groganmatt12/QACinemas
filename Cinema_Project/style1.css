@@ -4,8 +4,8 @@
 }
 
 .row{
-		height: 100px;
-		background-color: green;
+	height: 6.250em;
+	background-color: green;
 }
 
 #movImage{
@@ -13,10 +13,30 @@
 }
 
 .imgStyle{
-		height: 50px;
-		width: 50px;
+	height: 3.125em;
+	width: 3.125em;
 }
 
 #movName{
 	
+}
+
+.homePage{
+	height: 80vh;
+}
+
+#footer{
+	height: 5vw;
+	background-color: #0080ff;
+	text-align: center;
+}
+
+.quantity-box{
+	height: 1.5em;
+	width: 1.5em;
+}
+
+#mainNav{
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
 }

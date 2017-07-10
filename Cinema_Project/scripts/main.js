@@ -12,10 +12,10 @@ ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
+
 			<Route path='/ListingGallery' component={ListingGallery} />	
 			<Route path='/MovieDetails/:key' component={MovieDetails} />
-			
-			
+			<Route path='/Booking' component={Booking} />
 		</Route>	
 	</Router>
 

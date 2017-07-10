@@ -1,5 +1,6 @@
 {
-	"movieDetails": {
+	"movieDetails":[
+					{
 					"name": "High School Musical",
 					"image" : "hsm.jpg",
 					"description" : "On New Year's Eve in 2006, high school juniors Troy Bolton (Zac Efron) and Gabriella Montez (Vanessa Hudgens) meet at a party while both teens are at a ski lodge during winter break. At the party, the two are called upon to sing karaoke together. They find that they have a connection and decide to exchange numbers before going their separate ways."	
@@ -22,5 +23,6 @@
 					"image" : "sc.jpg",
 					"description" : "After spending time with his new neighbors, an aspiring writer realizes they are harboring deep secrets that will forever change him."	
 					}
+					]
 
 }

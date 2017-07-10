@@ -14,9 +14,6 @@ export default class Booking extends React.Component{
 		}
 	}
 	
-	increment = () =>{
-		this.setState({quantityValue: quantityValue + 1});
-	}
 	
 	componentWillMount(){
 		let showingID = this.props.params.showingID;
@@ -75,4 +72,6 @@ export default class Booking extends React.Component{
     }
 }
 
-
+const increment = () =>{
+this.setState({quantityValue: quantityValue + 1});
+}

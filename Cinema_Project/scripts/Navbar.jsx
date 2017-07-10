@@ -4,8 +4,9 @@ import {IndexLink, Link} from 'react-router';
 
 export default class MainNav extends React.Component{
     render(){
+
         return(
-            <nav className="navbar navbar-inverse" id="navbar">
+            <nav className="navbar navbar-inverse" id="mainNav">
             <div className="container-fluid">
             <div className="container">
             <ul className="nav navbar-nav">
@@ -20,5 +21,6 @@ export default class MainNav extends React.Component{
             </nav>
         );
     }
+
 }
 

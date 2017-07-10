@@ -4,9 +4,6 @@ export default class Showings extends React.Component{
 	constructor(){
 		super();
 		
-		
-		
-		
 		this.state={
 			movieID:"0",
 			cinemaID:"-1"

@@ -64,6 +64,3 @@ export default class Booking extends React.Component{
         );
     }
 }
-
-
-

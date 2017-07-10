@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 
 export default class MovieListing extends React.Component {
@@ -7,7 +8,8 @@ export default class MovieListing extends React.Component {
 	    this.state = {
         name: "",
         image: "",
-        description: ""
+        description: "",
+		id:''
 		};	
 	}
 	
@@ -15,12 +17,13 @@ export default class MovieListing extends React.Component {
 		this.setState({name: this.props.name});
 		this.setState({image: this.props.img});
 		this.setState({description: this.props.desc});
+		this.setState({id: this.props.id});
 	}
     	//{this.state.image}
     render() {
 		
 		let imgLink="../images/"+this.state.image;
-		console.log(imgLink);
+		let filmUrl='/MovieDetails/'+this.state.id;
 	
         return(
             <div className="row" >
@@ -36,8 +39,8 @@ export default class MovieListing extends React.Component {
 					<div className="col-sm-8" id="movDesc1">
 						{this.state.description}
 					</div>
-					
-				</div>
+					<button><Link to={filmUrl}>BOOK</Link></button>
+			</div>
         );
     }
     

@@ -7,15 +7,24 @@ export default class Booking extends React.Component{
 		this.state = {
 			filmID: "test",
 			bookingID: "test",
-			showingID: "test"
+			showingID: "test",
+			time: "test",
+			cinemaID: "test",
+			quantityValue: 0
 		}
 	}
 	
+	increment = () =>{
+		this.setState({quantityValue: quantityValue + 1});
+	}
+	
 	componentWillMount(){
-		let showingID = 5;//this.props.params.showingID;
+		let showingID = this.props.params.showingID;
 		console.log(showingID);
 		this.setState({showingID: showingID});
 		this.setState({filmID: showingJson.showingTimes[showingID].movieID});
+		this.setState({cinemaID: showingJson.showingTimes[showingID].cinemaID});
+		this.setState({time: showingJson.showingTimes[showingID].showingTime});
 		
 	}
 	
@@ -32,16 +41,17 @@ export default class Booking extends React.Component{
 				</div>
 				
 				<div>
-					<p>Location: </p>
+					<p>Location: {this.state.cinemaID}</p>
 				</div>
 				
 				<div>
-					<p>Time: </p>
+					<p>Time: {this.state.time}</p>
 				</div>
 				
 				<div>
 					<p>Quantity&nbsp;
-					<input type="text" value="3" className="quantity-box" disabled="disabled"/>
+					<input type="text" value={this.state.quantityValue} className="quantity-box" disabled/>
+					<button onClick={increment}>+1</button>
 					</p>
 				</div>
 				<div>
@@ -64,3 +74,5 @@ export default class Booking extends React.Component{
         );
     }
 }
+
+

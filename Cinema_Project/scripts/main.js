@@ -17,7 +17,7 @@ ReactDOM.render(
 			<Route path='/ListingGallery' component={ListingGallery} />	
 			<Route path='/MovieDetails/:key' component={MovieDetails} />
 			<Route path='/Showings/:movieID' component={Showings} />
-			<Route path='/Booking' component={Booking} />
+			<Route path='/Booking/:showingID' component={Booking} />
 		</Route>	
 	</Router>
 

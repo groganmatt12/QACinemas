@@ -183,6 +183,11 @@
 					 {
 						"movieID" : "0",
 						"cinemaID" : "3",
+						"showingTime" : "22:30"
+					 },
+					 {
+						"movieID" : "0",
+						"cinemaID" : "3",
 						"showingTime" : "22:45"
 					 },
 					 {

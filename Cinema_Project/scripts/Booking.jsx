@@ -1,15 +1,18 @@
 import React from 'react';
 import showingJson from '../data/ShowingTimes.json';
+import movieJson from '../data/MovieDetails.json';
+
 
 export default class Booking extends React.Component{
 	constructor(props){
 		super();
 		this.state = {
-			filmID: "test",
-			bookingID: "test",
-			showingID: "test",
-			time: "test",
-			cinemaID: "test",
+			filmID: "test filmID",
+			filmTitle: "test filmTitle",
+			bookingID: "test bookingID",
+			showingID: "test showingID",
+			time: "test time",
+			cinemaID: "test cinemaID",
 			quantityValue: 0
 		}
 	}
@@ -17,24 +20,34 @@ export default class Booking extends React.Component{
 	
 	componentWillMount(){
 		let showingID = this.props.params.showingID;
-		console.log(showingID);
+		let test  = this.props.location.query.the;
+		console.log(test);
+		let movieArr = movieJson.movieDetails;
+		
 		this.setState({showingID: showingID});
+		console.log("Showing ID is " + showingID);
+		
 		this.setState({filmID: showingJson.showingTimes[showingID].movieID});
+		
+		console.log("film ID = " + this.state.filmID);
 		this.setState({cinemaID: showingJson.showingTimes[showingID].cinemaID});
 		this.setState({time: showingJson.showingTimes[showingID].showingTime});
 		
+		for(let i = 0; i < movieArr.length; i++){
+			console.log(this.state.filmID);
+            if(i == this.state.filmID){
+				console.log(this.state.filmID);
+                this.setState({filmTitle: movieArr[i].name});
+			}
+		}
 	}
-	
-	
-	
-	
-	
+		
     render() {
         return(
 		
 			<div>
 				<div className="filmName">
-					<p>Film: {this.state.filmID}</p>
+					<p>Film: {this.state.filmTitle}</p>
 				</div>
 				
 				<div>
@@ -73,5 +86,5 @@ export default class Booking extends React.Component{
 }
 
 const increment = () =>{
-this.setState({quantityValue: quantityValue + 1});
+	this.setState({quantityValue: quantityValue + 1});
 }

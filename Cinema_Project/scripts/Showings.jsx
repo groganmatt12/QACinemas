@@ -4,20 +4,25 @@ import {Link} from 'react-router';
 export default class Showings extends React.Component{
 	constructor(){
 		super();
-		
+		var test = "";
 		this.state={
 			movieID:"0",
-			cinemaID:"-1"
+			cinemaID:"-1",
+			selection:"0"
 		}
 	}
 	
 	updateCinemaSelect(e) {
-		this.setState({cinemaID: e.target.value});
+		let id = e.target.value;
+		this.setState({cinemaID: id});
+		id = parseInt(id)+1;
+		this.setState({selection: e.target[id].text});
 	}
 	
 	componentWillMount(){
 		let movieID = this.props.movieID;
 		this.setState({movieID: movieID});
+		
 		
 	}
 		
@@ -237,15 +242,14 @@ export default class Showings extends React.Component{
 	
 		
 	let activeShowings = testData.map(function(showingDetails, showingIndex) {
-		
 		if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID){
 			let bookingURL = "Booking/" + showingIndex;
-		return <span><Link to={bookingURL}>{showingDetails.showingTime}</Link>, </span>;
+		return <span><Link to={{ pathname: bookingURL, query: { cName: this.state.selection }}}>{showingDetails.showingTime}</Link>, </span>;
 		
 		}
     });
 	
-	
+	console.log();
 		
 		return(
 		<div>

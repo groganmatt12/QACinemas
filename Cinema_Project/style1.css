@@ -4,8 +4,8 @@
 }
 
 .row{
-		height: 6.250em;
-		background-color: green;
+	height: 6.250em;
+	background-color: green;
 }
 
 #movImage{
@@ -13,8 +13,8 @@
 }
 
 .imgStyle{
-		height: 3.125em;
-		width: 3.125em;
+	height: 3.125em;
+	width: 3.125em;
 }
 
 #movName{
@@ -22,15 +22,28 @@
 }
 
 .homePage{
-	height: 80vw;
+	height: 80vh;
+}
+
+#footer{
+	height: 5vw;
+	background-color: #0080ff;
+	text-align: center;
 }
 
 .quantity-box{
 	height: 1.5em;
 	width: 1.5em;
+}
 
+<<<<<<< HEAD
 }
 
 .listingTime{
     
+=======
+#mainNav{
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+>>>>>>> 65b489010f80778e0aab382e82af89b20a8e7766
 }

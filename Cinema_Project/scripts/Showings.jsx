@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Showings extends React.Component{
 	constructor(){
@@ -12,6 +13,12 @@ export default class Showings extends React.Component{
 	
 	updateCinemaSelect(e) {
 		this.setState({cinemaID: e.target.value});
+	}
+	
+	componentWillMount(){
+		let movieID = this.props.params.movieID;
+		this.setState({movieID: movieID});
+		
 	}
 	
 	
@@ -229,11 +236,13 @@ export default class Showings extends React.Component{
 		
 		let self = this;
 	
-	
+		
 	let activeShowings = testData.map(function(showingDetails, showingIndex) {
-
+		
 		if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID){
-		return <span><a href={showingIndex}>{showingDetails.showingTime}</a>, </span>;
+			let bookingURL = "Booking/" + showingIndex;
+		return <span><Link to={bookingURL}>{showingDetails.showingTime}</Link>, </span>;
+		
 		}
     });
 	

@@ -6,6 +6,7 @@ import ListingGallery from './ListingGallery';
 import Home from './Home';
 import MovieDetails from './MovieDetails';
 import Booking from './Booking';
+import Showings from './Showings';
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
 
 			<Route path='/ListingGallery' component={ListingGallery} />	
 			<Route path='/MovieDetails/:key' component={MovieDetails} />
+			<Route path='/Showings/:movieID' component={Showings} />
 			<Route path='/Booking' component={Booking} />
 		</Route>	
 	</Router>

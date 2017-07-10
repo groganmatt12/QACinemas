@@ -11,7 +11,7 @@ ReactDOM.render(
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
 			<Route path='/ListingGallery' component={ListingGallery}>
-				
+				<Route path='/MovieDetails' component={MovieDetails}>
 			</Route>
 		</Route>	
 	</Router>

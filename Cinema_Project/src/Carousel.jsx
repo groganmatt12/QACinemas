@@ -3,10 +3,10 @@ import React from 'react';
 
 export default class Carousel extends React.Component{
     render() {
-        let imgLink = '../public/images/br.jpg';
-        let imgLink1 = '../public/images/hsm.jpg';
-        let imgLink2 = '../public/images/sc.jpg';
-        let imgLink3 = '../public/images/tcm.jpg';
+        let imgLink = "/images/br.jpg";
+        let imgLink1 = '/images/hsm.jpg';
+        let imgLink2 = '/images/sc.jpg';
+        let imgLink3 = '/images/tcm.jpg';
         
         return(
             <div id="Carousel" className="carousel slide" data-ride="carousel">
@@ -18,7 +18,7 @@ export default class Carousel extends React.Component{
                 </ol>
                 
                 <div className="carousel-inner" role="listbox">
-                    <div className="item-active">
+                    <div className="item active">
                         <img className="d-block img-fluid" src={imgLink} alt="first slide"></img>
                     </div>
                     <div className="item">
@@ -41,8 +41,6 @@ export default class Carousel extends React.Component{
                     <span className="sr-only">Next</span>
                 </a>
             </div>
-            
-            
             
         );
     }

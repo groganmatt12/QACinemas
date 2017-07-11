@@ -248,7 +248,7 @@ export default class Showings extends React.Component{
 			
 			
 			
-		return <span><Link to={{ pathname: bookingURL, query: { cName: self.state.selection }}}>{showingDetails.showingTime}</Link>, </span>;
+		return <span key={showingIndex}><Link to={{ pathname: bookingURL, query: { cName: self.state.selection }}}>{showingDetails.showingTime}</Link>, </span>;
 		
 		}
     });

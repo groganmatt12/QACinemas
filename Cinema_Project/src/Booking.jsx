@@ -53,7 +53,7 @@ export default class Booking extends React.Component{
 				</div>
 				<br></br>
 				<div>
-				
+
 					<button
 						className="btn btn-default"
 						>
@@ -64,6 +64,7 @@ export default class Booking extends React.Component{
 									Buy
 							</Link>	
 						</button>
+
 				</div>
 				
 				<div>

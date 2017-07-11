@@ -242,7 +242,7 @@ export default class Showings extends React.Component{
 		
 		let self = this;
 		
-	let activeShowings = testData.map(function(showingDetails, showingIndex, ) {
+	let activeShowings = testData.map(function(showingDetails, showingIndex ) {
 		if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID){
 			let bookingURL = "Booking/" + showingIndex;
 			

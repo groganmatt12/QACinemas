@@ -9,6 +9,7 @@ import Booking from './Booking';
 import Showings from './Showings';
 import Confirmation from './Confirmation';
 
+
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
@@ -18,7 +19,9 @@ ReactDOM.render(
 			<Route path='/MovieDetails/:key' component={MovieDetails} />
 			<Route path='/Showings/:movieID' component={Showings} />
 			<Route path='/Booking/:showingID' component={Booking} />
-			<Route path='/Confirmation/:showingID' component={Confirmation} />
+			<Route path='/Confimation/:showingID/:quantity' component={Confirmation} />
+			
+
 		</Route>	
 	</Router>
 

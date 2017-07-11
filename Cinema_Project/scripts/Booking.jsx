@@ -77,7 +77,7 @@ export default class Booking extends React.Component{
         );
     }
 }
-
+//in progress
 const increment = () =>{
 	this.setState({quantityValue: quantityValue + 1});
 }

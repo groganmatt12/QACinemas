@@ -8,6 +8,7 @@ export default class Home extends React.Component{
 			    <div className="row">
                     testing 
                     blah blah blah
+                
                 </div>
 			</div>
         );

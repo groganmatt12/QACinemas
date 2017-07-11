@@ -3,10 +3,10 @@ import React from 'react';
 
 export default class Carousel extends React.Component{
     render() {
-        let imgLink = "/images/br.jpg";
-        let imgLink1 = '/images/hsm.jpg';
-        let imgLink2 = '/images/sc.jpg';
-        let imgLink3 = '/images/tcm.jpg';
+        let imgLink = "/images/2001.jpg";
+        let imgLink1 = '/images/interstellar.jpg';
+        let imgLink2 = '/images/tdk.jpg';
+        let imgLink3 = '/images/wlg.jpg';
         
         return(
             <div id="Carousel" className="carousel slide" data-ride="carousel">

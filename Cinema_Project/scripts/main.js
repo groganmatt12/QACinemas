@@ -11,15 +11,20 @@ import Confirmation from './Confirmation';
 
 
 ReactDOM.render(
+	let bookingTarget = "/Confimation/";
+	let showingsTarget = "/Booking/";
+	let movieDetailsTarget = "/Showings/";
+	let listingGalleryTarget = "/MovieDetails/";
+	
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
 
 			<Route path='/ListingGallery' component={ListingGallery} />	
-			<Route path='/MovieDetails/:key' component={MovieDetails} />
-			<Route path='/Showings/:movieID' component={Showings} />
-			<Route path='/Booking/:showingID' component={Booking} />
-			<Route path='/Confimation/:showingID/:quantity' component={Confirmation} />
+			<Route path= listingGalleryTarget + ':key' component={MovieDetails} />
+			<Route path= movieDetailsTarget + ':movieID' component={Showings} />
+			<Route path= showingsTarget + ':showingID' component={Booking} />
+			<Route path= bookingTarget + ':showingID/:quantity' component={Confirmation} />
 			
 		</Route>	
 	</Router>

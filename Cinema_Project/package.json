@@ -19,7 +19,7 @@
     "json-loader": "^0.5.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "react-scripts start"
   },
   "keywords": [],
   "author": "",

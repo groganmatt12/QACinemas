@@ -11,15 +11,19 @@ import Confirmation from './Confirmation';
 
 
 ReactDOM.render(
+
+	
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
 
 			<Route path='/ListingGallery' component={ListingGallery} />	
+
 			<Route path='/MovieDetails/:key' component={MovieDetails} />
-			<Route path='/Showings/:movieID' component={Showings} />
+			<Route path='/Showings' component={Showings} />
 			<Route path='/Booking/:showingID' component={Booking} />
 			<Route path='/Confirmation/:showingID/:quantity' component={Confirmation} />
+
 			
 
 		</Route>	

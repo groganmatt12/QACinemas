@@ -1,46 +1,39 @@
 import React from 'react';
 import showingJson from '../data/ShowingTimes.json';
 import movieJson from '../data/MovieDetails.json';
-
+import {Link} from 'react-router';
 
 export default class Booking extends React.Component{
 	constructor(props){
 		super();
+		
 		this.state = {
-			filmID: "test filmID",
-			filmTitle: "test filmTitle",
-			bookingID: "test bookingID",
-			showingID: "test showingID",
-			time: "test time",
-			cinemaID: "test cinemaID",
 			quantityValue: 0
 		}
 	}
 	
 	
 	componentWillMount(){
-		let test  = this.props.location.query.cName;
-		console.log(test);
-		let movieArr = movieJson.movieDetails;
-		
-		
-		console.log("film ID = " + this.state.filmID);
-		
-		for(let i = 0; i < movieArr.length; i++){
-			console.log(this.state.filmID);
-            if(i == this.state.filmID){
-				console.log(this.state.filmID);
-                this.setState({filmTitle: movieArr[i].name});
-			}
-		}
 	}
-		
+	
+	increment(){
+		if(this.state.quantityValue < 10)
+			this.setState({quantityValue: this.state.quantityValue + 1});
+	}
+	
+	
+	decrement(){
+		if(this.state.quantityValue > 0)
+			this.setState({quantityValue: this.state.quantityValue - 1});
+	}
+	
     render() {
+		let url = "Confirmation/" + this.props.params.showingID + "/" + this.state.quantity;
         return(
 		
 			<div>
 				<div className="filmName">
-					<p>Film: {this.state.filmTitle}</p>
+					<p>Film: </p>
 				</div>
 				
 				<div>
@@ -48,20 +41,28 @@ export default class Booking extends React.Component{
 				</div>
 				
 				<div>
-					<p>Time: {this.state.time}</p>
+					<p>Time: </p>
 				</div>
 				
 				<div>
 					<p>Quantity&nbsp;
 					<input type="text" value={this.state.quantityValue} className="quantity-box" disabled/>
-					<button onClick={increment}>+1</button>
 					</p>
+					<button className="btn btn-default" onClick={this.increment.bind(this)}>+1</button>
+					<button className="btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 				</div>
+				<br></br>
 				<div>
+				
 					<button
 						className="btn btn-default"
 						>
-							Buy
+							
+							<Link
+								to={url}
+								  >
+									Buy
+							</Link>	
 						</button>
 				</div>
 				
@@ -77,7 +78,4 @@ export default class Booking extends React.Component{
         );
     }
 }
-//in progress
-const increment = () =>{
-	this.setState({quantityValue: quantityValue + 1});
-}
+

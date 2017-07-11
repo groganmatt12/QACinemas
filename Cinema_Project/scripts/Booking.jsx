@@ -8,7 +8,7 @@ export default class Booking extends React.Component{
 		super();
 		
 		this.state = {
-			quantityValue: 0
+			ticketQuantity: 0
 		}
 	}
 	
@@ -17,18 +17,18 @@ export default class Booking extends React.Component{
 	}
 	
 	increment(){
-		if(this.state.quantityValue < 10)
-			this.setState({quantityValue: this.state.quantityValue + 1});
+		if(this.state.ticketQuantity < 10)
+			this.setState({ticketQuantity: this.state.ticketQuantity + 1});
 	}
 	
 	
 	decrement(){
-		if(this.state.quantityValue > 0)
-			this.setState({quantityValue: this.state.quantityValue - 1});
+		if(this.state.ticketQuantity > 0)
+			this.setState({ticketQuantity: this.state.ticketQuantity - 1});
 	}
 	
     render() {
-		let url = "Confirmation/" + this.props.params.showingID + "/" + this.state.quantity;
+		let url = "Confirmation/" + this.props.params.showingID + "/" + this.state.ticketQuantity;
         return(
 		
 			<div>
@@ -46,7 +46,7 @@ export default class Booking extends React.Component{
 				
 				<div>
 					<p>Quantity&nbsp;
-					<input type="text" value={this.state.quantityValue} className="quantity-box" disabled/>
+					<input type="text" value={this.state.ticketQuantity} className="quantity-box" disabled/>
 					</p>
 					<button className="btn btn-default" onClick={this.increment.bind(this)}>+1</button>
 					<button className="btn btn-default" onClick={this.decrement.bind(this)}>-1</button>

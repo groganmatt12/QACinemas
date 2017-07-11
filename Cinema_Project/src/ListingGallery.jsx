@@ -2,12 +2,14 @@ import React from 'react';
 import movieJson from './data/MovieDetails.json';
 import MovieListing from './MovieListing';
 import {Link, browserHistory} from 'react-router';
+import CinemaStore from './store/CinemaStore';
 
 export default class ListingGallery extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			movieListings:[]
+			movieListings:[],
+			movies: CinemaStore.getAllMovies()
 		};
 	}
 	
@@ -36,7 +38,7 @@ export default class ListingGallery extends React.Component{
 	}
 	generateMovieListings(){
 		
-		let movieArr = movieJson.movieDetails;
+		let movieArr = this.state.movies;
 		let array = this.state.movieListings;
 		
 		for(let i = 0; i<movieArr.length; i++){

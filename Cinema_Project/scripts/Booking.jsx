@@ -19,19 +19,12 @@ export default class Booking extends React.Component{
 	
 	
 	componentWillMount(){
-		let showingID = this.props.params.showingID;
-		let test  = this.props.location.query.the;
+		let test  = this.props.location.query.cName;
 		console.log(test);
 		let movieArr = movieJson.movieDetails;
 		
-		this.setState({showingID: showingID});
-		console.log("Showing ID is " + showingID);
-		
-		this.setState({filmID: showingJson.showingTimes[showingID].movieID});
 		
 		console.log("film ID = " + this.state.filmID);
-		this.setState({cinemaID: showingJson.showingTimes[showingID].cinemaID});
-		this.setState({time: showingJson.showingTimes[showingID].showingTime});
 		
 		for(let i = 0; i < movieArr.length; i++){
 			console.log(this.state.filmID);
@@ -51,7 +44,7 @@ export default class Booking extends React.Component{
 				</div>
 				
 				<div>
-					<p>Location: {this.state.cinemaID}</p>
+					<p>Location: {this.props.location.query.cName}</p>
 				</div>
 				
 				<div>

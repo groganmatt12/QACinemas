@@ -63,3 +63,8 @@
 .carousel-inner img{
     height: 200px;
 }
+
+/*Offers.jsx*/
+#offers1{
+	background-image: url("batmanoffer.jpg");
+}

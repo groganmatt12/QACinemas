@@ -1,6 +1,5 @@
 /*MovieDetails.jsx*/
 #rInfo{
-
 	background-color: green;
 }
 
@@ -60,6 +59,8 @@
     margin-bottom: 0;
 }
 
-.cartButton{
-	margin-top: 10px;
+
+/*Carousel.jsx*/
+.carousel-inner img{
+    height: 300px;
 }

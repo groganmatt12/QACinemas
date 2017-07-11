@@ -16,7 +16,8 @@
     "webpack-dev-server": "^2.5.1"
   },
   "devDependencies": {
-    "json-loader": "^0.5.4"
+    "json-loader": "^0.5.4",
+    "react-scripts": "^1.0.10"
   },
   "scripts": {
     "start": "react-scripts start"

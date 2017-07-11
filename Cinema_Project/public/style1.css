@@ -59,3 +59,7 @@
 	margin-right: calc(50% - 50vw);
     margin-bottom: 0;
 }
+
+.cartButton{
+	margin-top: 10px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import showingJson from '../data/ShowingTimes.json';
 import movieJson from '../data/MovieDetails.json';
-
+import {Link} from 'react-router';
 
 export default class Booking extends React.Component{
 	constructor(props){
@@ -58,11 +58,8 @@ export default class Booking extends React.Component{
 					</p>
 				</div>
 				<div>
-					<button
-						className="btn btn-default"
-						>
-							Buy
-						</button>
+	<button	className="btn btn-default" ><Link to={{pathname:'/Confirmation/',query:{showingId:1}}}>Buy</Link></button>
+					
 				</div>
 				
 				<div>

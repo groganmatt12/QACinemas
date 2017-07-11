@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from './Carousel';
 
 
 export default class Home extends React.Component{
@@ -8,6 +9,7 @@ export default class Home extends React.Component{
 			    <div className="row">
                     testing 
                     blah blah blah
+                    <Carousel />
                 </div>
 			</div>
         );

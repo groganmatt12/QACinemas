@@ -1,5 +1,5 @@
 import React from 'react';
-import BookingInfo from '../data/BookingInfo.json';
+import BookingInfo from './data/BookingInfo.json';
 
 
 export default class Confirmation extends React.Component{

@@ -70,7 +70,10 @@ export default class Booking extends React.Component{
 					<button
 						className="btn btn-default"
 						>
-							cancel
+						<Link
+								  >
+									cancel
+							</Link>	
 						</button>
 				</div>
 				

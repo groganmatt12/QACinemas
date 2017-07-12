@@ -53,7 +53,7 @@ export default class ListingGallery extends React.Component{
     }
   
 	_onChange() {
-	console.log('change received');
+	
     this.setState({
       movies: CinemaStore.getFilteredMovies()
     });

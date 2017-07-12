@@ -10,10 +10,10 @@ export default class Home extends React.Component{
 			    <div className="row">
                     <Carousel />
                 </div>
-				<div className="row">
+				<div className="row offerRow">
 					<Offers />
 				</div>
-                <div className="home">
+                <div className="row topFilmRow">
                     <TopFilms />
                 </div>
                 

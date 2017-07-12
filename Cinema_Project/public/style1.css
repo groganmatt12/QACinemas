@@ -23,9 +23,10 @@
 }
 
 /*App.jsx
- * padding-top: 50px if used fixed-top navbar*/
+* padding-top: 50px if used fixed-top navbar*/
 #domMain{
-    background-color: #c0deed;
+	background-color: #c0deed;
+	/*c0deed*/
 }
 
 /*Home.jsx*/
@@ -51,23 +52,24 @@
 
 .listingTime{
 }
-    
+
 /*Navbar.jsx*/
 #mainNav{
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /*Carousel.jsx*/
 .carousel-inner img{
-    height: 200px;
+	height: 200px;
 }
 
 /*Offers.jsx*/
+
 #offerParent{
 	height: 30em;
-	padding-bottom: 2em;
+	
 }
 
 #offerParent p{
@@ -81,12 +83,12 @@
 }
 
 .offerRow{
-	height: 25em;
+	height: 28em;
 }
 
 .offerPanels{
 	text-align: center;
-	background-color: green;
+	/*background-color: green;*/
 	height: 25em;
 	width: 25em;
 	display: inline-block;
@@ -103,7 +105,7 @@
 
 	height: 80%;
 	width: 80%;
-	border: dotted;
+	/*border: dotted;*/
 	text-align: center;
 	padding-bottom: 1.3em;
 	margin: 0 auto;
@@ -118,7 +120,8 @@
 }
 
 .offers p{
-	color: white;
+	color: black;
+	font-weight: bold;
 	text-align: center;
 	background-color: orange;
 	position: relative; 
@@ -139,30 +142,62 @@
 	color: black;
 }
 
+/*TopFilms.jsx*/
+.topFilmRow{
+	background-color: #84bcd8;
+	padding-top: 1em;
+	padding-bottom: 2em;
+}
+
+.topFilmHeader{
+	text-align: center;
+	font-family: "Roboto", "Helvetica", "FF DIN";
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
 #popular_film_headings{
 	font-size: 24px;
 	text-align: center;
 }
-#popular_film_1 img{
-    text-align: center;
-    position: relative;
-    max-height: 100%;
-    max-width: 100%;
+
+.popular_film_1 img{
+	text-align: center;
+	position: relative;
+	max-height: 80%;
+	max-width: 80%;
+/*	border: dotted;*/
 }
 
-#popular_film_2 img{
-    text-align: center;
-    position: relative;
-    max-height: 100%;
-    max-width: 100%;
+
+.popular_film_2 img{
+	text-align: center;
+	position: relative;
+	max-height: 80%;
+	max-width: 80%;
 }
 
-#popular_film_3 img{
-    text-align: center;
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
+.popular_film_3 img{
+	text-align: center;
+	position: relative;
+	max-height: 80%;
+	max-width: 80%;
 }
+
+.popular_film_1:hover .overlay{
+	opacity: 0.75;
+}
+
+.popular_film_2:hover .overlay{
+	opacity: 0.75;
+}
+
+.popular_film_3:hover .overlay{
+	opacity: 0.75;
+}
+
+
 
 #quick_book_bar{
     height: 80px;
@@ -178,4 +213,27 @@
     text-align: center;
     margin-right: 60px;
     margin-top: 2%;
+
+.overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 1em;
+	right: 0;
+	height: 100%;
+	width: 20.7em;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #808080;
+}
+
+.overlayText{
+	color: black;
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+
 }

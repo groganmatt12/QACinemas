@@ -66,10 +66,13 @@
 }
 
 /*Offers.jsx*/
+.offerRow{
+	height: 30em;
+	border-bottom: 2em;
+}
 
 #offerParent{
-	height: 30em;
-	
+	height: 80%;
 }
 
 #offerParent p{
@@ -80,18 +83,24 @@
 	padding-top: 0.5em;
 	font-size: 24px;
 	text-align: center;
+	/*background: blue;*/
 }
 
-.offerRow{
-	height: 28em;
+#offerRow{
+	height: 100%;
+/*	border: dotted;
+	background: green;*/
+}
+
+.offerDivs{
+	width: 33.33%;
+	text-align: center;
+/*	border: dashed;*/
 }
 
 .offerPanels{
-	text-align: center;
-	/*background-color: green;*/
-	height: 25em;
-	width: 25em;
-	display: inline-block;
+/*	border: dashed;*/
+	height: 100%;
 }
 
 .offers{
@@ -103,17 +112,16 @@
 	width: 100%;
 	margin: auto;*/
 
-	height: 80%;
-	width: 80%;
-	/*border: dotted;*/
+	height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+	width: 60%;
+/*	border: dotted;*/
 	text-align: center;
 	padding-bottom: 1.3em;
 	margin: 0 auto;
 }
 
 .offers img{
-	max-height: 100%;
-	max-widght: 100%;
+	max-width: 100%;
 	
 	position: relative;
 	
@@ -125,15 +133,10 @@
 	text-align: center;
 	background-color: orange;
 	position: relative; 
-	width: 73%;
-	float: right;
-	left: -13%;
+	width: 100%;
 }
 
-.offerText{
-	
-	margin-right: 2em;
-	margin-left: 2em;
+#offerText{
 	text-align: center;
 	color: black;
 }
@@ -233,7 +236,6 @@
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 }
-
 
 
 /*QuickBookBar.jsx*/

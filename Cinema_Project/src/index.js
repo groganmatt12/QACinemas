@@ -8,6 +8,8 @@ import MovieDetails from './MovieDetails';
 import Booking from './Booking';
 import Showings from './Showings';
 import Confirmation from './Confirmation';
+import Classification from './Classification';
+import ContactUs from './ContactUs';
 
 
 const listingGallery = "/ListingGallery";
@@ -15,11 +17,9 @@ const movieDetails = "/MovieDetails/";
 const showings = "/Showings/";
 const booking = "/Booking/";
 const confimation = "/Confimation/";
+const contactUs = "/contactUs/"
 
 ReactDOM.render(
-	
-	
-	
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
@@ -28,11 +28,11 @@ ReactDOM.render(
 			<Route path = "/MovieDetails/:key" component={MovieDetails} />
 			<Route path = "/Showings/:movieID" component={Showings} />
 			<Route path = "/Booking/:showingID" component={Booking} />
+			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation} />
-	
-		
+			{/*<Route path = "/ContactUs" component={ContactUs} />*/}
+			
 		</Route>	
 	</Router>
-
 , document.querySelector('#app'));
 

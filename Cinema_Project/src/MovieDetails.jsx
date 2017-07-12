@@ -39,6 +39,7 @@ export default class MovieDetails extends React.Component{
                     </div>
                     <div className="col-sm-12">Movie Name: {this.state.filmTitle}</div>
                 </div>
+				
                 <div className="row"> 
                     <div className="col-sm-6" id="rInfo">Movie Info: {this.state.filmInfo}</div>
                     <div className="col-sm-6">
@@ -49,8 +50,9 @@ export default class MovieDetails extends React.Component{
                     </div>
                     <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
                 </div>
-                <div className="movieDetailImg">
-                    <img src={imgLink} />
+
+                <div >
+                    <img src={imgLink} alt={this.state.Title} className="imgStyle" />
                 </div>
             </div>
 

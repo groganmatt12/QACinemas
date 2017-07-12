@@ -7,15 +7,18 @@
 #movImage{
 	height: 6em;
 	width: 6em;
+	
 }
 
 .imgStyle{
-	height: 6.125em;
-	width: 6.125em;
+	height: 10em;
+	width: 10em;
+
 }
 
 #movName{
-	font-family:"Comic Sans MS", cursive, sans-serif	;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
 }
 
 .movDescRow{
@@ -86,9 +89,11 @@
 	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0,0,255,0.8));
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
+	
+
 }
 .bookButton{
-	display: block;	
+	
 }
 .movieDetailImg{
 	height: 1em;

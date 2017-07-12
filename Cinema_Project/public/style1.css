@@ -236,12 +236,15 @@
 
 
 
-/*Overlay.jsx*/
+/*QuickBookBar.jsx*/
+.quickBookRow{
+	padding-bottom: 2em;
+}
+
 #quick_book_bar{
     height: 80px;
     background-color: #15338d;
     text-align: center;
-   
 }
 
 .quick_book_bar_container select{

@@ -4,6 +4,7 @@ export default class Offers extends React.Component{
 	
 	render(){
     let offer1 = "./images/offers/broffer.jpg";
+    let offer2 = "./images/offers/2001offer.jpg";
 
 		return(
 
@@ -21,19 +22,28 @@ export default class Offers extends React.Component{
                     </div>
 				</div>
 				<div className="row offerRow">
+
 					<div className="col-sm-4 offerPanels">
-                        <div id="offer1">
+                        <div className="offers">
                             <img src={offer1} alt="offer1 top film" />
                             <p>Battle Royale</p>
                         </div>
 					</div>
-					<div className="col-sm-4">
-                         
+					<div className="col-sm-4 offerText">
+                        <ul className="list-group">
+                            <li className="list-group-item"><a href="#">Kids under 10 go free!</a></li>
+                            <li className="list-group-item list-group-item-info"><a href="#">Hello</a></li>
+                            <li className="list-group-item list-group-item-info"><a href="#">Hello</a></li>
+                            <li className="list-group-item list-group-item-info"><a href="#">Hello</a></li>
+                        </ul>
+					</div>
+                	<div className="col-sm-4 offerPanels">
+                        <div className="offers">
+                            <img src={offer2} alt="offer1 top film" />
+                            <p>2001</p>
+                        </div>
 					</div>
 
-					<div className="col-sm-4" id="offer2">
-                        
-					</div>
 				</div>
 			</div>
 		

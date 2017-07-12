@@ -81,31 +81,62 @@
 }
 
 .offerRow{
-	height: 30em;
+	height: 25em;
 }
 
 .offerPanels{
+	text-align: center;
 	background-color: green;
 	height: 25em;
 	width: 25em;
 	display: inline-block;
 }
 
-#offer1{
-	background-image:url("./images/offers/broffer.jpg");
+.offers{
+/*	background-image:url("./images/offers/broffer.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	margin: auto;
-	border-style: dotted;
+	margin: auto;*/
+
+	height: 80%;
+	width: 80%;
+	border: dotted;
+	text-align: center;
+	padding-bottom: 1.3em;
+	margin: 0 auto;
 }
 
-#offer1 p{
+.offers img{
+	max-height: 100%;
+	max-widght: 100%;
+	
+	position: relative;
+	
+}
+
+.offers p{
 	color: white;
 	text-align: center;
 	background-color: orange;
+	position: relative; 
+	width: 73%;
+	float: right;
+	left: -13%;
+}
+
+.offerText{
+	
+	margin-right: 2em;
+	margin-left: 2em;
+	text-align: center;
+	color: black;
+}
+
+.list-group-item span{
+	color: black;
 }
 
 /* #offer1 h2{

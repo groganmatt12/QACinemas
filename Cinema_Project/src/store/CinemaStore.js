@@ -44,6 +44,7 @@ class CinemaStore extends EventEmitter {
     this.movies.forEach((movie) => {
       if(movie.name.indexOf(searchParameters) !== -1) {
         this.filteredMovies.push(movie);
+		window.console.log(movie.name);
       }
     });
     this.emit('moviesChange');

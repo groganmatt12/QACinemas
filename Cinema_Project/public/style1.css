@@ -4,10 +4,10 @@
 }
 
 /*MovieListing.jsx*/
-#movImage{
-	height: 6em;
-	width: 6em;
-	
+#movImage {
+    display: inline;
+    height: 6em;
+    width: 6em;
 }
 
 .imgStyle{
@@ -29,7 +29,7 @@
 /*App.jsx
  * padding-top: 50px if used fixed-top navbar*/
 #domMain{
-    background-color: #8695a4;
+    background-color: #b6cce2;
 }
 
 /*Home.jsx*/
@@ -86,7 +86,7 @@
 }
 
 .row{
-	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0,0,255,0.8));
+	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
 	

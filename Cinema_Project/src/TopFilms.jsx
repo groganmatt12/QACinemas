@@ -15,6 +15,9 @@ export default class TopFilms extends React.Component{
     let popular_film_3_desc = "cars 3 vroom vroom blah blah..";
         return(
             <div className="container">
+            <div className="row topFilmHeader">
+                <p>Top Films</p>
+            </div>
                 <div className="row">
                     <div className="col-sm-4 popular_film_panels">
                         <div className="popular_film_1">

@@ -145,8 +145,16 @@
 /*TopFilms.jsx*/
 .topFilmRow{
 	background-color: #84bcd8;
-	padding-top: 2em;
+	padding-top: 1em;
 	padding-bottom: 2em;
+}
+
+.topFilmHeader{
+	text-align: center;
+	font-family: "Roboto", "Helvetica", "FF DIN";
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 0.5em;
 }
 
 #popular_film_headings{

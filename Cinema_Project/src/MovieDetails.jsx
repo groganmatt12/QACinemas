@@ -18,7 +18,7 @@ export default class MovieDetails extends React.Component{
         let filmIndex = this.props.params.key;        
         let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
-            if(i == filmIndex){
+            if(i === filmIndex){
                 this.setState({filmTitle: movieArr[i].name});
                 this.setState({filmInfo: movieArr[i].description});
                 this.setState({filmImage: movieArr[i].image});

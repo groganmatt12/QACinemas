@@ -1,7 +1,5 @@
 import React from 'react';
-import movieJson from './data/MovieDetails.json';
-import MovieListing from './MovieListing';
-import {Link, browserHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import CinemaStore from './store/CinemaStore';
 import Sort from './Sort';
 import * as CinemaActions from './actions/CinemaActions';

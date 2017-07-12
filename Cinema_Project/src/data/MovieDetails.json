@@ -22,7 +22,50 @@
 					"name": "Sophie's Choice",
 					"image" : "sc.jpg",
 					"description" : "After spending time with his new neighbors, an aspiring writer realizes they are harboring deep secrets that will forever change him."	
+					},
+					
+					{
+					"name": "Spider-Man: Homecoming",
+					"image" : "smh.jpg",
+					"description" : "A young Peter Parker/Spider-Man (Tom Holland), who made his sensational debut in Captain America: Civil War, begins to navigate his newfound identity as the web-slinging super hero in Spider-Man: Homecoming. Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May (Marisa Tomei), under the watchful eye of his new mentor Tony Stark (Robert Downey, Jr.). Peter tries to fall back into his normal daily routine – distracted by thoughts of proving himself to be more than just your friendly neighbourhood Spider-Man – but when the Vulture (Michael Keaton) emerges as a new villain, everything that Peter holds most important will be threatened."	
+					},
+					
+					{
+					"name": "It Comes At Night",
+					"image" : "ican.jpg",
+					"description" : "Imagine the end of the world. Now imagine something worse. Award-winning filmmaker Trey Edward Shults follows his breakout debut Krisha with the psychological horror thriller It Comes At Night, centering on a teenaged boy (Kelvin Harrison, Jr.) as he grapples with mounting terrors—external and otherwise—in the aftermath of an unnamed cataclysm. Secure within a desolate home with his vigilant, protective and heavily armed parents (Joel Edgerton and Carmen Ejogo), 17-year-old Travis navigates fear, grief and paranoia amid scarce resources as a desperate young couple (Christopher Abbott and Riley Keough) seeks refuge in his family home with their young child. Despite the best intentions of both families, panic and mistrust boil over as the horrors of the outside world creep ever closer. But they are nothing compared to the horrors within, where Travis discovers that his father’s commitment to protecting the family may cost him his soul."	
+					},
+					
+					{
+					"name": "War For The Planet Of The Apes",
+					"image" : "wftpota.jpg",
+					"description" : "In War for the Planet of the Apes, the third chapter of the critically acclaimed blockbuster franchise, Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of both their species and the future of the planet."	
+					},
+					
+					{
+					"name": "Baby Driver",
+					"image" : "bd.jpg",
+					"description" : "A talented, young getaway driver (Ansel Elgort) relies on the beat of his personal soundtrack to be the best in the game. When he meets the girl of his dreams (Lily James), Baby sees a chance to ditch his criminal life and make a clean getaway. But after being coerced into working for a crime boss (Kevin Spacey), he must face the music when a doomed heist threatens his life, love and freedom."	
+					},
+					
+					{
+					"name": "Transformers: The Last Knight",
+					"image" : "ttlk.jpg",
+					"description" : "The Last Knight shatters the core myths of the Transformers franchise, and redefines what it means to be a hero. Humans and Transformers are at war, Optimus Prime is gone. The key to saving our future lies buried in the secrets of the past, in the hidden history of Transformers on Earth. Saving our world falls upon the shoulders of an unlikely alliance: Cade Yeager (Mark Wahlberg); Bumblebee; an English Lord (Sir Anthony Hopkins); and an Oxford Professor (Laura Haddock).There comes a moment in everyone’s life when we are called upon to make a difference. In Transformers: The Last Knight, the hunted will become heroes. Heroes will become villains. Only one world will survive: theirs, or ours."	
+					},
+					
+					{
+					"name": "Wonder Woman",
+					"image" : "ww.jpg",
+					"description" : "Before she was Wonder Woman, she was Diana, princess of the Amazons, trained to be an unconquerable warrior. Raised on a sheltered island paradise, when an American pilot crashes on their shores and tells of a massive conflict raging in the outside world, Diana leaves her home, convinced she can stop the threat. Fighting alongside man in a war to end all wars, Diana will discover her full powers…and her true destiny."	
+					},
+					
+					{
+					"name": "Dunkirk",
+					"image" : "dnk.jpg",
+					"description" : "'Dunkirk' opens as hundreds of thousands of British and Allied troops are surrounded by enemy forces. Trapped on the beach with their backs to the sea they face an impossible situation as the enemy closes in.“Dunkirk” features a prestigious cast, including Tom Hardy (“The Revenant,” “Mad Max: Fury Road,” “Inception”), Mark Rylance (“Bridge of Spies,” “Wolf Hall”), Kenneth Branagh (“My Week with Marilyn,” “Hamlet,” “Henry V”) and Cillian Murphy (“Inception,” “The Dark Knight” Trilogy), as well as newcomer Fionn Whitehead. The ensemble cast also includes Aneurin Barnard, Harry Styles, James D’Arcy, Jack Lowden, Barry Keoghan and Tom Glynn-Carney."	
 					}
+					
 					]
 
 }

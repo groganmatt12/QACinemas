@@ -20,7 +20,7 @@ export default class TopFilms extends React.Component{
             </div>
                 <div className="row">
                     <div className="col-sm-4 popular_film_panels">
-                        <div className="popular_film_1">
+                        <div className="popular_film_1 popular_film">
                             <img src={popular_film_1} />
                             <div className="overlay">
                                 <div className="overlayText">
@@ -30,7 +30,7 @@ export default class TopFilms extends React.Component{
                         </div>
                     </div>
                     <div className="col-sm-4 popular_film_panels">
-                        <div className="popular_film_2">
+                        <div className="popular_film_2 popular_film">
                             <img src={popular_film_2} />
                             <div className="overlay">
                                 <div className="overlayText">
@@ -40,7 +40,7 @@ export default class TopFilms extends React.Component{
                         </div>
                     </div>
                     <div className="col-sm-4 popular_film_panels">
-                        <div className="popular_film_3">
+                        <div className="popular_film_3 popular_film">
                             <img src={popular_film_3} />
                             <div className="overlay">
                                 <div className="overlayText">

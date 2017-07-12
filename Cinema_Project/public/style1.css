@@ -165,24 +165,23 @@
 .popular_film_1 img{
 	text-align: center;
 	position: relative;
-	max-height: 80%;
-	max-width: 80%;
+	max-height: 100%;
+	max-width: 100%;
 /*	border: dotted;*/
 }
-
 
 .popular_film_2 img{
 	text-align: center;
 	position: relative;
-	max-height: 80%;
-	max-width: 80%;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .popular_film_3 img{
 	text-align: center;
 	position: relative;
-	max-height: 80%;
-	max-width: 80%;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .popular_film_1:hover .overlay{
@@ -197,31 +196,45 @@
 	opacity: 0.75;
 }
 
+.popular_film{
+   /* border: dotted;*/
+    height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+    width: 60%;
+    position: relative; /*IMPORTANT*/
+    display:  inline-block;
+    overflow: auto;
+}
 
+.popular_film_panels{
+/*	border: solid;*/
+	width: 33.33%;
+	text-align: center;
+}
 
 .overlay{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 1em;
+	left: 0;
 	right: 0;
 	height: 100%;
-	width: 20.7em;
+	width: 100%;
 	opacity: 0;
 	transition: .5s ease;
-	background-color: #808080;
+	background-color: orange;
 }
 
 .overlayText{
-	color: black;
+	color: white;
 	font-size: 16px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-
 }
+
+
 
 /*Overlay.jsx*/
 #quick_book_bar{

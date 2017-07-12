@@ -5,10 +5,8 @@ import Navbar from './Navbar'
 export default class Header extends React.Component{
     render(){
         return(
-            <div>
+            <div className="static-nav">
                 <Navbar /> 
-				
-
             </div>
         );
     }

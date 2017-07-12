@@ -8,6 +8,8 @@ import MovieDetails from './MovieDetails';
 import Booking from './Booking';
 import Showings from './Showings';
 import Confirmation from './Confirmation';
+import Classification from './Classification';
+
 
 
 const listingGallery = "/ListingGallery";
@@ -28,7 +30,10 @@ ReactDOM.render(
 			<Route path = "/MovieDetails/:key" component={MovieDetails} />
 			<Route path = "/Showings/:movieID" component={Showings} />
 			<Route path = "/Booking/:showingID" component={Booking} />
+			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation} />
+			
+			
 	
 		
 		</Route>	

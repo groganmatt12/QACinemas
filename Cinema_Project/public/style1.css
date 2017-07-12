@@ -64,3 +64,12 @@
 .carousel-inner img{
     height: 200px;
 }
+
+.classificationsDiv{
+	text-align: center;
+}
+.classificationsImg{
+	max-width: 80%;
+    height: auto;
+    width: auto\9;
+}

@@ -1,5 +1,7 @@
 import { EventEmitter } from 'events';
 
+import dispatcher from '../dispatcher';
+
 import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';
 import movieJson from '../data/MovieDetails.json';
@@ -14,6 +16,8 @@ class CinemaStore extends EventEmitter {
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;
 		this.showings = showingsJson.showingTimes;
+		
+		this.filteredMovies = [];
 		}
 
   getAllBookings() {
@@ -30,10 +34,32 @@ class CinemaStore extends EventEmitter {
 
   getAllShowings() {
     return this.showings;
-  }	  
-	
+  }
+   getFilteredMovies() {
+    return this.filteredMovies;
+  }
+
+  filterMoviesBySearch(searchParameters) {
+    this.filteredMovies = [];
+    this.movies.forEach((movies) => {
+      if(movie.name.indexOf(searchParameters) !== -1) {
+        this.filteredMovies.push(movie);
+      }
+    });
+    this.emit('moviesChange');
+  }
+
+  handleActions(action) {
+    switch(action.type) {
+      case "FILTER_SEARCH":
+        this.filterBySearch(action.searchParameters);
+        break;
+      default:
+        break;
+    }
+  }  
 }	
 	  
 const cinemaStore = new CinemaStore;
-
+dispatcher.register(cinemaStore.handleActions.bind(cinemaStore));
 export default cinemaStore;

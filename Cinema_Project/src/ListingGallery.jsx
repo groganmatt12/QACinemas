@@ -11,6 +11,7 @@ export default class ListingGallery extends React.Component{
 			movieListings:[],
 			movies: CinemaStore.getAllMovies()
 		};
+		this._onChange = this._onChange.bind(this);
 	}
 	
 	
@@ -30,9 +31,20 @@ export default class ListingGallery extends React.Component{
 	}
 	
 	componentWillMount(){
-		this.generateMovieListings();
-		
+		CinemaStore.on("moviesChange", this._onChange);
+		this.generateMovieListings();		
 	}
+	
+	componentWillUnmount() {
+		CinemaStore.removeEventListener("moviesChange", this._onChange);
+    }
+  
+	_onChange() {
+    this.setState({
+      movies: CinemaStore.getFilteredMovies()
+    });
+	}
+	
 	pagechange(){
 		browserHistory.push('/MovieDetails');
 	}

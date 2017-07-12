@@ -28,6 +28,7 @@ export default class MovieListing extends React.Component {
 					</div>
 					<div className="col-sm-8" id="movDesc1">
 						{this.props.desc}
+						
 					</div>
 					<button><Link to={filmUrl}>BOOK</Link></button>
 			</div>

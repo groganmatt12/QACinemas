@@ -18,7 +18,7 @@ export default class MovieDetails extends React.Component{
         let filmIndex = this.props.params.key;        
         let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
-            if(i === filmIndex){
+            if(i == filmIndex){
                 this.setState({filmTitle: movieArr[i].name});
                 this.setState({filmInfo: movieArr[i].description});
                 this.setState({filmImage: movieArr[i].image});
@@ -29,7 +29,7 @@ export default class MovieDetails extends React.Component{
 
 
     render(){
-        let imgLink="images/"+this.state.filmImage;
+        let imgLink="/images/"+this.state.filmImage;
         
         return(
             <div className="container" >
@@ -50,7 +50,7 @@ export default class MovieDetails extends React.Component{
                     <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
                 </div>
                 <div>
-                    <img src={imgLink} />
+                    <img src={imgLink} alt={this.state.Title} className="imgStyle" />
                 </div>
             </div>
 

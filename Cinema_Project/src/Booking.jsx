@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+
 
 
 export default class Booking extends React.Component{
@@ -27,7 +27,7 @@ export default class Booking extends React.Component{
 	}
 	
     render() {
-		let url = "Confirmation/" + this.props.params.showingID + "/" + this.state.ticketQuantity;
+		
         return(
 		
 			<div>
@@ -65,8 +65,8 @@ export default class Booking extends React.Component{
 						<input type="hidden" name="button_subtype" value="services" />
 						<input type="hidden" name="no_note" value="0" />
 						<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest" />
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!" />
-						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+						<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal – The safer, easier way to pay online!" />
+						<img alt="" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
 					</form>
 
 				</div>

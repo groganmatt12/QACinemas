@@ -15,17 +15,9 @@ export default class ListOfMovies extends React.Component {
 
 		
 		return(
-		<div>
-		{array}
-		</div>
-		
-		
+			<div>
+				{array}
+			</div>
 		);
-		
-	}
-	
-
-		
-
-		
-	}
+	}	
+}

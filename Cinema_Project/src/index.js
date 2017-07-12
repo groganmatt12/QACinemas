@@ -9,15 +9,15 @@ import Booking from './Booking';
 import Showings from './Showings';
 import Confirmation from './Confirmation';
 import Classification from './Classification';
-import ContactUs from './ContactUs';
+{/*import ContactUs from './ContactUs';*/}
 
-
+{/*
 const listingGallery = "/ListingGallery";
 const movieDetails = "/MovieDetails/";
 const showings = "/Showings/";
 const booking = "/Booking/";
 const confimation = "/Confimation/";
-const contactUs = "/contactUs/"
+const contactUs = "/contactUs/"*/}
 
 ReactDOM.render(
 	<Router history = {browserHistory}>

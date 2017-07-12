@@ -19,7 +19,7 @@ export default class Showings extends React.Component{
 	updateCinemaSelect(e) {
 		let id = e.target.value;
 		this.setState({cinemaID: id});
-		let target = parseInt(e.target.value);
+		let target = parseInt(e.target.value,10);
 		target += 1;
 		this.setState({selection: e.target[target].text});
 		
@@ -44,11 +44,11 @@ export default class Showings extends React.Component{
 			let bookingURL = "Booking/" + showingIndex;
 						
 		return <span key={showingIndex}><Link to={{ pathname: bookingURL, query: { cName: self.state.selection }}}>{showingDetails.showingTime}</Link>, </span>;
-		}
+		}return;
     });
 	
 		let activeCinemas = this.state.cinemaInfo.map(function(cinemaDetails, cinemaIndex ) {		
-		return <option value={cinemaIndex}>{cinemaDetails.location}</option>;
+		return <option key={cinemaIndex} value={cinemaIndex}>{cinemaDetails.location}</option>;
 
     });
 	

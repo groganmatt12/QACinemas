@@ -199,21 +199,6 @@
 
 
 
-#quick_book_bar{
-    height: 80px;
-    background-color: #15338d;
-    text-align: center;
-   
-}
-
-.quick_book_bar_container select{
-    background-color: aqua;
-    background: linear-gradient(to bottom, black, gray);
-    color: aqua;
-    text-align: center;
-    margin-right: 60px;
-    margin-top: 2%;
-
 .overlay{
 	position: absolute;
 	top: 0;
@@ -237,3 +222,20 @@
 	-ms-transform: translate(-50%, -50%);
 
 }
+
+/*Overlay.jsx*/
+#quick_book_bar{
+    height: 80px;
+    background-color: #15338d;
+    text-align: center;
+   
+}
+
+.quick_book_bar_container select{
+    background-color: aqua;
+    background: linear-gradient(to bottom, black, gray);
+    color: aqua;
+    text-align: center;
+    margin-right: 60px;
+    margin-top: 2%;
+    

@@ -33,8 +33,8 @@ export default class Offers extends React.Component{
                         <ul className="list-group">
                             <li className="list-group-item list-group-item-info"><a href="#">Kids under 10 go free!</a></li>
                             <li className="list-group-item list-group-item-info"><a href="#">Free drink with any special meal deal!</a></li>
-                            <li className="list-group-item list-group-item-info"><a href="#">Wallace and Gromit merchandice in store!</a></li>
-                            <li className="list-group-item list-group-item-info"><a href="#">Hello</a></li>
+                            <li className="list-group-item list-group-item-danger"><a href="#">Wallace and Gromit merchandice in store!</a></li>
+                            <li className="list-group-item list-group-item-info">...<a href="#"></a></li>
                         </ul>
 					</div>
                 	<div className="col-sm-4 offerPanels">

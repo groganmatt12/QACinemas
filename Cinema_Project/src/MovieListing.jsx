@@ -5,25 +5,15 @@ import {Link, Router, Route, IndexRoute, browserHistory} from 'react-router';
 export default class MovieListing extends React.Component {
     constructor(props){
 		super(props);
-	    this.state = {
-        name: "",
-        image: "",
-        description: "",
-		id:''
-		};	
+
 	}
 	
-	componentWillMount(){
-		this.setState({name: this.props.name});
-		this.setState({image: this.props.img});
-		this.setState({description: this.props.desc});
-		this.setState({id: this.props.id});
-	}
+
     	//{this.state.image}
     render() {
 		
-		let imgLink="images/"+this.state.image;
-		let filmUrl='MovieDetails/'+this.state.id;
+		let imgLink="images/"+this.props.img;
+		let filmUrl='MovieDetails/'+this.props.id;
 	
         return(
             <div className="row" >
@@ -32,12 +22,12 @@ export default class MovieListing extends React.Component {
 						<img src={imgLink} alt={this.props.name} className="imgStyle" />
 						</div>
 						<div id="movName">
-						{this.state.name}
+						{this.props.name}
 						</div>
 						
 					</div>
 					<div className="col-sm-8" id="movDesc1">
-						{this.state.description}
+						{this.props.desc}
 					</div>
 					<button><Link to={filmUrl}>BOOK</Link></button>
 			</div>

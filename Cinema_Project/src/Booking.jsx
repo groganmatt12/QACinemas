@@ -1,7 +1,6 @@
 import React from 'react';
-import showingJson from './data/ShowingTimes.json';
-import movieJson from './data/MovieDetails.json';
 import {Link} from 'react-router';
+
 
 export default class Booking extends React.Component{
 	constructor(props){

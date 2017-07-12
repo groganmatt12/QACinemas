@@ -1,6 +1,6 @@
 import React from 'react';
-import movieJson from './data/MovieDetails.json';
 import Showings from './Showings';
+import CinemaStore from './store/CinemaStore'
 
 export default class MovieDetails extends React.Component{
     
@@ -16,7 +16,7 @@ export default class MovieDetails extends React.Component{
 
     componentWillMount(){
         let filmIndex = this.props.params.key;        
-        let movieArr = movieJson.movieDetails;
+        let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
             if(i == filmIndex){
                 this.setState({filmTitle: movieArr[i].name});

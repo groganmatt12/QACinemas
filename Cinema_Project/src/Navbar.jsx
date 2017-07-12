@@ -7,10 +7,14 @@ export default class Navbar extends React.Component{
 
         return(
             <nav className="navbar transparent navbar-inverse navbar-static-top" id="mainNav">
-                <div className="container-fluid">
                     <div className="container">
 						<div className="col-sm-10">
+						
+							<div className="navbar-header">
+								<img className="logo" src="/images/QA_logo_blue.png"></img>	
+							</div>
 							<ul className="nav navbar-nav">
+								
 								<li><Link to="/">Home</Link></li>
 								<li><Link to="/ListingGallery">Listing Gallery</Link></li>
 								<li><Link to="/Booking">Booking</Link></li>          
@@ -20,9 +24,7 @@ export default class Navbar extends React.Component{
 							</ul>
 							</div>
 						</div>					
-					</div>
 				</nav>
 			);
 		}
 	}
-

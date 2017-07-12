@@ -16,8 +16,8 @@ export default class Footer extends React.Component{
 							</a> 
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							Phone Number: 
-							<a href="tel:064123033444">
-								064123033444
+							<a href="tel:06412303344">
+								06412303344
 							</a>
 							</p>
 						 

@@ -5,16 +5,17 @@
 
 /*MovieListing.jsx*/
 #movImage{
-	
+	height: 6em;
+	width: 6em;
 }
 
 .imgStyle{
-	height: 3.125em;
-	width: 3.125em;
+	height: 6.125em;
+	width: 6.125em;
 }
 
 #movName{
-	
+	font-family:"Comic Sans MS", cursive, sans-serif	;
 }
 
 .movDescRow{
@@ -25,7 +26,7 @@
 /*App.jsx
  * padding-top: 50px if used fixed-top navbar*/
 #domMain{
-    background-color: #c0deed;
+    background-color: #8695a4;
 }
 
 /*Home.jsx*/
@@ -38,7 +39,7 @@
 
 /*Footer.jsx*/
 .footer{
-	background-color: #0080ff;
+	background-color: #0fffff;
 	text-align: center;
 }
 
@@ -75,9 +76,17 @@
 }
 
 .logo{
-margin-top: .6em;
-margin-right: .5em;
-height: 2.52em ;
-width: 3.6em ;
+	margin-top: .6em;
+	margin-right: .5em;
+	height: 2.52em ;
+	width: 3.6em ;
 }
 
+.row{
+	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0,0,255,0.8));
+	box-shadow: 2px 3px 1px #888888;
+	margin-bottom: 1em;
+}
+.bookButton{
+	display: block;	
+}

@@ -65,6 +65,51 @@
 }
 
 /*Offers.jsx*/
-#offers1{
-	background-image: url("batmanoffer.jpg");
+#offerParent{
+	height: 30em;
+	padding-bottom: 2em;
 }
+
+#offerParent p{
+	font-family: "Roboto", "Helvetica", "FF DIN";
+}
+
+#offerHeadings{
+	padding-top: 0.5em;
+	font-size: 24px;
+	text-align: center;
+}
+
+.offerRow{
+	height: 30em;
+}
+
+.offerPanels{
+	background-color: green;
+	height: 25em;
+	width: 25em;
+	display: inline-block;
+}
+
+#offer1{
+	background-image:url("./images/offers/broffer.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	border-style: dotted;
+}
+
+#offer1 p{
+	color: white;
+	text-align: center;
+	background-color: orange;
+}
+
+/* #offer1 h2{
+	font-family: "Myriad",Lucida Grande;
+	color: white;
+	text-align: center;
+} */

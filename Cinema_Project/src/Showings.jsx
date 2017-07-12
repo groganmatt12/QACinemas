@@ -10,7 +10,9 @@ export default class Showings extends React.Component{
 		this.state={
 			movieID:"0",
 			cinemaID:"-1",
-			selection:"-1"
+			selection:"-1",
+			showingInfo: CinemaStore.getAllShowings(),
+			cinemaInfo: CinemaStore.getAllCinemas()
 		}
 	}
 	
@@ -32,20 +34,22 @@ export default class Showings extends React.Component{
 
 		render(){
 	
-	var testData = CinemaStore.getAllShowings();
+	
 
 		
 		let self = this;
 		
-	let activeShowings = testData.map(function(showingDetails, showingIndex ) {
+	let activeShowings = this.state.showingInfo.map(function(showingDetails, showingIndex ) {
 		if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID){
 			let bookingURL = "Booking/" + showingIndex;
-			
-			
-			
+						
 		return <span key={showingIndex}><Link to={{ pathname: bookingURL, query: { cName: self.state.selection }}}>{showingDetails.showingTime}</Link>, </span>;
-		
 		}
+    });
+	
+		let activeCinemas = this.state.cinemaInfo.map(function(cinemaDetails, cinemaIndex ) {		
+		return <option value={cinemaIndex}>{cinemaDetails.location}</option>;
+
     });
 	
 	
@@ -54,10 +58,7 @@ export default class Showings extends React.Component{
 		<div>
 			<select value={this.state.cinemaID} onChange={this.updateCinemaSelect.bind(this)}>
 				<option value="-1">Select a Cinema</option>
-				<option value="0">Manchester</option>
-				<option value="1">London</option>
-				<option value="2">Gloucester</option>
-				<option value="3">Cardiff</option>
+				{activeCinemas}
 			</select>
 			<div>Cinema Selected: {this.state.cinemaID}<br/>{activeShowings}</div>
 			

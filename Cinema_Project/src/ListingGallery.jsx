@@ -49,7 +49,7 @@ export default class ListingGallery extends React.Component{
 	}
 	
 	componentWillUnmount() {
-		CinemaStore.removeEventListener("moviesChange", this._onChange);
+		CinemaStore.removeListener("moviesChange", this._onChange);
     }
   
 	_onChange() {

@@ -26,6 +26,7 @@
  * padding-top: 50px if used fixed-top navbar*/
 #domMain{
     background-color: #c0deed;
+    /*c0deed*/
 }
 
 /*Home.jsx*/
@@ -86,7 +87,7 @@
 
 .offerPanels{
 	text-align: center;
-	background-color: green;
+	/*background-color: green;*/
 	height: 25em;
 	width: 25em;
 	display: inline-block;

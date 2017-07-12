@@ -17,8 +17,6 @@ export default class Navbar extends React.Component{
 								
 								<li><Link to="/">Home</Link></li>
 								<li><Link to="/ListingGallery">Listing Gallery</Link></li>
-								        
-								
 								<li><Link to="/Classification">Classifications</Link></li>
 								{/*<li><Link to="/ContactUs">Contact Us</Link></li>*/}
 							</ul>

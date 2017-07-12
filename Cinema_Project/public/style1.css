@@ -90,3 +90,7 @@
 .bookButton{
 	display: block;	
 }
+.movieDetailImg{
+	height: 1em;
+	width: 1em;
+}

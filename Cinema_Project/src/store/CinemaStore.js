@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 
-import dispatcher from '../dispatcher';
+import dispatcher from './dispatcher';
 
 import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';

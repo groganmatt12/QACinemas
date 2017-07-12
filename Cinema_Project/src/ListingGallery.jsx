@@ -3,24 +3,30 @@ import movieJson from './data/MovieDetails.json';
 import MovieListing from './MovieListing';
 import {Link, browserHistory} from 'react-router';
 import CinemaStore from './store/CinemaStore';
-
+import Sort from './Sort';
+import * as CinemaActions from './actions/CinemaActions';
+ 
 export default class ListingGallery extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
 			movieListings:[],
-			movies: CinemaStore.getAllMovies()
+			movies: CinemaStore.getAllMovies(),
+			filterText:''
 		};
 		this._onChange = this._onChange.bind(this);
+		this.handleSearchInput = this.handleSearchInput.bind(this);
+		
 	}
 	
 	
 	render(){
-	
+		
 		
 		return(
 			<div>
-				
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
+				<br />
 				<div className="container">
 					{this.state.movieListings}
 				</div>
@@ -30,9 +36,15 @@ export default class ListingGallery extends React.Component{
 		
 	}
 	
+	handleSearchInput (filterText){
+		this.setState({filterText});
+		CinemaActions.filterMoviesBySearch(filterText);
+	}
+	
 	componentWillMount(){
+		this.generateMovieListings();
 		CinemaStore.on("moviesChange", this._onChange);
-		this.generateMovieListings();		
+				
 	}
 	
 	componentWillUnmount() {
@@ -40,9 +52,13 @@ export default class ListingGallery extends React.Component{
     }
   
 	_onChange() {
+	console.log('change received');
     this.setState({
       movies: CinemaStore.getFilteredMovies()
     });
+	
+	this.generateMovieListings();
+	
 	}
 	
 	pagechange(){
@@ -51,7 +67,7 @@ export default class ListingGallery extends React.Component{
 	generateMovieListings(){
 		
 		let movieArr = this.state.movies;
-		let array = this.state.movieListings;
+		let array = [];
 		
 		for(let i = 0; i<movieArr.length; i++){
 			array.push(

@@ -41,7 +41,7 @@ class CinemaStore extends EventEmitter {
 
   filterMoviesBySearch(searchParameters) {
     this.filteredMovies = [];
-    this.movies.forEach((movies) => {
+    this.movies.forEach((movie) => {
       if(movie.name.indexOf(searchParameters) !== -1) {
         this.filteredMovies.push(movie);
       }
@@ -52,7 +52,7 @@ class CinemaStore extends EventEmitter {
   handleActions(action) {
     switch(action.type) {
       case "FILTER_SEARCH":
-        this.filterBySearch(action.searchParameters);
+        this.filterMoviesBySearch(action.searchParameters);
         break;
       default:
         break;

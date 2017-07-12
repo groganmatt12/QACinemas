@@ -108,8 +108,29 @@
 	background-color: orange;
 }
 
-/* #offer1 h2{
-	font-family: "Myriad",Lucida Grande;
-	color: white;
+#popular_film_headings{
+	font-size: 24px;
 	text-align: center;
-} */
+}
+#popular_film_1 img{
+    text-align: center;
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#popular_film_2 img{
+    text-align: center;
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#popular_film_3 img{
+    text-align: center;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    
+    
+}

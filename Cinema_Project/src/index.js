@@ -14,12 +14,13 @@ import Classification from './Classification';
 
 
 /*
-const listingGallery = "/ListingGallery";
-const movieDetails = "MovieDetails/";
-const showings = "/Showings/";
-const booking = "/Booking/";
-const confimation = "/Confimation/";
-const contactUs = "/contactUs/"*/
+	const listingGallery = "/ListingGallery";
+	const movieDetails = "MovieDetails/";
+	const showings = "/Showings/";
+	const booking = "/Booking/";
+	const confimation = "/Confimation/";
+	const contactUs = "/contactUs/"
+*/
 
 ReactDOM.render(
 	<Router history = {browserHistory}>

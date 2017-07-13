@@ -19,8 +19,8 @@ export default class Footer extends React.Component{
 							<a href="tel:06412303344">
 								06412303344
 							</a>
-							</p>
-						 
+				        </p>
+				        <hr id="bottomOfFooter"></hr>		 
 					</div>
                 </div>
             </div>

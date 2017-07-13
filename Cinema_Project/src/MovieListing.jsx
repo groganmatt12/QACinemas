@@ -8,7 +8,6 @@ export default class MovieListing extends React.Component {
 
 	}
 	
-    	//{this.state.image}
     render() {
 		
 		let imgLink="images/"+this.props.img;

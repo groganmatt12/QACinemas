@@ -20,6 +20,7 @@ class CinemaStore extends EventEmitter {
 		this.filteredMovies = [];
 		}
 
+    
   getAllBookings() {
     return this.bookings;
   }	
@@ -28,10 +29,12 @@ class CinemaStore extends EventEmitter {
     return this.cinemas;
   }	
 
+    /*All movies */
   getAllMovies() {
     return this.movies;
   }	
 
+    /*cinemaID, movieID & viewing time */
   getAllShowings() {
     return this.showings;
   }

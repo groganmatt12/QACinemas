@@ -1,23 +1,37 @@
 import React from 'react';
-
+import CinemaStore from './store/CinemaStore';
 export default class QuickBookBar extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            cinemas: CinemaStore.getAllCinemas(),
+            films: CinemaStore.getAllMovies()
+        }
+    }
+    
     render(){
+        
+		let cinemaList = this.state.cinemas.map(function(cinemaDetails, cinemaIndex ) {		
+		    return <option key={cinemaIndex} value={cinemaIndex}>{cinemaDetails.location}</option>;
+        });
+        
+        let filmList = this.state.films.map(function(filmDetails, filmIndex) {
+            return <option key={filmIndex} value={filmIndex}>{filmDetails.name}</option>;
+        });
+        
         return(
             
                 <div className="navbar navbar-default navbar-fixed-bottom" id="quick_book_bar">
                     <div className="quick_book_bar_container">
                         <select className="cinema_search_list">
                             <option>Choose a cinema</option>
-                            <option>Manchester</option>
-                            <option>London</option>
+                            {cinemaList}
                         </select>
                         
                         <select className="film_search_list">
                             <option>Choose a film...</option>
-                            <option>Texas Chainsaw Massacre</option>
-                            <option>War for the Planet of the Apes</option>
-                            <option>High School Musical</option>
+                                {filmList}
                         </select>
                         
                         <select>

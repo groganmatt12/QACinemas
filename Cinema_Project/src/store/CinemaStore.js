@@ -61,6 +61,6 @@ class CinemaStore extends EventEmitter {
   }  
 }	
 	  
-const cinemaStore = new CinemaStore;
+const cinemaStore = new CinemaStore();
 dispatcher.register(cinemaStore.handleActions.bind(cinemaStore));
 export default cinemaStore;

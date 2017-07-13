@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import {IndexLink, Link} from 'react-router';
+import {Link} from 'react-router';
 
 export default class Navbar extends React.Component{
     render(){
@@ -11,7 +10,7 @@ export default class Navbar extends React.Component{
 						<div className="col-sm-10">
 						
 							<div className="navbar-header">
-								<img className="logo" src="/images/QA_logo_blue.png"></img>	
+								<img className="logo" alt="QA Cinemas Logo" src="/images/QA_logo_blue.png"></img>	
 							</div>
 							<ul className="nav navbar-nav">
 								

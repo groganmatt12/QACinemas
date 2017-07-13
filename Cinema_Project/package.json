@@ -16,6 +16,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "devDependencies": {
+    "jshint": "^2.9.5",
     "json-loader": "^0.5.4",
     "react-scripts": "^1.0.10"
   },

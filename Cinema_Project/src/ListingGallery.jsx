@@ -21,13 +21,13 @@ export default class ListingGallery extends React.Component{
 	
 	render(){
 		
-		
+		console.log("Target: " + this.props.target);
 		return(
 			<div>
 				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
 				<br />
 				<div className="container">
-					<ListOfMovies movies={this.state.movies} />
+					<ListOfMovies movies={this.state.movies} target={this.props.target} />
 				</div>
 				
 			</div>	

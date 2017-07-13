@@ -6,7 +6,6 @@ export default class Confirmation extends React.Component{
 	
 	componentWillMount(){
 		let BookingArray = BookingInfo.bookingInfo;
-		let test = this.props.params.showingID
 		BookingArray.push({"showingID" : this.props.params.showingID,"ticketQuantity" : this.props.params.quantity});
 		
 	}

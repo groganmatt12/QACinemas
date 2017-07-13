@@ -1,4 +1,5 @@
 import React from 'react';
+import QuickBookBar from './QuickBookBar';
 
 export default class Classification extends React.Component{
 	constructor(props){
@@ -8,6 +9,7 @@ export default class Classification extends React.Component{
 		return(
 			<div className="classificationsDiv">
 				<img className="classificationsImg" alt="Classifications" src="/images/Classifications.png"></img>
+                <QuickBookBar />
 			</div>
 		);
 	}

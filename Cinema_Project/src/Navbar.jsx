@@ -10,10 +10,9 @@ export default class Navbar extends React.Component{
 						<div className="col-sm-10">
 						
 							<div className="navbar-header">
-								<img className="logo" alt="QA Cinemas Logo" src="/images/QA_logo_blue.png"></img>	
+								<Link to="/"><img className="logo" alt="QA Cinemas Logo" src="/images/QA_logo_blue.png" /></Link>	
 							</div>
 							<ul className="nav navbar-nav">
-								
 								<li><Link to="/">Home</Link></li>
 								<li><Link to="/ListingGallery">Listing Gallery</Link></li>
 								<li><Link to="/Classification">Classifications</Link></li>

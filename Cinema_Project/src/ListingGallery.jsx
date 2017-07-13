@@ -4,7 +4,8 @@ import CinemaStore from './store/CinemaStore';
 import Sort from './Sort';
 import * as CinemaActions from './actions/CinemaActions';
 import ListOfMovies from './ListOfMovies';
- 
+import QuickBookBar from './QuickBookBar';
+
 export default class ListingGallery extends React.Component{
 	constructor(props){
 		super(props);
@@ -28,7 +29,9 @@ export default class ListingGallery extends React.Component{
 				<div className="container">
 					<ListOfMovies movies={this.state.movies}/>
 				</div>
-				
+				<div>
+                    <QuickBookBar />
+                </div>
 			</div>	
 		);
 		

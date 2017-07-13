@@ -1,4 +1,5 @@
 import React from 'react';
+import SiteMap from './SiteMap';
 
 
 export default class Footer extends React.Component{
@@ -19,9 +20,10 @@ export default class Footer extends React.Component{
 							<a href="tel:06412303344">
 								06412303344
 							</a>
-							</p>
-						 
+				        </p>	
+                        <SiteMap></SiteMap>
 					</div>
+				        <hr id="bottomOfFooter"></hr>
                 </div>
             </div>
         );

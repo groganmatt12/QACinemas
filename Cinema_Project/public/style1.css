@@ -294,3 +294,9 @@
 #bottomOfFooter{
     height: 55px;
 }
+
+#site_map_table{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}

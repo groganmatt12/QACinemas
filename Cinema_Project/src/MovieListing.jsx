@@ -15,7 +15,9 @@ export default class MovieListing extends React.Component {
 		let filmUrl = this.props.target + "/" + this.props.id;
 	
         return(
-            <div className="row">		
+
+            <div className="row" id="movieListingRow">						
+
 					<div className="col-sm-4" id="imgName1">
 					
 						<div id="movName">

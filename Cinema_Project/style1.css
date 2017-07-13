@@ -1,0 +1,61 @@
+/*MovieDetails.jsx*/
+#rInfo{
+
+	background-color: green;
+}
+
+/*MovieListing.jsx*/
+#movImage{
+	
+}
+
+.imgStyle{
+	height: 3.125em;
+	width: 3.125em;
+}
+
+#movName{
+	
+}
+
+.movDescRow{
+	height: 6.250em;
+	background-color: green;
+}
+
+/*App.jsx
+ * padding-top: 50px if used fixed-top navbar*/
+#domMain{
+    background-color: #c0deed;
+} 
+
+/*Home.jsx*/
+#homeParent{
+}
+
+/*Header.jsx*/
+.header{
+}
+
+/*Footer.jsx*/
+.footer{
+	background-color: #0080ff;
+	text-align: center;
+}
+
+/*Booking.jsx*/
+.quantity-box{
+	height: 1.5em;
+	width: 2em;
+}
+
+
+.listingTime{
+}
+    
+/*Navbar.jsx*/
+#mainNav{
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+    margin-bottom: 0;
+}

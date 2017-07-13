@@ -67,17 +67,11 @@ export default class Booking extends React.Component{
 						<img alt="" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
 					</form>
 
+
 				</div>
 				
 			</div>
         );
     }
 }
-/*
-amount=1
-item_name="Ticket"
-item_number=0
-quantity=3
-display=1
-*/
 

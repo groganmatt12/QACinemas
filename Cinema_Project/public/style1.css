@@ -26,10 +26,17 @@
 	background-color: green;
 }
 
+#movieListingRow{
+	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
+	box-shadow: 2px 3px 1px #888888;
+	margin-bottom: 1em;
+}
+
 /*App.jsx
- * padding-top: 50px if used fixed-top navbar*/
+* padding-top: 50px if used fixed-top navbar*/
 #domMain{
-    background-color: #b6cce2;
+	background-color: #c0deed;
+	/*c0deed*/
 }
 
 /*Home.jsx*/
@@ -55,20 +62,213 @@
 
 .listingTime{
 }
-    
+
 /*Navbar.jsx*/
 #mainNav{
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
-
 
 /*Carousel.jsx*/
 .carousel-inner img{
-    height: 200px;
+	height: 200px;
 }
 
+/*Offers.jsx*/
+.offerRow{
+	height: 30em;
+	border-bottom: 2em;
+}
+
+#offerParent{
+	height: 80%;
+}
+
+#offerParent p{
+	font-family: "Roboto", "Helvetica", "FF DIN";
+}
+
+#offerHeadings{
+	padding-top: 0.5em;
+	font-size: 24px;
+	text-align: center;
+	/*background: blue;*/
+}
+
+#offerRow{
+	height: 100%;
+/*	border: dotted;
+	background: green;*/
+}
+
+.offerDivs{
+	width: 33.33%;
+	text-align: center;
+/*	border: dashed;*/
+}
+
+.offerPanels{
+/*	border: dashed;*/
+	height: 100%;
+}
+
+.offers{
+/*	background-image:url("./images/offers/broffer.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: auto;*/
+
+	height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+	width: 60%;
+/*	border: dotted;*/
+	text-align: center;
+	padding-bottom: 1.3em;
+	margin: 0 auto;
+}
+
+.offers img{
+	max-width: 100%;
+	
+	position: relative;
+	
+}
+
+.offers p{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	background-color: orange;
+	position: relative; 
+	width: 100%;
+}
+
+#offerText{
+	text-align: center;
+	color: black;
+}
+
+.list-group-item span{
+	color: black;
+}
+
+/*TopFilms.jsx*/
+.topFilmRow{
+	background-color: #84bcd8;
+	padding-top: 1em;
+	padding-bottom: 2em;
+}
+
+.topFilmHeader{
+	text-align: center;
+	font-family: "Roboto", "Helvetica", "FF DIN";
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
+#popular_film_headings{
+	font-size: 24px;
+	text-align: center;
+}
+
+.popular_film_1 img{
+	text-align: center;
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+/*	border: dotted;*/
+}
+
+.popular_film_2 img{
+	text-align: center;
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.popular_film_3 img{
+	text-align: center;
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.popular_film_1:hover .overlay{
+	opacity: 0.75;
+}
+
+.popular_film_2:hover .overlay{
+	opacity: 0.75;
+}
+
+.popular_film_3:hover .overlay{
+	opacity: 0.75;
+}
+
+.popular_film{
+   /* border: dotted;*/
+    height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+    width: 60%;
+    position: relative; /*IMPORTANT*/
+    display:  inline-block;
+    overflow: auto;
+}
+
+.popular_film_panels{
+/*	border: solid;*/
+	width: 33.33%;
+	text-align: center;
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: orange;
+}
+
+.overlayText{
+	color: white;
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+
+/*QuickBookBar.jsx*/
+.quickBookRow{
+	padding-bottom: 2em;
+}
+
+#quick_book_bar{
+    height: 80px;
+    background-color: #15338d;
+    text-align: center;
+}
+
+.quick_book_bar_container select{
+    background-color: aqua;
+    background: linear-gradient(to bottom, black, gray);
+    color: aqua;
+    text-align: center;
+    margin-right: 60px;
+    margin-top: 2%;
+}
+
+/*Classification.jsx*/
 .classificationsDiv{
 	text-align: center;
 }
@@ -85,13 +285,6 @@
 	width: 3.6em ;
 }
 
-.row{
-	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
-	box-shadow: 2px 3px 1px #888888;
-	margin-bottom: 1em;
-	
-
-}
 .bookButton{
 	
 }
@@ -99,3 +292,4 @@
 	height: 1em;
 	width: 1em;
 }
+

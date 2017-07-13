@@ -19,9 +19,10 @@ export default class Navbar extends React.Component{
 								<li><Link to="/Classification">Classifications</Link></li>
 								{/*<li><Link to="/ContactUs">Contact Us</Link></li>*/}
 							</ul>
-							</div>
-						</div>					
+						</div>
+					</div>					
 				</nav>
 			);
 		}
 	}
+

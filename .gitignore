@@ -1,4 +1,6 @@
 *.log
 *.md
 node_modules/
+*.swp
+
 

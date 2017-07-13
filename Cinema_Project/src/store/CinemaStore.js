@@ -31,7 +31,18 @@ class CinemaStore extends EventEmitter {
   getAllMovies() {
     return this.movies;
   }	
-
+  getAllCarouselMovies() {
+    let carouselMovies=[];
+		for(let i =0; i<this.movies.length; i++){
+			let curMovie = this.movies[i];
+			if(curMovie.carousel != null){
+				carouselMovies.push(curMovie);
+			}
+		}
+		
+	return carouselMovies;
+  }	
+	
   getAllShowings() {
     return this.showings;
   }

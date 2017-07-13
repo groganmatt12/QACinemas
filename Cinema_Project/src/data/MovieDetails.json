@@ -33,6 +33,7 @@
 					{
 					"name": "Spider-Man: Homecoming",
 					"image" : "smh.jpg",
+					"carousel":"smh-c.jpg",
 					"classification": "12A",
 					"description" : "A young Peter Parker/Spider-Man (Tom Holland), who made his sensational debut in Captain America: Civil War, begins to navigate his newfound identity as the web-slinging super hero in Spider-Man: Homecoming. Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May (Marisa Tomei), under the watchful eye of his new mentor Tony Stark (Robert Downey, Jr.). Peter tries to fall back into his normal daily routine – distracted by thoughts of proving himself to be more than just your friendly neighbourhood Spider-Man – but when the Vulture (Michael Keaton) emerges as a new villain, everything that Peter holds most important will be threatened."	
 					},
@@ -47,6 +48,7 @@
 					{
 					"name": "War For The Planet Of The Apes",
 					"image" : "wftpota.jpg",
+					"carousel":"wftpota-c.jpg",
 					"classification": "12A",
 					"description" : "In War for the Planet of the Apes, the third chapter of the critically acclaimed blockbuster franchise, Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of both their species and the future of the planet."	
 					},
@@ -61,6 +63,7 @@
 					{
 					"name": "Transformers: The Last Knight",
 					"image" : "ttlk.jpg",
+					"carousel":"ttlk-c.jpg",
 					"classification": "12A",
 					"description" : "The Last Knight shatters the core myths of the Transformers franchise, and redefines what it means to be a hero. Humans and Transformers are at war, Optimus Prime is gone. The key to saving our future lies buried in the secrets of the past, in the hidden history of Transformers on Earth. Saving our world falls upon the shoulders of an unlikely alliance: Cade Yeager (Mark Wahlberg); Bumblebee; an English Lord (Sir Anthony Hopkins); and an Oxford Professor (Laura Haddock).There comes a moment in everyone’s life when we are called upon to make a difference. In Transformers: The Last Knight, the hunted will become heroes. Heroes will become villains. Only one world will survive: theirs, or ours."	
 					},

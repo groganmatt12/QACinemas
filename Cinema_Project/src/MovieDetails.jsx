@@ -1,6 +1,6 @@
 import React from 'react';
-import movieJson from './data/MovieDetails.json';
 import Showings from './Showings';
+import CinemaStore from './store/CinemaStore'
 
 export default class MovieDetails extends React.Component{
     
@@ -16,7 +16,7 @@ export default class MovieDetails extends React.Component{
 
     componentWillMount(){
         let filmIndex = this.props.params.key;        
-        let movieArr = movieJson.movieDetails;
+        let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
             if(i == filmIndex){
                 this.setState({filmTitle: movieArr[i].name});
@@ -29,7 +29,7 @@ export default class MovieDetails extends React.Component{
 
 
     render(){
-        let imgLink="images/"+this.state.filmImage;
+        let imgLink="/images/"+this.state.filmImage;
         
         return(
             <div className="container" >
@@ -39,6 +39,7 @@ export default class MovieDetails extends React.Component{
                     </div>
                     <div className="col-sm-12">Movie Name: {this.state.filmTitle}</div>
                 </div>
+				
                 <div className="row"> 
                     <div className="col-sm-6" id="rInfo">Movie Info: {this.state.filmInfo}</div>
                     <div className="col-sm-6">
@@ -49,8 +50,9 @@ export default class MovieDetails extends React.Component{
                     </div>
                     <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
                 </div>
-                <div>
-                    <img src={imgLink} />
+
+                <div >
+                    <img src={imgLink} alt={this.state.Title} className="imgStyle" />
                 </div>
             </div>
 

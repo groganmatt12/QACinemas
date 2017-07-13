@@ -4,17 +4,21 @@
 }
 
 /*MovieListing.jsx*/
-#movImage{
-	
+#movImage {
+    display: inline;
+    height: 6em;
+    width: 6em;
 }
 
 .imgStyle{
-	height: 3.125em;
-	width: 3.125em;
+	height: 10em;
+	width: 10em;
+
 }
 
 #movName{
-	
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
 }
 
 .movDescRow{
@@ -39,7 +43,7 @@
 
 /*Footer.jsx*/
 .footer{
-	background-color: #0080ff;
+	background-color: #0fffff;
 	text-align: center;
 }
 
@@ -258,5 +262,34 @@
     margin-top: 2%;
 }
 
+/**/
+.classificationsDiv{
+	text-align: center;
+}
+.classificationsImg{
+	max-width: 80%;
+    height: auto;
+    width: auto\9;
+}
 
-    
+.logo{
+	margin-top: .6em;
+	margin-right: .5em;
+	height: 2.52em ;
+	width: 3.6em ;
+}
+
+#listingGalleryRow{
+	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
+	box-shadow: 2px 3px 1px #888888;
+	margin-bottom: 1em;
+}
+
+.bookButton{
+	
+}
+.movieDetailImg{
+	height: 1em;
+	width: 1em;
+}
+

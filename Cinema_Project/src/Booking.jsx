@@ -1,7 +1,6 @@
 import React from 'react';
-import showingJson from './data/ShowingTimes.json';
-import movieJson from './data/MovieDetails.json';
-import {Link} from 'react-router';
+
+
 
 export default class Booking extends React.Component{
 	constructor(props){
@@ -28,7 +27,7 @@ export default class Booking extends React.Component{
 	}
 	
     render() {
-		let url = "Confirmation/" + this.props.params.showingID + "/" + this.state.ticketQuantity;
+		
         return(
 		
 			<div>
@@ -65,17 +64,22 @@ export default class Booking extends React.Component{
 							</Link>	
 						</button>
 
-				</div>
-				
-				<div>
-					<button
-						className="btn btn-default"
-						>
-						<Link
-								  >
-									cancel
-							</Link>	
-						</button>
+
+					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_xclick" />
+						<input type="hidden" name="business" value="cinemasqa-facilitator@gmail.com" />
+						<input type="hidden" name="lc" value="GB" />
+						<input type="hidden" name="item_name" value="Cinema Ticket" />
+						<input type="hidden" name="amount" value="12.34" />
+						<input type="hidden" name="currency_code" value="GBP" />
+						<input type="hidden" name="button_subtype" value="services" />
+						<input type="hidden" name="no_note" value="0" />
+						<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest" />
+						<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal – The safer, easier way to pay online!" />
+						<img alt="" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+					</form>
+
+
 				</div>
 				
 			</div>

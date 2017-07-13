@@ -13,7 +13,6 @@
 .imgStyle{
 	height: 10em;
 	width: 10em;
-
 }
 
 #movName{
@@ -132,9 +131,7 @@
 
 .offers img{
 	max-width: 100%;
-	
 	position: relative;
-	
 }
 
 .offers p{
@@ -180,7 +177,7 @@
 	position: relative;
 	max-height: 100%;
 	max-width: 100%;
-/*	border: dotted;*/
+	/* border: dotted; */
 }
 
 .popular_film_2 img{
@@ -210,18 +207,19 @@
 }
 
 .popular_film{
-   /* border: dotted;*/
-    height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
-    width: 60%;
+	/* border: dashed; */
+    max-height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+    max-width: 60%;	
     position: relative; /*IMPORTANT*/
     display:  inline-block;
     overflow: auto;
 }
 
 .popular_film_panels{
-/*	border: solid;*/
+	/* border: solid; */
 	width: 33.33%;
 	text-align: center;
+	/* border: dotted; */
 }
 
 .overlay{

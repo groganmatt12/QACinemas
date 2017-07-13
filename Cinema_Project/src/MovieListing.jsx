@@ -12,7 +12,7 @@ export default class MovieListing extends React.Component {
     render() {
 		
 		let imgLink="images/"+this.props.img;
-		let filmUrl = this.props.target + "/" + this.props.id;
+		let filmUrl = "movieDetails/" + this.props.id;
 	
         return(
 

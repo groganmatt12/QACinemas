@@ -55,7 +55,7 @@ export default class MovieDetails extends React.Component{
 					
 					</div>
 				
-                <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
+                <div className="listingTime" ><Showings movieID={this.props.params.key}/></div>
 				
 				</div>
 

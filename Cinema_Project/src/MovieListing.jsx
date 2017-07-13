@@ -12,12 +12,11 @@ export default class MovieListing extends React.Component {
     render() {
 		
 		let imgLink="images/"+this.props.img;
-		let filmUrl = this.props.target + "/" + this.props.id;
+		let filmUrl = "MovieDetails/" + this.props.id;
 	
         return(
 
-            <div className="row" id="movieListingRow">						
-
+            <div className="row" id="movieListingRow">
 					<div className="col-sm-4" id="imgName1">
 					
 						<div id="movName">
@@ -33,7 +32,6 @@ export default class MovieListing extends React.Component {
 						</div>
 							
 					</div>
-						
 					<div className="col-sm-8" id="movDesc1">
 						{this.props.desc}
 					</div>

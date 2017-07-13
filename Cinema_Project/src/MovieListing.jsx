@@ -17,7 +17,7 @@ export default class MovieListing extends React.Component {
 	
         return(
 
-            <div className="row" id="listingGalleryRow">						
+            <div className="row" id="movieListingRow">						
 					<div className="col-sm-4" id="imgName1">
 					
 						<div id="movName">

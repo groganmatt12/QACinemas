@@ -53,16 +53,6 @@ export default class Booking extends React.Component{
 				<br></br>
 				<div>
 
-					<button
-						className="btn btn-default"
-						>
-							
-							<Link
-								to={url}
-								  >
-									Buy
-							</Link>	
-						</button>
 
 
 					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">

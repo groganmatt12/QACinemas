@@ -26,6 +26,12 @@
 	background-color: green;
 }
 
+#movieListingRow{
+	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
+	box-shadow: 2px 3px 1px #888888;
+	margin-bottom: 1em;
+}
+
 /*App.jsx
 * padding-top: 50px if used fixed-top navbar*/
 #domMain{
@@ -262,7 +268,7 @@
     margin-top: 2%;
 }
 
-/**/
+/*Classification.jsx*/
 .classificationsDiv{
 	text-align: center;
 }
@@ -277,12 +283,6 @@
 	margin-right: .5em;
 	height: 2.52em ;
 	width: 3.6em ;
-}
-
-#listingGalleryRow{
-	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
-	box-shadow: 2px 3px 1px #888888;
-	margin-bottom: 1em;
 }
 
 .bookButton{

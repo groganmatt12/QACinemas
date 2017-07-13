@@ -26,7 +26,7 @@ export default class ListingGallery extends React.Component{
 			<div>
 				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
 				<br />
-				<div className="container">
+				<div className="container ListOfMovies">
 					<ListOfMovies movies={this.state.movies} target={this.props.target} />
 				</div>
 				

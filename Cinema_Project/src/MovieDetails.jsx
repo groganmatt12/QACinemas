@@ -34,29 +34,37 @@ export default class MovieDetails extends React.Component{
         return(
             <div className="container" >
                 <div className="row">
+				
                     <div className="col-sm-12">
-					<h3>Movie Details:</h3>
+						<h3>Movie Details:</h3>
                     </div>
+					
                     <div className="col-sm-12">Movie Name: {this.state.filmTitle}</div>
+					
                 </div>
 				
                 <div className="row"> 
                     <div className="col-sm-6" id="rInfo">Movie Info: {this.state.filmInfo}</div>
-                    <div className="col-sm-6">
+                    
+					<div className="col-sm-6">
+					
                         <div id="movLoc">
-                        </div>
-                        <div id="movTime">
-                        </div>
-                    </div>
-                    <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
-                </div>
+						</div>
+						
+						<div id="movTime"></div>
+					
+					</div>
+				
+                <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
+				
+				</div>
 
-                <div >
-                    <img src={imgLink} alt={this.state.Title} className="imgStyle" />
-                </div>
+				<div>
+					<img src={imgLink} alt={this.state.Title} className="imgStyle" />
+				</div>
+				
             </div>
 
         );
     }   
-
 }

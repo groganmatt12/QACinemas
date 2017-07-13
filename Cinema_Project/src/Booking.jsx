@@ -53,8 +53,6 @@ export default class Booking extends React.Component{
 				<br></br>
 				<div>
 
-
-
 					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 						<input type="hidden" name="cmd" value="_xclick" />
 						<input type="hidden" name="business" value="cinemasqa-facilitator@gmail.com" />

@@ -7,9 +7,9 @@ export default class ListOfMovies extends React.Component {
 		let movieArr = this.props.movies;
 		let array = [];
 		
-		for(let i = 0; i<movieArr.length; i++){
+		for(let i = 0; i < movieArr.length; i++){
 			array.push(
-				<MovieListing key={i} id={i} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} />
+				<MovieListing key={i} id={i} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} classification={movieArr[i].classification}/>
 			);
 		}
 

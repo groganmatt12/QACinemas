@@ -9,7 +9,8 @@ export default class MovieDetails extends React.Component{
         this.state = {
             filmTitle: "",
             filmInfo: "",
-            filmImage: ""
+            filmImage: "",
+            trailerLink: ""
         }
 
     }
@@ -22,7 +23,9 @@ export default class MovieDetails extends React.Component{
                 this.setState({filmTitle: movieArr[i].name});
                 this.setState({filmInfo: movieArr[i].description});
                 this.setState({filmImage: movieArr[i].image});
+                this.setState({trailerLink: movieArr[i].trailer})
             }
+            
         }
     }
     
@@ -55,14 +58,16 @@ export default class MovieDetails extends React.Component{
 					
 					</div>
 				
-                <div className="listingTime"><Showings filmID={this.props.params.key}/></div>
+                <div className="listingTime" ><Showings movieID={this.props.params.key}/></div>
 				
 				</div>
 
 				<div>
 					<img src={imgLink} alt={this.state.Title} className="imgStyle" />
 				</div>
-				
+				<div>
+                    <iframe className="youtube_video" src={this.state.trailerLink}></iframe>
+                </div>
             </div>
 
         );

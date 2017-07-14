@@ -1,14 +1,33 @@
 import React from 'react';
+import CinemaStore from './store/CinemaStore';
 
 export default class Offers extends React.Component{
+
+    constructor(){
+        super();
+        this.state = {
+            newestRelease: ""
+        };
+    }
+
+
+    componentWillMount(){
+        let newest = CinemaStore.getMoviesByRelease()[0].image;
+        this.setState({newestRelease: newest});
+
+    }
+
+
 
     render(){
         let offer1 = "./images/offers/broffer.jpg";
         let offer2 = "./images/offers/2001offer.jpg";
 
+        let newestPath = "./images/"+this.state.newestRelease;
+
         return(
 
-            <div className="container" id="offerParent">
+            <div className="Container" id="offerParent">
 
                 <div className="row" id="offerHeadings">
                     <div className="col-sm-4" id="mostPopular">
@@ -41,18 +60,13 @@ export default class Offers extends React.Component{
 
                     <div className="col-sm-4 offerDivs offerPanels">
                         <div className="offers">
-                            <img src={offer2} alt="offer1 top film" />
+                            <img src={newestPath} alt="offer1 top film" />
                             <p>2001</p>
+
                         </div>
-                    </div>
+                    </div>	
                 </div>
-
             </div>
-
-
         );
     }
-
-
-
 }

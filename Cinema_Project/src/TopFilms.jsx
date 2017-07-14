@@ -6,68 +6,78 @@ export default class TopFilms extends React.Component{
     constructor(){
         super();
         this.state = {
-            arrayOfTopFilms: []
+            arrayOfTopFilms: [],
+			arrayOfTopHeadings:[]
         };
     }
 
 	componentWillMount(){
         console.log("Hello");
         this.generateTopFilmDivs(); 
+		
 	}
 
     generateTopFilmDivs(){
         let movObjArrayByDate=CinemaStore.getMoviesByRelease();
         let tempImgArray = [];
+		let tempNameArray=[];
+		let num = 0;
         console.log("hello");
         console.log(movObjArrayByDate);
         for(let i=0; i<3; i++){
            
             let path = "images/"+movObjArrayByDate[i].image;
-            let curFilmIndex={i}+1;
-            console.log(curFilmIndex);
+            let curFilmIndex=i+1;
             let curClassName="popular_film_"+curFilmIndex+" popular_film";
-            console.log(curClassName);
+            
             
             tempImgArray.push(
-                    <div className="col-sm-4 popular_film_panels" key={i}>
-                    <div className={curClassName}>
-                        <img src={path} alt="topfilm {i}"/>
-                    <div className="overlay">
-                         <div className="overlayText">
-                            Testing description
-                         </div>
-                    </div>
-                    </div>
+                <div className="col-sm-4 popular_film_panels" key={i}>
+					<div className={curClassName}>
+						<img src={path} alt="topfilm {i}"/>
+						<div className="overlay">
+							<div className="overlayText">
+								Testing description
+							</div>
+						</div>
+					</div>
+				</div>	
             );
         }
-
+		tempNameArray.push(
+				<div className="col-sm-4">
+                    <p>{movObjArrayByDate[0].name}</p>
+                </div>
+				
+                <div className="col-sm-4">
+                    <p>{movObjArrayByDate[1].name}</p>
+                </div>
+				
+                <div className="col-sm-4">
+					<p>{movObjArrayByDate[2].name}</p>
+                </div>	
+			);
+		this.setState({arrayOfTopFilms: tempImgArray});
+		this.setState({arrayOfTopHeadings:tempNameArray});
     }
+	generate 
 
 
     render(){
-        
+        console.log(this.state.arrayOfTopFilms)
         return(
             <div className="container">
                 <div className="row topFilmHeader">
                     <p>Top Films</p>
                 </div>
                 <div className="row">
-                        {this.state.ArrayOfTopFilms}
+                        {this.state.arrayOfTopFilms}
                 </div>
                 
                 <div className="row" id="popular_film_headings">
-                    <div className="col-sm-4">
-                        <p>Transformers: The Last Knight</p>
-                    </div>
-                    <div className="col-sm-4">
-                        <p>War for The Planet of the Apes</p>
-                    </div>
-                    <div className="col-sm-4">
-                        <p>Cars 3</p>
-                    </div>
+					{this.state.arrayOfTopHeadings}
                 </div>
             </div>
         );
     }
-
 }

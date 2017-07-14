@@ -3,10 +3,7 @@ import {Link} from 'react-router';
 
 
 export default class MovieListing extends React.Component {
-    constructor(props){
-		super(props);
-
-	}
+   
 	
     render() {
 		

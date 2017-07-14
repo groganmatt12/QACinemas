@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 
 
+
 export default class MovieListing extends React.Component {
    
 	
@@ -32,6 +33,7 @@ export default class MovieListing extends React.Component {
 					<div className="col-sm-8" id="movDesc1">
 						{this.props.desc}
 					</div>
+
 			</div>
         );
     }

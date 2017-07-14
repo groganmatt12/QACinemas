@@ -10,7 +10,8 @@ export default class QuickBookBar extends React.Component{
 			showing: [],
 			cinemaID: -1,
 			filmID: -1,
-			selectedTime: -1
+			selectedTime: -1,
+			filmSelected: 0
         }
     }
 	
@@ -20,12 +21,16 @@ export default class QuickBookBar extends React.Component{
 		this.setState({cinemaID: id});
 		let target = parseInt(e.target.value,10);
 		target += 1;
+		if(this.state.filmSelected == 1){
+			this.setState({showing: CinemaStore.getShowingByCinemaAndMovie(this.state.cinemaID, id)});
+		}
 		
 	}
 	
 	updateFilmSelect(e){
 		let id = e.target.value;
 		this.setState({filmID: id});
+		this.setState({filmSelected: 1});
 		let target = parseInt(e.target.value,10);
 		target += 1;
 		this.setState({showing: CinemaStore.getShowingByCinemaAndMovie(this.state.cinemaID, id)});
@@ -36,7 +41,6 @@ export default class QuickBookBar extends React.Component{
 		this.setState({selectedTime: time});
 		let target = parseInt(e.target.value,10);
 		target += 1;
-		this.setState({selection: e.target[target].text});
 		
 		{/*If No Showings Scheduled, add logic to prevent continuing*/}
 	}

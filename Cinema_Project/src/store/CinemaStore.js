@@ -27,6 +27,10 @@ class CinemaStore extends EventEmitter {
   getAllCinemas() {
     return this.cinemas;
   }	
+  
+  getCinemaByIndex(index){
+	return this.cinemas[index];
+  }
 
   getAllMovies() {
     return this.movies;
@@ -42,10 +46,20 @@ class CinemaStore extends EventEmitter {
 		
 	return carouselMovies;
   }	
-	
+
+  
+   getMovieByIndex(index){
+	return this.movies[index];
+  }
+
   getAllShowings() {
     return this.showings;
   }
+  
+  getShowingByIndex(index){
+	  return this.showings[index];
+  }
+  
    getFilteredMovies() {
     return this.filteredMovies;
   }

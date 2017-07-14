@@ -1,18 +1,20 @@
 import React from 'react';
-
-
+import CinemaStore from './store/CinemaStore';
+import Paypal from './Paypal';
 
 export default class Booking extends React.Component{
 	constructor(props){
-		super();
+		super(props);
+
 		
 		this.state = {
-			ticketQuantity: 0
+			ticketQuantity: 0,
+		showingChoice: CinemaStore.getShowingByIndex(this.props.params.showingID)
 		}
 	}
 	
-	
 	componentWillMount(){
+		console.log(this.state.showingChoice);
 	}
 	
 	increment(){
@@ -28,11 +30,13 @@ export default class Booking extends React.Component{
 	
     render() {
 		
+		let price = 10 * this.state.ticketQuantity;
+		
         return(
 		
 			<div>
 				<div className="filmName">
-					<p>Film: </p>
+					<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
 				</div>
 				
 				<div>
@@ -40,7 +44,7 @@ export default class Booking extends React.Component{
 				</div>
 				
 				<div>
-					<p>Time: </p>
+					<p>Time: {this.state.showingChoice.showingTime}</p>
 				</div>
 				
 				<div>
@@ -51,24 +55,8 @@ export default class Booking extends React.Component{
 					<button className="btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 				</div>
 				<br></br>
-				<div>
-
-					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_xclick" />
-						<input type="hidden" name="business" value="cinemasqa-facilitator@gmail.com" />
-						<input type="hidden" name="lc" value="GB" />
-						<input type="hidden" name="item_name" value="Cinema Ticket" />
-						<input type="hidden" name="amount" value="12.34" />
-						<input type="hidden" name="currency_code" value="GBP" />
-						<input type="hidden" name="button_subtype" value="services" />
-						<input type="hidden" name="no_note" value="0" />
-						<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest" />
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal – The safer, easier way to pay online!" />
-						<img alt="" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-					</form>
-
-
-				</div>
+				
+				<Paypal price={price}/>
 				
 			</div>
         );

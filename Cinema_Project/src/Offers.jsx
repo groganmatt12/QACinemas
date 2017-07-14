@@ -8,7 +8,7 @@ export default class Offers extends React.Component{
 
         return(
 
-            <div className="container" id="offerParent">
+            <div className="Container" id="offerParent">
 
                 <div className="row" id="offerHeadings">
                     <div className="col-sm-4" id="mostPopular">
@@ -43,16 +43,11 @@ export default class Offers extends React.Component{
                         <div className="offers">
                             <img src={offer2} alt="offer1 top film" />
                             <p>2001</p>
+
                         </div>
-                    </div>
+                    </div>	
                 </div>
-
             </div>
-
-
         );
     }
-
-
-
 }

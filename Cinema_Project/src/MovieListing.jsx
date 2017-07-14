@@ -11,8 +11,9 @@ export default class MovieListing extends React.Component {
     render() {
 		
 		let imgLink="images/"+this.props.img;
+
 		let filmUrl = "MovieDetails/" + this.props.id;
-	
+
         return(
 
             <div className="row" id="movieListingRow">

@@ -103,23 +103,7 @@
 					"releaseDate" :"July 21, 2017",
                     "trailer": "https://www.youtube.com/embed/F-eMt3SrfFU",
 					"description" : "'Dunkirk' opens as hundreds of thousands of British and Allied troops are surrounded by enemy forces. Trapped on the beach with their backs to the sea they face an impossible situation as the enemy closes in.“Dunkirk” features a prestigious cast, including Tom Hardy (“The Revenant,” “Mad Max: Fury Road,” “Inception”), Mark Rylance (“Bridge of Spies,” “Wolf Hall”), Kenneth Branagh (“My Week with Marilyn,” “Hamlet,” “Henry V”) and Cillian Murphy (“Inception,” “The Dark Knight” Trilogy), as well as newcomer Fionn Whitehead. The ensemble cast also includes Aneurin Barnard, Harry Styles, James D’Arcy, Jack Lowden, Barry Keoghan and Tom Glynn-Carney."	
-					},
-        
-                    {
-                    "name": "Cars 3",
-                    "image": "c3.jpg",
-                    "classification": "U",
-                    "trailer": "https://www.youtube.com/embed/xGGM5Sy5PJs",
-                    "description": "Blindsided by a new generation of blazing-fast cars, the legendary Lighting McQueen finds himself pushed out of the sport that he loves. Hoping to get back in the game, he turns to Cruz Ramirez, an eager young technician who has her own plans for winning. With inspiration from the Fabulous Hudson Hornet and a few unexpected turns, No. 95 prepares to compete on Piston Cup Racing's biggest stage."
-                    },
-                    {
-                    "name": "2001: a space odyssey",
-                    "image": "2001offer.jpg",
-                    "classification": "U",
-                    "trailer": "https://www.youtube.com/embed/XHjIqQBsPjk",
-                    "description": "An imposing black structure provides a connection between the past and the future in this enigmatic adaptation of a short story by revered sci-fi author Arthur C. Clarke. When Dr. Dave Bowman (Keir Dullea) and other astronauts are sent on a mysterious mission, their ship's computer system, HAL, begins to display increasingly strange behavior, leading up to a tense showdown between man and machine that results in a mind-bending trek through space and time."
-                    }
-					 					
-					]
+					}
+       ]
 
 }

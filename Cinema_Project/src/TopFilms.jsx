@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Link } from 'react-router';
-=======
 import CinemaStore from './store/CinemaStore';
->>>>>>> e5851eee9473a5c0843ca1522037923092b7f326
 
 export default class TopFilms extends React.Component{
      
@@ -16,42 +12,6 @@ export default class TopFilms extends React.Component{
         };
     }
 
-<<<<<<< HEAD
-    render(){
-        
-	let filmUrl = "MovieDetails/" + this.props.id;
-
-    let popular_film_1 = './images/popular_films/ttlk.jpg';
-    let popular_film_2 = './images/popular_films/wfpota.jpg';
-    let popular_film_3 = './images/popular_films/c3.jpg';
-    
-    let popular_film_1_desc = "Humans are at war with the Transformers..."
-    let popular_film_2_desc = "Planet of the apes blah blah...";
-    let popular_film_3_desc = "cars 3 vroom vroom blah blah..";
-        return(
-            <div className="container topFilmGrouping">
-				<div className="row topFilmHeader">
-					<p>Top Films</p>
-				</div>
-				<div className="row" id="topFilmRow">
-					<div className="col-sm-4 popular_film_panels">
-						<div className="popular_film_1 popular_film">
-							<img src={popular_film_1} />
-							<div className="overlay">
-								<div className="overlayText">
-									{popular_film_1_desc}  
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="col-sm-4 popular_film_panels">
-						<div className="popular_film_2 popular_film">
-							<img src={popular_film_2} />
-							<div className="overlay">
-								<div className="overlayText">
-									{popular_film_2_desc} 
-								</div>
-=======
 	componentWillMount(){
         console.log("Hello");
         this.generateTopFilmDivs(); 
@@ -80,7 +40,6 @@ export default class TopFilms extends React.Component{
 						<div className="overlay">
 							<div className="overlayText">
 								Testing description
->>>>>>> e5851eee9473a5c0843ca1522037923092b7f326
 							</div>
 						</div>
 					</div>

@@ -377,3 +377,8 @@ background-color: rgba(255,255,255,0);
     height: 800px;
     width: 1200px;
 }
+/*Classification*/
+.classification{
+	height: 5%;
+	width: 5%;
+}

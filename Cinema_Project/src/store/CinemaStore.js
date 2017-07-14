@@ -94,7 +94,7 @@ class CinemaStore extends EventEmitter {
 	}
   
 	getMoviesByRelease(){
-	
+		
 		let sortArray = this.movies;
 		for(let i=0 ; i<sortArray.length; i++){
 			for(let j=i; j<sortArray.length; j++){

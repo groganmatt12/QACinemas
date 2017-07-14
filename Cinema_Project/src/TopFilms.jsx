@@ -1,4 +1,5 @@
 import React from 'react';
+import CinemaStore from './store/CinemaStore';
 
 export default class TopFilms extends React.Component{
      
@@ -67,11 +68,13 @@ export default class TopFilms extends React.Component{
     render(){
         console.log(this.state.arrayOfTopFilms)
         return(
+
             <div className="container topFilmGrouping">
                 <div className="row topFilmHeader">
                     <p>Top Films</p>
                 </div>
                 <div className="row topFilmRow">
+
                         {this.state.arrayOfTopFilms}
                 </div>
                 

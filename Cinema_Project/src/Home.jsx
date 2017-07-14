@@ -17,6 +17,7 @@ export default class Home extends React.Component{
                 <div className="row topFilmRow">
                     <TopFilms rowNum={0}/>
                 </div>
+				
                 <div className="row quickBookRow">
                     <QuickBookBar />
                 </div>

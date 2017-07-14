@@ -3,23 +3,17 @@
 	background-color: green;
 }
 
-/*MovieListing.jsx
-1.481:1*/
-.movImage {
-    height: 14.81em;
-    width: 10em;
-    background: green;
+/*MovieListing.jsx*/
+#movImage {
+    display: inline;
+    height: 6em;
+    width: 6em;
 }
 
-.movImage img{
-	height: 100%;
-	width: 100%;
-}
-
-/*.imgStyle{
+.imgStyle{
 	height: 10em;
 	width: 10em;
-}*/
+}
 
 #movName{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -344,15 +338,6 @@ background-color: rgba(255,255,255,0);
 .navbar-inverse {
     background-color: rgb(23, 22, 22);
     border-color: #080808;
-    
-}
-.navbar-nav li:hover {
-    background-color: darkblue;
-    display: block;
-    text-decoration: none;
-}
-.navbar-inverse .navbar-nav>li>a {
-    color: white;
 }
 
 /*Carousel.jsx*/
@@ -378,13 +363,3 @@ background-color: rgba(255,255,255,0);
 	width: 70%;
 }
 
-
-.youtube_video{
-    height: 800px;
-    width: 1200px;
-}
-/*Classification*/
-.classification{
-	height: 5%;
-	width: 5%;
-}

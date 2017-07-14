@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class TopFilms extends React.Component{
      
@@ -6,6 +7,8 @@ export default class TopFilms extends React.Component{
 
     render(){
         
+	let filmUrl = "MovieDetails/" + this.props.id;
+
     let popular_film_1 = './images/popular_films/ttlk.jpg';
     let popular_film_2 = './images/popular_films/wfpota.jpg';
     let popular_film_3 = './images/popular_films/c3.jpg';
@@ -34,7 +37,7 @@ export default class TopFilms extends React.Component{
 							<img src={popular_film_2} />
 							<div className="overlay">
 								<div className="overlayText">
-									{popular_film_2_desc}  
+									{popular_film_2_desc} 
 								</div>
 							</div>
 						</div>

@@ -8,7 +8,6 @@ export default class Navbar extends React.Component{
             <nav className="navbar transparent navbar-inverse navbar-static-top" id="mainNav">
                     <div className="container">
 						<div className="col-sm-10">
-						
 							<div className="navbar-header">
 								<Link to="/"><img className="logo" alt="QA Cinemas Logo" src="/images/QA_logo_blue.png" /></Link>	
 							</div>

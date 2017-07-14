@@ -18,22 +18,13 @@ export default class Carousel extends React.Component{
 	}
 	
     render() {
-		
-		
-		
-        console.log(this.state.imgLinks);
-       
-        return(
+	    return(
 		<div className="container">
             <div id="Carousel" className="carousel slide" data-ride="carousel">
               
                 
                 <div className="carousel-inner" role="listbox">
-				{/* <div className="item active">
-						<img className="d-block img-fluid" src={imgPath0}  alt="first slide"></img>
-						
-				</div>*/}
-                    {this.state.imgLinks}
+			        {this.state.imgLinks}
                 </div>
                 
                 <a className="left carousel-control" href="#Carousel" role="button" data-slide="prev">
@@ -54,11 +45,11 @@ export default class Carousel extends React.Component{
 		
 		let tempImgArray=[];
 		let path0="/images/"+initArray[0].carousel;
-		console.log(initArray[0].carousel);
-		tempImgArray.push(<div className="item active"><img className="d-block img-fluid" src={path0}  alt="first slide"></img></div>);
+		
+		tempImgArray.push(<div key ={0} className="item active"><img className="d-block img-fluid" src={path0}  alt="first slide"></img></div>);
 		
 		for(let i=1; i< initArray.length; i++){
-			console.log('test');
+			
 			let path="/images/"+initArray[i].carousel;
 			 
 			tempImgArray.push(

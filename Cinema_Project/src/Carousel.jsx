@@ -2,18 +2,16 @@ import React from 'react';
 import CinemaStore from './store/CinemaStore';
 
 export default class Carousel extends React.Component{
-	constructor(){
+
+    constructor(){
 		super();
 		this.state={
-			imgLinks:[],
-			
+			imgLinks:[]
 		};
-		
 	}
 	 
 	
 	componentWillMount(){
-
 		this.generateItemDivs();
 	}
 	

@@ -6,8 +6,9 @@
 					"classification": "U",
 					"genre" : "",
 					"actors" : "",
-					"releaseDate" :"Sep 22, 2006",
                     "trailer": "https://www.youtube.com/embed/ukDLkkvZYFk",
+					"releaseDate" :"September 22, 2006",
+					"overlayText":"overlayText",
 					"description" : "On Easter Eve in 2006, high school juniors Troy Bolton (Zac Efron) and Gabriella Montez (Vanessa Hudgens) meet at a party while both teens are at a ski lodge during winter break. At the party, the two are called upon to sing karaoke together. They find that they have a connection and decide to exchange numbers before going their separate ways."	
 					},
 					
@@ -15,8 +16,8 @@
 					"name": "Battle Royale",
 					"image" : "br.jpg",
 					"classification": "18",
-					"releaseDate" :"Sep 14, 2001",
                     "trailer": "https://www.youtube.com/embed/N0p1t-dC7Ko",
+					"releaseDate" :"September 14, 2001",
 					"description" : "42 9th graders are sent to a deserted island. They are given a map, food, and various weapons. An explosive collar is fitted around their neck. If they break a rule, the collar explodes. Their mission: kill each other and be the last one standing. The last survivor is allowed to leave the island."	
 					},
 					
@@ -24,8 +25,8 @@
 					"name": "The Texas Chainsaw Massacre",
 					"image" : "tcm.jpg",
 					"classification": "18",
-					"releaseDate" :"Oct 4, 1974",
                     "trailer": "https://www.youtube.com/embed/Vs3981DoINw",
+					"releaseDate" :"October 4, 1974",
 					"description" : "Two siblings visit their grandfather's grave in Texas along with three of their friends and are attacked by a family of cannibalistic psychopaths."	
 					},
 					
@@ -118,7 +119,7 @@
                     "trailer": "https://www.youtube.com/embed/XHjIqQBsPjk",
                     "description": "An imposing black structure provides a connection between the past and the future in this enigmatic adaptation of a short story by revered sci-fi author Arthur C. Clarke. When Dr. Dave Bowman (Keir Dullea) and other astronauts are sent on a mysterious mission, their ship's computer system, HAL, begins to display increasingly strange behavior, leading up to a tense showdown between man and machine that results in a mind-bending trek through space and time."
                     }
-					
+					 					
 					]
 
 }

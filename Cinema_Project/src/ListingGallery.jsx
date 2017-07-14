@@ -44,6 +44,7 @@ export default class ListingGallery extends React.Component{
 	
 	componentWillMount(){
 		CinemaStore.on("moviesChange", this._onChange);		
+		
 	}
 	
 	componentWillUnmount() {

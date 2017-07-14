@@ -26,7 +26,7 @@
 }
 
 #movieListingRow{
-	background: linear-gradient(to bottom right,rgba(0,0,255,0), rgba(0, 0, 255, 0.43));
+	background-color: #84bcd8;
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
 }
@@ -34,7 +34,7 @@
 /*App.jsx
 * padding-top: 50px if used fixed-top navbar*/
 #domMain{
-	background-color: #c0deed;
+		background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
 	/*c0deed*/
 }
 
@@ -70,34 +70,53 @@
 	margin-bottom: 0;
 }
 
-/*Carousel.jsx*/
-.carousel-inner img{
-	height: 200px;
+.carousel-Parent{
+	max-width: 70%;
+    margin: auto;
 }
 
 /*Offers.jsx*/
 .offerRow{
-	height: 30em;
+	height: 40em;
 	border-bottom: 2em;
+	max-width: 70%;
+    margin: auto;
+	width:70%;
+	margin-top: 2em;
+	background: rgba(0, 0, 0, 0.25);
 }
+
+.row{
+
+	
+}
+
 
 #offerParent{
 	height: 80%;
+	max-width: 100%;
+    margin: auto;
 }
+
+	
 
 #offerParent p{
 	font-family: "Roboto", "Helvetica", "FF DIN";
+	background-color: rgba(255,255,255,0);
 }
 
 #offerHeadings{
 	padding-top: 0.5em;
 	font-size: 24px;
+	color: #827a7a;
 	text-align: center;
+	background-color: rgba(255,255,255,0);
 	/*background: blue;*/
 }
 
 #offerRow{
 	height: 100%;
+	background-color: rgba(255,255,255,0);
 /*	border: dotted;
 	background: green;*/
 }
@@ -105,11 +124,13 @@
 .offerDivs{
 	width: 33.33%;
 	text-align: center;
+
 /*	border: dashed;*/
 }
 
 .offerPanels{
 /*	border: dashed;*/
+
 	height: 100%;
 }
 
@@ -122,8 +143,8 @@
 	width: 100%;
 	margin: auto;*/
 
-	height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
-	width: 60%;
+	height: 100%; /*CHANGE THIS FOR IMAGE RESIZING*/
+	width: 100%;
 /*	border: dotted;*/
 	text-align: center;
 	padding-bottom: 1.3em;
@@ -131,12 +152,13 @@
 }
 
 .offers img{
-	max-width: 100%;
+	max-width: 80%;
 	position: relative;
 }
 
 .offers p{
-	color: black;
+	color: #827a7a;
+	font-size: 24px;
 	font-weight: bold;
 	text-align: center;
 	background-color: orange;
@@ -155,22 +177,37 @@
 
 /*TopFilms.jsx*/
 .topFilmRow{
-	background-color: #84bcd8;
+background-color: rgba(255,255,255,0);
 	padding-top: 1em;
 	padding-bottom: 2em;
+	max-width: 70%;
+    margin: auto;
+	margin-top:2em;
+	margin-bottom:2em;
 }
 
 .topFilmHeader{
 	text-align: center;
 	font-family: "Roboto", "Helvetica", "FF DIN";
 	font-size: 24px;
+	color: #827a7a;
 	font-weight: bold;
 	padding-bottom: 0.5em;
+	background-color: rgba(255,255,255,0);
+	width:100%;
 }
 
 #popular_film_headings{
 	font-size: 24px;
+	color: #827a7a;
 	text-align: center;
+	background-color: rgba(255,255,255,0);
+	width:100%;
+}
+
+#topFilmRow{
+	background-color: rgba(255,255,255,0);
+	width:100%;
 }
 
 .popular_film_1 img{
@@ -254,8 +291,11 @@
 
 #quick_book_bar{
     height: 80px;
-    background-color: #15338d;
+    background-color: rgba(0, 0, 0, 0.57);
     text-align: center;
+	max-width: 40%;
+	left:30%;
+
 }
 
 .quick_book_bar_container select{
@@ -265,10 +305,7 @@
     margin-top: 2%;
 }
 
-/*
-.qbb_header p{
-    text-align: left;
-} */
+
 
 /*Classification.jsx*/
 .classificationsDiv{
@@ -310,4 +347,38 @@
     display: inline-block;
     margin-right: 10px;
     color: white;
+}
+
+
+.navbar-inverse {
+    background-color: rgb(23, 22, 22);
+    border-color: #080808;
+}
+
+/*Carousel.jsx*/
+.carousel-inner img{
+
+	float: center;
+    height: 200px;
+	width:100%;
+	margin:auto;
+}
+
+.carousel-inner{
+	background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(38, 2, 56, 0.77), #420240) #77146c;
+
+}
+
+#testme{
+	background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
+	
+}
+
+.listOfMovies{
+	width: 70%;
+}
+
+.topFilmGrouping{
+	background: rgba(0, 0, 0, 0.25);
+	width:100%;
 }

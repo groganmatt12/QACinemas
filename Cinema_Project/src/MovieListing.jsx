@@ -3,16 +3,14 @@ import {Link} from 'react-router';
 
 
 export default class MovieListing extends React.Component {
-    constructor(props){
-		super(props);
-
-	}
+   
 	
     render() {
 		
 		let imgLink="images/"+this.props.img;
+
 		let filmUrl = "MovieDetails/" + this.props.id;
-	
+
         return(
 
             <div className="row" id="movieListingRow">

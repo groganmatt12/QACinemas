@@ -28,16 +28,41 @@ class CinemaStore extends EventEmitter {
   getAllCinemas() {
     return this.cinemas;
   }	
+  
+  getCinemaByIndex(index){
+	return this.cinemas[index];
+  }
 
     /*All movies */
   getAllMovies() {
     return this.movies;
   }	
+  getAllCarouselMovies() {
+    let carouselMovies=[];
+		for(let i =0; i<this.movies.length; i++){
+			let curMovie = this.movies[i];
+			if(curMovie.carousel != null){
+				carouselMovies.push(curMovie);
+			}
+		}
+		
+	return carouselMovies;
+  }	
+
+  
+   getMovieByIndex(index){
+	return this.movies[index];
+  }
 
     /*cinemaID, movieID & viewing time */
   getAllShowings() {
     return this.showings;
   }
+  
+  getShowingByIndex(index){
+	  return this.showings[index];
+  }
+  
    getFilteredMovies() {
     return this.filteredMovies;
   }

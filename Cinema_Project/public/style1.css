@@ -73,6 +73,7 @@
 .carousel-Parent{
 	max-width: 70%;
     margin: auto;
+	margin-top:2em;
 }
 
 /*Offers.jsx*/
@@ -183,7 +184,7 @@ background-color: rgba(255,255,255,0);
 	max-width: 100%;
     margin: auto;
 	margin-top:2em;
-	margin-bottom:2em;
+	margin-bottom:-2em;
 }
 
 .topFilmHeader{
@@ -207,6 +208,7 @@ background-color: rgba(255,255,255,0);
 	text-align: center;
 	background-color: rgba(255,255,255,0);
 	width:100%;
+	margin-left: 0.5;
 }
 
 #topFilmRow{

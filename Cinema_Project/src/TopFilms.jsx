@@ -24,7 +24,7 @@ export default class TopFilms extends React.Component{
 		let num = 0;
         console.log("hello");
         console.log(movObjArrayByDate);
-        for(let i=0; i<3; i++){
+        for(let i=num; i<num+3; i++){
            
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex=i+1;
@@ -45,17 +45,19 @@ export default class TopFilms extends React.Component{
             );
         }
 		tempNameArray.push(
+			<div>
 				<div className="col-sm-4">
-                    <p>{movObjArrayByDate[0].name}</p>
+                    <p>{movObjArrayByDate[num].name}</p>
                 </div>
 				
                 <div className="col-sm-4">
-                    <p>{movObjArrayByDate[1].name}</p>
+                    <p>{movObjArrayByDate[num+1].name}</p>
                 </div>
 				
                 <div className="col-sm-4">
-					<p>{movObjArrayByDate[2].name}</p>
-                </div>	
+					<p>{movObjArrayByDate[num+2].name}</p>
+                </div>
+			</div>
 			);
 		this.setState({arrayOfTopFilms: tempImgArray});
 		this.setState({arrayOfTopHeadings:tempNameArray});

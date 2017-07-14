@@ -1,5 +1,15 @@
+
+/*Main Background Div*/
+#domMain{
+	background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
+}
+
 .MovieDetails_Info{
 	background-color: green;
+}
+
+.MovieListing_NameAndImage{
+
 }
 
 .MovieListing_MovieImageDiv{
@@ -22,3 +32,44 @@
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
 }
+
+.MovieListing_BookingButton{
+
+}
+
+.MovieListing_MovieDescription{
+}
+
+.Home_Carousel{
+
+}
+
+.Home_OfferRow{
+	height: 40em;
+	border-bottom: 2em;
+	max-width: 70%;
+    margin: auto;
+	width:70%;
+	margin-top: 2em;
+	background: rgba(0, 0, 0, 0.25);
+}
+
+.Home_TopFilmRow{
+	background-color: rgba(255,255,255,0);
+	padding-top: 1em;
+	padding-bottom: 2em;
+	max-width: 100%;
+    margin: auto;
+	margin-top:2em;
+	margin-bottom:-2em;
+}
+
+.Home_QuickBookRow{
+	padding-bottom: 2em;
+}
+
+
+
+
+
+

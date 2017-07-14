@@ -1,46 +1,43 @@
-/*MovieDetails.jsx*/
-#rInfo{
-	background-color: green;
-}
+/*
 
-/*MovieListing.jsx*/
-#movImage {
-    display: inline;
-    height: 6em;
-    width: 6em;
-}
+	#rInfo{
+		background-color: green;
+	}
 
-.imgStyle{
-	height: 10em;
-	width: 10em;
-}
 
-#movName{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-}
+	#movImage {
+		display: inline;
+		height: 6em;
+		width: 6em;
+	}
 
-.movDescRow{
-	height: 6.250em;
-	background-color: green;
-}
+	.imgStyle{
+		height: 10em;
+		width: 10em;
+	}
 
-#movieListingRow{
-	background-color: #84bcd8;
-	box-shadow: 2px 3px 1px #888888;
-	margin-bottom: 1em;
-}
+	#movName{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 20px;
+	}
 
-/*App.jsx
-* padding-top: 50px if used fixed-top navbar*/
-#domMain{
-		background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
-	/*c0deed*/
-}
+	.movDescRow{
+		height: 6.250em;
+		background-color: green;
+	}
 
-/*Home.jsx*/
-#homeParent{
-}
+	#movieListingRow{
+		background-color: #84bcd8;
+		box-shadow: 2px 3px 1px #888888;
+		margin-bottom: 1em;
+	}
+
+
+	#domMain{
+			background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
+
+	}
+*/
 
 /*Header.jsx*/
 .header{
@@ -76,7 +73,7 @@
 	margin-top:2em;
 }
 
-/*Offers.jsx*/
+/*
 .offerRow{
 	height: 40em;
 	border-bottom: 2em;
@@ -86,7 +83,7 @@
 	margin-top: 2em;
 	background: rgba(0, 0, 0, 0.25);
 }
-
+*/
 .row{
 
 	
@@ -176,9 +173,9 @@
 	color: black;
 }
 
-/*TopFilms.jsx*/
+/*
 .topFilmRow{
-background-color: rgba(255,255,255,0);
+	background-color: rgba(255,255,255,0);
 	padding-top: 1em;
 	padding-bottom: 2em;
 	max-width: 100%;
@@ -186,6 +183,7 @@ background-color: rgba(255,255,255,0);
 	margin-top:2em;
 	margin-bottom:-2em;
 }
+*/
 
 .topFilmHeader{
 	text-align: center;
@@ -269,10 +267,11 @@ background-color: rgba(255,255,255,0);
 }
 
 
-/*QuickBookBar.jsx*/
+/*
 .quickBookRow{
 	padding-bottom: 2em;
 }
+*/
 
 #quick_book_bar{
     height: 5%;
@@ -309,9 +308,6 @@ background-color: rgba(255,255,255,0);
 	width: 3.6em ;
 }
 
-.bookButton{
-	
-}
 .movieDetailImg{
 	height: 1em;
 	width: 1em;

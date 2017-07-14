@@ -24,23 +24,25 @@ export default class QuickBookBar extends React.Component{
             
                 <div className="navbar navbar-default navbar-fixed-bottom" id="quick_book_bar">
                     <div className="quick_book_bar_container">
-                        <select className="cinema_search_list">
-                            <option>Choose a cinema</option>
-                            {cinemaList}
-                        </select>
-                        
-                        <select className="film_search_list">
-                            <option>Choose a film...</option>
-                                {filmList}
-                        </select>
-                        
-                        <select>
-                            <option className="time_search_list">Choose a time...</option>
-                            <option className="time_search_list">12:04am</option>
-                            <option className="time_search_list">16:28am</option>
-                            <option className="time_search_list">18:24am</option>
-                            
-                        </select>
+                         <span>
+                            <div id="qbb_header">Quick book Bar: </div>
+                            <select>
+                                <option>Choose a cinema...</option>
+                                {cinemaList}
+                            </select>
+
+                            <select>
+                                <option>Choose a film...</option>
+                                    {filmList}
+                            </select>
+
+                            <select>
+                                <option className="time_search_list">Choose a time...</option>
+                                <option className="time_search_list">12:04am</option>
+                                <option className="time_search_list">16:28am</option>
+                                <option className="time_search_list">18:24am</option>
+                            </select>
+                        </span>
                     </div>
                 </div>
 

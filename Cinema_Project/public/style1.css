@@ -48,7 +48,8 @@
 
 /*Footer.jsx*/
 .footer{
-	background-color: #0fffff;
+    background-color: rgb(23, 22, 22);
+    color: white;
 	text-align: center;
 }
 
@@ -261,10 +262,13 @@
     background-color: aqua;
     background: linear-gradient(to bottom, black, gray);
     color: aqua;
-    text-align: center;
-    margin-right: 60px;
     margin-top: 2%;
 }
+
+/*
+.qbb_header p{
+    text-align: left;
+} */
 
 /*Classification.jsx*/
 .classificationsDiv{
@@ -299,4 +303,11 @@
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
+}
+
+#qbb_header {
+    text-align: left;
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
 }

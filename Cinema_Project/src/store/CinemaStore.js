@@ -27,6 +27,10 @@ class CinemaStore extends EventEmitter {
   getAllCinemas() {
     return this.cinemas;
   }	
+  
+  getCinemaByIndex(index){
+	return this.cinemas[index];
+  }
 
   getAllMovies() {
     return this.movies;
@@ -42,14 +46,45 @@ class CinemaStore extends EventEmitter {
 		
 	return carouselMovies;
   }	
-	
+
+  
+   getMovieByIndex(index){
+	return this.movies[index];
+  }
+
   getAllShowings() {
     return this.showings;
   }
+  
+  getMoviesByRelease(){
+	
+	let sortArray = this.movies;
+	for(let i=0 ; i<sortArray.length; i++){
+		for(let j=i; j<sortArray.length; j++){
+			
+			let a = new Date(sortArray[i].releaseDate);
+			let b = new Date(sortArray[j].releaseDate);
+			
+			if (a>b){
+				let tempObj=sortArray[i];
+				sortArray[i]=sortArray[j]
+				sortArray[j]=tempObj;
+				
+			}
+		}
+	}
+	sortArray.reverse();
+	return sortArray;
+  }
+  getShowingByIndex(index){
+	  return this.showings[index];
+  }
+  
    getFilteredMovies() {
     return this.filteredMovies;
   }
-
+ 
+  
   filterMoviesBySearch(searchParameters) {
     this.filteredMovies = [];
     this.movies.forEach((movie) => {

@@ -63,6 +63,24 @@ class CinemaStore extends EventEmitter {
 	  return this.showings[index];
   }
   
+  getShowingByCinemaAndMovie(cinema_id, movie_id){
+	var showingsByCinemaAndMovie = [];
+		for(let i = 0; i < this.showings.length;i++){
+			
+			if(this.showings[i].movieID == movie_id){
+				if(this.showings[i].cinemaID == cinema_id){
+					showingsByCinemaAndMovie.push(this.showings[i]);
+				}
+			}
+	    }
+		if(showingsByCinemaAndMovie.length == 0)
+			showingsByCinemaAndMovie.push({
+						"showingTime" : "No Showings Scheduled"
+					 });
+	return showingsByCinemaAndMovie;
+  }
+  
+
    getFilteredMovies() {
     return this.filteredMovies;
   }

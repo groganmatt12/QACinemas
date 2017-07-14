@@ -74,13 +74,18 @@
 	height: 200px;
 }
 
+.carousel-Parent{
+	max-width: 70%;
+    margin: auto;
+}
+
 /*Offers.jsx*/
 .offerRow{
-	height: 35em;
+	height: 40em;
 	border-bottom: 2em;
 	max-width: 70%;
     margin: auto;
-	width:100%;
+	width:70%;
 	margin-top: 2em;
 	background: rgba(0, 0, 0, 0.25);
 }
@@ -93,7 +98,7 @@
 
 #offerParent{
 	height: 80%;
-	max-width: 70%;
+	max-width: 100%;
     margin: auto;
 }
 
@@ -107,6 +112,7 @@
 #offerHeadings{
 	padding-top: 0.5em;
 	font-size: 24px;
+	color: #827a7a;
 	text-align: center;
 	background-color: rgba(255,255,255,0);
 	/*background: blue;*/
@@ -155,7 +161,8 @@
 }
 
 .offers p{
-	color: black;
+	color: #827a7a;
+	font-size: 24px;
 	font-weight: bold;
 	text-align: center;
 	background-color: orange;
@@ -187,6 +194,7 @@ background-color: rgba(255,255,255,0);
 	text-align: center;
 	font-family: "Roboto", "Helvetica", "FF DIN";
 	font-size: 24px;
+	color: #827a7a;
 	font-weight: bold;
 	padding-bottom: 0.5em;
 	background-color: rgba(255,255,255,0);
@@ -195,6 +203,7 @@ background-color: rgba(255,255,255,0);
 
 #popular_film_headings{
 	font-size: 24px;
+	color: #827a7a;
 	text-align: center;
 	background-color: rgba(255,255,255,0);
 	width:100%;
@@ -339,7 +348,7 @@ background-color: rgba(255,255,255,0);
 
 	float: center;
     height: 200px;
-	width:70%;
+	width:100%;
 	margin:auto;
 }
 

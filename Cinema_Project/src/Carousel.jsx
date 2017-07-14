@@ -19,7 +19,7 @@ export default class Carousel extends React.Component{
 	
     render() {
 	    return(
-		<div className="container">
+		<div className="container carousel-Parent">
             <div id="Carousel" className="carousel slide" data-ride="carousel">
               
                 

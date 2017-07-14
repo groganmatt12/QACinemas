@@ -10,20 +10,24 @@ export default class TopFilms extends React.Component{
         };
     }
 
-	componentWilLMount(){
-       generateTopFilmDivs(); 
+	componentWillMount(){
+        console.log("Hello");
+        this.generateTopFilmDivs(); 
 	}
 
     generateTopFilmDivs(){
         let movObjArrayByDate=CinemaStore.getMoviesByRelease();
         let tempImgArray = [];
-
+        console.log("hello");
+        console.log(movObjArrayByDate);
         for(let i=0; i<3; i++){
+           
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex={i}+1;
             console.log(curFilmIndex);
             let curClassName="popular_film_"+curFilmIndex+" popular_film";
             console.log(curClassName);
+            
             tempImgArray.push(
                     <div className="col-sm-4 popular_film_panels" key={i}>
                     <div className={curClassName}>
@@ -37,31 +41,18 @@ export default class TopFilms extends React.Component{
             );
         }
 
-        this.setState({arrayOfTopFilms: tempImgArray});
-
     }
 
 
     render(){
         
-    /*let popular_film_1 = './images/popular_films/ttlk.jpg';
-    let popular_film_2 = './images/popular_films/wfpota.jpg';
-    let popular_film_3 = './images/popular_films/c3.jpg';
-    
-    let popular_film_1_desc = "Humans are at war with the Transformers..."
-    let popular_film_2_desc = "Planet of the apes blah blah...";
-    let popular_film_3_desc = "cars 3 vroom vroom blah blah..";*/
-
         return(
             <div className="container">
-            <div className="row topFilmHeader">
-                <p>Top Films</p>
-            </div>
+                <div className="row topFilmHeader">
+                    <p>Top Films</p>
+                </div>
                 <div className="row">
-                    <div className="col-sm-4 popular_film_panels">
                         {this.state.ArrayOfTopFilms}
-                    </div>
-                    
                 </div>
                 
                 <div className="row" id="popular_film_headings">
@@ -75,8 +66,8 @@ export default class TopFilms extends React.Component{
                         <p>Cars 3</p>
                     </div>
                 </div>
-                
             </div>
         );
     }
+
 }

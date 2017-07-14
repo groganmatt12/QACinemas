@@ -21,14 +21,14 @@ export default class TopFilms extends React.Component{
         let movObjArrayByDate=CinemaStore.getMoviesByRelease();
         let tempImgArray = [];
 		let tempNameArray=[];
-		let num = this.props.rowNum;
+		let num = this.props.rowNum*3;
         console.log("hello");
         console.log(movObjArrayByDate);
         for(let i=num; i<num+3; i++){
            
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex=i+1;
-            let curClassName="popular_film_"+curFilmIndex+" popular_film";
+            let curClassName="popular_film_"+curFilmIndex+" popular_film_type popular_film";
             
             
             tempImgArray.push(

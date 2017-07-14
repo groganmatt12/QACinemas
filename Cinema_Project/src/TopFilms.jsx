@@ -7,13 +7,15 @@ export default class TopFilms extends React.Component{
         super();
         this.state = {
             arrayOfTopFilms: [],
-			arrayOfTopHeadings:[]
+			arrayOfTopHeadings:[],
+			title:[]
         };
     }
 
 	componentWillMount(){
         console.log("Hello");
         this.generateTopFilmDivs(); 
+		this.generateTitle();
 		
 	}
 
@@ -21,7 +23,7 @@ export default class TopFilms extends React.Component{
         let movObjArrayByDate=CinemaStore.getMoviesByRelease();
         let tempImgArray = [];
 		let tempNameArray=[];
-		let num = this.props.rowNum*3;
+		let num = (this.props.rowNum*3)+1;
         console.log("hello");
         console.log(movObjArrayByDate);
         for(let i=num; i<num+3; i++){
@@ -62,7 +64,13 @@ export default class TopFilms extends React.Component{
 		this.setState({arrayOfTopFilms: tempImgArray});
 		this.setState({arrayOfTopHeadings:tempNameArray});
     }
-	generate 
+	generateTitle(){
+		if (this.props.rowNum == 0){
+			let title = (<p>Top Films</p>)
+			this.setState({title:title});
+		}
+		
+	} 
 
 
     render(){
@@ -71,11 +79,10 @@ export default class TopFilms extends React.Component{
 
             <div className="container topFilmGrouping">
                 <div className="row topFilmHeader">
-                    <p>Top Films</p>
+					{this.state.title}
                 </div>
                 <div className="row topFilmRow">
-
-                        {this.state.arrayOfTopFilms}
+                    {this.state.arrayOfTopFilms}
                 </div>
                 
                 <div className="row" id="popular_film_headings">

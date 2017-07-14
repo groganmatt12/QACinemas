@@ -9,16 +9,16 @@ import showingsJson from '../data/ShowingTimes.json';
 
 class CinemaStore extends EventEmitter {
 	
-	  constructor() {
+	constructor() {
     super();
 	
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;
-		this.showings = showingsJson.showingTimes;
-		
+		this.showings = showingsJson.showingTimes;		
 		this.filteredMovies = [];
-		}
+
+	}
 
 
 	getAllBookings() {
@@ -45,7 +45,6 @@ class CinemaStore extends EventEmitter {
 					carouselMovies.push(curMovie);
 				}
 			}
-	
 	return carouselMovies;
 	}	
 

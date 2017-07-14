@@ -34,7 +34,7 @@ export default class TopFilms extends React.Component{
                          </div>
                     </div>
                     </div>
-            );
+            )
         }
 
         this.setState({arrayOfTopFilms: tempImgArray});

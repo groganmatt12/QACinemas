@@ -1,0 +1,24 @@
+.MovieDetails_Info{
+	background-color: green;
+}
+
+.MovieListing_MovieImageDiv{
+	display: inline;
+    height: 6em;
+    width: 6em;
+}
+.MovieListing_MovieImage{
+	height: 10em;
+	width: 10em;
+}
+
+.MovieListing_MovieName{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+}
+
+.MovieListing_Row{
+	background-color: #84bcd8;
+	box-shadow: 2px 3px 1px #888888;
+	margin-bottom: 1em;
+}

@@ -8,7 +8,7 @@ export default class Sort extends React.Component{
 		this.handleMovieSearchChange = this.handleMovieSearchChange.bind(this);
         
         this.state = {
-            genres: CinemaStore.getGenreList(),
+            genres: [],
             genre_objects: []
         }
 	}
@@ -20,20 +20,21 @@ export default class Sort extends React.Component{
     
     
     generateCheckboxes() {
-        let genreList = this.state.genres;
+        let genreList = Array.from(CinemaStore.getGenreList());
+        console.log(genreList);
+        this.setState({ genres: genreList});
+        
         let displayArray = [];
+        console.log(genreList);
         for(let i = 0; i < genreList.length; i++){
-            displayArray.push(<div className="checkbox"><label><input type="checkbox" value="">{genreList[i]}</input></label></div>);
-            console.log(genreList);
+            displayArray.push(<div key={i} className="checkbox"><label><input type="checkbox"></input>{genreList[i]}</label></div>);
+            console.log(i);
         }
         this.setState({ genre_objects: displayArray });
-        console.log(displayArray);
     }
     
     componentWillMount() {
-        let genreList = CinemaStore.getGenreList();
-        console.log(genreList);
-        this.setState({ genres: genreList});
+        
         this.generateCheckboxes();
     }
 	
@@ -54,6 +55,7 @@ export default class Sort extends React.Component{
 							onChange = {this.handleMovieSearchChange}
 						/>
                         <div>
+                            <h4>Filter by Genre...</h4>
                             {this.state.genre_objects}
                         </div>
 					</form>

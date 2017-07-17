@@ -18,9 +18,13 @@ class CinemaStore extends EventEmitter {
 		this.showings = showingsJson.showingTimes;		
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
+        this.genres = this.generateGenreList;
 	}
 
-
+    getGenreList() {
+        return this.genres;
+    }
+    
 	getAllBookings() {
 		return this.bookings;
 	}	
@@ -141,7 +145,16 @@ class CinemaStore extends EventEmitter {
 	}
     
     generateGenreList() {
-        
+        let genreSet = new Set([]);
+        let sortArray = this.movies.slice();
+
+        for(let i = 0; i < sortArray.length; i++){
+            for(let j = 0; j < sortArray[i].genre.length; j++) {
+                genreSet.add(sortArray[i].genre[j]);
+            }
+        }
+        console.log(genreSet);
+        return genreSet;
     }
     
 }	

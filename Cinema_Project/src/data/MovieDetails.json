@@ -33,7 +33,7 @@
 					"name": "The Texas Chainsaw Massacre",
 					"image" : "tcm.jpg",
 					"classification": "18",
-					"genre" : "Horror",
+					"genre" : ["Horror"],
 					"actors" : ["Marilyn Burns", "Allen Danziger"],
 					"overlayText":"x",
 					"director":"Tobe Hooper",

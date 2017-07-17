@@ -8,7 +8,8 @@ export default class Sort extends React.Component{
 		this.handleMovieSearchChange = this.handleMovieSearchChange.bind(this);
         
         this.state = {
-            genres: []
+            genres: [],
+            genre_objects: []
         }
 	}
 	
@@ -16,9 +17,19 @@ export default class Sort extends React.Component{
 		this.props.onUserSearchInput(this.filterTextInput.value);
 	}
     
-    generateGenreDropdown() {
-        let movArray = CinemaStore.getAllGenres();
-        let genreArray = [];
+    
+    generateCheckboxes() {
+        let genreList = this.state.genres;
+        for(let i = 0; i < genreList.length; i++){
+            this.state.genre_objects.push(<div className="checkbox"><label><input type="checkbox" value="">{genreList[i]}</input></label></div>)
+        }
+    }
+    
+    componentWillMount() {
+        let genreList = CinemaStore.getGenreList();
+        console.log(genreList);
+        this.setState({ genres: genreList});
+        this.generateCheckboxes();
     }
 	
     render(){
@@ -37,9 +48,9 @@ export default class Sort extends React.Component{
 							ref={(input) => this.filterTextInput = input}
 							onChange = {this.handleMovieSearchChange}
 						/>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value=""></input></label>
-                        </div>						
+                        <div>
+                            {this.state.genre_objects}
+                        </div>
 					</form>
 					</div>
 				</div>

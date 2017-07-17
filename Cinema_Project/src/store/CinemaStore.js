@@ -80,9 +80,7 @@ class CinemaStore extends EventEmitter {
   }
   
 
-   getFilteredMovies() {
-    return this.filteredMovies;
-  }
+  
   
 	getMovieByIndex(index){
 		return this.movies[index];
@@ -140,9 +138,6 @@ class CinemaStore extends EventEmitter {
 		}
 	}
     
-    generateGenreList() {
-        
-    }
     
 }	
 

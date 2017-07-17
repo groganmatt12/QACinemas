@@ -7,8 +7,8 @@ export default class Classification extends React.Component{
 	}
 	render(){
 		return(
-			<div className="row Classifications-Div" >
-				<div className="Container" >
+			<div className="row Classifications-Row" >
+				<div className="Container Classifications-Div" >
 					<div>
 						
 						<img src="images/classifications/u.png" className ="Classification-Img-Style" />

@@ -26,8 +26,14 @@
 
 .Carousel-Contents img{}
 
+.Classifications-Row{
+	height:100%;
+}
+
 .Classifications-Div{
 	text-align: center;
+	background: rgba(0, 0, 0, 0.25);
+	color: white;
 }
 .Classifications-Img{
 	max-width: 80%;
@@ -85,10 +91,29 @@
 	width:70%;
 }
 /*-----------------------------------------------------------------------*/
-.MovieDetails-Info{
-	background-color: green;
+
+.MovieDetails-Container{
+	margin-bottom:1em;
 }
 
+.MovieDetails-Heading{
+	color:white;
+}
+.MovieDetails-Info{
+	background-color: rgba(0, 0, 0, 0.4);
+	color:white;
+	margin-bottom:1em;
+}
+
+.MovieDetails-Img{
+	height:10em;
+	width:10em;
+}
+
+.MovieDetails-Trailer-Container{
+	margin-top:1em;
+	margin-bottom:1em;
+}
 .MovieListing-NameAndImage{
 	margin-bottom:1em;
 	width:13em;
@@ -323,6 +348,6 @@
 }
 /*-----------------------------------------------------------------------*/
 .Youtube-Video{
-	height: 800px;
-    width: 1200px;
+	height: 50%;
+    width: 70%;
 }

@@ -6,14 +6,17 @@ export default class Offers extends React.Component{
     constructor(){
         super();
         this.state = {
-            newestRelease: ""
+            newestRelease: "",
+            newestReleaseName: ""
         };
     }
 
 
     componentWillMount(){
         let newest = CinemaStore.getMoviesByRelease()[0].image;
+        let newestName = CinemaStore.getMoviesByRelease()[0].name;
         this.setState({newestRelease: newest});
+        this.setState({newestReleaseName: newestName});
 
     }
 
@@ -24,7 +27,6 @@ export default class Offers extends React.Component{
         let offer2 = "./images/offers/2001offer.jpg";
 
         let newestPath = "./images/"+this.state.newestRelease;
-
         return(
 
             <div className="Container" id="offerParent">
@@ -61,7 +63,7 @@ export default class Offers extends React.Component{
                     <div className="col-sm-4 offerDivs offerPanels">
                         <div className="offers">
                             <img src={newestPath} alt="offer1 top film" />
-                            <p>2001</p>
+                            <p>{this.state.newestReleaseName}</p>
 
                         </div>
                     </div>	

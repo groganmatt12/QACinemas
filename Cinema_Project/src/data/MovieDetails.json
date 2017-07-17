@@ -1,7 +1,7 @@
 {
 	"movieDetails":[
 					{
-					"id":"1",
+					"id":"0",
 					"name": "High School Musical",
 					"image" : "hsm.jpg",
 					"classification": "U",
@@ -15,7 +15,7 @@
 					},
 					
 					{
-					"id":"2",
+					"id":"1",
 					"name": "Battle Royale",
 					"image" : "br.jpg",
 					"classification": "18",
@@ -29,7 +29,7 @@
 					},
 					
 					{
-					"id":"3",
+					"id":"2",
 					"name": "The Texas Chainsaw Massacre",
 					"image" : "tcm.jpg",
 					"classification": "18",
@@ -43,7 +43,7 @@
 					},
 					
 					{
-					"id":"4",
+					"id":"3",
 					"name": "Sophie's Choice",
 					"image" : "sc.jpg",
 					"classification": "15",
@@ -57,7 +57,7 @@
 					},
 					
 					{
-					"id":"5",
+					"id":"4",
 					"name": "Spider-Man: Homecoming",
 					"image" : "smh.jpg",
 					"carousel":"smh-c.jpg",
@@ -72,7 +72,7 @@
 					},
 					
 					{
-					"id":"6",
+					"id":"5",
 					"name": "It Comes At Night",
 					"image" : "ican.jpg",
 					"classification": "15",
@@ -86,7 +86,7 @@
 					},
 					
 					{
-					"id":"7",
+					"id":"6",
 					"name": "War For The Planet Of The Apes",
 					"image" : "wftpota.jpg",
 					"carousel":"wftpota-c.jpg",
@@ -101,7 +101,7 @@
 					},
 					
 					{
-					"id":"8",
+					"id":"7",
 					"name": "Baby Driver",
 					"image" : "bd.jpg",
 					"classification": "15",
@@ -115,7 +115,7 @@
 					},
 					
 					{
-					"id":"9",
+					"id":"8",
 					"name": "Transformers: The Last Knight",
 					"image" : "ttlk.jpg",
 					"carousel":"ttlk-c.jpg",
@@ -130,7 +130,7 @@
 					},
 					
 					{
-					"id":"10",
+					"id":"9",
 					"name": "Wonder Woman",
 					"image" : "ww.jpg",
 					"classification": "12A",
@@ -144,20 +144,20 @@
 					},
 					
 					{
-					"id":"11",
+					"id":"10",
 					"name": "Dunkirk",
 					"image" : "dnk.jpg",
 					"classification": "12A",
 					"genre" : ["Action", "Drama", "History"],
-					"actors" : "Christopher Nolan",
-					"director": ["Fionn Whitehead", "Kenneth Branagh", "Mark Rylance"],
+					"actors" : ["Fionn Whitehead", "Kenneth Branagh", "Mark Rylance"],
+					"director": "Christopher Nolan",
 					"releaseDate" :"July 21, 2017",
                     "trailer": "https://www.youtube.com/embed/F-eMt3SrfFU",
 					"overlayText":"x",
-					"description" : "'Dunkirk' opens as hundreds of thousands of British and Allied troops are surrounded by enemy forces. Trapped on the beach with their backs to the sea they face an impossible situation as the enemy closes in.“Dunkirk” features a prestigious cast, including Tom Hardy (“The Revenant,” “Mad Max: Fury Road,” “Inception”), Mark Rylance (“Bridge of Spies,” “Wolf Hall”), Kenneth Branagh (“My Week with Marilyn,” “Hamlet,” “Henry V”) and Cillian Murphy (“Inception,” “The Dark Knight” Trilogy), as well as newcomer Fionn Whitehead."	
+					"description" : "Evacuation of Allied soldiers from Belgium, the British Empire, Canada, and France, who were cut off and surrounded by the German army from the beaches and harbor of Dunkirk, France, between May 26- June 04, 1940, during Battle of France in World War II."	
 					},
 					{
-					"id":"12",
+					"id":"11",
 					"name": "Cars 3",
 					"image" : "c3.jpg",
 					"classification": "U",
@@ -167,7 +167,7 @@
 					"releaseDate" :"July 14, 2017",
                     "trailer": "https://www.youtube.com/embed/ZuaseSovWDY",
 					"overlayText":"x",
-					"description" : ""
+					"description" : "Blindsided by a new generation of blazing-fast racers, the legendary Lightning McQueen is suddenly pushed out of the sport he loves. To get back in the game, he will need the help of an eager young race technician with her own plan to win, inspiration from the late Fabulous Hudson Hornet, and a few unexpected turns. Proving that #95 isn't through yet will test the heart of a champion on Piston Cup Racing's biggest stage!"
 					}
        ]
 

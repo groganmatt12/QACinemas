@@ -8,21 +8,26 @@ export default class Sort extends React.Component{
 		this.handleMovieSearchChange = this.handleMovieSearchChange.bind(this);
         
         this.state = {
-            genres: [],
+            genres: CinemaStore.getGenreList(),
             genre_objects: []
         }
 	}
 	
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
+        this.generateCheckboxes();
 	}
     
     
     generateCheckboxes() {
         let genreList = this.state.genres;
+        let displayArray = [];
         for(let i = 0; i < genreList.length; i++){
-            this.state.genre_objects.push(<div className="checkbox"><label><input type="checkbox" value="">{genreList[i]}</input></label></div>)
+            displayArray.push(<div className="checkbox"><label><input type="checkbox" value="">{genreList[i]}</input></label></div>);
+            console.log(genreList);
         }
+        this.setState({ genre_objects: displayArray });
+        console.log(displayArray);
     }
     
     componentWillMount() {

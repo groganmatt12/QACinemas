@@ -18,7 +18,7 @@ class CinemaStore extends EventEmitter {
 		this.showings = showingsJson.showingTimes;		
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
-        this.genres = this.generateGenreList;
+        this.genres = this.generateGenreList();
 	}
 
     getGenreList() {
@@ -153,7 +153,6 @@ class CinemaStore extends EventEmitter {
                 genreSet.add(sortArray[i].genre[j]);
             }
         }
-        console.log(genreSet);
         return genreSet;
     }
     

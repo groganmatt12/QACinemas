@@ -17,7 +17,7 @@ class CinemaStore extends EventEmitter {
 		this.movies = movieJson.movieDetails;
 		this.showings = showingsJson.showingTimes;		
 		this.filteredMovies = [];
-
+		this.moviesByDate=movieJson.movieDetails;
 	}
 
 
@@ -94,7 +94,7 @@ class CinemaStore extends EventEmitter {
   
 	getMoviesByRelease(){
 		
-		let sortArray = this.movies;
+		let sortArray = this.movies.slice();
 		for(let i=0 ; i<sortArray.length; i++){
 			for(let j=i; j<sortArray.length; j++){
 			
@@ -110,7 +110,8 @@ class CinemaStore extends EventEmitter {
 			}
 		}
 		sortArray.reverse();
-		return sortArray;
+		this.moviesByDate = sortArray;
+		return this.moviesByDate;
 	}
 	
 	getShowingByIndex(index){

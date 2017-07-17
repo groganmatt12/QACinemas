@@ -32,7 +32,7 @@ export default class MovieListing extends React.Component {
 						</div>
 
 						<div>
-							<img src={classificationURL} className="classificationStyle" />
+							<img src={classificationURL} className="classificationStyle" style={{width: 50, height: 50}} />
 						</div>
 							
 					</div>

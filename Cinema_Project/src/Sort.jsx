@@ -1,15 +1,25 @@
 import React from 'react';
+import CinemaStore from './store/CinemaStore';
 
 
 export default class Sort extends React.Component{
 	constructor(props){
 		super(props);
 		this.handleMovieSearchChange = this.handleMovieSearchChange.bind(this);
+        
+        this.state = {
+            genres: []
+        }
 	}
 	
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
 	}
+    
+    generateGenreDropdown() {
+        let movArray = CinemaStore.getAllGenres();
+        let genreArray = [];
+    }
 	
     render(){
         return(
@@ -27,7 +37,9 @@ export default class Sort extends React.Component{
 							ref={(input) => this.filterTextInput = input}
 							onChange = {this.handleMovieSearchChange}
 						/>
-						
+                        <div className="checkbox">
+                            <label><input type="checkbox" value=""></input></label>
+                        </div>
 					</form>
 					</div>
 				</div>

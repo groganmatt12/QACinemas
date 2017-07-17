@@ -10,7 +10,7 @@ import showingsJson from '../data/ShowingTimes.json';
 class CinemaStore extends EventEmitter {
 	
 	  constructor() {
-    super();
+        super();
 	
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
@@ -138,8 +138,15 @@ class CinemaStore extends EventEmitter {
 			default:
 				break;
 		}
-	}  
+	}
+    
+    generateGenreList() {
+        
+    }
+    
 }	
+
+
 	  
 const cinemaStore = new CinemaStore();
 dispatcher.register(cinemaStore.handleActions.bind(cinemaStore));

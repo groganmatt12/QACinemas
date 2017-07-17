@@ -86,7 +86,7 @@ export default class TopFilms extends React.Component{
                     {this.state.arrayOfTopFilms}
                 </div>
                 
-                <div className="row TopFilms-Title">
+                <div className="row TopFilms-Title hidden-xs">
 					{this.state.arrayOfTopHeadings}
                 </div>
             </div>

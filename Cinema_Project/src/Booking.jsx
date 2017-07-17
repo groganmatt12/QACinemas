@@ -51,8 +51,8 @@ export default class Booking extends React.Component{
 					<p>Quantity&nbsp;
 					<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
 					</p>
-					<button className="Standard_Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
-					<button className="Standard_Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
+					<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
+					<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 				</div>
 				<br></br>
 				

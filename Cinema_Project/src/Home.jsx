@@ -8,20 +8,20 @@ export default class Home extends React.Component{
     render() {
         return(
             <div>
-			    <div className="row Home_Carousel">
+			    <div className="row Home-Carousel">
                     <Carousel />
                 </div>
-				<div className="row Home_OfferRow">
+				<div className="row Home-OfferRow">
 					<Offers />
 				</div>
-                <div className="row Home_TopFilmRow">
+                <div className="row Home-TopFilmRow">
                     <TopFilms rowNum={0}/>
 					<TopFilms rowNum={1}/>
 					<TopFilms rowNum={2}/>
                 </div>
 				
 				
-                <div className="row Home_QuickBookRow">
+                <div className="row Home-QuickBookRow">
                     <QuickBookBar />
                 </div>
 			</div>

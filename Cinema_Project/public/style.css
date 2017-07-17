@@ -52,9 +52,9 @@
 /*-----------------------------------------------------------------------*/
 .header{}
 
-.Home_Carousel{}
+.Home-Carousel{}
 
-.Home_OfferRow{
+.Home-OfferRow{
 	height: 40em;
 	border-bottom: 2em;
 	max-width: 70%;
@@ -65,7 +65,7 @@
 	box-shadow: 0 0 15px 0px rgba(255,255,255,0.8);
 }
 
-.Home_TopFilmRow{
+.Home-TopFilmRow{
 	background-color: rgba(255,255,255,0);
 	padding-top: 1em;
 	padding-bottom: 2em;
@@ -76,7 +76,7 @@
 
 }
 
-.Home_QuickBookRow{
+.Home-QuickBookRow{
 	padding-bottom: 2em;
 }
 /*-----------------------------------------------------------------------*/
@@ -84,45 +84,45 @@
 	width:70%;
 }
 /*-----------------------------------------------------------------------*/
-.MovieDetails_Info{
+.MovieDetails-Info{
 	background-color: green;
 }
 
-.MovieListing_NameAndImage{
+.MovieListing-NameAndImage{
 	margin-bottom:1em;
 	width:13em;
 }
 
-.MovieListing_MovieImageDiv{
+.MovieListing-MovieImageDiv{
 	display: inline;
     height: 6em;
     width: 6em;
 }
-.MovieListing_MovieImage{
+.MovieListing-MovieImage{
 	height: 10em;
 	width: 10em;
 }
 
-.MovieListing_MovieName{
+.MovieListing-MovieName{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color:white;
 	font-size: 20px;
 	width:10em;
 }
 
-.MovieListing_Row{
+.MovieListing-Row{
 	background: rgba(0, 0, 0, 0.4);
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
 }
 
-.MovieListing_BookingButton{
+.MovieListing-BookingButton{
 	text-align: right;
 	margin-right:1em;
 	margin-bottom:1em;
 }
 
-.MovieListing_MovieDescription{
+.MovieListing-MovieDescription{
 	margin-top:2em;
 	color:white;
 }
@@ -246,7 +246,7 @@
     margin-right: auto;
 }
 
-.Standard_Button{
+.Standard-Button{
 	height:2em;
 }
 /*-----------------------------------------------------------------------*/
@@ -287,10 +287,9 @@
 }
 
 .TopFilms-Element{
-		/* border: dashed; */
-    max-height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+    max-height: 60%; 
     max-width: 60%;	
-    position: relative; /*IMPORTANT*/
+    position: relative;
     display:  inline-block;
     overflow: auto;
 }

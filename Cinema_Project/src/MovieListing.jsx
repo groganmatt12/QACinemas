@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import CinemaStore from './store/CinemaStore';
 
 
 export default class MovieListing extends React.Component {
@@ -12,27 +12,29 @@ export default class MovieListing extends React.Component {
 
 		let filmUrl = "MovieDetails/" + this.props.id;
 
+		let classificationURL = "images/classifications/"+this.props.classification+".png";
+
         return(
 
-            <div className="row MovieListing_Row">
-					<div className="col-sm-4 MovieListing_NameAndImage">
+            <div className="row MovieListing-Row">
+					<div className="col-sm-4 MovieListing-NameAndImage">
 					
-						<div className="MovieListing_MovieName">
+						<div className="MovieListing-MovieName">
 							{this.props.name}
 						</div>
 
-						<div className="MovieListing_MovieImageDiv">
-							<img className="MovieListing_MovieImage" src={imgLink} alt={this.props.name}  />
+						<div className="MovieListing-MovieImageDiv">
+							<img className="MovieListing-MovieImage" src={imgLink} alt={this.props.name}  />
 						</div>
-														
+
 					</div>
 					
-						<div className="col-sm-8 MovieListing_MovieDescription">
+						<div className="col-sm-8 MovieListing-MovieDescription">
 							{this.props.desc}
 						</div>
 
-						<div className="MovieListing_BookingButton">
-							<button className="standard_button"><Link to={filmUrl}>BOOK</Link></button>
+						<div className="MovieListing-BookingButton">
+							<button className="standard-button"><Link to={filmUrl}>BOOK</Link></button>
 						</div>
 						
 						<div>

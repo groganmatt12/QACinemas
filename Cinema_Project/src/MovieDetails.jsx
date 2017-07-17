@@ -28,7 +28,9 @@ export default class MovieDetails extends React.Component{
             
         }
     }
-    
+    componentDidMount () {
+		window.scrollTo(0, 0)
+	}
 
 
     render(){
@@ -47,7 +49,7 @@ export default class MovieDetails extends React.Component{
                 </div>
 				
                 <div className="row"> 
-                    <div className="col-sm-6 MovieDetails_Info">
+                    <div className="col-sm-6 MovieDetails-Info">
 						Movie Info: {this.state.filmInfo}
 					</div>
                     

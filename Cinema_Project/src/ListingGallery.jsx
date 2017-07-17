@@ -23,8 +23,9 @@ export default class ListingGallery extends React.Component{
 		
 		return(
 			<div className="parentContainer">
+			<br />
 				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
-				<br />
+				<br /><br /><br />
 
 				<div className="container ListingGallery-ListOfFilms">
 					<ListOfMovies movies={this.state.movies} target={this.props.target} />
@@ -44,7 +45,6 @@ export default class ListingGallery extends React.Component{
 	
 	componentWillMount(){
 		CinemaStore.on("moviesChange", this._onChange);		
-		
 	}
 	
 	componentWillUnmount() {

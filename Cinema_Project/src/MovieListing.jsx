@@ -34,6 +34,10 @@ export default class MovieListing extends React.Component {
 						<div className="MovieListing_BookingButton">
 							<button className="standard_button"><Link to={filmUrl}>BOOK</Link></button>
 						</div>
+						
+						<div>
+							<img src={classificationURL} className="Classification-Img-Style" />
+						</div>
 					
 			</div>
         );

@@ -17,11 +17,12 @@ export default class Carousel extends React.Component{
 	
     render() {
 	    return(
-		<div className="container carousel-Parent">
-            <div id="Carousel" className="carousel slide" data-ride="carousel">
-              
+		<div className="container Carousel-Parent">
+            <div id="Carousel" className="carousel slide"> 
+			{/*Carousel (ID and CN) - makes it work as a carousel | slide makes it slide*/}
+      
                 
-                <div className="carousel-inner" role="listbox">
+                <div className="carousel-inner Carousel-Contents" role="listbox">
 			        {this.state.imgLinks}
                 </div>
                 

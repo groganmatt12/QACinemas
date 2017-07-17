@@ -27,14 +27,14 @@ export default class MovieListing extends React.Component {
 														
 					</div>
 					
-					<div className="MovieListing_BookingButton">
-						<button><Link to={filmUrl}>BOOK</Link></button>
-					</div>
-						
-					<div className="col-sm-8 MovieListing_MovieDescription">
-						{this.props.desc}
-					</div>
+						<div className="col-sm-8 MovieListing_MovieDescription">
+							{this.props.desc}
+						</div>
 
+						<div className="MovieListing_BookingButton">
+							<button className="standard_button"><Link to={filmUrl}>BOOK</Link></button>
+						</div>
+					
 			</div>
         );
     }

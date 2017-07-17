@@ -37,20 +37,17 @@
 			background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
 
 	}
-*/
 
-/*Header.jsx*/
 .header{
 }
 
-/*Footer.jsx*/
+
 .footer{
     background-color: rgb(23, 22, 22);
     color: white;
 	text-align: center;
 }
 
-/*Booking.jsx*/
 .quantity-box{
 	height: 1.5em;
 	width: 2em;
@@ -60,20 +57,40 @@
 .listingTime{
 }
 
-/*Navbar.jsx*/
+
 #mainNav{
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
 	margin-bottom: 0;
+	
 }
 
-.carousel-Parent{
+.Navbar{
+
+}
+.navbar-inverse {
+    background-color: rgb(23, 22, 22);
+    border-color: #080808;
+    color: white;
+}
+.navbar-nav li:hover {
+    background-color: darkblue;
+    display: block;
+    text-decoration: none;
+	
+}
+
+.navbar-inverse .Nav-List>li>a {
+    color: white;
+}
+
+.Carousel-Parent{
 	max-width: 70%;
     margin: auto;
 	margin-top:2em;
 }
 
-/*
+
 .offerRow{
 	height: 40em;
 	border-bottom: 2em;
@@ -112,7 +129,7 @@
 	/*background: blue;*/
 }
 
-#offerRow{
+.Offer-Row{
 	height: 100%;
 	background-color: rgba(255,255,255,0);
 /*	border: dotted;
@@ -120,19 +137,15 @@
 }
 
 .offerDivs{
-	width: 33.33%;
-	text-align: center;
 
-/*	border: dashed;*/
 }
 
 .offerPanels{
-/*	border: dashed;*/
 
-	height: 100%;
+	
 }
 
-.offers{
+.offer{
 /*	background-image:url("./images/offers/broffer.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -149,12 +162,12 @@
 	margin: 0 auto;
 }
 
-.offers img{
+.offer img{
 	max-width: 80%;
 	position: relative;
 }
 
-.offers p{
+.offer p{
 	color: #827a7a;
 	font-size: 24px;
 	font-weight: bold;
@@ -162,11 +175,6 @@
 	background-color: orange;
 	position: relative; 
 	width: 100%;
-}
-
-#offerText{
-	text-align: center;
-	color: black;
 }
 
 .list-group-item span{
@@ -185,6 +193,11 @@
 }
 */
 
+
+.topFilmGrouping{
+	background: rgba(0, 0, 0, 0.25);
+	width:70%;
+}
 .topFilmHeader{
 	text-align: center;
 	font-family: "Roboto", "Helvetica", "FF DIN";
@@ -195,10 +208,7 @@
 	background-color: rgba(255,255,255,0);
 	width:100%;
 }
-.topFilmGrouping{
-	background: rgba(0, 0, 0, 0.25);
-	width:70%;
-}
+
 
 #popular_film_headings{
 	font-size: 24px;
@@ -331,19 +341,7 @@
 }
 
 
-.navbar-inverse {
-    background-color: rgb(23, 22, 22);
-    border-color: #080808;
-    
-}
-.navbar-nav li:hover {
-    background-color: darkblue;
-    display: block;
-    text-decoration: none;
-}
-.navbar-inverse .navbar-nav>li>a {
-    color: white;
-}
+
 
 /*Carousel.jsx*/
 .carousel-inner img{

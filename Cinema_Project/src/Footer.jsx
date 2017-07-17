@@ -23,7 +23,7 @@ export default class Footer extends React.Component{
 				        </p>	
                         <SiteMap></SiteMap>
 					</div>
-				        <hr id="bottomOfFooter"></hr>
+				        <hr className="Footer-UnderLine"></hr>
                 </div>
             </div>
         );

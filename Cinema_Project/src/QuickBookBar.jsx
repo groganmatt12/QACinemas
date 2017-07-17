@@ -65,10 +65,10 @@ export default class QuickBookBar extends React.Component{
 
         return(
             
-                <div className="navbar navbar-default navbar-fixed-bottom" id="quick_book_bar">
-                    <div className="quick_book_bar_container">
+                <div className="navbar navbar-default navbar-fixed-bottom Quick-Book-Bar">
+                    <div className="Quick-Book-Bar-Contents">
                          <span>
-                            <div id="qbb_header">Quick book Bar: </div>
+                            <div id="Quick-Book-Bar-Text">Quick book Bar: </div>
                             <select value={this.state.cinemaID} onChange={this.updateCinemaSelect.bind(this)}>
                                 <option>Choose a cinema...</option>
 									{cinemaList}	
@@ -80,7 +80,7 @@ export default class QuickBookBar extends React.Component{
                             </select>
 
                             <select value={this.state.selectedTime} onChange={this.updateTimeSelect.bind(this)}>
-                                <option className="time_search_list">Choose a time...</option>
+                                <option>Choose a time...</option>
                                 {timeList}
                             </select>
                         </span>

@@ -1,15 +1,91 @@
-
 /*Main Background Div*/
 #domMain{
 	background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
+	background-image: url('images/background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	max-width: 100%;
+	-webkit-filter: brightness(95%); /*Safari*/
+	filter: brightness(95%);
+}
+/*-----------------------------------------------------------------------*/
+.Booking-Film-Name{}
+
+.Booking-Quantity-box{
+	height: 1.5em;
+	width: 2em;
+}
+/*-----------------------------------------------------------------------*/
+.Carousel-Parent{
+	max-width: 70%;
+    margin: auto;
+	margin-top:2em;
 }
 
+.Carousel-Contents{}
+
+.Carousel-Contents img{}
+
+.Classifications-Div{
+	text-align: center;
+}
+.Classifications-Img{
+	max-width: 80%;
+    height: auto;
+    width: auto\9;
+}
+/*-----------------------------------------------------------------------*/
+.footer{
+    background-color: rgb(23, 22, 22);
+    color: white;
+	text-align: center;
+}
+
+.Footer-UnderLine{
+	height: 55px;
+}
+/*-----------------------------------------------------------------------*/
+.header{}
+
+.Home_Carousel{}
+
+.Home_OfferRow{
+	height: 40em;
+	border-bottom: 2em;
+	max-width: 70%;
+    margin: auto;
+	width:70%;
+	margin-top: 2em;
+	background: rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 15px 0px rgba(255,255,255,0.8);
+}
+
+.Home_TopFilmRow{
+	background-color: rgba(255,255,255,0);
+	padding-top: 1em;
+	padding-bottom: 2em;
+	max-width: 70%;
+    margin: auto;
+	margin-top:2em;
+	margin-bottom:-2em;
+
+}
+
+.Home_QuickBookRow{
+	padding-bottom: 2em;
+}
+/*-----------------------------------------------------------------------*/
+.ListingGallery-ListOfFilms{
+	width:70%;
+}
+/*-----------------------------------------------------------------------*/
 .MovieDetails_Info{
 	background-color: green;
 }
 
 .MovieListing_NameAndImage{
-
+	margin-bottom:1em;
+	width:13em;
 }
 
 .MovieListing_MovieImageDiv{
@@ -24,52 +100,224 @@
 
 .MovieListing_MovieName{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:white;
 	font-size: 20px;
+	width:10em;
 }
 
 .MovieListing_Row{
-	background-color: #84bcd8;
+	background: rgba(0, 0, 0, 0.4);
 	box-shadow: 2px 3px 1px #888888;
 	margin-bottom: 1em;
 }
 
 .MovieListing_BookingButton{
-
+	text-align: right;
+	margin-right:1em;
+	margin-bottom:1em;
 }
 
 .MovieListing_MovieDescription{
+	margin-top:2em;
+	color:white;
 }
 
-.Home_Carousel{
+.MovieDetails-ListingTime{}
 
+
+/*-----------------------------------------------------------------------*/
+
+.Navbar{
+	
+	margin-bottom: 0;
+	max-width:100%;
 }
 
-.Home_OfferRow{
-	height: 40em;
-	border-bottom: 2em;
-	max-width: 70%;
-    margin: auto;
-	width:70%;
-	margin-top: 2em;
-	background: rgba(0, 0, 0, 0.25);
+.Navbar .Nav-List>li>a { /*The text within the Navbar list element*/
+    color: white;
 }
 
-.Home_TopFilmRow{
-	background-color: rgba(255,255,255,0);
-	padding-top: 1em;
-	padding-bottom: 2em;
+.Nav-Logo{
+}
+
+.Nav-List{
+}
+
+.Nav-List li:hover{/*On Hover of Navbar list element*/
+	background-color: darkblue;
+    display: block;
+    text-decoration: none;
+}
+
+.Nav-Logo-Img{
+	margin-top: .6em;
+	margin-right: .5em;
+	height: 2.52em ;
+	width: 3.6em ;
+}
+
+/*-----------------------------------------------------------------------*/
+.Offer-Parent{
+	height: 80%;
 	max-width: 100%;
     margin: auto;
-	margin-top:2em;
-	margin-bottom:-2em;
 }
 
-.Home_QuickBookRow{
-	padding-bottom: 2em;
+	
+
+.Offer-Parent p{
+	font-family: "Roboto", "Helvetica", "FF DIN";
+	background-color: rgba(255,255,255,0);
+}
+
+.Offer-Headings{
+	padding-top: 0.5em;
+	font-size: 24px;
+	color: #827a7a;
+	text-align: center;
+	background-color: rgba(255,255,255,0);
+}
+
+.Offer-Most-Popular{
+}
+
+.Offer-Row{
+	height: 100%;
+	background-color: rgba(255,255,255,0);
+}
+
+.Offer-Panel{
+	width: 33.33%;
+	text-align: center;
+	height: 100%;
+/*	border: dashed;*/
+}
+
+.Offer-Item img{
+	max-width: 80%;
+	position: relative;
 }
 
 
 
+.Offer-Item{
+	color: #827a7a;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0);
+	position: relative; 
+	width: 100%;
+}
+/*-----------------------------------------------------------------------*/
+.Quick-Book-Bar{
+    height: 5%;
+    height: 5%;
+    background-color: rgba(0, 0, 0, 0.57);
+    text-align: center;
+	width: 40%;
+	left:30%;
+}
 
+.Quick-Book-Bar-Contents select{
+	background-color: aqua;
+    background: linear-gradient(to bottom, black, gray);
+    color: aqua;
+}
 
+.Quick-Book-Bar-Text{
+	text-align: left;
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
+}
+/*-----------------------------------------------------------------------*/
+.row{
+}
+/*-----------------------------------------------------------------------*/
+.Site-Map-Table{
+	border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.Standard_Button{
+	height:2em;
+}
+/*-----------------------------------------------------------------------*/
+.TopFilms-Header{
+	text-align: center;
+	font-family: "Roboto", "Helvetica", "FF DIN";
+	font-size: 24px;
+	color: #827a7a;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+	background-color: rgba(255,255,255,0);
+	width:100%;
+}
+
+.TopFilms-Grouping{
+	background: rgba(0, 0, 0, 0.25);
+	width:100%;
+}
+
+.TopFilms-Title{
+	font-size: 24px;
+	color: #827a7a;
+	text-align: center;
+	background-color: rgba(255,255,255,0);	
+}
+
+.TopFilms-Row{
+	text-align: center;
+}
+
+.TopFilms-Image{
+	text-align: center;
+	float: center;
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+	/* border: dotted; */
+}
+
+.TopFilms-Element{
+		/* border: dashed; */
+    max-height: 60%; /*CHANGE THIS FOR IMAGE RESIZING*/
+    max-width: 60%;	
+    position: relative; /*IMPORTANT*/
+    display:  inline-block;
+    overflow: auto;
+}
+
+.TopFilms-Element:hover .TopFilms-Overlay{
+	opacity: 0.75;
+}
+
+.TopFilms-Overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: orange;
+}
+
+.TopFilms-OverlayText{
+	color: white;
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+/*-----------------------------------------------------------------------*/
+.Youtube-Video{
+	height: 800px;
+    width: 1200px;
+}

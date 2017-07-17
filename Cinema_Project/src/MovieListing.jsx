@@ -34,7 +34,7 @@ export default class MovieListing extends React.Component {
 						</div>
 
 						<div className="MovieListing-BookingButton">
-							<button className="standard-button"><Link to={filmUrl}>BOOK</Link></button>
+							<button className="btn btn-info"><Link to={filmUrl}>BOOK</Link></button>
 						</div>
 						
 						<div>

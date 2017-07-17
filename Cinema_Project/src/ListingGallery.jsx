@@ -35,7 +35,6 @@ export default class ListingGallery extends React.Component{
                 </div>
 			</div>	
 		);
-		
 	}
 	
 	handleSearchInput (filterText){
@@ -54,6 +53,4 @@ export default class ListingGallery extends React.Component{
 	_onChange() {	
 		this.setState({movies: CinemaStore.getFilteredMovies()});
 	}
-	
-	
 }

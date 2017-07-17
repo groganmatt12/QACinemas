@@ -28,6 +28,14 @@ export default class Sort extends React.Component{
 							onChange = {this.handleMovieSearchChange}
 						/>
 						
+						{/*<div className="genreDropdown">
+							<button className="btn btn-default dropdown-toggle" 
+							type="button"
+							data-toggle="dropdown">Select Genre</button>  
+							<ul className="dropdown-menu" role="menu">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Comedy</a></li> 
+							</ul>
+						</div>*/}
 					</form>
 					</div>
 				</div>

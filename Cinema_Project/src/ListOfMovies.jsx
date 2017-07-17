@@ -12,7 +12,7 @@ export default class ListOfMovies extends React.Component {
 				<MovieListing key={i} id={i} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} classification={movieArr[i].classification}/>
 			);
 		}
-
+		
 		
 		return(
 			<div>

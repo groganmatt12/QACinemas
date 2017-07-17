@@ -11,14 +11,14 @@ class CinemaStore extends EventEmitter {
 	
 	  constructor() {
         super();
-	
+
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;
-		this.showings = showingsJson.showingTimes;
-		
+		this.showings = showingsJson.showingTimes;		
 		this.filteredMovies = [];
-		}
+		this.moviesByDate=movieJson.movieDetails;
+	}
 
 
 	getAllBookings() {
@@ -45,7 +45,6 @@ class CinemaStore extends EventEmitter {
 					carouselMovies.push(curMovie);
 				}
 			}
-	
 	return carouselMovies;
 	}	
 
@@ -95,7 +94,7 @@ class CinemaStore extends EventEmitter {
   
 	getMoviesByRelease(){
 		
-		let sortArray = this.movies;
+		let sortArray = this.movies.slice();
 		for(let i=0 ; i<sortArray.length; i++){
 			for(let j=i; j<sortArray.length; j++){
 			
@@ -111,7 +110,8 @@ class CinemaStore extends EventEmitter {
 			}
 		}
 		sortArray.reverse();
-		return sortArray;
+		this.moviesByDate = sortArray;
+		return this.moviesByDate;
 	}
 	
 	getShowingByIndex(index){

@@ -39,7 +39,7 @@ export default class Sort extends React.Component{
 						/>
                         <div className="checkbox">
                             <label><input type="checkbox" value=""></input></label>
-                        </div>
+                        </div>						
 					</form>
 					</div>
 				</div>

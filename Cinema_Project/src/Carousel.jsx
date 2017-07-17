@@ -1,5 +1,6 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
+import {Link} from 'react-router';
 
 export default class Carousel extends React.Component{
 
@@ -43,16 +44,19 @@ export default class Carousel extends React.Component{
 		
 		let tempImgArray=[];
 		let path0="/images/"+initArray[0].carousel;
+		let initialLink = "MovieDetails/" + initArray[0].id;
 		
-		tempImgArray.push(<div key ={0} className="item active"><img className="d-block img-fluid" src={path0}  alt="first slide"></img></div>);
+		tempImgArray.push(<div key ={0} className="item active"><Link to={initialLink}><img className="d-block img-fluid" src={path0}  alt="first slide"></img></Link></div>);
 		
 		for(let i=1; i< initArray.length; i++){
-			
+			let filmUrl = "MovieDetails/" + initArray[i].id;
 			let path="/images/"+initArray[i].carousel;
 			 
 			tempImgArray.push(
 				<div key={i} className="item">
+					<Link to={filmUrl}>
                         <img className='d-block img fluid' src={path} alt="{i} slide"></img>
+					</Link>
                 </div>
 			)
 		}	 

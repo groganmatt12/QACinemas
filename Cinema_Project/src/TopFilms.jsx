@@ -1,5 +1,6 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
+import {Link} from 'react-router';
 
 export default class TopFilms extends React.Component{
      
@@ -24,30 +25,33 @@ export default class TopFilms extends React.Component{
         let tempImgArray = [];
 		let tempNameArray=[];
 		let num = (this.props.rowNum*3)+1;
-        console.log("hello");
-        console.log(movObjArrayByDate);
+        
+        
         for(let i=num; i<num+3; i++){
            
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex=i+1;
             let curClassName="popular_film_"+curFilmIndex+" popular_film_type popular_film";
-            
-            
+            let filmUrl = "MovieDetails/" + movObjArrayByDate[i].id;
+			
+            console.log(movObjArrayByDate.overlayText);
             tempImgArray.push(
                 <div className="col-sm-4 popular_film_panels" key={i}>
-					<div className={curClassName}>
-						<img src={path} alt="topfilm {i}"/>
-						<div className="overlay">
-							<div className="overlayText">
-								Testing description
+					<Link to={filmUrl}>
+						<div className={curClassName}>
+							<img src={path} alt="topfilm {i}"/>
+							<div className="overlay">
+								<div className="overlayText">
+									{movObjArrayByDate[i].overlayText}
+								</div>
 							</div>
 						</div>
-					</div>
+					</Link>
 				</div>	
             );
         }
 		tempNameArray.push(
-			<div>
+			<div key={num}>
 				<div className="col-sm-4">
                     <p>{movObjArrayByDate[num].name}</p>
                 </div>
@@ -74,7 +78,7 @@ export default class TopFilms extends React.Component{
 
 
     render(){
-        console.log(this.state.arrayOfTopFilms)
+        
         return(
 
             <div className="container topFilmGrouping">

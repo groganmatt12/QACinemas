@@ -1,20 +1,27 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
+import {Link} from 'react-router';
 
 export default class Offers extends React.Component{
 
     constructor(){
         super();
         this.state = {
-            newestRelease: ""
+            newestRelease: "",
+            newestReleaseName: "",
+			newestId:''
         };
     }
 
 
     componentWillMount(){
+		
         let newest = CinemaStore.getMoviesByRelease()[0].image;
+        let newestName = CinemaStore.getMoviesByRelease()[0].name;
+		let newId =  CinemaStore.getMoviesByRelease()[0].id;
         this.setState({newestRelease: newest});
-
+        this.setState({newestReleaseName: newestName});
+		this.setState({newestId: newId});
     }
 
 
@@ -24,7 +31,8 @@ export default class Offers extends React.Component{
         let offer2 = "./images/offers/2001offer.jpg";
 
         let newestPath = "./images/"+this.state.newestRelease;
-
+		let path = "MovieDetails/" + this.state.newestId;
+		
         return(
 
             <div className="Container" id="offerParent">
@@ -60,9 +68,10 @@ export default class Offers extends React.Component{
 
                     <div className="col-sm-4 offerDivs offerPanels">
                         <div className="offers">
-                            <img src={newestPath} alt="offer1 top film" />
-                            <p>2001</p>
-
+							<Link to = {path} >
+								<img src={newestPath} alt="offer1 top film" />
+								<p>{this.state.newestReleaseName}</p>
+							</Link>
                         </div>
                     </div>	
                 </div>

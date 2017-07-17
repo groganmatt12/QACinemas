@@ -3,17 +3,23 @@
 	background-color: green;
 }
 
-/*MovieListing.jsx*/
-#movImage {
-    display: inline;
-    height: 6em;
-    width: 6em;
+/*MovieListing.jsx
+1.481:1*/
+.movImage {
+    height: 14.81em;
+    width: 10em;
+    background: green;
 }
 
-.imgStyle{
+.movImage img{
+	height: 100%;
+	width: 100%;
+}
+
+/*.imgStyle{
 	height: 10em;
 	width: 10em;
-}
+}*/
 
 #movName{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

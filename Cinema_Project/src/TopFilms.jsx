@@ -14,7 +14,7 @@ export default class TopFilms extends React.Component{
     }
 
 	componentWillMount(){
-        console.log("Hello");
+       
         this.generateTopFilmDivs(); 
 		this.generateTitle();
 		
@@ -34,7 +34,7 @@ export default class TopFilms extends React.Component{
             let curClassName="popular_film_"+curFilmIndex+" popular_film_type popular_film";
             let filmUrl = "MovieDetails/" + movObjArrayByDate[i].id;
 			
-            console.log(movObjArrayByDate.overlayText);
+            
             tempImgArray.push(
                 <div className="col-sm-4 popular_film_panels" key={i}>
 					<Link to={filmUrl}>

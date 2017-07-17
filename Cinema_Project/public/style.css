@@ -4,6 +4,7 @@
 	background-image: url('images/background.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background-repeat
 	max-width: 100%;
 	-webkit-filter: brightness(95%); /*Safari*/
 	filter: brightness(95%);
@@ -58,7 +59,9 @@
 /*-----------------------------------------------------------------------*/
 .header{}
 
-.Home-Carousel{}
+.Home-Carousel{
+	width:100%;
+}
 
 .Home-OfferRow{
 	height: 40em;
@@ -85,6 +88,7 @@
 
 .Home-QuickBookRow{
 	padding-bottom: 2em;
+	width: 100%;
 }
 /*-----------------------------------------------------------------------*/
 .ListingGallery-ListOfFilms{
@@ -242,12 +246,11 @@
 }
 /*-----------------------------------------------------------------------*/
 .Quick-Book-Bar{
-    height: 5%;
-    height: 5%;
+
     background-color: rgba(0, 0, 0, 0.57);
     text-align: center;
-	width: 40%;
-	left:30%;
+	width: 100%;
+
 }
 
 .Quick-Book-Bar-Contents select{
@@ -351,3 +354,12 @@
 	height: 50%;
     width: 70%;
 }
+
+
+
+/*
+@media screen and (max-width: 530px){
+	.Quick-Book-Bar{
+		visibility:hidden;
+	}
+}*/

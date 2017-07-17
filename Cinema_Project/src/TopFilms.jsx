@@ -84,6 +84,7 @@ export default class TopFilms extends React.Component{
                 </div>
                 <div className="row TopFilms-Row">
                     {this.state.arrayOfTopFilms}
+
                 </div>
                 
                 <div className="row TopFilms-Title">

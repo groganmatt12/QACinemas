@@ -139,9 +139,17 @@ class CinemaStore extends EventEmitter {
 			case "FILTER_SEARCH":
 				this.filterMoviesBySearch(action.searchParameters);
 				break;
+			case "GENRE_SEARCH":
+				this.filterMoviesByGenre(action.genreArray);
+				break;
 			default:
 				break;
 		}
+	}
+
+	filterMoviesByGenre(genreArray){
+		
+
 	}
     
     generateGenreList() {

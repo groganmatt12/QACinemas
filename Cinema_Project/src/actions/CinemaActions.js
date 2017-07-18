@@ -7,3 +7,10 @@ export function filterMoviesBySearch(searchParameters) {
         searchParameters,
     });
 }
+
+export function filterMoviesByGenre(genreArray){
+	dispatcher.dispatch({
+		type: "GENRE_SEARCH",
+		genreArray,
+	});
+}

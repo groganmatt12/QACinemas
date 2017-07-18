@@ -1,6 +1,6 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
-
+import Checkbox from './Checkbox';
 
 export default class Sort extends React.Component{
 	constructor(props){
@@ -25,19 +25,28 @@ export default class Sort extends React.Component{
         this.setState({ genres: genreList});
         
         let displayArray = [];
-        console.log(genreList);
+        /*<div key={i} className="checkbox"><label><input type="checkbox" onChange={this.handleCheckboxChange.bind(this)}></input>{genreList[i]}</label></div>*/
+            /*<Checkbox label={genreList[i]} key={i} />*/
         for(let i = 0; i < genreList.length; i++){
-            displayArray.push(<div key={i} className="checkbox"><label><input type="checkbox"></input>{genreList[i]}</label></div>);
-            console.log(i);
+            let genreName = genreList[i];
+            console.log(genreList[i]);
+            displayArray.push(
+                <Checkbox label={genreName} key={genreName} handleCheckboxChange={this.onToggle.bind(this)} />
+            );
+
         }
         this.setState({ genre_objects: displayArray });
     }
     
     componentWillMount() {
-        
         this.generateCheckboxes();
     }
 	
+    onToggle(){
+        
+    }
+
+
     render(){
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">
@@ -58,6 +67,7 @@ export default class Sort extends React.Component{
                             <h4>Filter by Genre...</h4>
                             {this.state.genre_objects}
                         </div>
+
 					</form>
 					</div>
 				</div>

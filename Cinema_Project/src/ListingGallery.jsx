@@ -23,7 +23,7 @@ export default class ListingGallery extends React.Component{
 		
 		return(
 			<div className="parentContainer">
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} onGenreCheckInput={this.handleGenreCheck}/>
 				<br />
 
 				<div className="container ListOfMovies">
@@ -37,6 +37,11 @@ export default class ListingGallery extends React.Component{
 		
 	}
 	
+	handleGenreCheck(genreArray){
+/*		console.log(genreArray);
+*/		CinemaActions.filterMoviesByGenre(genreArray);
+	}
+
 	handleSearchInput (filterText){
 		this.setState({filterText});
 		CinemaActions.filterMoviesBySearch(filterText);

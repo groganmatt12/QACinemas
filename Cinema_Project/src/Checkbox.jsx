@@ -3,43 +3,39 @@ import CinemaStore from './store/CinemaStore';
 
 export default class Checkbox extends React.Component{
 
-	contructor(){
+	constructor(){
+		super();
 		this.state = {
-			isChecked: false,
-			genreArray: []
+			isChecked: false
 		};
 	}
 
 	onToggle(){
-		console.log(this.props.label);
-		let curCheck = this.state.isChecked;
-		this.setState({isChecked: !curCheck});
 
-		let testSet = new Set([]);
+		this.setState({isChecked: !(this.state.isChecked)})
+		let curLabel = this.props.label;
+		let curCheck = !(this.state.isChecked);
+
 		if(curCheck == true){
-			this.props.handleCheckboxChange(this.props.label);
-		
+/*			console.log(curLabel + " is checked");*/
+			this.props.handleCheckboxChange(curLabel, true);	
 		}
-		if(curCheck != true){
-			
+		if(curCheck == false){
+			this.props.handleCheckboxChange(curLabel, false);
 		}
-	}
 
-	componentWillMount(){
-		this.setState({isChecked: false});
 	}
-
 
 	render(){
-		const isChecked  = this.state.isChecked;
-		console.log("?"+isChecked);
+/*		console.log("b"+this.state.isChecked);*/
+
 		return(
 			<div className="checkbox">
 				<label>
 					<input
 						type="checkbox"
 						value={this.props.label}
-						checked={isChecked}
+						checked={this.state.isChecked}
 						onChange={this.onToggle.bind(this)}
 					/>
 					{this.props.label}

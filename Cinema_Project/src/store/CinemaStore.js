@@ -148,7 +148,34 @@ class CinemaStore extends EventEmitter {
 	}
 
 	filterMoviesByGenre(genreArray){
-		
+
+		this.filteredMovies = [];
+		let tempSet = new Set([]);
+		this.movies.forEach((movie) => {
+			let curMovGenres = movie.genre;
+
+			for(let i=0; i<curMovGenres.length; i++){
+				for(let j=0; j<genreArray.length; j++){
+					if(genreArray[j] == curMovGenres[i]){
+						tempSet.add(movie);
+						//console.log(tempSet);
+						console.log(Array.from(tempSet));
+						{this.filteredMovies = Array.from(tempSet)}
+					}
+				}
+			}		
+
+		});
+
+		if(this.filteredMovies.length == 0){
+			this.movies.forEach((movie) => {
+				{this.filteredMovies.push(movie)}
+			});
+		}
+		this.emit("moviesChange");
+	}
+
+	checkIfMovieExists(movie){
 
 	}
     

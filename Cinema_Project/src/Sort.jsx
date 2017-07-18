@@ -53,13 +53,13 @@ export default class Sort extends React.Component{
                     if(tempArray[i] != label){
                         check = true;
                     }
-                    else{
+/*                    else{
                         check = false;
                         console.log(tempArray[i] +"equals"+label);
                         tempArray.splice(i, 1);
                         console.log(tempArray);
                         break;
-                    }
+                    }*/
                 }
             }
 
@@ -85,7 +85,7 @@ export default class Sort extends React.Component{
                 }
             }
         }
-
+        
         this.props.onGenreCheckInput(tempArray);
     }
 

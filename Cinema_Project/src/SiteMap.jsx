@@ -6,7 +6,7 @@ export default class SiteMap extends React.Component{
         return(
             <div>
             <p>Site Map:</p>
-            <table id="site_map_table">
+            <table className="Site-Map-Table">
               <tr>
                 <td><Link to="/">Home</Link></td>
                 <td><Link to="/ListingGallery">Listing Gallery</Link></td>

@@ -35,7 +35,7 @@ export default class Booking extends React.Component{
         return(
 		
 			<div>
-				<div className="filmName">
+				<div className="Booking-Film-Name">
 					<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
 				</div>
 				
@@ -49,10 +49,10 @@ export default class Booking extends React.Component{
 				
 				<div>
 					<p>Quantity&nbsp;
-					<input type="text" value={this.state.ticketQuantity} className="quantity-box" disabled/>
+					<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
 					</p>
-					<button className="btn btn-default" onClick={this.increment.bind(this)}>+1</button>
-					<button className="btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
+					<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
+					<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 				</div>
 				<br></br>
 				

@@ -23,10 +23,11 @@ export default class ListingGallery extends React.Component{
 		
 		return(
 			<div className="parentContainer">
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} />
+
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} onGenreCheckInput={this.handleGenreCheck}/>
 				<br />
 
-				<div className="container ListOfMovies">
+				<div className="container ListingGallery-ListOfFilms">
 					<ListOfMovies movies={this.state.movies} target={this.props.target} />
 				</div>
 				<div>
@@ -34,9 +35,13 @@ export default class ListingGallery extends React.Component{
                 </div>
 			</div>	
 		);
-		
 	}
 	
+	handleGenreCheck(genreArray){
+/*		console.log(genreArray);
+*/		CinemaActions.filterMoviesByGenre(genreArray);
+	}
+
 	handleSearchInput (filterText){
 		this.setState({filterText});
 		CinemaActions.filterMoviesBySearch(filterText);
@@ -44,7 +49,6 @@ export default class ListingGallery extends React.Component{
 	
 	componentWillMount(){
 		CinemaStore.on("moviesChange", this._onChange);		
-		
 	}
 	
 	componentWillUnmount() {
@@ -54,6 +58,4 @@ export default class ListingGallery extends React.Component{
 	_onChange() {	
 		this.setState({movies: CinemaStore.getFilteredMovies()});
 	}
-	
-	
 }

@@ -28,7 +28,9 @@ export default class MovieDetails extends React.Component{
             
         }
     }
-    
+    componentDidMount () {
+		window.scrollTo(0, 0)
+	}
 
 
     render(){
@@ -36,7 +38,7 @@ export default class MovieDetails extends React.Component{
         
         return(
             <div className="container" >
-                <div className="row">
+                <div className="row MovieDetails-Heading">
 				
                     <div className="col-sm-12">
 						<h3>Movie Details:</h3>
@@ -46,27 +48,31 @@ export default class MovieDetails extends React.Component{
 					
                 </div>
 				
-                <div className="row"> 
-                    <div className="col-sm-6" id="rInfo">Movie Info: {this.state.filmInfo}</div>
+                <div className="row "> 
+                    <div className="col-sm-6 MovieDetails-Info">
+						Movie Info: {this.state.filmInfo}
+					</div>
                     
-					<div className="col-sm-6">
+					<div className="col-sm-6 " >
 					
                         <div id="movLoc">
 						</div>
 						
 						<div id="movTime"></div>
 					
-					</div>
+				</div>
 				
-                <div className="listingTime" ><Showings movieID={this.props.params.key}/></div>
+                <div className="MovieDetails-ListingTime" >
+					<Showings movieID={this.props.params.key}/>
+				</div>
 				
 				</div>
 
 				<div>
-					<img src={imgLink} alt={this.state.Title} className="imgStyle" />
+					<img src={imgLink} alt={this.state.Title} className="MovieDetails-Img" />
 				</div>
-				<div>
-                    <iframe className="youtube_video" src={this.state.trailerLink}></iframe>
+				<div className="MovieDetails-Trailer-Container">
+                    <iframe className="Youtube-Video" src={this.state.trailerLink}></iframe>
                 </div>
             </div>
 

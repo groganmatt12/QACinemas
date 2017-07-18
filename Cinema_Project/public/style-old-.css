@@ -1,65 +1,53 @@
-/*MovieDetails.jsx*/
-#rInfo{
-	background-color: green;
-}
+/*
 
-/*MovieListing.jsx
-1.481:1*/
-.movImage {
-    height: 14.81em;
-    width: 10em;
-    background: green;
-}
+	#rInfo{
+		background-color: green;
+	}
 
-.movImage img{
-	height: 100%;
-	width: 100%;
-}
 
-/*.imgStyle{
-	height: 10em;
-	width: 10em;
-}*/
+	#movImage {
+		display: inline;
+		height: 6em;
+		width: 6em;
+	}
 
-#movName{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-}
+	.imgStyle{
+		height: 10em;
+		width: 10em;
+	}
 
-.movDescRow{
-	height: 6.250em;
-	background-color: green;
-}
+	#movName{
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 20px;
+	}
 
-#movieListingRow{
-	background-color: #84bcd8;
-	box-shadow: 2px 3px 1px #888888;
-	margin-bottom: 1em;
-}
+	.movDescRow{
+		height: 6.250em;
+		background-color: green;
+	}
 
-/*App.jsx
-* padding-top: 50px if used fixed-top navbar*/
-#domMain{
-		background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
-	/*c0deed*/
-}
+	#movieListingRow{
+		background-color: #84bcd8;
+		box-shadow: 2px 3px 1px #888888;
+		margin-bottom: 1em;
+	}
 
-/*Home.jsx*/
-#homeParent{
-}
 
-/*Header.jsx*/
+	#domMain{
+			background: linear-gradient(90deg, #31032e, rgba(47, 15, 64, 0.77), rgba(0, 0, 0, 0.26), rgba(47, 15, 64, 0.77), #420240) #77146c;
+
+	}
+
 .header{
 }
 
-/*Footer.jsx*/
+
 .footer{
     background-color: rgb(23, 22, 22);
     color: white;
 	text-align: center;
 }
 
-/*Booking.jsx*/
 .quantity-box{
 	height: 1.5em;
 	width: 2em;
@@ -69,20 +57,40 @@
 .listingTime{
 }
 
-/*Navbar.jsx*/
+
 #mainNav{
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
 	margin-bottom: 0;
+	
 }
 
-.carousel-Parent{
+.Navbar{
+
+}
+.navbar-inverse {
+    background-color: rgb(23, 22, 22);
+    border-color: #080808;
+    color: white;
+}
+.navbar-nav li:hover {
+    background-color: darkblue;
+    display: block;
+    text-decoration: none;
+	
+}
+
+.navbar-inverse .Nav-List>li>a {
+    color: white;
+}
+
+.Carousel-Parent{
 	max-width: 70%;
     margin: auto;
 	margin-top:2em;
 }
 
-/*Offers.jsx*/
+
 .offerRow{
 	height: 40em;
 	border-bottom: 2em;
@@ -92,7 +100,7 @@
 	margin-top: 2em;
 	background: rgba(0, 0, 0, 0.25);
 }
-
+*/
 .row{
 
 	
@@ -121,7 +129,7 @@
 	/*background: blue;*/
 }
 
-#offerRow{
+.Offer-Row{
 	height: 100%;
 	background-color: rgba(255,255,255,0);
 /*	border: dotted;
@@ -129,19 +137,15 @@
 }
 
 .offerDivs{
-	width: 33.33%;
-	text-align: center;
 
-/*	border: dashed;*/
 }
 
 .offerPanels{
-/*	border: dashed;*/
 
-	height: 100%;
+	
 }
 
-.offers{
+.offer{
 /*	background-image:url("./images/offers/broffer.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -158,12 +162,12 @@
 	margin: 0 auto;
 }
 
-.offers img{
+.offer img{
 	max-width: 80%;
 	position: relative;
 }
 
-.offers p{
+.offer p{
 	color: #827a7a;
 	font-size: 24px;
 	font-weight: bold;
@@ -173,18 +177,13 @@
 	width: 100%;
 }
 
-#offerText{
-	text-align: center;
-	color: black;
-}
-
 .list-group-item span{
 	color: black;
 }
 
-/*TopFilms.jsx*/
+/*
 .topFilmRow{
-background-color: rgba(255,255,255,0);
+	background-color: rgba(255,255,255,0);
 	padding-top: 1em;
 	padding-bottom: 2em;
 	max-width: 100%;
@@ -192,7 +191,13 @@ background-color: rgba(255,255,255,0);
 	margin-top:2em;
 	margin-bottom:-2em;
 }
+*/
 
+
+.topFilmGrouping{
+	background: rgba(0, 0, 0, 0.25);
+	width:70%;
+}
 .topFilmHeader{
 	text-align: center;
 	font-family: "Roboto", "Helvetica", "FF DIN";
@@ -203,10 +208,7 @@ background-color: rgba(255,255,255,0);
 	background-color: rgba(255,255,255,0);
 	width:100%;
 }
-.topFilmGrouping{
-	background: rgba(0, 0, 0, 0.25);
-	width:70%;
-}
+
 
 #popular_film_headings{
 	font-size: 24px;
@@ -275,10 +277,11 @@ background-color: rgba(255,255,255,0);
 }
 
 
-/*QuickBookBar.jsx*/
+/*
 .quickBookRow{
 	padding-bottom: 2em;
 }
+*/
 
 #quick_book_bar{
     height: 5%;
@@ -315,9 +318,6 @@ background-color: rgba(255,255,255,0);
 	width: 3.6em ;
 }
 
-.bookButton{
-	
-}
 .movieDetailImg{
 	height: 1em;
 	width: 1em;
@@ -341,19 +341,7 @@ background-color: rgba(255,255,255,0);
 }
 
 
-.navbar-inverse {
-    background-color: rgb(23, 22, 22);
-    border-color: #080808;
-    
-}
-.navbar-nav li:hover {
-    background-color: darkblue;
-    display: block;
-    text-decoration: none;
-}
-.navbar-inverse .navbar-nav>li>a {
-    color: white;
-}
+
 
 /*Carousel.jsx*/
 .carousel-inner img{
@@ -382,9 +370,4 @@ background-color: rgba(255,255,255,0);
 .youtube_video{
     height: 800px;
     width: 1200px;
-}
-/*Classification*/
-.classification{
-	height: 5%;
-	width: 5%;
 }

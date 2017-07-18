@@ -16,30 +16,31 @@ export default class MovieListing extends React.Component {
 
         return(
 
-            <div className="row" id="movieListingRow">
-					<div className="col-sm-4">
-						
-						<div id="movName">
+            <div className="row MovieListing-Row">
+					<div className="col-sm-4 MovieListing-NameAndImage">
+					
+						<div className="MovieListing-MovieName">
 							{this.props.name}
 						</div>
 
-						<div className="movImage">
-							<img src={imgLink} alt={this.props.name} className="imgStyle" />
-						</div>
-							
-						<div className="bookButton">
-							<button><Link to={filmUrl}>BOOK</Link></button>
+						<div className="MovieListing-MovieImageDiv">
+							<img className="MovieListing-MovieImage" src={imgLink} alt={this.props.name}  />
 						</div>
 
+					</div>
+					
+						<div className="col-sm-8 MovieListing-MovieDescription">
+							{this.props.desc}
+						</div>
+
+						<div className="MovieListing-BookingButton">
+							<button className="btn btn-info"><Link to={filmUrl}>BOOK</Link></button>
+						</div>
+						
 						<div>
-							<img src={classificationURL} className="classificationStyle" />
+							<img src={classificationURL} className="Classification-Img-Style" />
 						</div>
-							
-					</div>
-					<div className="col-sm-8" id="movDesc1">
-						{this.props.desc}
-					</div>
-
+					
 			</div>
         );
     }

@@ -1,15 +1,19 @@
 module.exports = {
-    entry: './scripts/main.js',
+    entry:{
+		Footer: './spec/footerTest.jsx',
+		SiteMap: './spec/siteMapTest.jsx',
+		MovieDetails: './spec/movieDetailsTest.jsx'
+	},
     output: {
         path: __dirname,
-        filename: 'index.js'
+        filename: "./spec/bundles/[name].bundle.js"
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
     devServer: {
         inline: true,
-        port: 8084
+        port: 6969
     },
     module: {
         loaders: [

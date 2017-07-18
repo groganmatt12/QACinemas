@@ -13,9 +13,6 @@ export default class Paypal extends React.Component{
 	}
 		
 	render() {
-
-
-
 		return(
 				<div>
 					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">

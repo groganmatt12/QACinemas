@@ -14,3 +14,10 @@ export function filterMoviesByGenre(genreArray){
 		genreArray,
 	});
 }
+
+export function filterMoviesByClassification(classificationArray){
+	dispatcher.dispatch({
+		type: "CLASS_SEARCH",
+		classificationArray,
+	});
+}

@@ -24,7 +24,7 @@ export default class ListingGallery extends React.Component{
 		return(
 			<div className="parentContainer">
 
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} onGenreCheckInput={this.handleGenreCheck}/>
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} onGenreCheckInput={this.handleGenreCheck} onClassCheckInput={this.handleClassCheck}/>
 				<br />
 
 				<div className="container ListingGallery-ListOfFilms">
@@ -37,6 +37,10 @@ export default class ListingGallery extends React.Component{
 		);
 	}
 	
+	handleClassCheck(classificationArray){
+		CinemaActions.filterMoviesByClassification(classificationArray);
+	}
+
 	handleGenreCheck(genreArray){
 /*		console.log(genreArray);
 */		CinemaActions.filterMoviesByGenre(genreArray);

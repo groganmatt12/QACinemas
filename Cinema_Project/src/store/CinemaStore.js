@@ -20,6 +20,7 @@ class CinemaStore extends EventEmitter {
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
 		this.genres = this.generateGenreList();
+		this.classifications = this.generateClassList();
 	}
 
 	getGenreList() {
@@ -144,10 +145,35 @@ class CinemaStore extends EventEmitter {
 			this.filterMoviesByGenre(action.genreArray);
 			break;
 			default:
+			case "CLASS_SEARCH":
+			this.filterMoviesByClassification(action.classificationArray);
 			break;
 		}
 	}
 
+	filterMoviesByClassification(classificationArray){
+
+		this.filteredMovies = [];
+		let tempArray = [];
+
+		this.movies.forEach((movie) => {
+			let curMovieClass = movie.classification;
+
+			for(let i=0; i<classificationArray.length; i++){
+				if(curMovieClass == classificationArray[i]){
+					tempArray.push(movie);
+					this.filteredMovies = tempArray;
+				}
+			}
+		});
+
+		if(this.filteredMovies.length == 0){
+			this.movies.forEach((movie) => {
+				{this.filteredMovies.push(movie)}
+			});
+		}
+		this.emit("moviesChange");
+	}
 
 	filterMoviesByGenre(genreArray){
 
@@ -189,6 +215,16 @@ class CinemaStore extends EventEmitter {
 		return genreSet;
 	}
 
+	generateClassList(){
+		let classSet = new Set([]);
+		let movieArray = this.movies.slice();
+
+		for(let i = 0; i<movieArray.length; i++){
+			classSet.add(movieArray[i].classification);
+		}
+		let classArray = Array.from(classSet);
+		return classArray;
+	}
 
 }	
 

@@ -1,8 +1,8 @@
 module.exports = {
-    entry: './scripts/main.js',
+    entry: './src/index.js',
     output: {
         path: __dirname,
-        filename: 'index.js'
+        filename: 'public/index.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']

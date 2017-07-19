@@ -30,7 +30,7 @@
     "react-scripts": "^1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node express.js",
     "test": "karma start my.config.js"
   },
   "keywords": [],

@@ -7,10 +7,10 @@ export default class MovieDetails extends React.Component{
     constructor(){
         super();
         this.state = {
-            filmTitle: "",
-            filmInfo: "",
-            filmImage: "",
-            trailerLink: ""
+            filmTitle: "filmTitleDefault",
+            filmInfo: "filmInfoDefault",
+            filmImage: "filmImageDefault",
+            trailerLink: "trailerLinkDefault"
         }
 
     }
@@ -20,12 +20,12 @@ export default class MovieDetails extends React.Component{
         let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
             if(i == filmIndex){
+				
                 this.setState({filmTitle: movieArr[i].name});
                 this.setState({filmInfo: movieArr[i].description});
                 this.setState({filmImage: movieArr[i].image});
                 this.setState({trailerLink: movieArr[i].trailer})
             }
-            
         }
     }
     componentDidMount () {
@@ -41,15 +41,19 @@ export default class MovieDetails extends React.Component{
                 <div className="row MovieDetails-Heading">
 				
                     <div className="col-sm-12">
-						<h3>Movie Details:</h3>
+						<h3>
+							Movie Details:
+						</h3>
                     </div>
 					
-                    <div className="col-sm-12">Movie Name: {this.state.filmTitle}</div>
+                    <div ref="MovieDetails_FilmTitle" className="col-sm-12">
+						Movie Name: {this.state.filmTitle}
+					</div>
 					
                 </div>
 				
                 <div className="row "> 
-                    <div className="col-sm-6 MovieDetails-Info">
+                    <div ref="MovieDetails_FilmInfo" className="col-sm-6 MovieDetails-Info">
 						Movie Info: {this.state.filmInfo}
 					</div>
                     
@@ -62,7 +66,7 @@ export default class MovieDetails extends React.Component{
 					
 				</div>
 				
-                <div className="MovieDetails-ListingTime" >
+                <div  className="MovieDetails-ListingTime" >
 					<Showings movieID={this.props.params.key}/>
 				</div>
 				

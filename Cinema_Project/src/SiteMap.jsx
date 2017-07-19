@@ -5,18 +5,32 @@ export default class SiteMap extends React.Component{
     render() {
         return(
             <div>
-            <p>Site Map:</p>
-            <table className="Site-Map-Table">
-              <tr>
-                <td><Link to="/">Home</Link></td>
-                <td><Link to="/ListingGallery">Listing Gallery</Link></td>
-              </tr>
-              <tr>
-                <td><Link to='/Classification'>Classifications</Link></td>
-              </tr>
-            </table>
+				<p ref="SiteMapParagraph1">Site Map:</p>
+				<table className="Site-Map-Table">
+					<tbody>
+						<tr>
+							<td>
+								<Link to="/">
+									Home
+								</Link>
+							</td>
+							
+							<td>
+								<Link to="/ListingGallery" ref="SiteMapLinkToListingGallery">
+									Listing Gallery
+								</Link>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<Link to='/Classification' ref="SiteMapLinkToClassification">
+									Classifications
+								</Link>
+							</td>
+						</tr>
+					</tbody>
+				</table>
             </div>
-
         );
     }
 }

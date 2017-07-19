@@ -11,15 +11,14 @@ export default class Home extends React.Component{
 			    <div className="row Home-Carousel">
                     <Carousel />
                 </div>
-				<div className="row Home-OfferRow">
+				<div className="row Home-OfferRow Shadow-Box">
 					<Offers />
 				</div>
-                <div className="row Home-TopFilmRow">
+                <div className="row Home-TopFilmRow Shadow-Box">
                     <TopFilms rowNum={0}/>
 					<TopFilms rowNum={1}/>
 					<TopFilms rowNum={2}/>
                 </div>
-				
 				
                 <div className="row Home-QuickBookRow">
                     <QuickBookBar />

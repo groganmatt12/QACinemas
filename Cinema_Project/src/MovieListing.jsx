@@ -16,7 +16,7 @@ export default class MovieListing extends React.Component {
 
         return(
 
-            <div className="row MovieListing-Row">
+            <div className="row MovieListing-Row Shadow-Box">
 					<div className="col-sm-4 MovieListing-NameAndImage">
 					
 						<div className="MovieListing-MovieName">

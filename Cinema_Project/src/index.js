@@ -20,7 +20,6 @@ ReactDOM.render(
 
 			<Route path = "/ListingGallery" component={ListingGallery} />	
 			<Route path = "/MovieDetails" component={MovieDetails} />
-			{/*<Route path = "/Showings/:movieID" component={Showings}/>*/}
 			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>

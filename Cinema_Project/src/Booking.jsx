@@ -34,30 +34,31 @@ export default class Booking extends React.Component{
 		
         return(
 		
-			<div>
-				<div className="Booking-Film-Name">
-					<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
+			<div className="Booking-Parent">
+				<div className="Shadow-Box">
+					<div className="Booking-Film-Name">
+						<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
+					</div>
+					
+					<div>
+						<p>Location: {this.props.location.query.cName}</p>
+					</div>
+					
+					<div>
+						<p>Time: {this.state.showingChoice.showingTime}</p>
+					</div>
+					
+					<div>
+						<p>Quantity&nbsp;
+						<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
+						</p>
+						<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
+						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
+					</div>
+					<br></br>
+					
+					<Paypal price={price}/>
 				</div>
-				
-				<div>
-					<p>Location: {this.props.location.query.cName}</p>
-				</div>
-				
-				<div>
-					<p>Time: {this.state.showingChoice.showingTime}</p>
-				</div>
-				
-				<div>
-					<p>Quantity&nbsp;
-					<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
-					</p>
-					<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
-					<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
-				</div>
-				<br></br>
-				
-				<Paypal price={price}/>
-				
 			</div>
         );
     }

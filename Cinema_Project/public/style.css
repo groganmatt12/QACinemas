@@ -16,6 +16,11 @@
 	height: 1.5em;
 	width: 2em;
 }
+
+.Booking-Parent{
+	height:70%;
+	text-align: center;
+}
 /*-----------------------------------------------------------------------*/
 .Carousel-Parent{
 	max-width: 70%;

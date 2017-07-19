@@ -14530,59 +14530,63 @@ var Booking = function (_React$Component) {
 
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'Booking-Parent' },
 				_react2.default.createElement(
 					'div',
-					{ className: 'Booking-Film-Name' },
+					{ className: 'Shadow-Box' },
 					_react2.default.createElement(
-						'p',
-						null,
-						'Film: ',
-						_CinemaStore2.default.getMovieByIndex(this.state.showingChoice.movieID).name
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'p',
-						null,
-						'Location: ',
-						this.props.location.query.cName
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'p',
-						null,
-						'Time: ',
-						this.state.showingChoice.showingTime
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'p',
-						null,
-						'Quantity\xA0',
-						_react2.default.createElement('input', { type: 'text', value: this.state.ticketQuantity, className: 'Booking-Quantity-box', disabled: true })
+						'div',
+						{ className: 'Booking-Film-Name' },
+						_react2.default.createElement(
+							'p',
+							null,
+							'Film: ',
+							_CinemaStore2.default.getMovieByIndex(this.state.showingChoice.movieID).name
+						)
 					),
 					_react2.default.createElement(
-						'button',
-						{ className: 'Standard-Button btn btn-default', onClick: this.increment.bind(this) },
-						'+1'
+						'div',
+						null,
+						_react2.default.createElement(
+							'p',
+							null,
+							'Location: ',
+							this.props.location.query.cName
+						)
 					),
 					_react2.default.createElement(
-						'button',
-						{ className: 'Standard-Button btn btn-default', onClick: this.decrement.bind(this) },
-						'-1'
-					)
-				),
-				_react2.default.createElement('br', null),
-				_react2.default.createElement(_Paypal2.default, { price: price })
+						'div',
+						null,
+						_react2.default.createElement(
+							'p',
+							null,
+							'Time: ',
+							this.state.showingChoice.showingTime
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'p',
+							null,
+							'Quantity\xA0',
+							_react2.default.createElement('input', { type: 'text', value: this.state.ticketQuantity, className: 'Booking-Quantity-box', disabled: true })
+						),
+						_react2.default.createElement(
+							'button',
+							{ className: 'Standard-Button btn btn-default', onClick: this.increment.bind(this) },
+							'+1'
+						),
+						_react2.default.createElement(
+							'button',
+							{ className: 'Standard-Button btn btn-default', onClick: this.decrement.bind(this) },
+							'-1'
+						)
+					),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement(_Paypal2.default, { price: price })
+				)
 			);
 		}
 	}]);

@@ -12,10 +12,12 @@ export default class Sort extends React.Component{
             genres: [],
             genre_objects: [],
             genre_array: [],
+
             classifications: [],
             classification_objects: [],
             classification_array: []
         };
+
 	}
 	
 	handleMovieSearchChange(){
@@ -43,6 +45,7 @@ export default class Sort extends React.Component{
     componentWillMount() {
         this.generateCheckboxes();
         this.generateClassCheckbox();
+
     }
 	
     onToggleGenre(label, checkState){
@@ -93,6 +96,7 @@ export default class Sort extends React.Component{
         this.props.onGenreCheckInput(tempArray);
     }
 
+
     generateClassCheckbox(){
         let testArray = CinemaStore.generateClassList();
         this.setState({classifications: testArray});
@@ -126,6 +130,7 @@ export default class Sort extends React.Component{
         this.props.onClassCheckInput(newArray);
     }
 
+
     render(){
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">
@@ -153,6 +158,7 @@ export default class Sort extends React.Component{
 					</form>
 					</div>
 				</div>
+
 				</div>
 			</div>
         );

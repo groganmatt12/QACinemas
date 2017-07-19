@@ -4,24 +4,33 @@ import SiteMap from './SiteMap';
 
 export default class Footer extends React.Component{
     render(){
+		let emailAddress = "cinemasqa@gmail.com";
+		let emailSubject = "Hello";
+		let emailLink = "mailto:" + emailAddress + "?Subject=" + emailSubject;
+		let phoneNumber = "06412303344";
+		let phoneLink = "tel:"+ phoneNumber;
+		
         return(
             <div className="footer navbar-static-bottom">
                 <div className="container-fluid">
-                    <p>QA Cinema Blue</p>
+                    <p ref="Footer_Team_Name">
+						QA Cinema Blue
+					</p>
 					<div className="ContactDetails">
 						<p>
-							Email: 
-							
-							<a href="mailto:cinemasqa@gmail.com?Subject=Hello" target="_top">
-								cinemasqa@gmail.com
+							Email:&nbsp;
+							<a ref="Footer_Email" href={emailLink} target="_top">
+								{emailAddress}
 							</a> 
+							
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							Phone Number: 
-							<a href="tel:06412303344">
-								06412303344
+							
+							Phone Number: &nbsp;
+							<a ref="Footer_PhoneNumber" href={phoneLink}>
+								{phoneNumber}
 							</a>
 				        </p>	
-                        <SiteMap></SiteMap>
+                        <SiteMap ref="Footer_SiteMapCall"/>
 					</div>
 				        <hr className="Footer-UnderLine"></hr>
                 </div>

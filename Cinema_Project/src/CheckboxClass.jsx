@@ -6,6 +6,7 @@ export default class CheckboxClass extends React.Component{
 		super();
 		this.state = {
 			isChecked: false
+
 		};
 	}
 
@@ -17,13 +18,12 @@ export default class CheckboxClass extends React.Component{
 
 		this.props.handleCheckboxChange(curClass, curCheck);
 	}
-
-	render(){
 	
+	render(){
 		return(
 			<div className="checkbox">
 				<label>
-					<input
+					<input 
 						type="checkbox"
 						value={this.props.classification}
 						checked={this.state.isChecked}
@@ -35,5 +35,4 @@ export default class CheckboxClass extends React.Component{
 
 		);
 	}
-
 }

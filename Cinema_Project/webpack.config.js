@@ -2,11 +2,12 @@ module.exports = {
     entry:{
 		Footer: './spec/footerTest.jsx',
 		SiteMap: './spec/siteMapTest.jsx',
-		MovieDetails: './spec/movieDetailsTest.jsx'
+		MovieDetails: './spec/movieDetailsTest.jsx',
+		index: './src/index.js'
 	},
     output: {
         path: __dirname,
-        filename: "./spec/bundles/[name].bundle.js"
+        filename: "./public/bundles/[name].bundle.js"
     },
     resolve: {
         extensions: ['.js', '.jsx']

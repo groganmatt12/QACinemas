@@ -17,6 +17,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "devDependencies": {
+    "express": "^4.15.3",
     "jasmine": "^2.6.0",
     "jasmine-core": "^2.6.4",
     "jasmine-react": "^1.1.0",
@@ -29,7 +30,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-	
     "test": "karma start my.config.js"
   },
   "keywords": [],

@@ -29,7 +29,7 @@
     "react-scripts": "^1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

@@ -14928,6 +14928,12 @@ var ListingGallery = function (_React$Component) {
 	_createClass(ListingGallery, [{
 		key: 'render',
 		value: function render() {
+			var movieArr = this.state.movies;
+			var array = [];
+
+			for (var i = 0; i < movieArr.length; i++) {
+				array.push(_react2.default.createElement(MovieListing, { key: i, id: movieArr[i].id, name: movieArr[i].name, img: movieArr[i].image, desc: movieArr[i].description, classification: movieArr[i].classification }));
+			}
 
 			return _react2.default.createElement(
 				'div',
@@ -14937,7 +14943,7 @@ var ListingGallery = function (_React$Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'container ListingGallery-ListOfFilms' },
-					_react2.default.createElement(_ListOfMovies2.default, { movies: this.state.movies, target: this.props.target })
+					array
 				),
 				_react2.default.createElement(
 					'div',

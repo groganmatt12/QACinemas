@@ -20,6 +20,14 @@ export default class ListingGallery extends React.Component{
 	
 	
 	render(){
+		let movieArr = this.state.movies;
+		let array = [];
+		
+		for(let i = 0; i < movieArr.length; i++){
+			array.push(
+				<MovieListing key={i} id={movieArr[i].id} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} classification={movieArr[i].classification}/>
+			);
+		}
 		
 		return(
 			<div className="parentContainer">
@@ -28,7 +36,7 @@ export default class ListingGallery extends React.Component{
 				<br />
 
 				<div className="container ListingGallery-ListOfFilms">
-					<ListOfMovies movies={this.state.movies} target={this.props.target} />
+					{array}
 				</div>
 				<div>
                     <QuickBookBar />

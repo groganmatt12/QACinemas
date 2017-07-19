@@ -20,6 +20,7 @@ class CinemaStore extends EventEmitter {
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
 		this.genres = this.generateGenreList();
+		this.classification = this.generateClassList();
 	}
 
 	getGenreList() {
@@ -138,16 +139,40 @@ class CinemaStore extends EventEmitter {
 	handleActions(action) {
 		switch(action.type) {
 			case "FILTER_SEARCH":
-			this.filterMoviesBySearch(action.searchParameters);
+				this.filterMoviesBySearch(action.searchParameters);
 			break;
 			case "GENRE_SEARCH":
-			this.filterMoviesByGenre(action.genreArray);
+				this.filterMoviesByGenre(action.genreArray);
 			break;
+			case "CLASS_SEARCH":
+				this.filterMoviesByClassification(action.classArray);
 			default:
 			break;
 		}
 	}
 
+	filterMoviesByClassification(classArray){
+		this.filteredMovies = [];		
+		let tempArray = [];
+		
+		this.movies.forEach((movie) => {
+			let curMovieClass = movie.classification;
+			
+			for(let i = 0; i < classArray.length; i++){
+				if(curMovieClass == classArray[i]){
+					tempArray.push(movie);
+					this.filteredMovies = tempArray;
+				}
+			}
+		});
+		
+		if(this.filteredMovies.length == 0){
+			this.movies.forEach((movie) => {
+				{this.filteredMovies.push(movie)}
+			});
+		}
+		this.emit("moviesChange");
+	}
 
 	filterMoviesByGenre(genreArray){
 
@@ -160,7 +185,6 @@ class CinemaStore extends EventEmitter {
 				for(let j=0; j<genreArray.length; j++){
 					if(genreArray[j] == curMovGenres[i]){
 						tempSet.add(movie);
-						//console.log(tempSet);
 						console.log(Array.from(tempSet));
 						{this.filteredMovies = Array.from(tempSet)}
 					}
@@ -187,6 +211,17 @@ class CinemaStore extends EventEmitter {
 			}
 		}
 		return genreSet;
+	}
+	
+	generateClassList(){
+		let classSet = new Set([]);
+		let movieArray = this.movies.slice();
+		
+		for(let i = 0; i < movieArray.length; i++){
+			classSet.add(movieArray[i].classification);
+		}
+		let classArray = Array.from(classSet);
+		return classArray;
 	}
 
 

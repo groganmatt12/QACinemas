@@ -13,24 +13,15 @@ import Classification from './Classification';
 
 
 
-/*
-	const listingGallery = "/ListingGallery";
-	const movieDetails = "MovieDetails/";
-	const showings = "/Showings/";
-	const booking = "/Booking/";
-	const confimation = "/Confimation/";
-	const contactUs = "/contactUs/"
-*/
-
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
 
 			<Route path = "/ListingGallery" component={ListingGallery} />	
-			<Route path = "/MovieDetails/:key" component={MovieDetails} />
-			<Route path = "/Showings/:movieID" component={Showings}/>
-			<Route path = "/Booking/:showingID" component={Booking} />
+			<Route path = "/MovieDetails" component={MovieDetails} />
+			{/*<Route path = "/Showings/:movieID" component={Showings}/>*/}
+			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
 			{/*<Route path = "/ContactUs" component={ContactUs} />*/}

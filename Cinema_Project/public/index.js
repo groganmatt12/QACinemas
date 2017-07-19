@@ -8769,14 +8769,14 @@ var Showings = function (_React$Component) {
 
 			var activeShowings = this.state.showingInfo.map(function (showingDetails, showingIndex) {
 				if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID) {
-					var bookingURL = "Booking/" + showingIndex;
+					var bookingURL = "Booking";
 
 					return _react2.default.createElement(
 						'button',
 						{ type: 'button', className: 'btn btn-info', key: showingIndex },
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ to: { pathname: bookingURL, query: { cName: self.state.selection } } },
+							{ to: { pathname: bookingURL, query: { cName: self.state.selection, index: showingIndex } } },
 							showingDetails.showingTime
 						),
 						' '
@@ -14502,7 +14502,7 @@ var Booking = function (_React$Component) {
 
 		_this.state = {
 			ticketQuantity: 0,
-			showingChoice: _CinemaStore2.default.getShowingByIndex(_this.props.params.showingID)
+			showingChoice: _CinemaStore2.default.getShowingByIndex(_this.props.location.query.index)
 		};
 		return _this;
 	}
@@ -14896,6 +14896,10 @@ var _QuickBookBar = __webpack_require__(47);
 
 var _QuickBookBar2 = _interopRequireDefault(_QuickBookBar);
 
+var _MovieListing = __webpack_require__(134);
+
+var _MovieListing2 = _interopRequireDefault(_MovieListing);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -14932,7 +14936,7 @@ var ListingGallery = function (_React$Component) {
 			var array = [];
 
 			for (var i = 0; i < movieArr.length; i++) {
-				array.push(_react2.default.createElement(MovieListing, { key: i, id: movieArr[i].id, name: movieArr[i].name, img: movieArr[i].image, desc: movieArr[i].description, classification: movieArr[i].classification }));
+				array.push(_react2.default.createElement(_MovieListing2.default, { key: i, id: movieArr[i].id, name: movieArr[i].name, img: movieArr[i].image, desc: movieArr[i].description, classification: movieArr[i].classification }));
 			}
 
 			return _react2.default.createElement(
@@ -15040,7 +15044,7 @@ var MovieDetails = function (_React$Component) {
     _createClass(MovieDetails, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            var filmIndex = this.props.params.key;
+            var filmIndex = this.props.location.query.filmID;
             var movieArr = _CinemaStore2.default.getAllMovies();
             for (var i = 0; i < movieArr.length; i++) {
                 if (i == filmIndex) {
@@ -15596,7 +15600,7 @@ var MovieListing = function (_React$Component) {
 
 			var imgLink = "images/" + this.props.img;
 
-			var filmUrl = "MovieDetails/" + this.props.id;
+			var filmUrl = "MovieDetails";
 
 			var classificationURL = "images/classifications/" + this.props.classification + ".png";
 
@@ -15630,7 +15634,7 @@ var MovieListing = function (_React$Component) {
 						{ className: 'btn btn-info' },
 						_react2.default.createElement(
 							_reactRouter.Link,
-							{ to: filmUrl },
+							{ to: { pathname: filmUrl, query: { filmID: this.props.id } } },
 							'BOOK'
 						)
 					)
@@ -16542,15 +16546,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /*import ContactUs from './ContactUs';*/
 
-/*
-	const listingGallery = "/ListingGallery";
-	const movieDetails = "MovieDetails/";
-	const showings = "/Showings/";
-	const booking = "/Booking/";
-	const confimation = "/Confimation/";
-	const contactUs = "/contactUs/"
-*/
-
 _reactDom2.default.render(_react2.default.createElement(
 	_reactRouter.Router,
 	{ history: _reactRouter.browserHistory },
@@ -16559,9 +16554,8 @@ _reactDom2.default.render(_react2.default.createElement(
 		{ path: '/', component: _App2.default },
 		_react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/ListingGallery', component: _ListingGallery2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/MovieDetails/:key', component: _MovieDetails2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/Showings/:movieID', component: _Showings2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/Booking/:showingID', component: _Booking2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/MovieDetails', component: _MovieDetails2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/Booking', component: _Booking2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Classification', component: _Classification2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Confimation/:showingID/:quantity', component: _Confirmation2.default })
 	)

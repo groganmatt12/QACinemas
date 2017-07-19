@@ -4,6 +4,7 @@ import Sort from './Sort';
 import * as CinemaActions from './actions/CinemaActions';
 import ListOfMovies from './ListOfMovies';
 import QuickBookBar from './QuickBookBar';
+import MovieListing from './MovieListing';
 
 export default class ListingGallery extends React.Component{
 	constructor(props){
@@ -35,6 +36,7 @@ export default class ListingGallery extends React.Component{
 				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} onGenreCheckInput={this.handleGenreCheck}/>
 				<br />
 
+					
 				<div className="container ListingGallery-ListOfFilms">
 					{array}
 				</div>

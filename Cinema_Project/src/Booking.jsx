@@ -9,7 +9,7 @@ export default class Booking extends React.Component{
 		
 		this.state = {
 			ticketQuantity: 0,
-		showingChoice: CinemaStore.getShowingByIndex(this.props.params.showingID)
+		showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
 		}
 	}
 	

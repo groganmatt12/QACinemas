@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class CheckboxClass extends React.Component{
+export default class CheckboxClassification extends React.Component{
 
 	constructor(){
 		super();

@@ -1,7 +1,7 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
 import Checkbox from './Checkbox';
-import CheckboxClass from './CheckboxClass';
+import CheckboxClassification from './CheckboxClassification';
 
 export default class Sort extends React.Component{
 	constructor(props){
@@ -22,7 +22,7 @@ export default class Sort extends React.Component{
 	
 	componentWillMount() {
         this.generateCheckboxes();
-        this.generateClassCheckbox();
+        this.generateClassificationCheckbox();
 
     }
 	
@@ -45,22 +45,21 @@ export default class Sort extends React.Component{
         this.setState({ genre_objects: arrayOfRequiredGenres });
     }
 /*------------------------------------*/
-    generateClassCheckbox(){
-        let testArray = CinemaStore.generateClassList();
+    generateClassificationCheckbox(){
+        let testArray = CinemaStore.generateClassificationList();
         this.setState({classifications: testArray});
 
-        let arrayOfClassComp = [];
+        let arrayOfClassificationComp = [];
         for(let i = 0; i<testArray.length; i++){
-            let curClass = testArray[i];
-            console.log(curClass);
-            arrayOfClassComp.push(
-                <CheckboxClass classification={curClass} key={i+curClass} handleCheckboxChange={this.onToggleClass.bind(this)}/>
+            let curClassification = testArray[i];
+            arrayOfClassificationComp.push(
+                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)}/>
             );
         }
-        this.setState({classification_objects: arrayOfClassComp});
+        this.setState({classification_objects: arrayOfClassificationComp});
     }
 
-    onToggleClass(classification, checkState){
+    onToggleClassification(classification, checkState){
 
         let tempArray = this.state.classification_array;
         let tempSet = new Set(tempArray);
@@ -75,7 +74,7 @@ export default class Sort extends React.Component{
         let newArray = Array.from(tempSet);
         this.setState({classification_array: newArray}, () => console.log(this.state.classification_array));
 
-        this.props.onClassCheckInput(newArray);
+        this.props.onClassificationCheckInput(newArray);
     }
 
 	onToggleGenre(label, checkState){

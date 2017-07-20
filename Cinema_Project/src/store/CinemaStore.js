@@ -20,7 +20,7 @@ class CinemaStore extends EventEmitter {
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
 		this.genres = this.generateGenreList();
-		this.classification = this.generateClassList();
+		this.classification = this.generateClassificationList();
 
 	}
 
@@ -159,10 +159,10 @@ class CinemaStore extends EventEmitter {
 		let tempArray = [];
 		
 		this.movies.forEach((movie) => {
-			let curMovieClass = movie.classification;
+			let curMovieClassification = movie.classification;
 			
 			for(let i = 0; i < classArray.length; i++){
-				if(curMovieClass == classArray[i]){
+				if(curMovieClassification == classArray[i]){
 					tempArray.push(movie);
 					this.filteredMovies = tempArray;
 				}
@@ -216,7 +216,7 @@ class CinemaStore extends EventEmitter {
 		return genreSet;
 	}
 	
-	generateClassList(){
+	generateClassificationList(){
 		let classSet = new Set([]);
 		let movieArray = this.movies.slice();
 		
@@ -227,18 +227,6 @@ class CinemaStore extends EventEmitter {
 		return classArray;
 	}
 
-	generateClassList(){
-		let classSet = new Set([]);
-		let movieArray = this.movies.slice();
-
-		for(let i = 0; i<movieArray.length; i++){
-			classSet.add(movieArray[i].classification);
-		}
-		let classArray = Array.from(classSet);
-		return classArray;
-	}
-
-}	
 
 
 const cinemaStore = new CinemaStore();

@@ -10,12 +10,45 @@
 	filter: brightness(95%);
 }
 /*-----------------------------------------------------------------------*/
+.Error_Page{
+	text-align:center;
+	color:white;
+	height:70%;
+	margin-top: -1.4em;
+
+}
+
+.Error_Page_Text{
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 45%;
+}
+/*-----------------------------------------------------------------------*/
 .Booking-Film-Name{}
 
+.Booking-Group{
+	text-align: center;
+    color: white;
+	
+	margin-right: 30%;
+    margin-left: 30%;
+	height:70%;
+	
+}
+
+.Booking-Test{
+
+}
 .Booking-Quantity-box{
 	height: 1.5em;
 	width: 2em;
+    color: black;
 }
+
 /*-----------------------------------------------------------------------*/
 .Carousel-Parent{
 	max-width: 70%;
@@ -269,6 +302,11 @@
 .row{
 }
 /*-----------------------------------------------------------------------*/
+
+.Shadow-Box{
+	background: rgba(0, 0, 0, 0.3);
+}
+
 .Site-Map-Table{
 	border: 1px solid black;
     margin-left: auto;

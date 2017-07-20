@@ -34,7 +34,8 @@ export default class Showings extends React.Component{
 
 		render(){
 	
-	
+	//the page will load an existing url, because it doesnt check the other page
+	//but it will not load from the previous page because then it DOES check for the query
 
 		
 		let self = this;

@@ -17,9 +17,11 @@ class CinemaStore extends EventEmitter {
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;
 		this.showings = showingsJson.showingTimes;		
-		this.filteredMovies = [];
-		this.moviesByDate=movieJson.movieDetails;
+		this.filteredMovies = sortMoviesByRelease();
+		this.moviesByDate = [];
 		this.genres = this.generateGenreList();
+		
+		
 	}
 
 	getGenreList() {
@@ -97,25 +99,8 @@ class CinemaStore extends EventEmitter {
 		return this.showings;
 	}
 
+	
 	getMoviesByRelease(){
-		
-		let sortArray = this.movies.slice();
-		for(let i=0 ; i<sortArray.length; i++){
-			for(let j=i; j<sortArray.length; j++){
-
-				let a = new Date(sortArray[i].releaseDate);
-				let b = new Date(sortArray[j].releaseDate);
-				
-				if (a>b){
-					let tempObj=sortArray[i];
-					sortArray[i]=sortArray[j]
-					sortArray[j]=tempObj;
-
-				}
-			}
-		}
-		sortArray.reverse();
-		this.moviesByDate = sortArray;
 		return this.moviesByDate;
 	}
 	
@@ -128,6 +113,25 @@ class CinemaStore extends EventEmitter {
 	}
 
 
+	sortMoviesByRelease(){	
+		let sortArray = this.movies.slice();
+		for(let i=0 ; i<sortArray.length; i++){
+			for(let j=i; j<sortArray.length; j++){
+
+				let a = new Date(sortArray[i].releaseDate);
+				let b = new Date(sortArray[j].releaseDate);
+				
+				if (a>b){
+					let tempObj=sortArray[i];
+					sortArray[i]=sortArray[j]
+					sortArray[j]=tempObj;
+				}
+			}
+		}
+		sortArray.reverse();
+		return sortArray;
+	}
+	
 	filterMoviesBySearch(searchParameters) {
 		this.filteredMovies = [];
 		this.movies.forEach((movie) => {

@@ -58,9 +58,16 @@ db.once('open', function callback () {
 		
 });
 
-function getMovieArray(){
-	return MovieArray
-};
+app.get("/test",(req,res)=>{
+	const r = (() => {
+	  return MovieArray;
+  })();
+  if (typeof r !== 'undefined') {
+    res.json(r);
+  } else {
+    res.json([]);
+  }
+});
 
 
 

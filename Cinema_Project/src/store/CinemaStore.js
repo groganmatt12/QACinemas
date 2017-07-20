@@ -133,7 +133,7 @@ class CinemaStore extends EventEmitter {
 	filterMoviesBySearch(searchParameters) {
 		this.filteredMovies = [];
 		this.movies.forEach((movie) => {
-			if(movie.name.indexOf(searchParameters) !== -1) {this.filteredMovies.push(movie);}});
+			if(movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {this.filteredMovies.push(movie);}});
 		this.emit('moviesChange');
 	}
 
@@ -152,7 +152,6 @@ class CinemaStore extends EventEmitter {
 			break;
 		}
 	}
-
 
 	filterMoviesByClassification(classArray){
 		this.filteredMovies = [];		
@@ -227,7 +226,7 @@ class CinemaStore extends EventEmitter {
 		return classArray;
 	}
 
-
+}
 
 const cinemaStore = new CinemaStore();
 

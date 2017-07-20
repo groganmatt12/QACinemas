@@ -2,5 +2,6 @@
 *.md
 node_modules/
 *.swp
-
+bundles/
+index.js
 

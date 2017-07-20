@@ -352,7 +352,7 @@
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 }
-/*-----------------------------------------------------------------------*/
+
 .Youtube-Video{
 	height: 50%;
     width: 70%;
@@ -389,3 +389,19 @@
 		height:auto;
 	}
 }
+
+/*-----------------------------------------------------------------------*/
+.forum_style{
+	background-color: white;
+}
+.forum_table_style{
+	
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	width: 100%;
+}
+/*-----------------------------------------------------------------------*/

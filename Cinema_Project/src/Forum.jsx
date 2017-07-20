@@ -1,7 +1,7 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
 import HiddenCreatePostBanner from './HiddenCreatePostBanner';
-import Post from './Post';
+import ForumPost from './ForumPost';
 
 export default class Forum extends React.Component{
 
@@ -43,10 +43,24 @@ export default class Forum extends React.Component{
 						null
 						)}
 				</div>
-				<div>
-				
+				<div className="forum_style">
+					<table className="forum_table_style">
+					  <tr>
+						<th>Company</th>
+						<th>Contact</th>
+						<th>Country</th>
+					  </tr>
+					  <tr>
+						<td>Alfreds Futterkiste
+							
+						 </td>
+						<td>Maria Anders</td>
+						<td>Germany</td>
+					  </tr>
+					  <tr>
+					  </tr>
+					</table>
 				</div>
-
 			</div>
 		);
 	}

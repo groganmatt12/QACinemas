@@ -12,7 +12,7 @@ class CinemaStore extends EventEmitter {
 	constructor() {
 		
 		super();
-
+		
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;

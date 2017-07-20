@@ -1,0 +1,20 @@
+import React from 'react';
+
+export default class Post extends React.Component{
+
+	
+
+	render(){
+		return(
+			<div>
+				<div className="row post-main">
+
+				</div>
+				<div className="post-comment-body">
+
+				</div>
+			</div>
+
+		);
+	}
+}

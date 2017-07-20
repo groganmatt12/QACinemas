@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 281);
+/******/ 	return __webpack_require__(__webpack_require__.s = 283);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -738,6 +738,16 @@ module.exports = ReactDOMComponentTree;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(21);
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -773,16 +783,6 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(21);
-
 
 /***/ }),
 /* 8 */
@@ -1919,7 +1919,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 
 
 
-var React = __webpack_require__(7);
+var React = __webpack_require__(6);
 var factory = __webpack_require__(73);
 
 if (typeof React === 'undefined') {
@@ -2266,7 +2266,7 @@ module.exports = DOMProperty;
 /* harmony export (immutable) */ __webpack_exports__["c"] = createRouteFromReactElement;
 /* unused harmony export createRoutesFromReactChildren */
 /* harmony export (immutable) */ __webpack_exports__["a"] = createRoutes;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -5459,7 +5459,7 @@ module.exports = escapeTextContentForBrowser;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var DOMNamespaces = __webpack_require__(53);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
@@ -5579,10 +5579,311 @@ module.exports = canDefineProperty;
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: C:/QA Cinemas/QACinemas/Cinema_Project/src/store/CinemaStore.js: Unexpected token (232:6)\n\n\u001b[0m \u001b[90m 230 | \u001b[39m\n \u001b[90m 231 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 232 | \u001b[39m\u001b[36mconst\u001b[39m cinemaStore \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mCinemaStore\u001b[39m()\u001b[33m;\u001b[39m\n \u001b[90m     | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 233 | \u001b[39m\n \u001b[90m 234 | \u001b[39mdispatcher\u001b[33m.\u001b[39mregister(cinemaStore\u001b[33m.\u001b[39mhandleActions\u001b[33m.\u001b[39mbind(cinemaStore))\u001b[33m;\u001b[39m\n \u001b[90m 235 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m cinemaStore\u001b[33m;\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _events = __webpack_require__(253);
+
+var _dispatcher = __webpack_require__(249);
+
+var _dispatcher2 = _interopRequireDefault(_dispatcher);
+
+var _BookingInfo = __webpack_require__(250);
+
+var _BookingInfo2 = _interopRequireDefault(_BookingInfo);
+
+var _CinemaLocations = __webpack_require__(256);
+
+var _CinemaLocations2 = _interopRequireDefault(_CinemaLocations);
+
+var _MovieDetails = __webpack_require__(257);
+
+var _MovieDetails2 = _interopRequireDefault(_MovieDetails);
+
+var _ShowingTimes = __webpack_require__(258);
+
+var _ShowingTimes2 = _interopRequireDefault(_ShowingTimes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CinemaStore = function (_EventEmitter) {
+	_inherits(CinemaStore, _EventEmitter);
+
+	function CinemaStore() {
+		_classCallCheck(this, CinemaStore);
+
+		var _this = _possibleConstructorReturn(this, (CinemaStore.__proto__ || Object.getPrototypeOf(CinemaStore)).call(this));
+
+		_this.bookings = _BookingInfo2.default.bookingInfo;
+		_this.cinemas = _CinemaLocations2.default.cinemas;
+		_this.movies = _MovieDetails2.default.movieDetails;
+		_this.showings = _ShowingTimes2.default.showingTimes;
+		_this.filteredMovies = [];
+		_this.moviesByDate = _MovieDetails2.default.movieDetails;
+		_this.genres = _this.generateGenreList();
+		_this.classification = _this.generateClassificationList();
+
+		return _this;
+	}
+
+	_createClass(CinemaStore, [{
+		key: 'getArrayOfGenres',
+		value: function getArrayOfGenres() {
+			return this.genres;
+		}
+	}, {
+		key: 'getAllBookings',
+		value: function getAllBookings() {
+			return this.bookings;
+		}
+	}, {
+		key: 'getAllCinemas',
+		value: function getAllCinemas() {
+			return this.cinemas;
+		}
+	}, {
+		key: 'getCinemaByIndex',
+		value: function getCinemaByIndex(index) {
+			return this.cinemas[index];
+		}
+	}, {
+		key: 'getAllMovies',
+		value: function getAllMovies() {
+			return this.movies;
+		}
+	}, {
+		key: 'getAllCarouselMovies',
+		value: function getAllCarouselMovies() {
+			var carouselMovies = [];
+			for (var i = 0; i < this.movies.length; i++) {
+				var curMovie = this.movies[i];
+				if (curMovie.carousel != null) {
+					carouselMovies.push(curMovie);
+				}
+			}
+			return carouselMovies;
+		}
+	}, {
+		key: 'getMovieByIndex',
+		value: function getMovieByIndex(index) {
+			return this.movies[index];
+		}
+
+		/*cinemaID, movieID & viewing time */
+
+	}, {
+		key: 'getAllShowings',
+		value: function getAllShowings() {
+			return this.showings;
+		}
+	}, {
+		key: 'getShowingByIndex',
+		value: function getShowingByIndex(index) {
+			return this.showings[index];
+		}
+	}, {
+		key: 'getShowingByCinemaAndMovie',
+		value: function getShowingByCinemaAndMovie(cinema_id, movie_id) {
+			var showingsByCinemaAndMovie = [];
+			for (var i = 0; i < this.showings.length; i++) {
+
+				if (this.showings[i].movieID == movie_id) {
+					if (this.showings[i].cinemaID == cinema_id) {
+						showingsByCinemaAndMovie.push(this.showings[i]);
+					}
+				}
+			}
+			if (showingsByCinemaAndMovie.length == 0) showingsByCinemaAndMovie.push({
+
+				"showingTime": "No Showings Scheduled"
+			});
+			return showingsByCinemaAndMovie;
+		}
+	}, {
+		key: 'getFilteredMovies',
+		value: function getFilteredMovies() {
+			return this.filteredMovies;
+		}
+	}, {
+		key: 'getMovieByIndex',
+		value: function getMovieByIndex(index) {
+			return this.movies[index];
+		}
+	}, {
+		key: 'getAllShowings',
+		value: function getAllShowings() {
+			return this.showings;
+		}
+	}, {
+		key: 'getMoviesByRelease',
+		value: function getMoviesByRelease() {
+
+			var sortArray = this.movies.slice();
+			for (var i = 0; i < sortArray.length; i++) {
+				for (var j = i; j < sortArray.length; j++) {
+
+					var a = new Date(sortArray[i].releaseDate);
+					var b = new Date(sortArray[j].releaseDate);
+
+					if (a > b) {
+						var tempObj = sortArray[i];
+						sortArray[i] = sortArray[j];
+						sortArray[j] = tempObj;
+					}
+				}
+			}
+			sortArray.reverse();
+			this.moviesByDate = sortArray;
+			return this.moviesByDate;
+		}
+	}, {
+		key: 'getShowingByIndex',
+		value: function getShowingByIndex(index) {
+			return this.showings[index];
+		}
+	}, {
+		key: 'getFilteredMovies',
+		value: function getFilteredMovies() {
+			return this.filteredMovies;
+		}
+	}, {
+		key: 'filterMoviesBySearch',
+		value: function filterMoviesBySearch(searchParameters) {
+			var _this2 = this;
+
+			this.filteredMovies = [];
+			this.movies.forEach(function (movie) {
+				if (movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {
+					_this2.filteredMovies.push(movie);
+				}
+			});
+			this.emit('moviesChange');
+		}
+	}, {
+		key: 'handleActions',
+		value: function handleActions(action) {
+			switch (action.type) {
+				case "FILTER_SEARCH":
+					this.filterMoviesBySearch(action.searchParameters);
+					break;
+				case "GENRE_SEARCH":
+					this.filterMoviesByGenre(action.genreArray);
+					break;
+				case "CLASS_SEARCH":
+					this.filterMoviesByClassification(action.classificationArray);
+					break;
+				default:
+					break;
+			}
+		}
+	}, {
+		key: 'filterMoviesByClassification',
+		value: function filterMoviesByClassification(classArray) {
+			var _this3 = this;
+
+			this.filteredMovies = [];
+			var tempArray = [];
+
+			this.movies.forEach(function (movie) {
+				var curMovieClassification = movie.classification;
+
+				for (var i = 0; i < classArray.length; i++) {
+					if (curMovieClassification == classArray[i]) {
+						tempArray.push(movie);
+						_this3.filteredMovies = tempArray;
+					}
+				}
+			});
+
+			if (this.filteredMovies.length == 0) {
+				this.movies.forEach(function (movie) {
+					{
+						_this3.filteredMovies.push(movie);
+					}
+				});
+			}
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'filterMoviesByGenre',
+		value: function filterMoviesByGenre(genreArray) {
+			var _this4 = this;
+
+			this.filteredMovies = [];
+			var tempSet = new Set([]);
+			this.movies.forEach(function (movie) {
+				var curMovGenres = movie.genre;
+
+				for (var i = 0; i < curMovGenres.length; i++) {
+					for (var j = 0; j < genreArray.length; j++) {
+						if (genreArray[j] == curMovGenres[i]) {
+							tempSet.add(movie);
+							console.log(Array.from(tempSet));
+							{
+								_this4.filteredMovies = Array.from(tempSet);
+							}
+						}
+					}
+				}
+			});
+
+			if (this.filteredMovies.length == 0) {
+				this.movies.forEach(function (movie) {
+					{
+						_this4.filteredMovies.push(movie);
+					}
+				});
+			}
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'generateGenreList',
+		value: function generateGenreList() {
+			var genreSet = new Set([]);
+			var sortArray = this.movies.slice();
+
+			for (var i = 0; i < sortArray.length; i++) {
+				for (var j = 0; j < sortArray[i].genre.length; j++) {
+					genreSet.add(sortArray[i].genre[j]);
+				}
+			}
+			return genreSet;
+		}
+	}, {
+		key: 'generateClassificationList',
+		value: function generateClassificationList() {
+			var classSet = new Set([]);
+			var movieArray = this.movies.slice();
+
+			for (var i = 0; i < movieArray.length; i++) {
+				classSet.add(movieArray[i].classification);
+			}
+			var classArray = Array.from(classSet);
+			return classArray;
+		}
+	}]);
+
+	return CinemaStore;
+}(_events.EventEmitter);
+
+var cinemaStore = new CinemaStore();
+
+_dispatcher2.default.register(cinemaStore.handleActions.bind(cinemaStore));
+exports.default = cinemaStore;
 
 /***/ }),
 /* 46 */
@@ -7271,7 +7572,7 @@ module.exports = getEventTarget;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var useHasFeature;
 if (ExecutionEnvironment.canUseDOM) {
@@ -7995,7 +8296,7 @@ var locationShape = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_prop_types
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
@@ -12018,7 +12319,7 @@ module.exports = getHostComponentFromComposite;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var contentKey = null;
 
@@ -12375,7 +12676,7 @@ module.exports = isTextInputElement;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var escapeTextContentForBrowser = __webpack_require__(42);
 var setInnerHTML = __webpack_require__(43);
 
@@ -12602,7 +12903,7 @@ module.exports = traverseAllChildren;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_create_react_class__);
@@ -14786,7 +15087,7 @@ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVT
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ExecutionEnvironment = __webpack_require__(6);
+  var ExecutionEnvironment = __webpack_require__(7);
   if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
     // First check if devtools is not installed
     if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined') {
@@ -15464,7 +15765,7 @@ module.exports = createArrayFromMixed;
 
 /*eslint-disable fb-www/unsafe-html*/
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var createArrayFromMixed = __webpack_require__(128);
 var getMarkupWrap = __webpack_require__(130);
@@ -15553,7 +15854,7 @@ module.exports = createNodesFromMarkup;
 
 /*eslint-disable fb-www/unsafe-html */
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var invariant = __webpack_require__(1);
 
@@ -15874,7 +16175,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var performance;
 
@@ -17102,7 +17403,7 @@ module.exports = AutoFocusUtils;
 
 
 var EventPropagators = __webpack_require__(31);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var FallbackCompositionState = __webpack_require__(157);
 var SyntheticCompositionEvent = __webpack_require__(196);
 var SyntheticInputEvent = __webpack_require__(199);
@@ -17491,7 +17792,7 @@ module.exports = BeforeInputEventPlugin;
 
 
 var CSSProperty = __webpack_require__(82);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(11);
 
 var camelizeStyleName = __webpack_require__(126);
@@ -17713,7 +18014,7 @@ module.exports = CSSPropertyOperations;
 
 var EventPluginHub = __webpack_require__(30);
 var EventPropagators = __webpack_require__(31);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(12);
 var SyntheticEvent = __webpack_require__(15);
@@ -18031,7 +18332,7 @@ module.exports = ChangeEventPlugin;
 var _prodInvariant = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(26);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(129);
 var emptyFunction = __webpack_require__(10);
@@ -20498,7 +20799,7 @@ module.exports = ReactDOMOption;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var getNodeForCharacterOffset = __webpack_require__(210);
 var getTextContentAccessor = __webpack_require__(98);
@@ -21313,7 +21614,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 var ReactInvalidSetStateWarningHook = __webpack_require__(182);
 var ReactHostOperationHistoryHook = __webpack_require__(180);
 var ReactComponentTreeHook = __webpack_require__(9);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 var performanceNow = __webpack_require__(138);
 var warning = __webpack_require__(2);
@@ -21832,7 +22133,7 @@ module.exports = ReactEventEmitterMixin;
 var _assign = __webpack_require__(4);
 
 var EventListener = __webpack_require__(74);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var PooledClass = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(12);
@@ -23409,7 +23710,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 var EventPropagators = __webpack_require__(31);
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(90);
 var SyntheticEvent = __webpack_require__(15);
@@ -24875,7 +25176,7 @@ module.exports = getNodeForCharacterOffset;
 
 
 
-var ExecutionEnvironment = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(7);
 
 /**
  * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -25021,7 +25322,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_create_react_class__);
@@ -25219,7 +25520,7 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default()({
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
@@ -25552,7 +25853,7 @@ function getTransitionUtils() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RouterContext__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routerWarning__ = __webpack_require__(28);
@@ -26254,7 +26555,7 @@ function matchRoutes(routes, location, callback, remainingPathname) {
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = withRouter;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
@@ -27344,7 +27645,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27446,7 +27747,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27577,7 +27878,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27755,7 +28056,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27845,7 +28146,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27996,7 +28297,314 @@ var QuickBookBar = function (_React$Component) {
 exports.default = QuickBookBar;
 
 /***/ }),
-/* 253 */,
+/* 253 */
+/***/ (function(module, exports) {
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+function EventEmitter() {
+  this._events = this._events || {};
+  this._maxListeners = this._maxListeners || undefined;
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+EventEmitter.defaultMaxListeners = 10;
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function(n) {
+  if (!isNumber(n) || n < 0 || isNaN(n))
+    throw TypeError('n must be a positive number');
+  this._maxListeners = n;
+  return this;
+};
+
+EventEmitter.prototype.emit = function(type) {
+  var er, handler, len, args, i, listeners;
+
+  if (!this._events)
+    this._events = {};
+
+  // If there is no 'error' event listener then throw.
+  if (type === 'error') {
+    if (!this._events.error ||
+        (isObject(this._events.error) && !this._events.error.length)) {
+      er = arguments[1];
+      if (er instanceof Error) {
+        throw er; // Unhandled 'error' event
+      } else {
+        // At least give some kind of context to the user
+        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
+        err.context = er;
+        throw err;
+      }
+    }
+  }
+
+  handler = this._events[type];
+
+  if (isUndefined(handler))
+    return false;
+
+  if (isFunction(handler)) {
+    switch (arguments.length) {
+      // fast cases
+      case 1:
+        handler.call(this);
+        break;
+      case 2:
+        handler.call(this, arguments[1]);
+        break;
+      case 3:
+        handler.call(this, arguments[1], arguments[2]);
+        break;
+      // slower
+      default:
+        args = Array.prototype.slice.call(arguments, 1);
+        handler.apply(this, args);
+    }
+  } else if (isObject(handler)) {
+    args = Array.prototype.slice.call(arguments, 1);
+    listeners = handler.slice();
+    len = listeners.length;
+    for (i = 0; i < len; i++)
+      listeners[i].apply(this, args);
+  }
+
+  return true;
+};
+
+EventEmitter.prototype.addListener = function(type, listener) {
+  var m;
+
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  if (!this._events)
+    this._events = {};
+
+  // To avoid recursion in the case that type === "newListener"! Before
+  // adding it to the listeners, first emit "newListener".
+  if (this._events.newListener)
+    this.emit('newListener', type,
+              isFunction(listener.listener) ?
+              listener.listener : listener);
+
+  if (!this._events[type])
+    // Optimize the case of one listener. Don't need the extra array object.
+    this._events[type] = listener;
+  else if (isObject(this._events[type]))
+    // If we've already got an array, just append.
+    this._events[type].push(listener);
+  else
+    // Adding the second element, need to change to array.
+    this._events[type] = [this._events[type], listener];
+
+  // Check for listener leak
+  if (isObject(this._events[type]) && !this._events[type].warned) {
+    if (!isUndefined(this._maxListeners)) {
+      m = this._maxListeners;
+    } else {
+      m = EventEmitter.defaultMaxListeners;
+    }
+
+    if (m && m > 0 && this._events[type].length > m) {
+      this._events[type].warned = true;
+      console.error('(node) warning: possible EventEmitter memory ' +
+                    'leak detected. %d listeners added. ' +
+                    'Use emitter.setMaxListeners() to increase limit.',
+                    this._events[type].length);
+      if (typeof console.trace === 'function') {
+        // not supported in IE 10
+        console.trace();
+      }
+    }
+  }
+
+  return this;
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.once = function(type, listener) {
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  var fired = false;
+
+  function g() {
+    this.removeListener(type, g);
+
+    if (!fired) {
+      fired = true;
+      listener.apply(this, arguments);
+    }
+  }
+
+  g.listener = listener;
+  this.on(type, g);
+
+  return this;
+};
+
+// emits a 'removeListener' event iff the listener was removed
+EventEmitter.prototype.removeListener = function(type, listener) {
+  var list, position, length, i;
+
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  if (!this._events || !this._events[type])
+    return this;
+
+  list = this._events[type];
+  length = list.length;
+  position = -1;
+
+  if (list === listener ||
+      (isFunction(list.listener) && list.listener === listener)) {
+    delete this._events[type];
+    if (this._events.removeListener)
+      this.emit('removeListener', type, listener);
+
+  } else if (isObject(list)) {
+    for (i = length; i-- > 0;) {
+      if (list[i] === listener ||
+          (list[i].listener && list[i].listener === listener)) {
+        position = i;
+        break;
+      }
+    }
+
+    if (position < 0)
+      return this;
+
+    if (list.length === 1) {
+      list.length = 0;
+      delete this._events[type];
+    } else {
+      list.splice(position, 1);
+    }
+
+    if (this._events.removeListener)
+      this.emit('removeListener', type, listener);
+  }
+
+  return this;
+};
+
+EventEmitter.prototype.removeAllListeners = function(type) {
+  var key, listeners;
+
+  if (!this._events)
+    return this;
+
+  // not listening for removeListener, no need to emit
+  if (!this._events.removeListener) {
+    if (arguments.length === 0)
+      this._events = {};
+    else if (this._events[type])
+      delete this._events[type];
+    return this;
+  }
+
+  // emit removeListener for all listeners on all events
+  if (arguments.length === 0) {
+    for (key in this._events) {
+      if (key === 'removeListener') continue;
+      this.removeAllListeners(key);
+    }
+    this.removeAllListeners('removeListener');
+    this._events = {};
+    return this;
+  }
+
+  listeners = this._events[type];
+
+  if (isFunction(listeners)) {
+    this.removeListener(type, listeners);
+  } else if (listeners) {
+    // LIFO order
+    while (listeners.length)
+      this.removeListener(type, listeners[listeners.length - 1]);
+  }
+  delete this._events[type];
+
+  return this;
+};
+
+EventEmitter.prototype.listeners = function(type) {
+  var ret;
+  if (!this._events || !this._events[type])
+    ret = [];
+  else if (isFunction(this._events[type]))
+    ret = [this._events[type]];
+  else
+    ret = this._events[type].slice();
+  return ret;
+};
+
+EventEmitter.prototype.listenerCount = function(type) {
+  if (this._events) {
+    var evlistener = this._events[type];
+
+    if (isFunction(evlistener))
+      return 1;
+    else if (evlistener)
+      return evlistener.length;
+  }
+  return 0;
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  return emitter.listenerCount(type);
+};
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+
+
+/***/ }),
 /* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28251,9 +28859,499 @@ module.exports = Dispatcher;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 256 */,
-/* 257 */,
-/* 258 */,
+/* 256 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"cinemas": [
+		{
+			"location": "Manchester"
+		},
+		{
+			"location": "London"
+		},
+		{
+			"location": "Gloucester"
+		},
+		{
+			"location": "Cardiff"
+		}
+	]
+};
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"movieDetails": [
+		{
+			"id": "0",
+			"name": "High School Musical",
+			"image": "hsm.jpg",
+			"classification": "U",
+			"director": "Kenny Ortega",
+			"genre": [
+				"Comedy",
+				"Drama",
+				"Family"
+			],
+			"actors": [
+				"Zac Efron",
+				"Vanessa Hudgens",
+				"Ashley Tisdale"
+			],
+			"trailer": "https://www.youtube.com/embed/ukDLkkvZYFk",
+			"releaseDate": "September 22, 2006",
+			"overlayText": "",
+			"description": "On Easter Eve in 2006, high school juniors Troy Bolton (Zac Efron) and Gabriella Montez (Vanessa Hudgens) meet at a party while both teens are at a ski lodge during winter break. At the party, the two are called upon to sing karaoke together. They find that they have a connection and decide to exchange numbers before going their separate ways."
+		},
+		{
+			"id": "1",
+			"name": "Battle Royale",
+			"image": "br.jpg",
+			"classification": "18",
+			"genre": [
+				"Adventure",
+				"Drama",
+				"Sci-Fi"
+			],
+			"actors": [
+				" Tatsuya Fujiwara",
+				"Aki Maeda"
+			],
+			"director": " Kinji Fukasaku",
+			"trailer": "https://www.youtube.com/embed/N0p1t-dC7Ko",
+			"releaseDate": "September 14, 2001",
+			"overlayText": "x",
+			"description": "42 9th graders are sent to a deserted island. They are given a map, food, and various weapons. An explosive collar is fitted around their neck. If they break a rule, the collar explodes. Their mission: kill each other and be the last one standing. The last survivor is allowed to leave the island."
+		},
+		{
+			"id": "2",
+			"name": "The Texas Chainsaw Massacre",
+			"image": "tcm.jpg",
+			"classification": "18",
+			"genre": [
+				"Horror"
+			],
+			"actors": [
+				"Marilyn Burns",
+				"Allen Danziger"
+			],
+			"overlayText": "x",
+			"director": "Tobe Hooper",
+			"trailer": "https://www.youtube.com/embed/Vs3981DoINw",
+			"releaseDate": "October 4, 1974",
+			"description": "Two siblings visit their grandfather's grave in Texas along with three of their friends and are attacked by a family of cannibalistic psychopaths."
+		},
+		{
+			"id": "3",
+			"name": "Sophie's Choice",
+			"image": "sc.jpg",
+			"classification": "15",
+			"genre": [
+				"Drama",
+				"Romance"
+			],
+			"actors": [
+				"Meryl Streep",
+				"Kevin Kline"
+			],
+			"releaseDate": "March 4, 1983",
+			"director": " Alan J. Pakula",
+			"trailer": "https://www.youtube.com/embed/STPJVf6wqCk",
+			"overlayText": "x",
+			"description": "After spending time with his new neighbors, an aspiring writer realizes they are harboring deep secrets that will forever change him."
+		},
+		{
+			"id": "4",
+			"name": "Spider-Man: Homecoming",
+			"image": "smh.jpg",
+			"carousel": "smh-c.jpg",
+			"classification": "12A",
+			"genre": [
+				"Action",
+				"Adventure",
+				"Sci-Fi"
+			],
+			"actors": [
+				"Tom Holland",
+				"Michael Keaton",
+				"Robert Downey Jr."
+			],
+			"director": "Jon Watts",
+			"releaseDate": "July 5, 2017",
+			"trailer": "https://www.youtube.com/embed/n9DwoQ7HWvI",
+			"overlayText": "x",
+			"description": "Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in New York City while fighting crime as his superhero alter ego Spider-Man when a new threat emerges."
+		},
+		{
+			"id": "5",
+			"name": "It Comes At Night",
+			"image": "ican.jpg",
+			"classification": "15",
+			"genre": [
+				"Horror",
+				"Mystery"
+			],
+			"actors": [
+				"Joel Edgerton",
+				"Christopher Abbott",
+				"Carmen Ejogo"
+			],
+			"director": "Trey Edward Shults",
+			"releaseDate": "July 7, 2017",
+			"overlayText": "x",
+			"trailer": "https://www.youtube.com/embed/o-0hcF97wy0",
+			"description": "Secure within a desolate home as an unnatural threat terrorizes the world, a man has established a tenuous domestic order with his wife and son, but this will soon be put to test when a desperate young family arrives seeking refuge."
+		},
+		{
+			"id": "6",
+			"name": "War For The Planet Of The Apes",
+			"image": "wftpota.jpg",
+			"carousel": "wftpota-c.jpg",
+			"classification": "12A",
+			"genre": [
+				"Action",
+				"Adventure",
+				"Drama"
+			],
+			"actors": [
+				"Andy Serkis",
+				"Woody Harrelson",
+				"Steve Zahn"
+			],
+			"director": "Matt Reeves",
+			"releaseDate": "July 11, 2017",
+			"trailer": "https://www.youtube.com/embed/Y23E0OgEHuY",
+			"overlayText": "x",
+			"description": "After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind."
+		},
+		{
+			"id": "7",
+			"name": "Baby Driver",
+			"image": "bd.jpg",
+			"classification": "15",
+			"genre": [
+				"Action",
+				"Crime",
+				"Music"
+			],
+			"actors": [
+				"Ansel Elgort",
+				"Jon Bernthal",
+				"Jon Hamm",
+				"Eiza González"
+			],
+			"director": "Edgar Wright",
+			"releaseDate": "June 28, 2017",
+			"trailer": "https://www.youtube.com/embed/D9YZw_X5UzQ",
+			"overlayText": "x",
+			"description": "After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail."
+		},
+		{
+			"id": "8",
+			"name": "Transformers: The Last Knight",
+			"image": "ttlk.jpg",
+			"carousel": "ttlk-c.jpg",
+			"classification": "12A",
+			"genre": [
+				"Action",
+				"Adventure",
+				"Sci-Fi"
+			],
+			"actors": [
+				"Mark Wahlberg",
+				"Anthony Hopkins",
+				"Josh Duhamel"
+			],
+			"director": "Michael Bay",
+			"releaseDate": "June 22,2017",
+			"trailer": "https://www.youtube.com/embed/6Vtf0MszgP8",
+			"overlayText": "x",
+			"description": "Autobots and Decepticons are at war, with humans on the sidelines. Optimus Prime is gone. The key to saving our future lies buried in the secrets of the past, in the hidden history of Transformers on Earth."
+		},
+		{
+			"id": "9",
+			"name": "Wonder Woman",
+			"image": "ww.jpg",
+			"classification": "12A",
+			"genre": [
+				"Action",
+				"Adventure",
+				"Fantasy"
+			],
+			"actors": [
+				"Gal Gadot",
+				"Chris Pine",
+				"Robin Wright"
+			],
+			"director": "Patty Jenkins",
+			"releaseDate": "June 1, 2017",
+			"trailer": "https://www.youtube.com/embed/VSB4wGIdDwo",
+			"overlayText": "x",
+			"description": "Before she was Wonder Woman, she was Diana, princess of the Amazons, trained warrior. When a pilot crashes and tells of conflict in the outside world, she leaves home to fight a war, discovering her full powers and true destiny."
+		},
+		{
+			"id": "10",
+			"name": "Dunkirk",
+			"image": "dnk.jpg",
+			"classification": "12A",
+			"genre": [
+				"Action",
+				"Drama",
+				"History"
+			],
+			"actors": [
+				"Fionn Whitehead",
+				"Kenneth Branagh",
+				"Mark Rylance"
+			],
+			"director": "Christopher Nolan",
+			"releaseDate": "July 21, 2017",
+			"trailer": "https://www.youtube.com/embed/F-eMt3SrfFU",
+			"overlayText": "x",
+			"description": "Evacuation of Allied soldiers from Belgium, the British Empire, Canada, and France, who were cut off and surrounded by the German army from the beaches and harbor of Dunkirk, France, between May 26- June 04, 1940, during Battle of France in World War II."
+		},
+		{
+			"id": "11",
+			"name": "Cars 3",
+			"image": "c3.jpg",
+			"classification": "U",
+			"genre": [
+				"Animation",
+				"Adventure",
+				"Comedy"
+			],
+			"actors": [
+				"Owen Wilson",
+				"Cristela Alonzo",
+				"Chris Cooper"
+			],
+			"director": "Brian Fee",
+			"releaseDate": "July 14, 2017",
+			"trailer": "https://www.youtube.com/embed/ZuaseSovWDY",
+			"overlayText": "x",
+			"description": "Lightning McQueen sets out to prove to a new generation of racers that he's still the best race car in the world."
+		}
+	]
+};
+
+/***/ }),
+/* 258 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"showingTimes": [
+		{
+			"movieID": "0",
+			"cinemaID": "0",
+			"showingTime": "13:00"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "0",
+			"showingTime": "15:00"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "0",
+			"showingTime": "17:00"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "0",
+			"showingTime": "19:00"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "0",
+			"showingTime": "13:30"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "0",
+			"showingTime": "17:30"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "0",
+			"showingTime": "21:30"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "0",
+			"showingTime": "14:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "0",
+			"showingTime": "16:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "0",
+			"showingTime": "18:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "0",
+			"showingTime": "20:00"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "0",
+			"showingTime": "16:15"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "0",
+			"showingTime": "16:45"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "0",
+			"showingTime": "17:15"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "1",
+			"showingTime": "13:00"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "1",
+			"showingTime": "15:00"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "1",
+			"showingTime": "17:00"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "1",
+			"showingTime": "19:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "1",
+			"showingTime": "13:30"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "1",
+			"showingTime": "17:30"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "1",
+			"showingTime": "21:30"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "1",
+			"showingTime": "14:00"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "1",
+			"showingTime": "16:00"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "1",
+			"showingTime": "18:00"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "1",
+			"showingTime": "20:00"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "1",
+			"showingTime": "16:15"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "1",
+			"showingTime": "16:45"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "1",
+			"showingTime": "17:15"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "2",
+			"showingTime": "09:00"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "2",
+			"showingTime": "09:20"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "2",
+			"showingTime": "09:40"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "2",
+			"showingTime": "10:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "2",
+			"showingTime": "10:20"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "2",
+			"showingTime": "10:40"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "2",
+			"showingTime": "11:00"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "2",
+			"showingTime": "11:20"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "3",
+			"showingTime": "22:30"
+		},
+		{
+			"movieID": "0",
+			"cinemaID": "3",
+			"showingTime": "22:45"
+		},
+		{
+			"movieID": "1",
+			"cinemaID": "3",
+			"showingTime": "23:00"
+		},
+		{
+			"movieID": "2",
+			"cinemaID": "3",
+			"showingTime": "23:15"
+		},
+		{
+			"movieID": "3",
+			"cinemaID": "3",
+			"showingTime": "23:30"
+		}
+	]
+};
+
+/***/ }),
 /* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28266,7 +29364,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28334,7 +29432,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28342,7 +29440,7 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Paypal = __webpack_require__(277);
+var _Paypal = __webpack_require__(278);
 
 var _Paypal2 = _interopRequireDefault(_Paypal);
 
@@ -28467,7 +29565,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28575,7 +29673,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28647,9 +29745,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _CinemaStore = __webpack_require__(45);
+
+var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
+
+var _HiddenCreatePostBanner = __webpack_require__(273);
+
+var _HiddenCreatePostBanner2 = _interopRequireDefault(_HiddenCreatePostBanner);
+
+var _Post = __webpack_require__(279);
+
+var _Post2 = _interopRequireDefault(_Post);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28665,16 +29775,53 @@ var Forum = function (_React$Component) {
 	function Forum() {
 		_classCallCheck(this, Forum);
 
-		return _possibleConstructorReturn(this, (Forum.__proto__ || Object.getPrototypeOf(Forum)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (Forum.__proto__ || Object.getPrototypeOf(Forum)).call(this));
+
+		_this.state = {
+			postArray: [],
+			showHiddenCreatePost: false,
+			commentArray: []
+		};
+		return _this;
 	}
 
 	_createClass(Forum, [{
+		key: '_onButtonClick',
+		value: function _onButtonClick() {
+			console.log("hello world");
+			this.setState({ showHiddenCreatePost: !this.state.showHiddenCreatePost });
+		}
+	}, {
+		key: 'componentWillMount',
+		value: function componentWillMount() {}
+	}, {
 		key: 'render',
 		value: function render() {
+			var showHCP = this.state.showHiddenCreatePost;
+
 			return _react2.default.createElement(
 				'div',
-				null,
-				'Hello'
+				{ className: 'container' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'panel panel-default' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						'Ask a question!',
+						_react2.default.createElement(
+							'button',
+							{ type: 'button', className: 'btn btn-default', onClick: this._onButtonClick.bind(this) },
+							'Make a post'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					null,
+					showHCP ? _react2.default.createElement(_HiddenCreatePostBanner2.default, null) : null
+				),
+				_react2.default.createElement('div', null)
 			);
 		}
 	}]);
@@ -28697,7 +29844,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28705,11 +29852,11 @@ var _Carousel = __webpack_require__(269);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
 
-var _Offers = __webpack_require__(276);
+var _Offers = __webpack_require__(277);
 
 var _Offers2 = _interopRequireDefault(_Offers);
 
-var _TopFilms = __webpack_require__(279);
+var _TopFilms = __webpack_require__(281);
 
 var _TopFilms2 = _interopRequireDefault(_TopFilms);
 
@@ -28784,7 +29931,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28792,15 +29939,15 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Sort = __webpack_require__(278);
+var _Sort = __webpack_require__(280);
 
 var _Sort2 = _interopRequireDefault(_Sort);
 
-var _CinemaActions = __webpack_require__(280);
+var _CinemaActions = __webpack_require__(282);
 
 var CinemaActions = _interopRequireWildcard(_CinemaActions);
 
-var _ListOfMovies = __webpack_require__(273);
+var _ListOfMovies = __webpack_require__(274);
 
 var _ListOfMovies2 = _interopRequireDefault(_ListOfMovies);
 
@@ -28913,7 +30060,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29043,7 +30190,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29117,7 +30264,82 @@ var Checkbox = function (_React$Component) {
 exports.default = Checkbox;
 
 /***/ }),
-/* 271 */,
+/* 271 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CheckboxClassification = function (_React$Component) {
+	_inherits(CheckboxClassification, _React$Component);
+
+	function CheckboxClassification() {
+		_classCallCheck(this, CheckboxClassification);
+
+		var _this = _possibleConstructorReturn(this, (CheckboxClassification.__proto__ || Object.getPrototypeOf(CheckboxClassification)).call(this));
+
+		_this.state = {
+			isChecked: false
+
+		};
+		return _this;
+	}
+
+	_createClass(CheckboxClassification, [{
+		key: "onToggle",
+		value: function onToggle() {
+			this.setState({ isChecked: !this.state.isChecked });
+			/*console.log(this.state.isChecked);*/
+			var curCheck = !this.state.isChecked;
+			var curClass = this.props.classification;
+
+			this.props.handleCheckboxChange(curClass, curCheck);
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "checkbox" },
+				_react2.default.createElement(
+					"label",
+					null,
+					_react2.default.createElement("input", {
+						type: "checkbox",
+						value: this.props.classification,
+						checked: this.state.isChecked,
+						onChange: this.onToggle.bind(this)
+					}),
+					this.props.classification
+				)
+			);
+		}
+	}]);
+
+	return CheckboxClassification;
+}(_react2.default.Component);
+
+exports.default = CheckboxClassification;
+
+/***/ }),
 /* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29130,11 +30352,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Navbar = __webpack_require__(275);
+var _Navbar = __webpack_require__(276);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -29185,11 +30407,81 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MovieListing = __webpack_require__(274);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HiddenCreatePostBanner = function (_React$Component) {
+	_inherits(HiddenCreatePostBanner, _React$Component);
+
+	function HiddenCreatePostBanner() {
+		_classCallCheck(this, HiddenCreatePostBanner);
+
+		return _possibleConstructorReturn(this, (HiddenCreatePostBanner.__proto__ || Object.getPrototypeOf(HiddenCreatePostBanner)).call(this));
+	}
+
+	_createClass(HiddenCreatePostBanner, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"form",
+				{ className: "HCP" },
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group" },
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "HCP-title" },
+						"Post Title:"
+					),
+					_react2.default.createElement("input", { type: "text", className: "form-control", id: "HCP-title" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "form-group" },
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "HCP-nPost" },
+						"Content:"
+					),
+					_react2.default.createElement("input", { type: "text", className: "form-control", id: "HCP-nPost" })
+				),
+				_react2.default.createElement("input", { type: "submit", value: "Submit" })
+			);
+		}
+	}]);
+
+	return HiddenCreatePostBanner;
+}(_react2.default.Component);
+
+exports.default = HiddenCreatePostBanner;
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _MovieListing = __webpack_require__(275);
 
 var _MovieListing2 = _interopRequireDefault(_MovieListing);
 
@@ -29234,7 +30526,7 @@ var ListOfMovies = function (_React$Component) {
 exports.default = ListOfMovies;
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29246,7 +30538,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29333,7 +30625,7 @@ var MovieListing = function (_React$Component) {
 exports.default = MovieListing;
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29345,7 +30637,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29442,7 +30734,7 @@ var Navbar = function (_React$Component) {
 exports.default = Navbar;
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29454,7 +30746,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29629,7 +30921,7 @@ var Offers = function (_React$Component) {
 exports.default = Offers;
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29641,7 +30933,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29702,7 +30994,58 @@ var Paypal = function (_React$Component) {
 exports.default = Paypal;
 
 /***/ }),
-/* 278 */
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Post = function (_React$Component) {
+	_inherits(Post, _React$Component);
+
+	function Post() {
+		_classCallCheck(this, Post);
+
+		return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+	}
+
+	_createClass(Post, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement("div", { className: "row post-main" }),
+				_react2.default.createElement("div", { className: "post-comment-body" })
+			);
+		}
+	}]);
+
+	return Post;
+}(_react2.default.Component);
+
+exports.default = Post;
+
+/***/ }),
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29714,7 +31057,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29726,7 +31069,7 @@ var _Checkbox = __webpack_require__(270);
 
 var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
-var _CheckboxClassification = __webpack_require__(282);
+var _CheckboxClassification = __webpack_require__(271);
 
 var _CheckboxClassification2 = _interopRequireDefault(_CheckboxClassification);
 
@@ -29783,8 +31126,10 @@ var Sort = function (_React$Component) {
             for (var i = 0; i < arrayOfGenres.length; i++) {
                 arrayOfRequiredGenres.push(_react2.default.createElement(_Checkbox2.default, { label: arrayOfGenres[i], key: arrayOfGenres[i], handleCheckboxChange: this.onToggleGenre.bind(this) }));
             }
+
             this.setState({ genre_objects: arrayOfRequiredGenres });
         }
+
         /*------------------------------------*/
 
     }, {
@@ -29930,7 +31275,7 @@ var Sort = function (_React$Component) {
 exports.default = Sort;
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29942,7 +31287,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30097,7 +31442,7 @@ var TopFilms = function (_React$Component) {
 exports.default = TopFilms;
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30139,13 +31484,13 @@ function filterMoviesByClassification(classificationArray) {
 }
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(7);
+var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30220,82 +31565,6 @@ _reactDom2.default.render(_react2.default.createElement(
 		_react2.default.createElement(_reactRouter.Route, { path: '/Forum', component: _Forum2.default })
 	)
 ), document.querySelector('#app'));
-
-/***/ }),
-/* 282 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CheckboxClassification = function (_React$Component) {
-	_inherits(CheckboxClassification, _React$Component);
-
-	function CheckboxClassification() {
-		_classCallCheck(this, CheckboxClassification);
-
-		var _this = _possibleConstructorReturn(this, (CheckboxClassification.__proto__ || Object.getPrototypeOf(CheckboxClassification)).call(this));
-
-		_this.state = {
-			isChecked: false
-
-		};
-		return _this;
-	}
-
-	_createClass(CheckboxClassification, [{
-		key: "onToggle",
-		value: function onToggle() {
-			this.setState({ isChecked: !this.state.isChecked });
-			/*console.log(this.state.isChecked);*/
-			var curCheck = !this.state.isChecked;
-			var curClass = this.props.classification;
-
-			this.props.handleCheckboxChange(curClass, curCheck);
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement(
-				"div",
-				{ className: "checkbox" },
-				_react2.default.createElement(
-					"label",
-					null,
-					_react2.default.createElement("input", {
-						type: "checkbox",
-						value: this.props.classification,
-						checked: this.state.isChecked,
-						onChange: this.onToggle.bind(this)
-					}),
-					this.props.classification
-				)
-			);
-		}
-	}]);
-
-	return CheckboxClassification;
-}(_react2.default.Component);
-
-exports.default = CheckboxClassification;
 
 /***/ })
 /******/ ]);

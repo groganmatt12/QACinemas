@@ -37,15 +37,20 @@ export default class Sort extends React.Component{
 		let genreName = [];
         let arrayOfGenres = Array.from(CinemaStore.getArrayOfGenres()); /*Save the Genre List*/
         this.setState({ genres: arrayOfGenres}); /*Cannot be used here, as it is not saved fast enough*/
-        
-        for(let i = 0; i < arrayOfGenres.length; i++){
+
+		for(let i = 0; i < arrayOfGenres.length; i++){
             arrayOfRequiredGenres.push(
                 <Checkbox label={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} />
             );
         }
+
         this.setState({ genre_objects: arrayOfRequiredGenres });
     }
+	
+	
 /*------------------------------------*/
+
+
     generateClassificationCheckbox(){
         let testArray = this.props.classificationArray;
 		console.log("AMAZING");

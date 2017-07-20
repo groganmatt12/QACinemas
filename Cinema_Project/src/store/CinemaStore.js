@@ -146,37 +146,71 @@ class CinemaStore extends EventEmitter {
 				this.filterMoviesByGenre(action.genreArray);
 			break;
 			case "CLASS_SEARCH":
-			this.filterMoviesByClassification(action.classificationArray);
+				this.filterMoviesByClassification(action.classificationArray);
+			break;
+			case "MOVIE_SEARCH":
+				this.filterMovies(action.parameterArray);
 			break;
 			default:
 			break;
 		}
 	}
 
-	filterMoviesByClassification(classArray){
-		this.filteredMovies = [];		
-		let tempArray = [];
+	filterMovies(parameterArray){
+		this.filteredMovies_Search = [];
 		
+		{/*Search Bar Handling*/}
+		let searchParameters = parameterArray[0];
 		this.movies.forEach((movie) => {
-			let curMovieClassification = movie.classification;
-			
-			for(let i = 0; i < classArray.length; i++){
-				if(curMovieClassification == classArray[i]){
-					tempArray.push(movie);
-					this.filteredMovies = tempArray;
-				}
-			}
+			if(movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {this.filteredMovies_Search.push(movie);}
 		});
-
-		if(this.filteredMovies.length == 0){
-			this.movies.forEach((movie) => {
-				{this.filteredMovies.push(movie)}
+		{/*Search Bar Handling*/}	
+			
+			
+		{/*Genre Filter Handling*/}
+		let selectedGenreList = parameterArray[1];
+		let currentIndex = 0;
+		this.filteredMovies_Genre = [];
+		let filteredMovieSet = new Set([]);
+		
+		this.filteredMovies_Search.forEach((movie) => {
+			let currentMovieGenreArray = movie.genre;
+			
+			currentMovieGenreArray.forEach((genre) =>{
+				if(selectedGenreList[currentIndex] == genre){
+					filteredMovieSet.add(movie);
+				}
+				currentIndex++;
 			});
-		}
+			
+		});
+		{this.filteredMovies_Genre = Array.from(filteredMovieSet)}
+		
+		{/*Genre Filter Handling*/}
+			
+			
+		{/*Classification Filter Handling*/}	
+		let selectedClassificationList = parameterArray[2];
+		this.filteredMovies_Classification = [];
+		
+		filteredMovies_Genre.forEach((movie) => {
+			let classificationOfCurrentMovie = movie.classification;
+			selectedClassificationList.forEach((classification) =>{
+				if(classificationOfCurrentMovie == classification){
+					this.filteredMovies_Classification.push(movie);
+				}
+			});
+		});
+		
+		{/*Classification Filter Handling*/}
+		
+		this.filteredMovies = this.filteredMovies_Classification; {/*Final Result*/}
+	
 		this.emit("moviesChange");
 	}
-
-	filterMoviesByGenre(genreArray){
+	
+	
+		filterMoviesByGenre(genreArray){
 
 		this.filteredMovies = [];
 		let tempSet = new Set([]);
@@ -202,6 +236,33 @@ class CinemaStore extends EventEmitter {
 		}
 		this.emit("moviesChange");
 	}
+	
+	
+	
+	filterMoviesByClassification(classArray){
+		this.filteredMovies = [];		
+		let tempArray = [];
+		
+		this.movies.forEach((movie) => {
+			let curMovieClassification = movie.classification;
+			
+			for(let i = 0; i < classArray.length; i++){
+				if(curMovieClassification == classArray[i]){
+					tempArray.push(movie);
+					this.filteredMovies = tempArray;
+				}
+			}
+		});
+
+		if(this.filteredMovies.length == 0){
+			this.movies.forEach((movie) => {
+				{this.filteredMovies.push(movie)}
+			});
+		}
+		this.emit("moviesChange");
+	}
+
+
 
 	generateGenreList() {
 		let genreSet = new Set([]);

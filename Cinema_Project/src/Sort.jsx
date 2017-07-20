@@ -20,83 +20,31 @@ export default class Sort extends React.Component{
 
 	}
 	
-	handleMovieSearchChange(){
-		this.props.onUserSearchInput(this.filterTextInput.value);
-        /*this.generateCheckboxes();*/
-	}
-
-    generateCheckboxes() {
-        let genreList = Array.from(CinemaStore.getGenreList());
-        console.log(genreList);
-        this.setState({ genres: genreList});
-        
-        let displayArray = [];
-
-        for(let i = 0; i<genreList.length; i++){
-            let genreName = genreList[i];
-            console.log(genreList[i]);
-            displayArray.push(
-                <Checkbox label={genreName} key={genreName} handleCheckboxChange={this.onToggleGenre.bind(this)} />
-            );
-        }
-        this.setState({ genre_objects: displayArray });
-    }
-
-    componentWillMount() {
+	componentWillMount() {
         this.generateCheckboxes();
         this.generateClassCheckbox();
 
     }
 	
-    onToggleGenre(label, checkState){
-        let check = false;
-        let tempArray = this.state.genre_array;
+	handleMovieSearchChange(){
+		this.props.onUserSearchInput(this.filterTextInput.value);
+	}    
+   
 
-        if(checkState == true){
-
-            if(tempArray != null){
-
-                for(let i = 0; i<tempArray.length; i++){
-                    if(tempArray[i] != label){
-                        check = true;
-                    }
-/*                    else{
-                        check = false;
-                        console.log(tempArray[i] +"equals"+label);
-                        tempArray.splice(i, 1);
-                        console.log(tempArray);
-                        break;
-                    }*/
-                }
-            }
-
-            if(check == true || tempArray.length == 0){
-                tempArray.push(label);
-                this.setState({genre_array: tempArray});
-                console.log(tempArray);
-            }
-        }
+	generateCheckboxes() {
+		let arrayOfRequiredGenres = [];
+		let genreName = [];
+        let arrayOfGenres = Array.from(CinemaStore.getArrayOfGenres()); /*Save the Genre List*/
+        this.setState({ genres: arrayOfGenres}); /*Cannot be used here, as it is not saved fast enough*/
         
-        if(checkState == false){
-            console.log(checkState);
-            for(let i = 0; i<tempArray.length; i++){
-                if(tempArray[i] != label){
-                    check = true;
-                }
-                else{
-                    check = false;
-                    console.log(tempArray[i]+"equals"+label);
-                    tempArray.splice(i, 1);
-                    console.log(tempArray);
-                    break;
-                }
-            }
+        for(let i = 0; i < arrayOfGenres.length; i++){
+            arrayOfRequiredGenres.push(
+                <Checkbox label={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} />
+            );
         }
-        
-        this.props.onGenreCheckInput(tempArray);
+        this.setState({ genre_objects: arrayOfRequiredGenres });
     }
-
-
+/*------------------------------------*/
     generateClassCheckbox(){
         let testArray = CinemaStore.generateClassList();
         this.setState({classifications: testArray});
@@ -130,7 +78,53 @@ export default class Sort extends React.Component{
         this.props.onClassCheckInput(newArray);
     }
 
+	onToggleGenre(label, checkState){
+		let check = false;
+        let tempArray = this.state.genre_array;
 
+        if(checkState == true){
+
+            if(tempArray != null){
+                for(let i = 0; i<tempArray.length; i++){
+                    if(tempArray[i] != label){
+                        check = true;
+                    }
+                }
+            }
+
+            if(check == true || tempArray.length == 0){
+                tempArray.push(label);
+                this.setState({genre_array: tempArray});
+                console.log(tempArray);
+            }
+        }
+        
+        if(checkState == false){
+            console.log(checkState);
+            for(let i = 0; i<tempArray.length; i++){
+                if(tempArray[i] != label){
+                    check = true;
+                }
+                else{
+                    check = false;
+                    console.log(tempArray[i]+"equals"+label);
+                    tempArray.splice(i, 1);
+                    console.log(tempArray);
+                    break;
+                }
+            }
+        }
+        
+        this.props.onGenreCheckInput(tempArray);
+    }
+
+	
+	
+	
+	
+	
+	
+	
     render(){
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">

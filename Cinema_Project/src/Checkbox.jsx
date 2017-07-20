@@ -17,7 +17,6 @@ export default class Checkbox extends React.Component{
 		let curCheck = !(this.state.isChecked);
 
 		if(curCheck == true){
-/*			console.log(curLabel + " is checked");*/
 			this.props.handleCheckboxChange(curLabel, true);	
 		}
 		if(curCheck == false){

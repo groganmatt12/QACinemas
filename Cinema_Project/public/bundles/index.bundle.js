@@ -5641,8 +5641,8 @@ var CinemaStore = function (_EventEmitter) {
 	}
 
 	_createClass(CinemaStore, [{
-		key: 'getGenreList',
-		value: function getGenreList() {
+		key: 'getArrayOfGenres',
+		value: function getArrayOfGenres() {
 			return this.genres;
 		}
 	}, {
@@ -5785,6 +5785,8 @@ var CinemaStore = function (_EventEmitter) {
 					break;
 				case "CLASS_SEARCH":
 					this.filterMoviesByClassification(action.classificationArray);
+					break;
+				default:
 					break;
 			}
 		}
@@ -30190,7 +30192,6 @@ var Checkbox = function (_React$Component) {
 			var curCheck = !this.state.isChecked;
 
 			if (curCheck == true) {
-				/*			console.log(curLabel + " is checked");*/
 				this.props.handleCheckboxChange(curLabel, true);
 			}
 			if (curCheck == false) {
@@ -30946,81 +30947,31 @@ var Sort = function (_React$Component) {
     }
 
     _createClass(Sort, [{
-        key: 'handleMovieSearchChange',
-        value: function handleMovieSearchChange() {
-            this.props.onUserSearchInput(this.filterTextInput.value);
-            /*this.generateCheckboxes();*/
-        }
-    }, {
-        key: 'generateCheckboxes',
-        value: function generateCheckboxes() {
-            var genreList = Array.from(_CinemaStore2.default.getGenreList());
-            console.log(genreList);
-            this.setState({ genres: genreList });
-
-            var displayArray = [];
-
-            for (var i = 0; i < genreList.length; i++) {
-                var genreName = genreList[i];
-                console.log(genreList[i]);
-                displayArray.push(_react2.default.createElement(_Checkbox2.default, { label: genreName, key: genreName, handleCheckboxChange: this.onToggleGenre.bind(this) }));
-            }
-            this.setState({ genre_objects: displayArray });
-        }
-    }, {
         key: 'componentWillMount',
         value: function componentWillMount() {
             this.generateCheckboxes();
             this.generateClassCheckbox();
         }
     }, {
-        key: 'onToggleGenre',
-        value: function onToggleGenre(label, checkState) {
-            var check = false;
-            var tempArray = this.state.genre_array;
-
-            if (checkState == true) {
-
-                if (tempArray != null) {
-
-                    for (var i = 0; i < tempArray.length; i++) {
-                        if (tempArray[i] != label) {
-                            check = true;
-                        }
-                        /*                    else{
-                                                check = false;
-                                                console.log(tempArray[i] +"equals"+label);
-                                                tempArray.splice(i, 1);
-                                                console.log(tempArray);
-                                                break;
-                                            }*/
-                    }
-                }
-
-                if (check == true || tempArray.length == 0) {
-                    tempArray.push(label);
-                    this.setState({ genre_array: tempArray });
-                    console.log(tempArray);
-                }
-            }
-
-            if (checkState == false) {
-                console.log(checkState);
-                for (var _i = 0; _i < tempArray.length; _i++) {
-                    if (tempArray[_i] != label) {
-                        check = true;
-                    } else {
-                        check = false;
-                        console.log(tempArray[_i] + "equals" + label);
-                        tempArray.splice(_i, 1);
-                        console.log(tempArray);
-                        break;
-                    }
-                }
-            }
-
-            this.props.onGenreCheckInput(tempArray);
+        key: 'handleMovieSearchChange',
+        value: function handleMovieSearchChange() {
+            this.props.onUserSearchInput(this.filterTextInput.value);
         }
+    }, {
+        key: 'generateCheckboxes',
+        value: function generateCheckboxes() {
+            var arrayOfRequiredGenres = [];
+            var genreName = [];
+            var arrayOfGenres = Array.from(_CinemaStore2.default.getArrayOfGenres()); /*Save the Genre List*/
+            this.setState({ genres: arrayOfGenres }); /*Cannot be used here, as it is not saved fast enough*/
+
+            for (var i = 0; i < arrayOfGenres.length; i++) {
+                arrayOfRequiredGenres.push(_react2.default.createElement(_Checkbox2.default, { label: arrayOfGenres[i], key: arrayOfGenres[i], handleCheckboxChange: this.onToggleGenre.bind(this) }));
+            }
+            this.setState({ genre_objects: arrayOfRequiredGenres });
+        }
+        /*------------------------------------*/
+
     }, {
         key: 'generateClassCheckbox',
         value: function generateClassCheckbox() {
@@ -31056,6 +31007,46 @@ var Sort = function (_React$Component) {
             });
 
             this.props.onClassCheckInput(newArray);
+        }
+    }, {
+        key: 'onToggleGenre',
+        value: function onToggleGenre(label, checkState) {
+            var check = false;
+            var tempArray = this.state.genre_array;
+
+            if (checkState == true) {
+
+                if (tempArray != null) {
+                    for (var i = 0; i < tempArray.length; i++) {
+                        if (tempArray[i] != label) {
+                            check = true;
+                        }
+                    }
+                }
+
+                if (check == true || tempArray.length == 0) {
+                    tempArray.push(label);
+                    this.setState({ genre_array: tempArray });
+                    console.log(tempArray);
+                }
+            }
+
+            if (checkState == false) {
+                console.log(checkState);
+                for (var _i = 0; _i < tempArray.length; _i++) {
+                    if (tempArray[_i] != label) {
+                        check = true;
+                    } else {
+                        check = false;
+                        console.log(tempArray[_i] + "equals" + label);
+                        tempArray.splice(_i, 1);
+                        console.log(tempArray);
+                        break;
+                    }
+                }
+            }
+
+            this.props.onGenreCheckInput(tempArray);
         }
     }, {
         key: 'render',

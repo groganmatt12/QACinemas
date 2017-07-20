@@ -5641,8 +5641,8 @@ var CinemaStore = function (_EventEmitter) {
 	}
 
 	_createClass(CinemaStore, [{
-		key: 'getGenreList',
-		value: function getGenreList() {
+		key: 'getArrayOfGenres',
+		value: function getArrayOfGenres() {
 			return this.genres;
 		}
 	}, {
@@ -5785,6 +5785,8 @@ var CinemaStore = function (_EventEmitter) {
 					break;
 				case "CLASS_SEARCH":
 					this.filterMoviesByClassification(action.classificationArray);
+					break;
+				default:
 					break;
 			}
 		}

@@ -24,7 +24,7 @@ class CinemaStore extends EventEmitter {
 
 	}
 
-	getGenreList() {
+	getArrayOfGenres() {
 		return this.genres;
 	}
 
@@ -147,6 +147,8 @@ class CinemaStore extends EventEmitter {
 			break;
 			case "CLASS_SEARCH":
 			this.filterMoviesByClassification(action.classificationArray);
+			break;
+			default:
 			break;
 		}
 	}

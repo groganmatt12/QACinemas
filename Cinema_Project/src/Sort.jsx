@@ -28,6 +28,7 @@ export default class Sort extends React.Component{
 	
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
+		this.generateClassificationCheckbox();
 	}    
    
 
@@ -51,22 +52,37 @@ export default class Sort extends React.Component{
 
 
     generateClassificationCheckbox(){
-        let testArray = CinemaStore.generateClassificationList();
+        let testArray = this.props.classificationArray;
+		console.log("AMAZING");
+		console.log(testArray);
         this.setState({classifications: testArray});
 
         let arrayOfClassificationComp = [];
         for(let i = 0; i<testArray.length; i++){
             let curClassification = testArray[i];
             arrayOfClassificationComp.push(
-                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)}/>
+                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxState={this.findClassificationCheckStateFromArray(curClassification)}/>
             );
         }
         this.setState({classification_objects: arrayOfClassificationComp});
     }
+	
 
+	findClassificationCheckStateFromArray(currentClassification){
+		let isChecked = false;
+		console.log("check in sort " + currentClassification);
+		this.props.classificationChecked.forEach((checkedState) => {
+			console.log("check in forEach " + checkedState);
+			if(checkedState == currentClassification){isChecked = true};})
+
+		return isChecked;
+	}
+	
+	
+	
     onToggleClassification(classification, checkState){
 
-        let tempArray = this.state.classification_array;
+        let tempArray = this.props.classificationChecked;
         let tempSet = new Set(tempArray);
 
         if(checkState === true){
@@ -130,6 +146,23 @@ export default class Sort extends React.Component{
 	
 	
     render(){
+		
+        let testArray = this.props.classificationArray;
+		console.log("AMAZING");
+		console.log(testArray);
+        //this.setState({classifications: testArray});
+
+        let arrayOfClassificationComp = [];
+        for(let i = 0; i<testArray.length; i++){
+            let curClassification = testArray[i];
+            arrayOfClassificationComp.push(
+                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxState={this.findClassificationCheckStateFromArray(curClassification)}/>
+            );
+        }
+        //this.setState({classification_objects: arrayOfClassificationComp});
+		
+		
+		
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">
 
@@ -151,7 +184,7 @@ export default class Sort extends React.Component{
                         </div>
                         <div>
                             <h4>Classifications</h4>
-                            {this.state.classification_objects}
+                            {arrayOfClassificationComp}
                         </div>
 					</form>
 					</div>

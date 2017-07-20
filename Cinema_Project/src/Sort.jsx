@@ -12,18 +12,19 @@ export default class Sort extends React.Component{
             genres: [],
             genre_objects: [],
             genre_array: [],
-			classifications: [],
-			classification_objects: [],
-			classification_array: [] /*will contain what's checked and unchecked */
-        }
+
+            classifications: [],
+            classification_objects: [],
+            classification_array: []
+        };
+
 	}
 	
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
         /*this.generateCheckboxes();*/
 	}
-    
-    
+
     generateCheckboxes() {
         let genreList = Array.from(CinemaStore.getGenreList());
         console.log(genreList);
@@ -43,7 +44,8 @@ export default class Sort extends React.Component{
 
     componentWillMount() {
         this.generateCheckboxes();
-		this.generateClassCheckbox();
+        this.generateClassCheckbox();
+
     }
 	
     onToggleGenre(label, checkState){
@@ -94,62 +96,69 @@ export default class Sort extends React.Component{
         this.props.onGenreCheckInput(tempArray);
     }
 
-	generateClassCheckbox(){
-		let testArray = CinemaStore.generateClassList();
-		this.setState({classifications: testArray});
-		let arrayOfClassComponents = [];
-		for(let i = 0; i < testArray.length; i++){
-			let currentClass = testArray[i];
-			arrayOfClassComponents.push(
-				<CheckboxClass classification={currentClass} key={i} handleCheckBoxChange={this.onToggleClass.bind(this)}/>
-			);
-			this.setState({classification_objects: arrayOfClassComponents});
-		}
-	}
-	
-	onToggleClass(classification, checkState){
-		let classificationArray = this.state.classification_array;
-		let tempSet = new Set(classificationArray);
-		if(checkState == true){
-			tempSet.add(classification);
-		}
-		if(checkState == false){
-			tempSet.delete(classification);
-		}
-		let classArray = Array.from(tempSet);
-		this.setState({classification_array: classArray});
-		console.log(this.state.classification_array);
-		
-		this.props.onClassCheckInput(classArray);
-		
-	}
+
+    generateClassCheckbox(){
+        let testArray = CinemaStore.generateClassList();
+        this.setState({classifications: testArray});
+
+        let arrayOfClassComp = [];
+        for(let i = 0; i<testArray.length; i++){
+            let curClass = testArray[i];
+            console.log(curClass);
+            arrayOfClassComp.push(
+                <CheckboxClass classification={curClass} key={i+curClass} handleCheckboxChange={this.onToggleClass.bind(this)}/>
+            );
+        }
+        this.setState({classification_objects: arrayOfClassComp});
+    }
+
+    onToggleClass(classification, checkState){
+
+        let tempArray = this.state.classification_array;
+        let tempSet = new Set(tempArray);
+
+        if(checkState === true){
+            tempSet.add(classification);
+        }
+        if(checkState === false){
+            tempSet.delete(classification);
+        }
+        
+        let newArray = Array.from(tempSet);
+        this.setState({classification_array: newArray}, () => console.log(this.state.classification_array));
+
+        this.props.onClassCheckInput(newArray);
+    }
+
 
     render(){
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">
-				<button type="button" className="btn btn-info btn-block" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-					<div id="demo" className="collapse">
-					<div className="panel panel-default">
-						<div className="panel-body">
-							<form>
-								<input 
-									type='text'
-									placeholder='search for movies'
-									value={this.props.filterText}
-									ref={(input) => this.filterTextInput = input}
-									onChange = {this.handleMovieSearchChange}
-								/>
-								<div>
-									<h4>Filter by Genre...</h4>
-									{this.state.genre_objects}
-								</div>
-								<div>
-									<h4>Classification</h4>
-									{this.state.classification_objects}
-								</div>
-							</form>
-						</div>
-						</div>
+
+			<button type="button" className="btn btn-info btn-block" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+				<div id="demo" className="collapse">
+				<div className="panel panel-default">
+					<div className="panel-body">
+					<form>
+						<input 
+							type='text'
+							placeholder='search for movies'
+							value={this.props.filterText}
+							ref={(input) => this.filterTextInput = input}
+							onChange = {this.handleMovieSearchChange}
+						/>
+                        <div>
+                            <h4>Filter by Genre...</h4>
+                            {this.state.genre_objects}
+                        </div>
+                        <div>
+                            <h4>Classifications</h4>
+                            {this.state.classification_objects}
+                        </div>
+					</form>
+					</div>
+				</div>
+
 				</div>
 			</div>
         );

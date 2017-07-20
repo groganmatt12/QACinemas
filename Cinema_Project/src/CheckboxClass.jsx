@@ -1,19 +1,22 @@
 import React from 'react';
 
 export default class CheckboxClass extends React.Component{
-	
+
 	constructor(){
 		super();
 		this.state = {
 			isChecked: false
-		}; 
+
+		};
 	}
-	
-	onToggle(){
+
+	onToggle(){		
 		this.setState({isChecked: !(this.state.isChecked)});
+		/*console.log(this.state.isChecked);*/
 		let curCheck = !(this.state.isChecked);
 		let curClass = this.props.classification;
-		this.props.handleCheckBoxChange(curClass, curCheck);
+
+		this.props.handleCheckboxChange(curClass, curCheck);
 	}
 	
 	render(){
@@ -29,7 +32,7 @@ export default class CheckboxClass extends React.Component{
 					{this.props.classification}
 				</label>
 			</div>
+
 		);
 	}
-	
 }

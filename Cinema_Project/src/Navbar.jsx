@@ -30,6 +30,11 @@ export default class Navbar extends React.Component{
 										Classifications
 									</Link>
 								</li>
+								<li>
+									<Link to="/Forum">
+										Forum
+									</Link>
+								</li>
 								
 								{/*<li><Link to="/ContactUs">Contact Us</Link></li>*/}
 							</ul>

@@ -40,7 +40,7 @@ export default class ListingGallery extends React.Component{
 	handleClassCheck(classificationArray){
 		CinemaActions.filterMoviesByClassification(classificationArray);
 	}
-	
+
 	handleGenreCheck(genreArray){
 /*		console.log(genreArray);
 */		CinemaActions.filterMoviesByGenre(genreArray);

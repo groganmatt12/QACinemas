@@ -63,7 +63,6 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-
 /******/ 	return __webpack_require__(__webpack_require__.s = 281);
 /******/ })
 /************************************************************************/
@@ -5637,6 +5636,7 @@ var CinemaStore = function (_EventEmitter) {
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
 		_this.genres = _this.generateGenreList();
 		_this.classification = _this.generateClassList();
+
 		return _this;
 	}
 
@@ -5890,12 +5890,10 @@ var CinemaStore = function (_EventEmitter) {
 	return CinemaStore;
 }(_events.EventEmitter);
 
-exports.default = CinemaStore;
-
-
-_dispatcher2.default.register(cinemaStore.handleActions.bind(cinemaStore));
 var cinemaStore = new CinemaStore();
+
 _dispatcher2.default.register(cinemaStore.handleActions.bind(cinemaStore));
+exports.default = cinemaStore;
 
 /***/ }),
 /* 46 */
@@ -29380,11 +29378,7 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-var _Header = __webpack_require__(271);
-=======
 var _Header = __webpack_require__(272);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -29456,11 +29450,7 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-<<<<<<< HEAD
-var _Paypal = __webpack_require__(276);
-=======
 var _Paypal = __webpack_require__(277);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _Paypal2 = _interopRequireDefault(_Paypal);
 
@@ -29823,19 +29813,11 @@ var _Carousel = __webpack_require__(269);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
 
-<<<<<<< HEAD
-var _Offers = __webpack_require__(275);
-
-var _Offers2 = _interopRequireDefault(_Offers);
-
-var _TopFilms = __webpack_require__(278);
-=======
 var _Offers = __webpack_require__(276);
 
 var _Offers2 = _interopRequireDefault(_Offers);
 
 var _TopFilms = __webpack_require__(279);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _TopFilms2 = _interopRequireDefault(_TopFilms);
 
@@ -29918,17 +29900,6 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-<<<<<<< HEAD
-var _Sort = __webpack_require__(277);
-
-var _Sort2 = _interopRequireDefault(_Sort);
-
-var _CinemaActions = __webpack_require__(279);
-
-var CinemaActions = _interopRequireWildcard(_CinemaActions);
-
-var _ListOfMovies = __webpack_require__(272);
-=======
 var _Sort = __webpack_require__(278);
 
 var _Sort2 = _interopRequireDefault(_Sort);
@@ -29938,7 +29909,6 @@ var _CinemaActions = __webpack_require__(280);
 var CinemaActions = _interopRequireWildcard(_CinemaActions);
 
 var _ListOfMovies = __webpack_require__(273);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _ListOfMovies2 = _interopRequireDefault(_ListOfMovies);
 
@@ -30339,166 +30309,6 @@ exports.default = CheckboxClass;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _CinemaStore = __webpack_require__(45);
-
-var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Checkbox = function (_React$Component) {
-	_inherits(Checkbox, _React$Component);
-
-	function Checkbox() {
-		_classCallCheck(this, Checkbox);
-
-		var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this));
-
-		_this.state = {
-			isChecked: false
-		};
-		return _this;
-	}
-
-	_createClass(Checkbox, [{
-		key: 'onToggle',
-		value: function onToggle() {
-
-			this.setState({ isChecked: !this.state.isChecked });
-			var curLabel = this.props.label;
-			var curCheck = !this.state.isChecked;
-
-			if (curCheck == true) {
-				/*			console.log(curLabel + " is checked");*/
-				this.props.handleCheckboxChange(curLabel, true);
-			}
-			if (curCheck == false) {
-				this.props.handleCheckboxChange(curLabel, false);
-			}
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			/*		console.log("b"+this.state.isChecked);*/
-
-			return _react2.default.createElement(
-				'div',
-				{ className: 'checkbox' },
-				_react2.default.createElement(
-					'label',
-					null,
-					_react2.default.createElement('input', {
-						type: 'checkbox',
-						value: this.props.label,
-						checked: this.state.isChecked,
-						onChange: this.onToggle.bind(this)
-					}),
-					this.props.label
-				)
-			);
-		}
-	}]);
-
-	return Checkbox;
-}(_react2.default.Component);
-
-exports.default = Checkbox;
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CheckboxClass = function (_React$Component) {
-	_inherits(CheckboxClass, _React$Component);
-
-	function CheckboxClass() {
-		_classCallCheck(this, CheckboxClass);
-
-		var _this = _possibleConstructorReturn(this, (CheckboxClass.__proto__ || Object.getPrototypeOf(CheckboxClass)).call(this));
-
-		_this.state = {
-			isChecked: false
-		};
-		return _this;
-	}
-
-	_createClass(CheckboxClass, [{
-		key: "onToggle",
-		value: function onToggle() {
-			this.setState({ isChecked: !this.state.isChecked });
-			var curCheck = !this.state.isChecked;
-			var curClass = this.props.classification;
-			this.props.handleCheckBoxChange(curClass, curCheck);
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement(
-				"div",
-				{ className: "checkbox" },
-				_react2.default.createElement(
-					"label",
-					null,
-					_react2.default.createElement("input", {
-						type: "checkbox",
-						value: this.props.classification,
-						checked: this.state.isChecked,
-						onChange: this.onToggle.bind(this)
-					}),
-					this.props.classification
-				)
-			);
-		}
-	}]);
-
-	return CheckboxClass;
-}(_react2.default.Component);
-
-exports.default = CheckboxClass;
-
-/***/ }),
-/* 271 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
@@ -30508,11 +30318,7 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-var _Navbar = __webpack_require__(274);
-=======
 var _Navbar = __webpack_require__(275);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -30551,11 +30357,7 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-<<<<<<< HEAD
-/* 272 */
-=======
 /* 273 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30571,11 +30373,7 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-var _MovieListing = __webpack_require__(273);
-=======
 var _MovieListing = __webpack_require__(274);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _MovieListing2 = _interopRequireDefault(_MovieListing);
 
@@ -30620,11 +30418,7 @@ var ListOfMovies = function (_React$Component) {
 exports.default = ListOfMovies;
 
 /***/ }),
-<<<<<<< HEAD
-/* 273 */
-=======
 /* 274 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30723,11 +30517,7 @@ var MovieListing = function (_React$Component) {
 exports.default = MovieListing;
 
 /***/ }),
-<<<<<<< HEAD
-/* 274 */
-=======
 /* 275 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30836,11 +30626,7 @@ var Navbar = function (_React$Component) {
 exports.default = Navbar;
 
 /***/ }),
-<<<<<<< HEAD
-/* 275 */
-=======
 /* 276 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31027,11 +30813,7 @@ var Offers = function (_React$Component) {
 exports.default = Offers;
 
 /***/ }),
-<<<<<<< HEAD
-/* 276 */
-=======
 /* 277 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31104,11 +30886,7 @@ var Paypal = function (_React$Component) {
 exports.default = Paypal;
 
 /***/ }),
-<<<<<<< HEAD
-/* 277 */
-=======
 /* 278 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31128,19 +30906,11 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-<<<<<<< HEAD
-var _Checkbox = __webpack_require__(269);
-
-var _Checkbox2 = _interopRequireDefault(_Checkbox);
-
-var _CheckboxClass = __webpack_require__(270);
-=======
 var _Checkbox = __webpack_require__(270);
 
 var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
 var _CheckboxClass = __webpack_require__(271);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 var _CheckboxClass2 = _interopRequireDefault(_CheckboxClass);
 
@@ -31166,67 +30936,6 @@ var Sort = function (_React$Component) {
             genres: [],
             genre_objects: [],
             genre_array: [],
-<<<<<<< HEAD
-            classifications: [],
-            classification_objects: [],
-            classification_array: [] /*will contain what's checked and unchecked */
-        };
-        return _this;
-    }
-
-    _createClass(Sort, [{
-        key: 'handleMovieSearchChange',
-        value: function handleMovieSearchChange() {
-            this.props.onUserSearchInput(this.filterTextInput.value);
-            /*this.generateCheckboxes();*/
-        }
-    }, {
-        key: 'generateCheckboxes',
-        value: function generateCheckboxes() {
-            var genreList = Array.from(_CinemaStore2.default.getGenreList());
-            console.log(genreList);
-            this.setState({ genres: genreList });
-
-            var displayArray = [];
-
-            for (var i = 0; i < genreList.length; i++) {
-                var genreName = genreList[i];
-                console.log(genreList[i]);
-                displayArray.push(_react2.default.createElement(_Checkbox2.default, { label: genreName, key: genreName, handleCheckboxChange: this.onToggleGenre.bind(this) }));
-            }
-            this.setState({ genre_objects: displayArray });
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.generateCheckboxes();
-            this.generateClassCheckbox();
-        }
-    }, {
-        key: 'onToggleGenre',
-        value: function onToggleGenre(label, checkState) {
-            var check = false;
-            var tempArray = this.state.genre_array;
-
-            if (checkState == true) {
-
-                if (tempArray != null) {
-
-                    for (var i = 0; i < tempArray.length; i++) {
-                        if (tempArray[i] != label) {
-                            check = true;
-                        }
-                        /*                    else{
-                                                check = false;
-                                                console.log(tempArray[i] +"equals"+label);
-                                                tempArray.splice(i, 1);
-                                                console.log(tempArray);
-                                                break;
-                                            }*/
-                    }
-                }
-
-=======
 
             classifications: [],
             classification_objects: [],
@@ -31288,7 +30997,6 @@ var Sort = function (_React$Component) {
                     }
                 }
 
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
                 if (check == true || tempArray.length == 0) {
                     tempArray.push(label);
                     this.setState({ genre_array: tempArray });
@@ -31318,14 +31026,6 @@ var Sort = function (_React$Component) {
         value: function generateClassCheckbox() {
             var testArray = _CinemaStore2.default.generateClassList();
             this.setState({ classifications: testArray });
-<<<<<<< HEAD
-            var arrayOfClassComponents = [];
-            for (var i = 0; i < testArray.length; i++) {
-                var currentClass = testArray[i];
-                arrayOfClassComponents.push(_react2.default.createElement(_CheckboxClass2.default, { classification: currentClass, key: i, handleCheckBoxChange: this.onToggleClass.bind(this) }));
-                this.setState({ classification_objects: arrayOfClassComponents });
-            }
-=======
 
             var arrayOfClassComp = [];
             for (var i = 0; i < testArray.length; i++) {
@@ -31334,26 +31034,10 @@ var Sort = function (_React$Component) {
                 arrayOfClassComp.push(_react2.default.createElement(_CheckboxClass2.default, { classification: curClass, key: i + curClass, handleCheckboxChange: this.onToggleClass.bind(this) }));
             }
             this.setState({ classification_objects: arrayOfClassComp });
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
         }
     }, {
         key: 'onToggleClass',
         value: function onToggleClass(classification, checkState) {
-<<<<<<< HEAD
-            var classificationArray = this.state.classification_array;
-            var tempSet = new Set(classificationArray);
-            if (checkState == true) {
-                tempSet.add(classification);
-            }
-            if (checkState == false) {
-                tempSet.delete(classification);
-            }
-            var classArray = Array.from(tempSet);
-            this.setState({ classification_array: classArray });
-            console.log(this.state.classification_array);
-
-            this.props.onClassCheckInput(classArray);
-=======
             var _this2 = this;
 
             var tempArray = this.state.classification_array;
@@ -31372,16 +31056,11 @@ var Sort = function (_React$Component) {
             });
 
             this.props.onClassCheckInput(newArray);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
         }
     }, {
         key: 'render',
         value: function render() {
-<<<<<<< HEAD
-            var _this2 = this;
-=======
             var _this3 = this;
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
             return _react2.default.createElement(
                 'div',
@@ -31408,11 +31087,7 @@ var Sort = function (_React$Component) {
                                     placeholder: 'search for movies',
                                     value: this.props.filterText,
                                     ref: function ref(input) {
-<<<<<<< HEAD
-                                        return _this2.filterTextInput = input;
-=======
                                         return _this3.filterTextInput = input;
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
                                     },
                                     onChange: this.handleMovieSearchChange
                                 }),
@@ -31432,11 +31107,7 @@ var Sort = function (_React$Component) {
                                     _react2.default.createElement(
                                         'h4',
                                         null,
-<<<<<<< HEAD
-                                        'Classification'
-=======
                                         'Classifications'
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
                                     ),
                                     this.state.classification_objects
                                 )
@@ -31454,11 +31125,7 @@ var Sort = function (_React$Component) {
 exports.default = Sort;
 
 /***/ }),
-<<<<<<< HEAD
-/* 278 */
-=======
 /* 279 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31625,11 +31292,7 @@ var TopFilms = function (_React$Component) {
 exports.default = TopFilms;
 
 /***/ }),
-<<<<<<< HEAD
-/* 279 */
-=======
 /* 280 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31663,26 +31326,15 @@ function filterMoviesByGenre(genreArray) {
 	});
 }
 
-<<<<<<< HEAD
-function filterMoviesByClassification(classArray) {
-	_dispatcher2.default.dispatch({
-		type: "CLASS_SEARCH",
-		classArray: classArray
-=======
 function filterMoviesByClassification(classificationArray) {
 	_dispatcher2.default.dispatch({
 		type: "CLASS_SEARCH",
 		classificationArray: classificationArray
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 	});
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 280 */
-=======
 /* 281 */
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

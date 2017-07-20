@@ -5636,10 +5636,7 @@ var CinemaStore = function (_EventEmitter) {
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
 		_this.genres = _this.generateGenreList();
 		_this.classification = _this.generateClassList();
-<<<<<<< HEAD
-=======
 
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 		return _this;
 	}
 
@@ -5787,12 +5784,7 @@ var CinemaStore = function (_EventEmitter) {
 					this.filterMoviesByGenre(action.genreArray);
 					break;
 				case "CLASS_SEARCH":
-<<<<<<< HEAD
-					this.filterMoviesByClassification(action.classArray);
-				default:
-=======
 					this.filterMoviesByClassification(action.classificationArray);
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 					break;
 			}
 		}
@@ -5881,8 +5873,6 @@ var CinemaStore = function (_EventEmitter) {
 			var classArray = Array.from(classSet);
 			return classArray;
 		}
-<<<<<<< HEAD
-=======
 	}, {
 		key: 'generateClassList',
 		value: function generateClassList() {
@@ -5895,22 +5885,15 @@ var CinemaStore = function (_EventEmitter) {
 			var classArray = Array.from(classSet);
 			return classArray;
 		}
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 	}]);
 
 	return CinemaStore;
 }(_events.EventEmitter);
 
-<<<<<<< HEAD
-exports.default = CinemaStore;
-
-
-_dispatcher2.default.register(cinemaStore.handleActions.bind(cinemaStore));
-=======
 var cinemaStore = new CinemaStore();
+
 _dispatcher2.default.register(cinemaStore.handleActions.bind(cinemaStore));
 exports.default = cinemaStore;
->>>>>>> 89acbf49b6d379cef4ab8de9425e52c0562f66d1
 
 /***/ }),
 /* 46 */

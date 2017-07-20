@@ -7,7 +7,7 @@ import cinemaJson from '../data/CinemaLocations.json';
 import movieJson from '../data/MovieDetails.json';
 import showingsJson from '../data/ShowingTimes.json';
 
-export default class CinemaStore extends EventEmitter {
+class CinemaStore extends EventEmitter {
 	
 	constructor() {
 		
@@ -239,5 +239,7 @@ export default class CinemaStore extends EventEmitter {
 }	
 
 
+const cinemaStore = new CinemaStore();
 
 dispatcher.register(cinemaStore.handleActions.bind(cinemaStore));
+export default cinemaStore;

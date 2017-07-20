@@ -10,6 +10,7 @@ export default class Booking extends React.Component{
 		this.state = {
 			ticketQuantity: 0,
 		showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
+		
 		}
 	}
 	
@@ -31,11 +32,12 @@ export default class Booking extends React.Component{
     render() {
 		
 		let price = 10 * this.state.ticketQuantity;
-		
+		console.log(this.props.location.query);
         return(
 		
-			<div className="Booking-Parent">
-				<div className="Shadow-Box">
+			
+			<div className="Shadow-Box Booking-Group">
+				<div className="Booking-Test">
 					<div className="Booking-Film-Name">
 						<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
 					</div>
@@ -58,7 +60,7 @@ export default class Booking extends React.Component{
 					<br></br>
 					
 					<Paypal price={price}/>
-				</div>
+					</div>
 			</div>
         );
     }

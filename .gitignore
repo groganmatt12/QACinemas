@@ -2,6 +2,6 @@
 *.md
 node_modules/
 *.swp
-bundles/
+Cinema_Project/public/bundles/
 index.js
 

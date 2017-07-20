@@ -898,7 +898,7 @@ var CinemaStore = function (_EventEmitter) {
 		_this.cinemas = _CinemaLocations2.default.cinemas;
 		_this.movies = _MovieDetails2.default.movieDetails;
 		_this.showings = _ShowingTimes2.default.showingTimes;
-		_this.filteredMovies = sortMoviesByRelease();
+		_this.filteredMovies = _this.sortMoviesByRelease();
 		_this.moviesByDate = [];
 		_this.genres = _this.generateGenreList();
 

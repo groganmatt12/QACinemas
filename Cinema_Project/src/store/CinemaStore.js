@@ -17,7 +17,7 @@ class CinemaStore extends EventEmitter {
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = movieJson.movieDetails;
 		this.showings = showingsJson.showingTimes;		
-		this.filteredMovies = sortMoviesByRelease();
+		this.filteredMovies = this.sortMoviesByRelease();
 		this.moviesByDate = [];
 		this.genres = this.generateGenreList();
 		

@@ -30442,7 +30442,7 @@ var ForumPost = function (_React$Component) {
 				),
 				_react2.default.createElement(
 					"a",
-					{ href: "#post0comment", className: "btn btn-info", "data-toggle": "collapse" },
+					{ href: "#post0comment", className: "btn btn-info", "data-toggle": "collapse", ref: "forumPostHeader" },
 					"Comment collapsible"
 				),
 				_react2.default.createElement(

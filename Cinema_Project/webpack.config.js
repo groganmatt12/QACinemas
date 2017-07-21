@@ -5,7 +5,7 @@ module.exports = {
 		MovieDetails: './spec/movieDetailsTest.jsx',
 		index: './src/index.js',
 		ForumTest: './spec/forumTest.jsx',
-
+		ForumPostTest: './spec/forumPostTest.jsx'
 	},
     output: {
         path: __dirname,

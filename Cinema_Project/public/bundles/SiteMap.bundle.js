@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 268);
+/******/ 	return __webpack_require__(__webpack_require__.s = 272);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -28129,96 +28129,7 @@ exports.default = SiteMap;
 /* 256 */,
 /* 257 */,
 /* 258 */,
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-				value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(8);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _SiteMap = __webpack_require__(249);
-
-var _SiteMap2 = _interopRequireDefault(_SiteMap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Footer = function (_React$Component) {
-				_inherits(Footer, _React$Component);
-
-				function Footer() {
-								_classCallCheck(this, Footer);
-
-								return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-				}
-
-				_createClass(Footer, [{
-								key: 'render',
-								value: function render() {
-												var emailAddress = "cinemasqa@gmail.com";
-												var emailSubject = "Hello";
-												var emailLink = "mailto:" + emailAddress + "?Subject=" + emailSubject;
-												var phoneNumber = "06412303344";
-												var phoneLink = "tel:" + phoneNumber;
-
-												return _react2.default.createElement(
-																'div',
-																{ className: 'footer navbar-static-bottom' },
-																_react2.default.createElement(
-																				'div',
-																				{ className: 'container-fluid' },
-																				_react2.default.createElement(
-																								'p',
-																								{ ref: 'Footer_Team_Name' },
-																								'QA Cinema Blue'
-																				),
-																				_react2.default.createElement(
-																								'div',
-																								{ className: 'ContactDetails' },
-																								_react2.default.createElement(
-																												'p',
-																												null,
-																												'Email:\xA0',
-																												_react2.default.createElement(
-																																'a',
-																																{ ref: 'Footer_Email', href: emailLink, target: '_top' },
-																																emailAddress
-																												),
-																												'\xA0\xA0\xA0\xA0 Phone Number: \xA0',
-																												_react2.default.createElement(
-																																'a',
-																																{ ref: 'Footer_PhoneNumber', href: phoneLink },
-																																phoneNumber
-																												)
-																								),
-																								_react2.default.createElement(_SiteMap2.default, { ref: 'Footer_SiteMapCall' })
-																				),
-																				_react2.default.createElement('hr', { className: 'Footer-UnderLine' })
-																)
-												);
-								}
-				}]);
-
-				return Footer;
-}(_react2.default.Component);
-
-exports.default = Footer;
-
-/***/ }),
+/* 259 */,
 /* 260 */,
 /* 261 */,
 /* 262 */,
@@ -28227,7 +28138,11 @@ exports.default = Footer;
 /* 265 */,
 /* 266 */,
 /* 267 */,
-/* 268 */
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28245,48 +28160,36 @@ var _testUtils = __webpack_require__(113);
 
 var _testUtils2 = _interopRequireDefault(_testUtils);
 
-var _Footer = __webpack_require__(259);
+var _SiteMap = __webpack_require__(249);
 
-var _Footer2 = _interopRequireDefault(_Footer);
+var _SiteMap2 = _interopRequireDefault(_SiteMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-describe('footer:', function () {
+describe('siteMap:', function () {
 
-	var footer = _testUtils2.default.renderIntoDocument(_react2.default.createElement(_Footer2.default, null));
+	var siteMap = _testUtils2.default.renderIntoDocument(_react2.default.createElement(_SiteMap2.default, null));
 
-	//pull inner tag from tag. I.E. href from <a>
+	it('\nRenders a paragraph', function () {
 
-	it('\nRender Team Name In Footer', function () {
+		var paragraph = siteMap.refs.SiteMapParagraph1;
 
-		var reference = footer.refs.Footer_Team_Name;
-
-		expect(_reactDom2.default.findDOMNode(reference).textContent).toEqual("QA Cinema Blue");
+		expect(_reactDom2.default.findDOMNode(paragraph).textContent).toEqual("Site Map:");
 	});
 
-	it('\nRender Email In Footer', function () {
+	it('\nTesting a Link - Listing Gallery', function () {
 
-		var reference = footer.refs.Footer_Email;
+		var link = siteMap.refs.SiteMapLinkToListingGallery;
 
-		expect(_reactDom2.default.findDOMNode(reference).textContent).toEqual("cinemasqa@gmail.com");
-		expect(_reactDom2.default.findDOMNode(reference).href).toEqual("mailto:cinemasqa@gmail.com?Subject=Hello");
+		expect(_reactDom2.default.findDOMNode(link).textContent).toEqual("Listing Gallery");
+		//expect(ReactDOM.findDOMNode(link)).toEqual("/ListingGallery");
 	});
 
-	it('\nRender Phone Number In Footer', function () {
+	it('\nTesting a Link - Classification', function () {
 
-		var reference = footer.refs.Footer_PhoneNumber;
+		var link = siteMap.refs.SiteMapLinkToClassification;
 
-		expect(_reactDom2.default.findDOMNode(reference).textContent).toEqual("06412303344");
-		expect(_reactDom2.default.findDOMNode(reference).href).toEqual("tel:06412303344");
-	});
-
-	it('\nRender Paragraph In SiteMap Through Footer', function () {
-
-		var siteMapCall = footer.refs.Footer_SiteMapCall;
-
-		var reference = siteMapCall.refs.SiteMapParagraph1;
-
-		expect(_reactDom2.default.findDOMNode(reference).textContent).toEqual("Site Map:");
+		expect(_reactDom2.default.findDOMNode(link).textContent).toEqual("Classifications");
 	});
 });
 

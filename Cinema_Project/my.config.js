@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Tue Jul 18 2017 08:58:02 GMT+0000 (GMT Standard Time)
+// Generated on Fri Jul 21 2017 10:10:35 GMT+0100 (BST)
 
 module.exports = function(config) {
   config.set({
@@ -15,12 +15,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "./public/bundles/*.bundle.js"
+      './public/bundles/*.bundle.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+      './public/bundles/index.bundle.js'
     ],
 
 
@@ -34,9 +35,10 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress'],
-	
+
+
     // web server port
-    port: 6969,
+    port: 9876,
 
 
     // enable / disable colors in the output (reporters and logs)

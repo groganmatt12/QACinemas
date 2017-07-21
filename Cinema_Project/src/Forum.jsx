@@ -33,7 +33,7 @@ export default class Forum extends React.Component{
 		return(
 			<div className="container">
 
-				<div className="panel panel-default">
+				<div className="panel panel-default" ref="writePost">
 					<div className="panel-body">
 						Ask a question!
 						<button type="button" className="btn btn-default" onClick={this._onButtonClick.bind(this)}>Make a post</button>
@@ -49,7 +49,7 @@ export default class Forum extends React.Component{
 				</div>
 
 				<div className="forum_style">
-					<table className="forum_table_style">
+					<table className="forum_table_style" ref="forumTable1">
 					  <tr>
 						<th>Company</th>
 						<th>Contact</th>

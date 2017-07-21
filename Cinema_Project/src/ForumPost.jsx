@@ -3,9 +3,10 @@ import React from 'react';
 export default class ForumPost extends React.Component{
 
 	render(){
-		const collapsiblehref = "#"+collapsiblehref;
+		
 		const collapsibleID = "post-"+this.props.postInfo.postid+"-content";
-	
+		const collapsiblehref = "#"+collapsibleID;
+
 /*		console.log(collapsiblehref);
 		console.log(collapsibleID);*/
 /*		const collapsibleRef = "forumPostHeader"+this.props.postInfo.postid;
@@ -18,8 +19,9 @@ export default class ForumPost extends React.Component{
 				
 				<a href={collapsiblehref} className="btn btn-info" data-toggle="collapse" ref="forumPostHeader">Post collapsible</a>
 				<div id={collapsibleID} className="collapse">
-					Helloasdas dasd asd asd
-					asdasdasdad
+					<pre>
+					{this.props.postInfo.content}
+					</pre>
 				</div>
 			</div>
 

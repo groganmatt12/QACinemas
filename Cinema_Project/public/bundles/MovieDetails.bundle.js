@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 271);
+/******/ 	return __webpack_require__(__webpack_require__.s = 273);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -7507,13 +7507,21 @@ var _CinemaLocations = __webpack_require__(253);
 
 var _CinemaLocations2 = _interopRequireDefault(_CinemaLocations);
 
-var _MovieDetails = __webpack_require__(254);
+var _MovieDetails = __webpack_require__(256);
 
 var _MovieDetails2 = _interopRequireDefault(_MovieDetails);
 
-var _ShowingTimes = __webpack_require__(255);
+var _ShowingTimes = __webpack_require__(257);
 
 var _ShowingTimes2 = _interopRequireDefault(_ShowingTimes);
+
+var _ForumPosts = __webpack_require__(255);
+
+var _ForumPosts2 = _interopRequireDefault(_ForumPosts);
+
+var _CommentDetails = __webpack_require__(254);
+
+var _CommentDetails2 = _interopRequireDefault(_CommentDetails);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7539,11 +7547,22 @@ var CinemaStore = function (_EventEmitter) {
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
 		_this.genres = _this.generateGenreList();
 		_this.classification = _this.generateClassificationList();
-
+		_this.forumPosts = _ForumPosts2.default.forumPosts;
+		_this.commentDetails = _CommentDetails2.default.commentDetails;
 		return _this;
 	}
 
 	_createClass(CinemaStore, [{
+		key: 'getAllComments',
+		value: function getAllComments() {
+			return this.commentDetails;
+		}
+	}, {
+		key: 'getAllForumPosts',
+		value: function getAllForumPosts() {
+			return this.forumPosts;
+		}
+	}, {
 		key: 'getArrayOfGenres',
 		value: function getArrayOfGenres() {
 			return this.genres;
@@ -28954,6 +28973,85 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
+	"commentDetails": [
+		{
+			"postid": 0,
+			"comments": [
+				{
+					"commentid": 0,
+					"comment": "hello! comment 0!"
+				},
+				{
+					"commentid": 1,
+					"comment": "comment 1 here!"
+				}
+			]
+		},
+		{
+			"postid": 1,
+			"comments": [
+				{
+					"commentid": 0,
+					"comment": "hello! comment 0!"
+				},
+				{
+					"commentid": 1,
+					"comment": "comment 1 here!"
+				}
+			]
+		}
+	]
+};
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"forumPosts": [
+		{
+			"postid": "0",
+			"title": "I freaking love High School Musical!",
+			"content": "I just want to say... I LOVE HIGH SCHOOL MUSICAL"
+		},
+		{
+			"postid": "1",
+			"title": "I hate films",
+			"content": ""
+		},
+		{
+			"postid": "2",
+			"title": "the cinema had a sticky floor :(",
+			"content": ""
+		},
+		{
+			"postid": "3",
+			"title": "what time is spiderman on?",
+			"content": ""
+		},
+		{
+			"postid": "4",
+			"title": "this place does great popcorn :D",
+			"content": ""
+		},
+		{
+			"postid": "5",
+			"title": "is there a bus?",
+			"content": ""
+		},
+		{
+			"postid": "6",
+			"title": "too expensive",
+			"content": ""
+		}
+	]
+};
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports) {
+
+module.exports = {
 	"movieDetails": [
 		{
 			"id": "0",
@@ -29208,7 +29306,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -29422,7 +29520,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 256 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29553,8 +29651,8 @@ Showings.defaultProps = {
 };
 
 /***/ }),
-/* 257 */,
-/* 258 */
+/* 259 */,
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29570,7 +29668,7 @@ var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Showings = __webpack_require__(256);
+var _Showings = __webpack_require__(258);
 
 var _Showings2 = _interopRequireDefault(_Showings);
 
@@ -29692,8 +29790,6 @@ var MovieDetails = function (_React$Component) {
 exports.default = MovieDetails;
 
 /***/ }),
-/* 259 */,
-/* 260 */,
 /* 261 */,
 /* 262 */,
 /* 263 */,
@@ -29704,7 +29800,9 @@ exports.default = MovieDetails;
 /* 268 */,
 /* 269 */,
 /* 270 */,
-/* 271 */
+/* 271 */,
+/* 272 */,
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29722,7 +29820,7 @@ var _testUtils = __webpack_require__(113);
 
 var _testUtils2 = _interopRequireDefault(_testUtils);
 
-var _MovieDetails = __webpack_require__(258);
+var _MovieDetails = __webpack_require__(260);
 
 var _MovieDetails2 = _interopRequireDefault(_MovieDetails);
 

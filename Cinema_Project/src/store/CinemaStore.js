@@ -6,6 +6,8 @@ import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';
 import movieJson from '../data/MovieDetails.json';
 import showingsJson from '../data/ShowingTimes.json';
+import forumPostJson from '../data/ForumPosts.json';
+import commentDetailJson from '../data/CommentDetails.json';
 
 class CinemaStore extends EventEmitter {
 	
@@ -21,7 +23,16 @@ class CinemaStore extends EventEmitter {
 		this.moviesByDate=movieJson.movieDetails;
 		this.genres = this.generateGenreList();
 		this.classification = this.generateClassificationList();
+		this.forumPosts = forumPostJson.forumPosts;
+		this.commentDetails = commentDetailJson.commentDetails;
+	}
 
+	getAllComments(){
+		return this.commentDetails;
+	}
+
+	getAllForumPosts(){
+		return this.forumPosts;
 	}
 
 	getArrayOfGenres() {

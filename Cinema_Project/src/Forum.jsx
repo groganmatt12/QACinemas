@@ -20,11 +20,29 @@ export default class Forum extends React.Component{
 	}
 
 	componentWillMount(){
-
+		this.generatePosts();
 	}
 
-	generatePost(){
+	generatePosts(){
 		//generate row-post-row
+		const arrayOfPosts = CinemaStore.getAllForumPosts();
+		let updatePostArray = [];
+
+		for(let i = 0; i<arrayOfPosts.length; i++){
+			let curPostObj = arrayOfPosts[i];
+
+			updatePostArray.push(
+				<tr key={i}>
+						<td>
+							<ForumPost key={curPostObj.postid} postInfo={curPostObj}/>
+						</td>
+						<td>post {curPostObj.postid}</td>
+						<td>---</td>
+				</tr>
+				);
+		}
+
+		this.setState({postArray: updatePostArray});
 	}
 
 	render(){
@@ -50,20 +68,7 @@ export default class Forum extends React.Component{
 
 				<div className="forum_style">
 					<table className="forum_table_style" ref="forumTable1">
-					  <tr>
-						<th>Company</th>
-						<th>Contact</th>
-						<th>Country</th>
-					  </tr>
-					  <tr>
-						<td>
-							<ForumPost />
-						</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-					  </tr>
-					  <tr>
-					  </tr>
+						{this.state.postArray}
 					</table>
 				</div>
 

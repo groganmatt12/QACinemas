@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 268);
+/******/ 	return __webpack_require__(__webpack_require__.s = 272);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -28129,7 +28129,9 @@ exports.default = SiteMap;
 /* 256 */,
 /* 257 */,
 /* 258 */,
-/* 259 */
+/* 259 */,
+/* 260 */,
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28219,15 +28221,17 @@ var Footer = function (_React$Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 260 */,
-/* 261 */,
 /* 262 */,
 /* 263 */,
 /* 264 */,
 /* 265 */,
 /* 266 */,
 /* 267 */,
-/* 268 */
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28245,7 +28249,7 @@ var _testUtils = __webpack_require__(113);
 
 var _testUtils2 = _interopRequireDefault(_testUtils);
 
-var _Footer = __webpack_require__(259);
+var _Footer = __webpack_require__(261);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 

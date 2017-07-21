@@ -3,18 +3,24 @@ import React from 'react';
 export default class ForumPost extends React.Component{
 
 	render(){
+		const collapsiblehref = "#"+collapsiblehref;
+		const collapsibleID = "post-"+this.props.postInfo.postid+"-content";
+	
+/*		console.log(collapsiblehref);
+		console.log(collapsibleID);*/
+/*		const collapsibleRef = "forumPostHeader"+this.props.postInfo.postid;
+		console.log(collapsibleRef);*/
 		return(
 			<div>
 				<div className="row post-main">
-					Post title + post content here
+					<h3 ref="postTitle">{this.props.postInfo.title}</h3>
 				</div>
-					
-				<a href="#post0comment" className="btn btn-info" data-toggle="collapse" ref="forumPostHeader">Comment collapsible</a>
-				  <div id="post0comment" className="collapse">
-				    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				  </div>
+				
+				<a href={collapsiblehref} className="btn btn-info" data-toggle="collapse" ref="forumPostHeader">Post collapsible</a>
+				<div id={collapsibleID} className="collapse">
+					Helloasdas dasd asd asd
+					asdasdasdad
+				</div>
 			</div>
 
 		);

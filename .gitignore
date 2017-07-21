@@ -1,9 +1,16 @@
+# Logs
 *.log
-*.md
+
+# Dependency directories
 node_modules/
-node_modules/*
-*.swp
+
+*.md
+
+#DS Store
+.DS_Store
+
+#Bundles
 Cinema_Project/public/bundles/*
 Cinema_Project/public/bundles/
-index.js
+
 

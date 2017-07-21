@@ -31,9 +31,8 @@ export default class Sort extends React.Component{
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
 		this.generateClassificationCheckbox();
-	}    
+	}
    
-
 	generateCheckboxes() {
 		let arrayOfRequiredGenres = [];
 		let genreName = [];

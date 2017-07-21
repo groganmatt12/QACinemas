@@ -1,51 +1,80 @@
 import React from 'react';
-import movieJson from './data/MovieDetails.json';
-import MovieListing from './MovieListing';
-import {Link, browserHistory} from 'react-router';
+import CinemaStore from './store/CinemaStore';
+import Sort from './Sort';
+import * as CinemaActions from './actions/CinemaActions';
+import ListOfMovies from './ListOfMovies';
+import QuickBookBar from './QuickBookBar';
 
 export default class ListingGallery extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			movieListings:[]
+			movieListings:[],
+			movies: CinemaStore.getAllMovies(),
+			filterText:'',
+			classifications: CinemaStore.generateClassificationList(),
+			selectedClassifications: [],
+			genres: Array.from(CinemaStore.getArrayOfGenres()),
+			selectedGenres: []
 		};
+		this._onChange = this._onChange.bind(this);
+		this.handleSearchInput = this.handleSearchInput.bind(this);
+		this.handleClassCheck = this.handleClassCheck.bind(this);
+		this.handleGenreCheck = this.handleGenreCheck.bind(this);
+		
 	}
 	
 	
 	render(){
-	
 		
 		return(
-			<div>
-				
-				<div className="container">
-					{this.state.movieListings}
+			<div className="parentContainer">
+
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck}/>
+				<br />
+
+				<div className="container ListingGallery-ListOfFilms">
+					<ListOfMovies movies={this.state.movies} target={this.props.target} />
 				</div>
-				
+				<div>
+                    <QuickBookBar />
+                </div>
 			</div>	
 		);
-		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	handleClassCheck(selectedClassificationArray){
+		this.setState({selectedClassifications: selectedClassificationArray});
+		CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray);
+	}
+
+	handleGenreCheck(selectedGenreArray){
+/*		console.log(genreArray);*/		
+		this.setState({selectedGenres: selectedGenreArray});
+		CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications);
+	}
+
+	handleSearchInput (filterText){
+		this.setState({filterText});
+		CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications);
 	}
 	
 	componentWillMount(){
-		this.generateMovieListings();
-		
+		CinemaStore.on("moviesChange", this._onChange);		
 	}
-	pagechange(){
-		browserHistory.push('/MovieDetails');
+	
+	componentWillUnmount() {
+		CinemaStore.removeListener("moviesChange", this._onChange);
+    }
+  
+	_onChange() {	
+		this.setState({movies: CinemaStore.getFilteredMovies()});
 	}
-	generateMovieListings(){
-		
-		let movieArr = movieJson.movieDetails;
-		let array = this.state.movieListings;
-		
-		for(let i = 0; i<movieArr.length; i++){
-			array.push(
-				<MovieListing key={i} id={i} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} />
-			);
-		}
-		this.setState({movieListings: array});
-		
-	}
-
 }

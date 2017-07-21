@@ -8,13 +8,12 @@ import MovieDetails from './MovieDetails';
 import Booking from './Booking';
 import Showings from './Showings';
 import Confirmation from './Confirmation';
+import Classification from './Classification';
+import Forum from './Forum';
+import GoogleMaps from './GoogleMaps/GoogleMaps';
+/*import ContactUs from './ContactUs';*/
 
 
-const listingGallery = "/ListingGallery";
-const movieDetails = "/MovieDetails/";
-const showings = "/Showings/";
-const booking = "/Booking/";
-const confimation = "/Confimation/";
 
 ReactDOM.render(
 	
@@ -26,11 +25,16 @@ ReactDOM.render(
 
 			<Route path = "/ListingGallery" component={ListingGallery} />	
 			<Route path = "/MovieDetails/:key" component={MovieDetails} />
-			<Route path = "/Showings/:movieID" component={Showings} />
+			<Route path = "/Showings/:movieID" component={Showings}/>
 			<Route path = "/Booking/:showingID" component={Booking} />
-			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation} />
-	
-		
+			<Route path = "/Classification" component={Classification} />
+			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
+			<Route path = "/Forum" component={Forum} />
+			<Route path = "/Map" component={GoogleMaps} />
+			<Route path = "/*" component={Home}/>
+			{/*<Route path = "/ContactUs" component={ContactUs} />*/}
+			
+>>>>>>> Develop
 		</Route>	
 	</Router>
 

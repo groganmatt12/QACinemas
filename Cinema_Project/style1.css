@@ -1,5 +1,6 @@
 /*MovieDetails.jsx*/
 #rInfo{
+
 	background-color: green;
 }
 
@@ -26,7 +27,7 @@
  * padding-top: 50px if used fixed-top navbar*/
 #domMain{
     background-color: #c0deed;
-}
+} 
 
 /*Home.jsx*/
 #homeParent{
@@ -57,10 +58,4 @@
 	margin-left: calc(50% - 50vw);
 	margin-right: calc(50% - 50vw);
     margin-bottom: 0;
-}
-
-
-/*Carousel.jsx*/
-.carousel-inner img{
-    height: 200px;
 }

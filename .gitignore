@@ -1,3 +1,9 @@
 *.log
 *.md
 node_modules/
+node_modules/*
+*.swp
+Cinema_Project/public/bundles/*
+Cinema_Project/public/bundles/
+index.js
+

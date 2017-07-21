@@ -11,6 +11,7 @@ import Confirmation from './Confirmation';
 import Classification from './Classification';
 import Forum from './Forum';
 import GoogleMaps from './GoogleMaps/GoogleMaps';
+import Error from './404';
 /*import ContactUs from './ContactUs';*/
 
 
@@ -31,7 +32,7 @@ ReactDOM.render(
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
 			<Route path = "/Forum" component={Forum} />
 			<Route path = "/Map" component={GoogleMaps} />
-			<Route path = "/*" component={Home}/>
+			<Route path = "/*" component={Error}/>
 			{/*<Route path = "/ContactUs" component={ContactUs} />*/}
 			
 >>>>>>> Develop

@@ -55,6 +55,25 @@
 	width: 50;
 	height: 50;
 }
+
+/*-----------------------------------------------------------------------*/
+.Error_Page{
+	text-align:center;
+	color:white;
+	height:70%;
+	margin-top: -1.4em;
+
+}
+
+.Error_Page_Text{
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 45%;
+}
 /*-----------------------------------------------------------------------*/
 .footer{
     background-color: rgb(23, 22, 22);

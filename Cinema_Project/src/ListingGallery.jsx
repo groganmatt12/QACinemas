@@ -12,13 +12,15 @@ export default class ListingGallery extends React.Component{
 			movieListings:[],
 			movies: CinemaStore.getAllMovies(),
 			filterText:'',
-			filterGenre: [],
-			filterClassification: [],
-			classifications: CinemaStore.generateClassificationList()
+			classifications: CinemaStore.generateClassificationList(),
+			selectedClassifications: [],
+			genres: Array.from(CinemaStore.getArrayOfGenres()),
+			selectedGenres: []
 		};
 		this._onChange = this._onChange.bind(this);
 		this.handleSearchInput = this.handleSearchInput.bind(this);
 		this.handleClassCheck = this.handleClassCheck.bind(this);
+		this.handleGenreCheck = this.handleGenreCheck.bind(this);
 		
 	}
 	
@@ -28,7 +30,7 @@ export default class ListingGallery extends React.Component{
 		return(
 			<div className="parentContainer">
 
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.classifications} genresChecked={this.state.classifications} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationChecked={this.state.filterClassification} onClassificationCheckInput={this.handleClassCheck}/>
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck}/>
 				<br />
 
 				<div className="container ListingGallery-ListOfFilms">
@@ -48,14 +50,15 @@ export default class ListingGallery extends React.Component{
 	
 	
 	
-	handleClassCheck(classificationArray){
-		this.setState({filterClassification: classificationArray});
-		CinemaActions.filterMoviesByClassification(classificationArray);
+	handleClassCheck(selectedClassificationArray){
+		this.setState({selectedClassifications: selectedClassificationArray});
+		CinemaActions.filterMoviesByClassification(selectedClassificationArray);
 	}
 
-	handleGenreCheck(genreArray){
-/*		console.log(genreArray);
-*/		CinemaActions.filterMoviesByGenre(genreArray);
+	handleGenreCheck(selectedGenreArray){
+/*		console.log(genreArray);*/		
+		this.setState({selectedGenres: selectedGenreArray});
+		CinemaActions.filterMoviesByGenre(selectedGenreArray);
 	}
 
 	handleSearchInput (filterText){

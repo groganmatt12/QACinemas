@@ -5786,36 +5786,68 @@ var CinemaStore = function (_EventEmitter) {
 				case "CLASS_SEARCH":
 					this.filterMoviesByClassification(action.classificationArray);
 					break;
+				case "MOVIE_SEARCH":
+					this.filterMovies(action.parameterArray);
+					break;
 				default:
 					break;
 			}
 		}
 	}, {
-		key: 'filterMoviesByClassification',
-		value: function filterMoviesByClassification(classArray) {
+		key: 'filterMovies',
+		value: function filterMovies(parameterArray) {
 			var _this3 = this;
 
-			this.filteredMovies = [];
-			var tempArray = [];
+			this.filteredMovies_Search = [];
 
+			{/*Search Bar Handling*/}
+			var searchParameters = parameterArray[0];
 			this.movies.forEach(function (movie) {
-				var curMovieClassification = movie.classification;
-
-				for (var i = 0; i < classArray.length; i++) {
-					if (curMovieClassification == classArray[i]) {
-						tempArray.push(movie);
-						_this3.filteredMovies = tempArray;
-					}
+				if (movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {
+					_this3.filteredMovies_Search.push(movie);
 				}
 			});
+			{/*Search Bar Handling*/}
 
-			if (this.filteredMovies.length == 0) {
-				this.movies.forEach(function (movie) {
-					{
-						_this3.filteredMovies.push(movie);
+			{/*Genre Filter Handling*/}
+			var selectedGenreList = parameterArray[1];
+			var currentIndex = 0;
+			this.filteredMovies_Genre = [];
+			var filteredMovieSet = new Set([]);
+
+			this.filteredMovies_Search.forEach(function (movie) {
+				var currentMovieGenreArray = movie.genre;
+
+				currentMovieGenreArray.forEach(function (genre) {
+					if (selectedGenreList[currentIndex] == genre) {
+						filteredMovieSet.add(movie);
+					}
+					currentIndex++;
+				});
+			});
+			{
+				this.filteredMovies_Genre = Array.from(filteredMovieSet);
+			}
+
+			{/*Genre Filter Handling*/}
+
+			{/*Classification Filter Handling*/}
+			var selectedClassificationList = parameterArray[2];
+			this.filteredMovies_Classification = [];
+
+			filteredMovies_Genre.forEach(function (movie) {
+				var classificationOfCurrentMovie = movie.classification;
+				selectedClassificationList.forEach(function (classification) {
+					if (classificationOfCurrentMovie == classification) {
+						_this3.filteredMovies_Classification.push(movie);
 					}
 				});
-			}
+			});
+
+			{/*Classification Filter Handling*/}
+
+			this.filteredMovies = this.filteredMovies_Classification;{/*Final Result*/}
+
 			this.emit("moviesChange");
 		}
 	}, {
@@ -5845,6 +5877,34 @@ var CinemaStore = function (_EventEmitter) {
 				this.movies.forEach(function (movie) {
 					{
 						_this4.filteredMovies.push(movie);
+					}
+				});
+			}
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'filterMoviesByClassification',
+		value: function filterMoviesByClassification(classArray) {
+			var _this5 = this;
+
+			this.filteredMovies = [];
+			var tempArray = [];
+
+			this.movies.forEach(function (movie) {
+				var curMovieClassification = movie.classification;
+
+				for (var i = 0; i < classArray.length; i++) {
+					if (curMovieClassification == classArray[i]) {
+						tempArray.push(movie);
+						_this5.filteredMovies = tempArray;
+					}
+				}
+			});
+
+			if (this.filteredMovies.length == 0) {
+				this.movies.forEach(function (movie) {
+					{
+						_this5.filteredMovies.push(movie);
 					}
 				});
 			}

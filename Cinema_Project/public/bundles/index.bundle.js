@@ -29246,7 +29246,12 @@ var Forum = function (_React$Component) {
 		value: function getCommentsForPost(postid) {
 			//input post id -> return all comments as object
 			var arrayOfComments = _CinemaStore2.default.getAllComments();
-			for (var i = 0; i < arrayOfComments.length; i++) {}
+			var requiredComment = [];
+			for (var i = 0; i < arrayOfComments.length; i++) {
+				if (arrayOfComments[i].postid === postid) {
+					requiredComment = arrayOfComments[i].comments;
+				}
+			}
 		}
 	}, {
 		key: 'render',

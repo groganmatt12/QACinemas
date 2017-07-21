@@ -47,9 +47,12 @@ export default class Forum extends React.Component{
 	getCommentsForPost(postid){
 		//input post id -> return all comments as object
 		const arrayOfComments = CinemaStore.getAllComments();
+		let requiredComment = [];
 		for(let i = 0; i<arrayOfComments.length; i++){
-
-		}
+			if(arrayOfComments[i].postid === postid){
+				requiredComment = arrayOfComments[i].comments;
+			}
+		}	
 
 	}
 

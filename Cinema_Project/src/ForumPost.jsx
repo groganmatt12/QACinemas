@@ -13,16 +13,21 @@ export default class ForumPost extends React.Component{
 		console.log(collapsibleRef);*/
 		return(
 			<div>
-				<div className="row post-main">
-					<h3 ref="postTitle">{this.props.postInfo.title}</h3>
-				</div>
+
 				
-				<a href={collapsiblehref} className="btn btn-info" data-toggle="collapse" ref="forumPostHeader">Post collapsible</a>
+				<a href={collapsiblehref} className="btn btn-info ForumPost-btn-title" data-toggle="collapse" ref="forumPostHeader_ref">{this.props.postInfo.title}</a>
 				<div id={collapsibleID} className="collapse">
-					<pre>
+					<pre ref="forumPostContent_ref">
 					{this.props.postInfo.content}
 					</pre>
+
+					<div className="ForumPost-commentMain">
+						
+					</div>
+
+
 				</div>
+
 			</div>
 
 		);

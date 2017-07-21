@@ -27743,27 +27743,19 @@ var ForumPost = function (_React$Component) {
 				"div",
 				null,
 				_react2.default.createElement(
-					"div",
-					{ className: "row post-main" },
-					_react2.default.createElement(
-						"h3",
-						{ ref: "postTitle" },
-						this.props.postInfo.title
-					)
-				),
-				_react2.default.createElement(
 					"a",
-					{ href: collapsiblehref, className: "btn btn-info", "data-toggle": "collapse", ref: "forumPostHeader" },
-					"Post collapsible"
+					{ href: collapsiblehref, className: "btn btn-info ForumPost-btn-title", "data-toggle": "collapse", ref: "forumPostHeader_ref" },
+					this.props.postInfo.title
 				),
 				_react2.default.createElement(
 					"div",
 					{ id: collapsibleID, className: "collapse" },
 					_react2.default.createElement(
 						"pre",
-						null,
+						{ ref: "forumPostContent_ref" },
 						this.props.postInfo.content
-					)
+					),
+					_react2.default.createElement("div", { className: "ForumPost-commentMain" })
 				)
 			);
 		}
@@ -28531,6 +28523,11 @@ module.exports = {
 			"postid": "6",
 			"title": "too expensive",
 			"content": "...and it smells"
+		},
+		{
+			"postid": "7",
+			"title": "How good do you think spiderman was?",
+			"content": "I prefer the old peter parker. sadasdsadasdasdasdsad asdasdasdsadasd j"
 		}
 	]
 };
@@ -29233,8 +29230,13 @@ var Forum = function (_React$Component) {
 					)
 				));
 			}
-
 			this.setState({ postArray: updatePostArray });
+		}
+	}, {
+		key: 'getCommentsForPost',
+		value: function getCommentsForPost(postid) {
+			//input post id -> return all comments as object
+			var arrayOfComments = _CinemaStore2.default.getAllComments();
 		}
 	}, {
 		key: 'render',

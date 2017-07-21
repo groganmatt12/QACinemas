@@ -34,15 +34,21 @@ export default class Forum extends React.Component{
 			updatePostArray.push(
 				<tr key={i}>
 						<td>
-							<ForumPost key={curPostObj.postid} postInfo={curPostObj}/>
+							<ForumPost key={curPostObj.postid} postInfo={curPostObj} />
 						</td>
 						<td>post {curPostObj.postid}</td>
 						<td>---</td>
 				</tr>
 				);
 		}
-
 		this.setState({postArray: updatePostArray});
+	}
+
+	getCommentsForPost(postid){
+		//input post id -> return all comments as object
+		const arrayOfComments = CinemaStore.getAllComments();
+		
+
 	}
 
 	render(){

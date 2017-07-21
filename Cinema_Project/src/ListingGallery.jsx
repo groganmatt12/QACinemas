@@ -19,27 +19,6 @@ export default class ListingGallery extends React.Component{
 		
 	}
 	
-	componentWillMount(){
-		CinemaStore.on("moviesChange", this._onChange);		
-	}
-	
-	componentWillUnmount() {
-		CinemaStore.removeListener("moviesChange", this._onChange);
-    }
-	
-	handleGenreCheck(genreArray){
-	/*	console.log(genreArray);*/
-		CinemaActions.filterMoviesByGenre(genreArray);
-	}
-
-	handleSearchInput (filterText){
-		this.setState({filterText});
-		CinemaActions.filterMoviesBySearch(filterText);
-	}
-  
-	_onChange() {	
-		this.setState({movies: CinemaStore.getFilteredMovies()});
-	}
 	
 	render(){
 		let movieArr = this.state.movies;
@@ -66,5 +45,27 @@ export default class ListingGallery extends React.Component{
                 </div>
 			</div>	
 		);
+	}
+	
+	handleGenreCheck(genreArray){
+/*		console.log(genreArray);
+*/		CinemaActions.filterMoviesByGenre(genreArray);
+	}
+
+	handleSearchInput (filterText){
+		this.setState({filterText});
+		CinemaActions.filterMoviesBySearch(filterText);
+	}
+	
+	componentWillMount(){
+		CinemaStore.on("moviesChange", this._onChange);		
+	}
+	
+	componentWillUnmount() {
+		CinemaStore.removeListener("moviesChange", this._onChange);
+    }
+  
+	_onChange() {	
+		this.setState({movies: CinemaStore.getFilteredMovies()});
 	}
 }

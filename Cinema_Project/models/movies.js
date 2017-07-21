@@ -26,7 +26,7 @@ var movieSchema = new Schema({
 		type:String,
 	},
 	releaseDate:{
-		type:Date,
+		type:String,
 	},
 	carousel:{
 		type:String,

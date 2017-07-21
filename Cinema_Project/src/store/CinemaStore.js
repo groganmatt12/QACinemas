@@ -4,26 +4,57 @@ import dispatcher from './dispatcher';
 
 import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';
-import movieJson from '../data/MovieDetails.json';
+import movieJson from '../../MovieDetails.json';
 import showingsJson from '../data/ShowingTimes.json';
+import loader from '../../loader.js';
+
 
 class CinemaStore extends EventEmitter {
 	
 	constructor() {
-		
 		super();
 		
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
-		this.movies = movieJson.movieDetails;
+		this.movies = movieJson;
 		this.showings = showingsJson.showingTimes;		
-		this.filteredMovies = this.sortMoviesByRelease();
+		this.films=[];
 		this.moviesByDate = [];
+		this.filteredMovies = [];
+		this.moviesByDate=movieJson.movieDetails;
+		
 		this.genres = this.generateGenreList();
 		
-		
 	}
-
+	loadMovies(){
+		var json = movieJson;
+		console.log(json);
+	}
+	/*
+	loadMovies(){
+		var load = fetch('http://localhost:8081/test').then(function(response) {  
+			if (response.status !== 200) {  
+				console.log('Looks like there was a problem. Status Code: ' + response.status);  
+			return;  
+			}
+			// Examine the text in the response  
+			response.json().then(function(data) {  
+				this.setFilms(data);
+			});  
+			}  
+		).catch(function(err) {  
+			console.log('Fetch Error :-S', err);  
+		});
+		
+		//loader.fetchMovies();
+		//console.log(load);
+	}	
+	setFilms(data){
+		this.films = data; 
+		console.log(data);
+		console.log(this.films);
+	}
+	*/
 	getGenreList() {
 		return this.genres;
 	}
@@ -42,6 +73,7 @@ class CinemaStore extends EventEmitter {
 
 	getAllMovies() {
 		return this.movies;
+		
 	}	
 
 	getAllCarouselMovies() {
@@ -52,6 +84,7 @@ class CinemaStore extends EventEmitter {
 				carouselMovies.push(curMovie);
 			}
 		}
+		
 		return carouselMovies;
 	}	
 
@@ -99,8 +132,25 @@ class CinemaStore extends EventEmitter {
 		return this.showings;
 	}
 
-	
 	getMoviesByRelease(){
+		
+		let sortArray = this.movies.slice();
+		for(let i=0 ; i<sortArray.length; i++){
+			for(let j=i; j<sortArray.length; j++){
+
+				let a = new Date(sortArray[i].releaseDate);
+				let b = new Date(sortArray[j].releaseDate);
+				
+				if (a>b){
+					let tempObj=sortArray[i];
+					sortArray[i]=sortArray[j]
+					sortArray[j]=tempObj;
+
+				}
+			}
+		}
+		sortArray.reverse();
+		this.moviesByDate = sortArray;
 		return this.moviesByDate;
 	}
 	
@@ -113,30 +163,12 @@ class CinemaStore extends EventEmitter {
 	}
 
 
-	sortMoviesByRelease(){	
-		let sortArray = this.movies.slice();
-		for(let i=0 ; i<sortArray.length; i++){
-			for(let j=i; j<sortArray.length; j++){
-
-				let a = new Date(sortArray[i].releaseDate);
-				let b = new Date(sortArray[j].releaseDate);
-				
-				if (a>b){
-					let tempObj=sortArray[i];
-					sortArray[i]=sortArray[j]
-					sortArray[j]=tempObj;
-				}
-			}
-		}
-		sortArray.reverse();
-		return sortArray;
-	}
-	
 	filterMoviesBySearch(searchParameters) {
 		this.filteredMovies = [];
 		this.movies.forEach((movie) => {
 			if(movie.name.indexOf(searchParameters) !== -1) {this.filteredMovies.push(movie);}});
 		this.emit('moviesChange');
+		console.log(this.films);
 	}
 
 	handleActions(action) {
@@ -154,7 +186,7 @@ class CinemaStore extends EventEmitter {
 
 
 	filterMoviesByGenre(genreArray){
-
+		
 		this.filteredMovies = [];
 		let tempSet = new Set([]);
 		this.movies.forEach((movie) => {
@@ -165,7 +197,7 @@ class CinemaStore extends EventEmitter {
 					if(genreArray[j] == curMovGenres[i]){
 						tempSet.add(movie);
 						//console.log(tempSet);
-						console.log(Array.from(tempSet));
+						
 						{this.filteredMovies = Array.from(tempSet)}
 					}
 				}
@@ -180,7 +212,7 @@ class CinemaStore extends EventEmitter {
 		}
 		this.emit("moviesChange");
 	}
-
+	generateGenreList(){};
 	generateGenreList() {
 		let genreSet = new Set([]);
 		let sortArray = this.movies.slice();

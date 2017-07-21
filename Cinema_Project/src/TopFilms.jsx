@@ -29,7 +29,7 @@ export default class TopFilms extends React.Component{
            
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex=i+1;
-            let filmUrl = "MovieDetails/" + movObjArrayByDate[i].id;
+            let filmUrl = "MovieDetails/?filmID=" + movObjArrayByDate[i].id;
 			
             
             tempImgArray.push(

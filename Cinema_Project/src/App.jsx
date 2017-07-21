@@ -1,7 +1,8 @@
 import React from 'react';
-
+import CinemaStore from './store/CinemaStore'
 import Header from './Header'
 import Footer from './Footer'
+import movieJson from '../MovieDetails.json';
 
 export default class App extends React.Component{
     render(){
@@ -15,4 +16,7 @@ export default class App extends React.Component{
             </div>
         );
     }
+	componentWillMount(){
+		CinemaStore.loadMovies();
+	}
 }

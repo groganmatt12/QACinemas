@@ -13,7 +13,6 @@ import Error_Page from './404';
 /*import ContactUs from './ContactUs';*/
 
 
-
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
@@ -24,7 +23,7 @@ ReactDOM.render(
 			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
-			<Route path = "/*" component={Error_Page} />
+				{/* <Route path = "/*" component={Error_Page} />
 			{/*<Route path = "/ContactUs" component={ContactUs} />*/}
 			
 		</Route>	

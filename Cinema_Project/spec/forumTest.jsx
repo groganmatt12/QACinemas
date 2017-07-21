@@ -5,12 +5,24 @@ import Forum from '../src/Forum';
 
 describe('forum:', function(){
 
-		var forum = TestUtils.renderIntoDocument(
+	
+	var forum = TestUtils.renderIntoDocument(
 			<Forum />
 		);
+		
+	it('\nRenders a table', function(){
 
-		it("\nRender text in top banner", function(){
-			let reference = forum.refs.ForumParagraph1;
-			expect(ReactDOM.findDOMNode(reference).textContent).toEqual("Ask a question!");
-		});
+		var forumTable = forum.refs.forumTable1;
+		
+		expect(ReactDOM.findDOMNode(forumTable).className).toEqual("forum_table_style");
+	});
+	
+	it('\nTesting a post function', function(){
+
+		var postFunction = forum.refs.writePost;
+		
+		expect(ReactDOM.findDOMNode(postFunction).className).toEqual("panel panel-default");
+	}); 
+	
+
 });

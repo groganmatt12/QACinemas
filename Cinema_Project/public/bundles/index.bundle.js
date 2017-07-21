@@ -29809,7 +29809,7 @@ var Forum = function (_React$Component) {
 				{ className: 'container' },
 				_react2.default.createElement(
 					'div',
-					{ className: 'panel panel-default' },
+					{ className: 'panel panel-default', ref: 'writePost' },
 					_react2.default.createElement(
 						'div',
 						{ className: 'panel-body' },
@@ -29835,7 +29835,7 @@ var Forum = function (_React$Component) {
 					{ className: 'forum_style' },
 					_react2.default.createElement(
 						'table',
-						{ className: 'forum_table_style' },
+						{ className: 'forum_table_style', ref: 'forumTable1' },
 						_react2.default.createElement(
 							'tr',
 							null,

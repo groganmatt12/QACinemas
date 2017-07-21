@@ -3,8 +3,9 @@ module.exports = {
 		Footer: './spec/footerTest.jsx',
 		SiteMap: './spec/siteMapTest.jsx',
 		MovieDetails: './spec/movieDetailsTest.jsx',
-        ForumTest: './spec/forumTest.jsx',
-		index: './src/index.js'
+		index: './src/index.js',
+		ForumTest: './spec/forumTest.jsx',
+
 	},
     output: {
         path: __dirname,

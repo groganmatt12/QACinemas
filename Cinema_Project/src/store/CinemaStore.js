@@ -159,41 +159,63 @@ class CinemaStore extends EventEmitter {
 	filterMovies(parameterArray){
 		this.filteredMovies_Search = [];
 		
-		{/*Search Bar Handling*/}
+		
 		let searchParameters = parameterArray[0];
+		let selectedGenreList = parameterArray[1];
+		let selectedClassificationList = parameterArray[2];
+		console.log("Passed in Parameters");
+		console.log(searchParameters);
+		console.log(selectedGenreList);
+		console.log(selectedClassificationList);
+		{/*Search Bar Handling*/}
+		
 		this.movies.forEach((movie) => {
 			if(movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {this.filteredMovies_Search.push(movie);}
 		});
-		{/*Search Bar Handling*/}	
-			
-			
+		{/*Search Bar Handling WORKING*/}	
+		console.log("Results from text search");	
+		console.log(this.filteredMovies_Search);
 		{/*Genre Filter Handling*/}
-		let selectedGenreList = parameterArray[1];
-		let currentIndex = 0;
-		this.filteredMovies_Genre = [];
-		let filteredMovieSet = new Set([]);
-		
-		this.filteredMovies_Search.forEach((movie) => {
-			let currentMovieGenreArray = movie.genre;
+		console.log("Genres array length" + selectedGenreList.length);
+		if(selectedGenreList.length !== 0){
+			let currentIndex = 0;
+			this.filteredMovies_Genre = [];
+			let filteredMovieSet = new Set([]);
 			
-			currentMovieGenreArray.forEach((genre) =>{
-				if(selectedGenreList[currentIndex] == genre){
-					filteredMovieSet.add(movie);
-				}
-				currentIndex++;
+			this.filteredMovies_Search.forEach((movie) => {
+				let currentMovieGenreArray = movie.genre;
+				console.log("Movie in genre filter:" + movie.name);
+				currentMovieGenreArray.forEach((genre) =>{
+					
+					for(let i=0; i<currentMovieGenreArray.length; i++){
+						for(let j=0; j<selectedGenreList.length; j++){
+							console.log("compare: " + selectedGenreList[j] + " : " + currentMovieGenreArray[i]);
+							if(selectedGenreList[j] == currentMovieGenreArray[i]){
+								filteredMovieSet.add(movie);
+								console.log("Movie considered match:" + movie.name);
+							}
+						}
+					}
+					currentIndex++;
+				});
+				
 			});
-			
-		});
-		{this.filteredMovies_Genre = Array.from(filteredMovieSet)}
-		
+			this.filteredMovies_Genre = Array.from(filteredMovieSet)
+		}
+		else{
+			this.filteredMovies_Genre = this.filteredMovies_Search;
+		}
+			console.log(this.filteredMovies_Genre);
 		{/*Genre Filter Handling*/}
 			
 			
 		{/*Classification Filter Handling*/}	
-		let selectedClassificationList = parameterArray[2];
+		
 		this.filteredMovies_Classification = [];
 		
-		filteredMovies_Genre.forEach((movie) => {
+		if(selectedClassificationList.length !== 0){
+		
+		this.filteredMovies_Genre.forEach((movie) => {
 			let classificationOfCurrentMovie = movie.classification;
 			selectedClassificationList.forEach((classification) =>{
 				if(classificationOfCurrentMovie == classification){
@@ -202,9 +224,15 @@ class CinemaStore extends EventEmitter {
 			});
 		});
 		
+		this.filteredMovies = this.filteredMovies_Classification;
+		
+		} else {
+			
+			this.filteredMovies = this.filteredMovies_Genre;
+		}
 		{/*Classification Filter Handling*/}
 		
-		this.filteredMovies = this.filteredMovies_Classification; {/*Final Result*/}
+		 {/*Final Result*/}
 	
 		this.emit("moviesChange");
 	}

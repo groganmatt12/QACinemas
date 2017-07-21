@@ -1,7 +1,7 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
 import Checkbox from './Checkbox';
-import CheckboxClassification from './CheckboxClassification';
+
 
 export default class Sort extends React.Component{
 	constructor(props){
@@ -21,9 +21,9 @@ export default class Sort extends React.Component{
 	}
 	
 	componentWillMount() {
-        this.generateCheckboxes();
-		console.log("Genres prop passing checking");
-		console.log(this.props.genresArray);
+        //this.generateCheckboxes();
+		//console.log("Genres prop passing checking");
+		//console.log(this.props.genresArray);
         //this.generateClassificationCheckbox();
 
     }
@@ -41,7 +41,7 @@ export default class Sort extends React.Component{
 
 		for(let i = 0; i < arrayOfGenres.length; i++){
             arrayOfRequiredGenres.push(
-                <Checkbox label={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} />
+                <Checkbox passedValue={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} currentCheckboxStatus={this.findGenresCheckStatusFromArray(arrayOfGenres[i])}/>
             );
         }
 
@@ -54,15 +54,15 @@ export default class Sort extends React.Component{
 
     generateClassificationCheckbox(){
         let testArray = this.props.classificationArray;
-		console.log("AMAZING1");
-		console.log(testArray);
+		//console.log("AMAZING1");
+		//console.log(testArray);
         this.setState({classifications: testArray});
 
         let arrayOfClassificationComp = [];
         for(let i = 0; i<testArray.length; i++){
             let curClassification = testArray[i];
             arrayOfClassificationComp.push(
-                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxStatus={this.findClassificationCheckStatusFromArray(curClassification)}/>
+                <Checkbox passedValue={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxStatus={this.findClassificationCheckStatusFromArray(curClassification)}/>
             );
         }
         this.setState({classification_objects: arrayOfClassificationComp});
@@ -71,9 +71,19 @@ export default class Sort extends React.Component{
 
 	findClassificationCheckStatusFromArray(currentClassification){
 		let isChecked = false;
-		console.log("check in sort " + currentClassification);
+		//console.log("check in sort " + currentClassification);
 		this.props.classificationsSelected.forEach((checkedStatus) => {
-			console.log("check in forEach " + checkedStatus);
+			//console.log("check in forEach " + checkedStatus);
+			if(checkedStatus == currentClassification){isChecked = true};})
+
+		return isChecked;
+	}
+	
+	findGenresCheckStatusFromArray(currentClassification){
+		let isChecked = false;
+		//console.log("check in sort " + currentClassification);
+		this.props.genresSelected.forEach((checkedStatus) => {
+			//console.log("check in forEach " + checkedStatus);
 			if(checkedStatus == currentClassification){isChecked = true};})
 
 		return isChecked;
@@ -159,7 +169,7 @@ export default class Sort extends React.Component{
     }
 	
 	createClassificationCheckboxesToRender(){
-		console.log("AMAZING2");
+		//console.log("AMAZING2");
 		//console.log(testArray);
         //this.setState({classifications: testArray});
 
@@ -167,7 +177,7 @@ export default class Sort extends React.Component{
         for(let i = 0; i<this.props.classificationArray.length; i++){
             let curClassification = this.props.classificationArray[i];
             arrayOfClassificationComp.push(
-                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxStatus={this.findClassificationCheckStatusFromArray(curClassification)}/>
+                <Checkbox passedValue={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxStatus={this.findClassificationCheckStatusFromArray(curClassification)}/>
             );
         }
         //this.setState({classification_objects: arrayOfClassificationComp});
@@ -176,7 +186,7 @@ export default class Sort extends React.Component{
 	}
 
 	createGenreCheckboxesToRender(){
-		console.log("AMAZING2");
+		//console.log("AMAZING2");
 		//console.log(testArray);
         //this.setState({classifications: testArray});
 
@@ -184,22 +194,37 @@ export default class Sort extends React.Component{
         for(let i = 0; i<this.props.genresArray.length; i++){
             let curGenre = this.props.genresArray[i];
             arrayOfGenresComp.push(
-                <CheckboxClassification classification={curClassification} key={i+curClassification} handleCheckboxChange={this.onToggleClassification.bind(this)} currentCheckboxStatus={this.findClassificationCheckStatusFromArray(curClassification)}/>
+                <Checkbox passedValue={curGenre} key={i+curGenre} handleCheckboxChange={this.onToggleGenre.bind(this)} currentCheckboxStatus={this.findGenresCheckStatusFromArray(curGenre)}/>
             );
         }
         //this.setState({classification_objects: arrayOfClassificationComp});
 		return arrayOfGenresComp;
 		
 	}
+	/*
+		generateCheckboxes() {
+		let arrayOfRequiredGenres = [];
+		let genreName = [];
+        let arrayOfGenres = Array.from(CinemaStore.getArrayOfGenres()); 
+        this.setState({ genres: arrayOfGenres}); 
+
+		for(let i = 0; i < arrayOfGenres.length; i++){
+            arrayOfRequiredGenres.push(
+                <Checkbox passedValue={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} currentCheckboxStatus={this.findGenresCheckStatusFromArray(arrayOfGenres[i])}/>
+            );
+        }
+
+        this.setState({ genre_objects: arrayOfRequiredGenres });
+    }
 	
-	
-	
-	
+	*/
 	
 	
     render(){
 		
         let classificationCheckboxesToRender = this.createClassificationCheckboxesToRender();
+		
+		let genreCheckboxesToRender = this.createGenreCheckboxesToRender();
 
 		
 		
@@ -221,7 +246,7 @@ export default class Sort extends React.Component{
 						/>
                         <div>
                             <h4>Filter by Genre...</h4>
-                            {this.state.genre_objects}
+                            {genreCheckboxesToRender}
                         </div>
                         <div>
                             <h4>Classifications</h4>

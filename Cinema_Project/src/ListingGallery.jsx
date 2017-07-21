@@ -52,18 +52,18 @@ export default class ListingGallery extends React.Component{
 	
 	handleClassCheck(selectedClassificationArray){
 		this.setState({selectedClassifications: selectedClassificationArray});
-		CinemaActions.filterMoviesByClassification(selectedClassificationArray);
+		CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray);
 	}
 
 	handleGenreCheck(selectedGenreArray){
 /*		console.log(genreArray);*/		
 		this.setState({selectedGenres: selectedGenreArray});
-		CinemaActions.filterMoviesByGenre(selectedGenreArray);
+		CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications);
 	}
 
 	handleSearchInput (filterText){
 		this.setState({filterText});
-		CinemaActions.filterMoviesBySearch(filterText);
+		CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications);
 	}
 	
 	componentWillMount(){

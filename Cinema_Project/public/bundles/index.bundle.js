@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 283);
+/******/ 	return __webpack_require__(__webpack_require__.s = 284);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29368,7 +29368,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(273);
+var _Header = __webpack_require__(274);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -29440,7 +29440,7 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Paypal = __webpack_require__(279);
+var _Paypal = __webpack_require__(280);
 
 var _Paypal2 = _interopRequireDefault(_Paypal);
 
@@ -29753,11 +29753,11 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _HiddenCreatePostBanner = __webpack_require__(274);
+var _HiddenCreatePostBanner = __webpack_require__(275);
 
 var _HiddenCreatePostBanner2 = _interopRequireDefault(_HiddenCreatePostBanner);
 
-var _ForumPost = __webpack_require__(272);
+var _ForumPost = __webpack_require__(273);
 
 var _ForumPost2 = _interopRequireDefault(_ForumPost);
 
@@ -29813,7 +29813,11 @@ var Forum = function (_React$Component) {
 					_react2.default.createElement(
 						'div',
 						{ className: 'panel-body' },
-						'Ask a question!',
+						_react2.default.createElement(
+							'p',
+							{ ref: 'ForumParagraph1' },
+							'Ask a question!'
+						),
 						_react2.default.createElement(
 							'button',
 							{ type: 'button', className: 'btn btn-default', onClick: this._onButtonClick.bind(this) },
@@ -29899,15 +29903,15 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Carousel = __webpack_require__(269);
+var _Carousel = __webpack_require__(270);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
 
-var _Offers = __webpack_require__(278);
+var _Offers = __webpack_require__(279);
 
 var _Offers2 = _interopRequireDefault(_Offers);
 
-var _TopFilms = __webpack_require__(281);
+var _TopFilms = __webpack_require__(282);
 
 var _TopFilms2 = _interopRequireDefault(_TopFilms);
 
@@ -29990,15 +29994,15 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Sort = __webpack_require__(280);
+var _Sort = __webpack_require__(281);
 
 var _Sort2 = _interopRequireDefault(_Sort);
 
-var _CinemaActions = __webpack_require__(282);
+var _CinemaActions = __webpack_require__(283);
 
 var CinemaActions = _interopRequireWildcard(_CinemaActions);
 
-var _ListOfMovies = __webpack_require__(275);
+var _ListOfMovies = __webpack_require__(276);
 
 var _ListOfMovies2 = _interopRequireDefault(_ListOfMovies);
 
@@ -30099,7 +30103,8 @@ exports.default = ListingGallery;
 /* 266 */,
 /* 267 */,
 /* 268 */,
-/* 269 */
+/* 269 */,
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30229,7 +30234,7 @@ var Carousel = function (_React$Component) {
 exports.default = Carousel;
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30315,7 +30320,7 @@ var Checkbox = function (_React$Component) {
 exports.default = Checkbox;
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30391,7 +30396,7 @@ var CheckboxClassification = function (_React$Component) {
 exports.default = CheckboxClassification;
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30455,7 +30460,7 @@ var ForumPost = function (_React$Component) {
 exports.default = ForumPost;
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30471,7 +30476,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Navbar = __webpack_require__(277);
+var _Navbar = __webpack_require__(278);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -30510,7 +30515,7 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30580,7 +30585,7 @@ var HiddenCreatePostBanner = function (_React$Component) {
 exports.default = HiddenCreatePostBanner;
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30596,7 +30601,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MovieListing = __webpack_require__(276);
+var _MovieListing = __webpack_require__(277);
 
 var _MovieListing2 = _interopRequireDefault(_MovieListing);
 
@@ -30641,7 +30646,7 @@ var ListOfMovies = function (_React$Component) {
 exports.default = ListOfMovies;
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30740,7 +30745,7 @@ var MovieListing = function (_React$Component) {
 exports.default = MovieListing;
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30849,7 +30854,7 @@ var Navbar = function (_React$Component) {
 exports.default = Navbar;
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31036,7 +31041,7 @@ var Offers = function (_React$Component) {
 exports.default = Offers;
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31109,7 +31114,7 @@ var Paypal = function (_React$Component) {
 exports.default = Paypal;
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31129,11 +31134,11 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Checkbox = __webpack_require__(270);
+var _Checkbox = __webpack_require__(271);
 
 var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
-var _CheckboxClassification = __webpack_require__(271);
+var _CheckboxClassification = __webpack_require__(272);
 
 var _CheckboxClassification2 = _interopRequireDefault(_CheckboxClassification);
 
@@ -31339,7 +31344,7 @@ var Sort = function (_React$Component) {
 exports.default = Sort;
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31506,7 +31511,7 @@ var TopFilms = function (_React$Component) {
 exports.default = TopFilms;
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31548,7 +31553,7 @@ function filterMoviesByClassification(classificationArray) {
 }
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

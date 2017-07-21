@@ -3,6 +3,7 @@ module.exports = {
 		Footer: './spec/footerTest.jsx',
 		SiteMap: './spec/siteMapTest.jsx',
 		MovieDetails: './spec/movieDetailsTest.jsx',
+        ForumTest: './spec/forumTest.jsx',
 		index: './src/index.js'
 	},
     output: {

@@ -35,7 +35,7 @@ export default class Forum extends React.Component{
 
 				<div className="panel panel-default">
 					<div className="panel-body">
-						Ask a question!
+						<p ref="ForumParagraph1">Ask a question!</p>
 						<button type="button" className="btn btn-default" onClick={this._onButtonClick.bind(this)}>Make a post</button>
 					</div>
 				</div>

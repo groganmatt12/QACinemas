@@ -27739,6 +27739,7 @@ var ForumPost = function (_React$Component) {
    		console.log(collapsibleID);*/
 			/*		const collapsibleRef = "forumPostHeader"+this.props.postInfo.postid;
    		console.log(collapsibleRef);*/
+
 			return _react2.default.createElement(
 				"div",
 				null,
@@ -27755,7 +27756,15 @@ var ForumPost = function (_React$Component) {
 						{ ref: "forumPostContent_ref" },
 						this.props.postInfo.content
 					),
-					_react2.default.createElement("div", { className: "ForumPost-commentMain" })
+					_react2.default.createElement(
+						"div",
+						{ className: "row ForumPost-commentMain" },
+						_react2.default.createElement(
+							"p",
+							null,
+							"Comment"
+						)
+					)
 				)
 			);
 		}
@@ -29237,6 +29246,7 @@ var Forum = function (_React$Component) {
 		value: function getCommentsForPost(postid) {
 			//input post id -> return all comments as object
 			var arrayOfComments = _CinemaStore2.default.getAllComments();
+			for (var i = 0; i < arrayOfComments.length; i++) {}
 		}
 	}, {
 		key: 'render',

@@ -11,25 +11,24 @@ export default class ForumPost extends React.Component{
 		console.log(collapsibleID);*/
 /*		const collapsibleRef = "forumPostHeader"+this.props.postInfo.postid;
 		console.log(collapsibleRef);*/
+
+	
+
 		return(
 			<div>
 
-				
 				<a href={collapsiblehref} className="btn btn-info ForumPost-btn-title" data-toggle="collapse" ref="forumPostHeader_ref">{this.props.postInfo.title}</a>
 				<div id={collapsibleID} className="collapse">
 					<pre ref="forumPostContent_ref">
 					{this.props.postInfo.content}
 					</pre>
 
-					<div className="ForumPost-commentMain">
-						
+					<div className="row ForumPost-commentMain">
+						<p>Comment</p>
 					</div>
-
-
 				</div>
 
 			</div>
-
 		);
 	}
 }

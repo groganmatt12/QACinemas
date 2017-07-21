@@ -8,7 +8,7 @@ describe('forum:', function(){
 	
 	var forum = TestUtils.renderIntoDocument(
 			<Forum />
-		);
+	);
 		
 	it('\nRenders a table', function(){
 

@@ -47,7 +47,9 @@ export default class Forum extends React.Component{
 	getCommentsForPost(postid){
 		//input post id -> return all comments as object
 		const arrayOfComments = CinemaStore.getAllComments();
-		
+		for(let i = 0; i<arrayOfComments.length; i++){
+
+		}
 
 	}
 
@@ -55,6 +57,7 @@ export default class Forum extends React.Component{
 		const showHCP = this.state.showHiddenCreatePost;
 
 		return(
+
 			<div className="container">
 
 				<div className="panel panel-default" ref="writePost">

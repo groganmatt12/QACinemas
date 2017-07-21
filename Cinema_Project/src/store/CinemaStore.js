@@ -146,37 +146,99 @@ class CinemaStore extends EventEmitter {
 				this.filterMoviesByGenre(action.genreArray);
 			break;
 			case "CLASS_SEARCH":
-			this.filterMoviesByClassification(action.classificationArray);
+				this.filterMoviesByClassification(action.classificationArray);
+			break;
+			case "MOVIE_SEARCH":
+				this.filterMovies(action.parameterArray);
 			break;
 			default:
 			break;
 		}
 	}
 
-	filterMoviesByClassification(classArray){
-		this.filteredMovies = [];		
-		let tempArray = [];
+	filterMovies(parameterArray){
+		this.filteredMovies_Search = [];
+		
+		
+		let searchParameters = parameterArray[0];
+		let selectedGenreList = parameterArray[1];
+		let selectedClassificationList = parameterArray[2];
+		console.log("Passed in Parameters");
+		console.log(searchParameters);
+		console.log(selectedGenreList);
+		console.log(selectedClassificationList);
+		{/*Search Bar Handling*/}
 		
 		this.movies.forEach((movie) => {
-			let curMovieClassification = movie.classification;
-			
-			for(let i = 0; i < classArray.length; i++){
-				if(curMovieClassification == classArray[i]){
-					tempArray.push(movie);
-					this.filteredMovies = tempArray;
-				}
-			}
+			if(movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {this.filteredMovies_Search.push(movie);}
 		});
-
-		if(this.filteredMovies.length == 0){
-			this.movies.forEach((movie) => {
-				{this.filteredMovies.push(movie)}
+		{/*Search Bar Handling WORKING*/}	
+		console.log("Results from text search");	
+		console.log(this.filteredMovies_Search);
+		{/*Genre Filter Handling*/}
+		console.log("Genres array length" + selectedGenreList.length);
+		if(selectedGenreList.length !== 0){
+			let currentIndex = 0;
+			this.filteredMovies_Genre = [];
+			let filteredMovieSet = new Set([]);
+			
+			this.filteredMovies_Search.forEach((movie) => {
+				let currentMovieGenreArray = movie.genre;
+				console.log("Movie in genre filter:" + movie.name);
+				currentMovieGenreArray.forEach((genre) =>{
+					
+					for(let i=0; i<currentMovieGenreArray.length; i++){
+						for(let j=0; j<selectedGenreList.length; j++){
+							console.log("compare: " + selectedGenreList[j] + " : " + currentMovieGenreArray[i]);
+							if(selectedGenreList[j] == currentMovieGenreArray[i]){
+								filteredMovieSet.add(movie);
+								console.log("Movie considered match:" + movie.name);
+							}
+						}
+					}
+					currentIndex++;
+				});
+				
 			});
+			this.filteredMovies_Genre = Array.from(filteredMovieSet)
 		}
+		else{
+			this.filteredMovies_Genre = this.filteredMovies_Search;
+		}
+			console.log(this.filteredMovies_Genre);
+		{/*Genre Filter Handling*/}
+			
+			
+		{/*Classification Filter Handling*/}	
+		
+		this.filteredMovies_Classification = [];
+		
+		if(selectedClassificationList.length !== 0){
+		
+		this.filteredMovies_Genre.forEach((movie) => {
+			let classificationOfCurrentMovie = movie.classification;
+			selectedClassificationList.forEach((classification) =>{
+				if(classificationOfCurrentMovie == classification){
+					this.filteredMovies_Classification.push(movie);
+				}
+			});
+		});
+		
+		this.filteredMovies = this.filteredMovies_Classification;
+		
+		} else {
+			
+			this.filteredMovies = this.filteredMovies_Genre;
+		}
+		{/*Classification Filter Handling*/}
+		
+		 {/*Final Result*/}
+	
 		this.emit("moviesChange");
 	}
-
-	filterMoviesByGenre(genreArray){
+	
+	
+		filterMoviesByGenre(genreArray){
 
 		this.filteredMovies = [];
 		let tempSet = new Set([]);
@@ -202,6 +264,33 @@ class CinemaStore extends EventEmitter {
 		}
 		this.emit("moviesChange");
 	}
+	
+	
+	
+	filterMoviesByClassification(classArray){
+		this.filteredMovies = [];		
+		let tempArray = [];
+		
+		this.movies.forEach((movie) => {
+			let curMovieClassification = movie.classification;
+			
+			for(let i = 0; i < classArray.length; i++){
+				if(curMovieClassification == classArray[i]){
+					tempArray.push(movie);
+					this.filteredMovies = tempArray;
+				}
+			}
+		});
+
+		if(this.filteredMovies.length == 0){
+			this.movies.forEach((movie) => {
+				{this.filteredMovies.push(movie)}
+			});
+		}
+		this.emit("moviesChange");
+	}
+
+
 
 	generateGenreList() {
 		let genreSet = new Set([]);

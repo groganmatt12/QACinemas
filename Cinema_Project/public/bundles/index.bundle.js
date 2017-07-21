@@ -5786,36 +5786,68 @@ var CinemaStore = function (_EventEmitter) {
 				case "CLASS_SEARCH":
 					this.filterMoviesByClassification(action.classificationArray);
 					break;
+				case "MOVIE_SEARCH":
+					this.filterMovies(action.parameterArray);
+					break;
 				default:
 					break;
 			}
 		}
 	}, {
-		key: 'filterMoviesByClassification',
-		value: function filterMoviesByClassification(classArray) {
+		key: 'filterMovies',
+		value: function filterMovies(parameterArray) {
 			var _this3 = this;
 
-			this.filteredMovies = [];
-			var tempArray = [];
+			this.filteredMovies_Search = [];
 
+			{/*Search Bar Handling*/}
+			var searchParameters = parameterArray[0];
 			this.movies.forEach(function (movie) {
-				var curMovieClassification = movie.classification;
-
-				for (var i = 0; i < classArray.length; i++) {
-					if (curMovieClassification == classArray[i]) {
-						tempArray.push(movie);
-						_this3.filteredMovies = tempArray;
-					}
+				if (movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {
+					_this3.filteredMovies_Search.push(movie);
 				}
 			});
+			{/*Search Bar Handling*/}
 
-			if (this.filteredMovies.length == 0) {
-				this.movies.forEach(function (movie) {
-					{
-						_this3.filteredMovies.push(movie);
+			{/*Genre Filter Handling*/}
+			var selectedGenreList = parameterArray[1];
+			var currentIndex = 0;
+			this.filteredMovies_Genre = [];
+			var filteredMovieSet = new Set([]);
+
+			this.filteredMovies_Search.forEach(function (movie) {
+				var currentMovieGenreArray = movie.genre;
+
+				currentMovieGenreArray.forEach(function (genre) {
+					if (selectedGenreList[currentIndex] == genre) {
+						filteredMovieSet.add(movie);
+					}
+					currentIndex++;
+				});
+			});
+			{
+				this.filteredMovies_Genre = Array.from(filteredMovieSet);
+			}
+
+			{/*Genre Filter Handling*/}
+
+			{/*Classification Filter Handling*/}
+			var selectedClassificationList = parameterArray[2];
+			this.filteredMovies_Classification = [];
+
+			filteredMovies_Genre.forEach(function (movie) {
+				var classificationOfCurrentMovie = movie.classification;
+				selectedClassificationList.forEach(function (classification) {
+					if (classificationOfCurrentMovie == classification) {
+						_this3.filteredMovies_Classification.push(movie);
 					}
 				});
-			}
+			});
+
+			{/*Classification Filter Handling*/}
+
+			this.filteredMovies = this.filteredMovies_Classification;{/*Final Result*/}
+
 			this.emit("moviesChange");
 		}
 	}, {
@@ -5845,6 +5877,34 @@ var CinemaStore = function (_EventEmitter) {
 				this.movies.forEach(function (movie) {
 					{
 						_this4.filteredMovies.push(movie);
+					}
+				});
+			}
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'filterMoviesByClassification',
+		value: function filterMoviesByClassification(classArray) {
+			var _this5 = this;
+
+			this.filteredMovies = [];
+			var tempArray = [];
+
+			this.movies.forEach(function (movie) {
+				var curMovieClassification = movie.classification;
+
+				for (var i = 0; i < classArray.length; i++) {
+					if (curMovieClassification == classArray[i]) {
+						tempArray.push(movie);
+						_this5.filteredMovies = tempArray;
+					}
+				}
+			});
+
+			if (this.filteredMovies.length == 0) {
+				this.movies.forEach(function (movie) {
+					{
+						_this5.filteredMovies.push(movie);
 					}
 				});
 			}
@@ -30963,8 +31023,10 @@ var Sort = function (_React$Component) {
             for (var i = 0; i < arrayOfGenres.length; i++) {
                 arrayOfRequiredGenres.push(_react2.default.createElement(_Checkbox2.default, { label: arrayOfGenres[i], key: arrayOfGenres[i], handleCheckboxChange: this.onToggleGenre.bind(this) }));
             }
+
             this.setState({ genre_objects: arrayOfRequiredGenres });
         }
+
         /*------------------------------------*/
 
     }, {
@@ -31318,6 +31380,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.filterMoviesBySearch = filterMoviesBySearch;
 exports.filterMoviesByGenre = filterMoviesByGenre;
 exports.filterMoviesByClassification = filterMoviesByClassification;
+exports.filterMovies = filterMovies;
 
 var _dispatcher = __webpack_require__(249);
 
@@ -31344,6 +31407,14 @@ function filterMoviesByClassification(classificationArray) {
 	_dispatcher2.default.dispatch({
 		type: "CLASS_SEARCH",
 		classificationArray: classificationArray
+	});
+}
+
+function filterMovies(searchParameters, genreArray, classificationArray) {
+	var parameterArray = [searchParameters, genreArray, classificationArray];
+	_dispatcher2.default.dispatch({
+		type: "MOVIE_SEARCH",
+		parameterArray: parameterArray
 	});
 }
 
@@ -31400,6 +31471,10 @@ var _Forum = __webpack_require__(263);
 
 var _Forum2 = _interopRequireDefault(_Forum);
 
+var _GoogleMaps = __webpack_require__(282);
+
+var _GoogleMaps2 = _interopRequireDefault(_GoogleMaps);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*import ContactUs from './ContactUs';*/
@@ -31426,9 +31501,210 @@ _reactDom2.default.render(_react2.default.createElement(
 		_react2.default.createElement(_reactRouter.Route, { path: '/Booking/:showingID', component: _Booking2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Classification', component: _Classification2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Confimation/:showingID/:quantity', component: _Confirmation2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/Forum', component: _Forum2.default })
+		_react2.default.createElement(_reactRouter.Route, { path: '/Forum', component: _Forum2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/Map', component: _GoogleMaps2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/*', component: _Home2.default })
 	)
 ), document.querySelector('#app'));
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _CurrentLocation = __webpack_require__(283);
+
+var _CurrentLocation2 = _interopRequireDefault(_CurrentLocation);
+
+var _Map = __webpack_require__(284);
+
+var _Map2 = _interopRequireDefault(_Map);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GoogleMaps = function (_React$Component) {
+	_inherits(GoogleMaps, _React$Component);
+
+	function GoogleMaps() {
+		_classCallCheck(this, GoogleMaps);
+
+		var _this = _possibleConstructorReturn(this, (GoogleMaps.__proto__ || Object.getPrototypeOf(GoogleMaps)).call(this));
+
+		_this.state = {
+			currentAddress: "QA Manchester",
+			mapCoordinates: {
+				lat: 53.475586,
+				lng: -2.241402
+			}
+		};
+		return _this;
+	}
+
+	_createClass(GoogleMaps, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'h1',
+					null,
+					'Google Maps'
+				),
+				_react2.default.createElement(_Map2.default, {
+					lat: this.state.mapCoordinates.lat,
+					lng: this.state.mapCoordinates.lng
+				}),
+				_react2.default.createElement(_CurrentLocation2.default, { address: this.state.currentAddress })
+			);
+		}
+	}]);
+
+	return GoogleMaps;
+}(_react2.default.Component);
+
+exports.default = GoogleMaps;
+
+/***/ }),
+/* 283 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CurrentLocation = function (_React$Component) {
+	_inherits(CurrentLocation, _React$Component);
+
+	function CurrentLocation(props) {
+		_classCallCheck(this, CurrentLocation);
+
+		return _possibleConstructorReturn(this, (CurrentLocation.__proto__ || Object.getPrototypeOf(CurrentLocation)).call(this, props));
+	}
+
+	_createClass(CurrentLocation, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "col-xs-12 col-md-6 col-md-offset-3 current-location" },
+				_react2.default.createElement(
+					"h4",
+					{ id: "save-location" },
+					this.props.address
+				)
+			);
+		}
+	}]);
+
+	return CurrentLocation;
+}(_react2.default.Component);
+
+exports.default = CurrentLocation;
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Map = function (_React$Component) {
+	_inherits(Map, _React$Component);
+
+	function Map() {
+		_classCallCheck(this, Map);
+
+		return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
+	}
+
+	_createClass(Map, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.componentDidUpdate();
+		}
+	}, {
+		key: 'componentDidUpdate',
+		value: function componentDidUpdate() {
+			var map = new GMaps({
+				el: '#map',
+				lat: this.props.lat,
+				lng: this.props.lng
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'map-overlay' },
+				_react2.default.createElement(
+					'p',
+					null,
+					'Loading...'
+				),
+				_react2.default.createElement('div', { id: 'map' })
+			);
+		}
+	}]);
+
+	return Map;
+}(_react2.default.Component);
+
+exports.default = Map;
 
 /***/ })
 /******/ ]);

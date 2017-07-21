@@ -10,6 +10,7 @@ import Showings from './Showings';
 import Confirmation from './Confirmation';
 import Classification from './Classification';
 import Forum from './Forum';
+import GoogleMaps from './GoogleMaps/GoogleMaps';
 /*import ContactUs from './ContactUs';*/
 
 
@@ -35,6 +36,8 @@ ReactDOM.render(
 			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
 			<Route path = "/Forum" component={Forum} />
+			<Route path = "/Map" component={GoogleMaps} />
+			<Route path = "/*" component={Home}/>
 			{/*<Route path = "/ContactUs" component={ContactUs} />*/}
 			
 		</Route>	

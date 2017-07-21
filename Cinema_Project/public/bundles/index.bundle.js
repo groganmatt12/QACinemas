@@ -29368,7 +29368,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(272);
+var _Header = __webpack_require__(273);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -29440,7 +29440,7 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _Paypal = __webpack_require__(278);
+var _Paypal = __webpack_require__(279);
 
 var _Paypal2 = _interopRequireDefault(_Paypal);
 
@@ -29753,11 +29753,11 @@ var _CinemaStore = __webpack_require__(45);
 
 var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
-var _HiddenCreatePostBanner = __webpack_require__(273);
+var _HiddenCreatePostBanner = __webpack_require__(274);
 
 var _HiddenCreatePostBanner2 = _interopRequireDefault(_HiddenCreatePostBanner);
 
-var _ForumPost = __webpack_require__(284);
+var _ForumPost = __webpack_require__(272);
 
 var _ForumPost2 = _interopRequireDefault(_ForumPost);
 
@@ -29794,6 +29794,11 @@ var Forum = function (_React$Component) {
 	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {}
+	}, {
+		key: 'generatePost',
+		value: function generatePost() {
+			//generate row-post-row
+		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -29852,7 +29857,7 @@ var Forum = function (_React$Component) {
 							_react2.default.createElement(
 								'td',
 								null,
-								'Alfreds Futterkiste'
+								_react2.default.createElement(_ForumPost2.default, null)
 							),
 							_react2.default.createElement(
 								'td',
@@ -29898,7 +29903,7 @@ var _Carousel = __webpack_require__(269);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
 
-var _Offers = __webpack_require__(277);
+var _Offers = __webpack_require__(278);
 
 var _Offers2 = _interopRequireDefault(_Offers);
 
@@ -29993,7 +29998,7 @@ var _CinemaActions = __webpack_require__(282);
 
 var CinemaActions = _interopRequireWildcard(_CinemaActions);
 
-var _ListOfMovies = __webpack_require__(274);
+var _ListOfMovies = __webpack_require__(275);
 
 var _ListOfMovies2 = _interopRequireDefault(_ListOfMovies);
 
@@ -30393,6 +30398,70 @@ exports.default = CheckboxClassification;
 
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ForumPost = function (_React$Component) {
+	_inherits(ForumPost, _React$Component);
+
+	function ForumPost() {
+		_classCallCheck(this, ForumPost);
+
+		return _possibleConstructorReturn(this, (ForumPost.__proto__ || Object.getPrototypeOf(ForumPost)).apply(this, arguments));
+	}
+
+	_createClass(ForumPost, [{
+		key: "render",
+		value: function render() {
+			return _react2.default.createElement(
+				"div",
+				null,
+				_react2.default.createElement(
+					"div",
+					{ className: "row post-main" },
+					"Post title + post content here"
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#post0comment", className: "btn btn-info", "data-toggle": "collapse" },
+					"Comment collapsible"
+				),
+				_react2.default.createElement(
+					"div",
+					{ id: "post0comment", className: "collapse" },
+					"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+				)
+			);
+		}
+	}]);
+
+	return ForumPost;
+}(_react2.default.Component);
+
+exports.default = ForumPost;
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
@@ -30402,7 +30471,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Navbar = __webpack_require__(276);
+var _Navbar = __webpack_require__(277);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
@@ -30441,7 +30510,7 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30511,7 +30580,7 @@ var HiddenCreatePostBanner = function (_React$Component) {
 exports.default = HiddenCreatePostBanner;
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30527,7 +30596,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MovieListing = __webpack_require__(275);
+var _MovieListing = __webpack_require__(276);
 
 var _MovieListing2 = _interopRequireDefault(_MovieListing);
 
@@ -30572,7 +30641,7 @@ var ListOfMovies = function (_React$Component) {
 exports.default = ListOfMovies;
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30671,7 +30740,7 @@ var MovieListing = function (_React$Component) {
 exports.default = MovieListing;
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30780,7 +30849,7 @@ var Navbar = function (_React$Component) {
 exports.default = Navbar;
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30967,7 +31036,7 @@ var Offers = function (_React$Component) {
 exports.default = Offers;
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31040,7 +31109,6 @@ var Paypal = function (_React$Component) {
 exports.default = Paypal;
 
 /***/ }),
-/* 279 */,
 /* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31561,57 +31629,6 @@ _reactDom2.default.render(_react2.default.createElement(
 		_react2.default.createElement(_reactRouter.Route, { path: '/Forum', component: _Forum2.default })
 	)
 ), document.querySelector('#app'));
-
-/***/ }),
-/* 284 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ForumPost = function (_React$Component) {
-	_inherits(ForumPost, _React$Component);
-
-	function ForumPost() {
-		_classCallCheck(this, ForumPost);
-
-		return _possibleConstructorReturn(this, (ForumPost.__proto__ || Object.getPrototypeOf(ForumPost)).apply(this, arguments));
-	}
-
-	_createClass(ForumPost, [{
-		key: "render",
-		value: function render() {
-			return _react2.default.createElement(
-				"div",
-				null,
-				_react2.default.createElement("div", { className: "row post-main" }),
-				_react2.default.createElement("div", { className: "post-comment-body" })
-			);
-		}
-	}]);
-
-	return ForumPost;
-}(_react2.default.Component);
-
-exports.default = ForumPost;
 
 /***/ })
 /******/ ]);

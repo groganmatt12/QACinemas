@@ -17,11 +17,14 @@ export default class Forum extends React.Component{
 	_onButtonClick(){
 		console.log("hello world");
 		this.setState({showHiddenCreatePost: !(this.state.showHiddenCreatePost)});
-
 	}
 
 	componentWillMount(){
 
+	}
+
+	generatePost(){
+		//generate row-post-row
 	}
 
 	render(){
@@ -29,6 +32,7 @@ export default class Forum extends React.Component{
 
 		return(
 			<div className="container">
+
 				<div className="panel panel-default">
 					<div className="panel-body">
 						Ask a question!
@@ -43,6 +47,7 @@ export default class Forum extends React.Component{
 						null
 						)}
 				</div>
+
 				<div className="forum_style">
 					<table className="forum_table_style">
 					  <tr>
@@ -51,9 +56,9 @@ export default class Forum extends React.Component{
 						<th>Country</th>
 					  </tr>
 					  <tr>
-						<td>Alfreds Futterkiste
-							
-						 </td>
+						<td>
+							<ForumPost />
+						</td>
 						<td>Maria Anders</td>
 						<td>Germany</td>
 					  </tr>
@@ -61,6 +66,7 @@ export default class Forum extends React.Component{
 					  </tr>
 					</table>
 				</div>
+
 			</div>
 		);
 	}

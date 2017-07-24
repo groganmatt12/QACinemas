@@ -8326,7 +8326,8 @@ var CinemaStore = function (_EventEmitter) {
 		_this.cinemas = _CinemaLocations2.default.cinemas;
 		_this.movies = _MovieDetails2.default.movieDetails;
 		_this.showings = _ShowingTimes2.default.showingTimes;
-		_this.filteredMovies = [];
+		_this.filteredMovies = _this.movies.slice();
+		_this.sortedMovies = _this.movies.slice();
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
 		_this.genres = _this.generateGenreList();
 		_this.classification = _this.generateClassificationList();
@@ -8335,6 +8336,11 @@ var CinemaStore = function (_EventEmitter) {
 	}
 
 	_createClass(CinemaStore, [{
+		key: 'getSortedMovies',
+		value: function getSortedMovies() {
+			return this.sortedMovies;
+		}
+	}, {
 		key: 'getArrayOfGenres',
 		value: function getArrayOfGenres() {
 			return this.genres;
@@ -8483,10 +8489,91 @@ var CinemaStore = function (_EventEmitter) {
 				case "MOVIE_SEARCH":
 					this.filterMovies(action.parameterArray);
 					break;
+				case "SORT_MOVIES":
+					console.log(action.sortType + " -- " + action.sortOrder);
+					this.sortMovies(action.sortType, action.sortOrder);
+					break;
 				default:
 					break;
 			}
 		}
+		/*
+  
+  	let sortArray = this.movies.slice();
+  	for(let i=0 ; i<sortArray.length; i++){
+  		for(let j=i; j<sortArray.length; j++){
+  				let a = new Date(sortArray[i].releaseDate);
+  			let b = new Date(sortArray[j].releaseDate);
+  			
+  			if (a>b){
+  				let tempObj=sortArray[i];
+  				sortArray[i]=sortArray[j]
+  				sortArray[j]=tempObj;
+  				}
+  		}
+  	}
+  	sortArray.reverse();
+  	this.moviesByDate = sortArray;
+  	return this.moviesByDate;
+  
+  */
+
+	}, {
+		key: 'sortMovies',
+		value: function sortMovies(sortType, sortOrder) {
+
+			console.log("Sorting " + sortType + " - " + sortOrder);
+			this.sortedMovies = this.filteredMovies.slice();
+
+			switch (sortType) {
+				case "RELEASE_DATE":
+					this.sortedMovies.sort(function (a, b) {
+						var aAsMilliseconds = Date.parse(a.releaseDate);
+						var bAsMilliseconds = Date.parse(b.releaseDate);
+
+						if (sortOrder == "ASCENDING") {
+							return aAsMilliseconds - bAsMilliseconds;
+						} else {
+							return bAsMilliseconds - aAsMilliseconds;
+						}
+					});
+					break;
+				case "MOVIE_TITLE":
+					this.sortedMovies.sort(function (a, b) {
+						var movieTitleA = a.name.toUpperCase();
+						var movieTitleB = b.name.toUpperCase();
+
+						if (sortOrder == "ASCENDING") {
+
+							if (movieTitleA < movieTitleB) {
+								return -1;
+							}
+							if (movieTitleA > movieTitleB) {
+								return 1;
+							}
+							return 0;
+						} else {
+
+							if (movieTitleA > movieTitleB) {
+								return -1;
+							}
+							if (movieTitleA < movieTitleB) {
+								return 1;
+							}
+							return 0;
+						}
+					});
+					break;
+				default:
+					break;
+			}
+
+			console.log(this.sortedMovies);
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'sortMoviesByName',
+		value: function sortMoviesByName() {}
 	}, {
 		key: 'filterMovies',
 		value: function filterMovies(parameterArray) {
@@ -8494,6 +8581,7 @@ var CinemaStore = function (_EventEmitter) {
 
 			this.filteredMovies_Search = [];
 
+			console.log("Testing sort params: " + parameterArray[3] + " : " + parameterArray[4]);
 			var searchParameters = parameterArray[0];
 			var selectedGenreList = parameterArray[1];
 			var selectedClassificationList = parameterArray[2];
@@ -8566,7 +8654,7 @@ var CinemaStore = function (_EventEmitter) {
 
 			{/*Final Result*/}
 
-			this.emit("moviesChange");
+			this.sortMovies(parameterArray[3], parameterArray[4]);
 		}
 	}, {
 		key: 'filterMoviesByGenre',
@@ -8598,7 +8686,6 @@ var CinemaStore = function (_EventEmitter) {
 					}
 				});
 			}
-			this.emit("moviesChange");
 		}
 	}, {
 		key: 'filterMoviesByClassification',
@@ -30085,8 +30172,10 @@ var ListingGallery = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (ListingGallery.__proto__ || Object.getPrototypeOf(ListingGallery)).call(this, props));
 
 		_this.state = {
+			currentSort: "MOVIE_TITLE",
+			currentOrder: "ASCENDING",
 			movieListings: [],
-			movies: _CinemaStore2.default.getAllMovies(),
+			movies: _CinemaStore2.default.getSortedMovies(),
 			filterText: '',
 			classifications: _CinemaStore2.default.generateClassificationList(),
 			selectedClassifications: [],
@@ -30097,6 +30186,8 @@ var ListingGallery = function (_React$Component) {
 		_this.handleSearchInput = _this.handleSearchInput.bind(_this);
 		_this.handleClassCheck = _this.handleClassCheck.bind(_this);
 		_this.handleGenreCheck = _this.handleGenreCheck.bind(_this);
+		_this.handleSortSelection = _this.handleSortSelection.bind(_this);
+		_this.sortOrderToggle = _this.sortOrderToggle.bind(_this);
 
 		return _this;
 	}
@@ -30108,7 +30199,7 @@ var ListingGallery = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'parentContainer' },
-				_react2.default.createElement(_Sort2.default, { filterText: this.state.filterText, onUserSearchInput: this.handleSearchInput, genresArray: this.state.genres, genresSelected: this.state.selectedGenres, onGenreCheckInput: this.handleGenreCheck, classificationArray: this.state.classifications, classificationsSelected: this.state.selectedClassifications, onClassificationCheckInput: this.handleClassCheck }),
+				_react2.default.createElement(_Sort2.default, { filterText: this.state.filterText, onUserSearchInput: this.handleSearchInput, genresArray: this.state.genres, genresSelected: this.state.selectedGenres, onGenreCheckInput: this.handleGenreCheck, classificationArray: this.state.classifications, classificationsSelected: this.state.selectedClassifications, onClassificationCheckInput: this.handleClassCheck, currentSort: this.state.currentSort, currentOrder: this.state.currentOrder, onSortSelection: this.handleSortSelection }),
 				_react2.default.createElement('br', null),
 				_react2.default.createElement(
 					'div',
@@ -30126,25 +30217,69 @@ var ListingGallery = function (_React$Component) {
 		key: 'handleClassCheck',
 		value: function handleClassCheck(selectedClassificationArray) {
 			this.setState({ selectedClassifications: selectedClassificationArray });
-			CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray);
+			CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray, this.state.currentSort, this.state.currentOrder);
 		}
 	}, {
 		key: 'handleGenreCheck',
 		value: function handleGenreCheck(selectedGenreArray) {
 			/*		console.log(genreArray);*/
 			this.setState({ selectedGenres: selectedGenreArray });
-			CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications);
+			CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications, this.state.currentSort, this.state.currentOrder);
 		}
 	}, {
 		key: 'handleSearchInput',
 		value: function handleSearchInput(filterText) {
 			this.setState({ filterText: filterText });
-			CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications);
+			CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications, this.state.currentSort, this.state.currentOrder);
+		}
+	}, {
+		key: 'sortOrderToggle',
+		value: function sortOrderToggle() {}
+	}, {
+		key: 'handleSortSelection',
+		value: function handleSortSelection(sortType) {
+
+			console.log(sortType);
+			var sortOrder = this.state.currentOrder;
+			switch (sortType) {
+				case "RELEASE_DATE":
+					if (this.state.currentSort == "RELEASE_DATE") {
+						if (sortOrder == "ASCENDING") {
+							sortOrder = "DESCENDING";
+						} else if (sortOrder == "DESCENDING") {
+							sortOrder = "ASCENDING";
+						}
+					} else {
+						sortOrder = "DESCENDING";
+					}
+					this.setState({ currentSort: "RELEASE_DATE" });
+
+					break;
+				case "MOVIE_TITLE":
+
+					if (this.state.currentSort == "MOVIE_TITLE") {
+						if (sortOrder == "ASCENDING") {
+							sortOrder = "DESCENDING";
+						} else if (sortOrder == "DESCENDING") {
+							sortOrder = "ASCENDING";
+						}
+					} else {
+						sortOrder = "ASCENDING";
+					}
+					this.setState({ currentSort: "MOVIE_TITLE" });
+
+					break;
+				default:
+					break;
+			}
+			this.setState({ currentOrder: sortOrder });
+			CinemaActions.sortMovies(sortType, sortOrder);
 		}
 	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			_CinemaStore2.default.on("moviesChange", this._onChange);
+			CinemaActions.sortMovies("MOVIE_TITLE", "ASCENDING");
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -30154,7 +30289,7 @@ var ListingGallery = function (_React$Component) {
 	}, {
 		key: '_onChange',
 		value: function _onChange() {
-			this.setState({ movies: _CinemaStore2.default.getFilteredMovies() });
+			this.setState({ movies: _CinemaStore2.default.getSortedMovies() });
 		}
 	}]);
 
@@ -31115,6 +31250,7 @@ var Sort = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Sort.__proto__ || Object.getPrototypeOf(Sort)).call(this, props));
 
         _this.handleMovieSearchChange = _this.handleMovieSearchChange.bind(_this);
+        _this.handleMovieSort = _this.handleMovieSort.bind(_this);
 
         _this.state = {
             genres: [],
@@ -31142,7 +31278,11 @@ var Sort = function (_React$Component) {
         key: 'handleMovieSearchChange',
         value: function handleMovieSearchChange() {
             this.props.onUserSearchInput(this.filterTextInput.value);
-            this.generateClassificationCheckbox();
+        }
+    }, {
+        key: 'handleMovieSort',
+        value: function handleMovieSort(e) {
+            this.props.onSortSelection(e.target.value);
         }
     }, {
         key: 'generateCheckboxes',
@@ -31346,7 +31486,7 @@ var Sort = function (_React$Component) {
                 _react2.default.createElement(
                     'button',
                     { type: 'button', className: 'btn btn-info btn-block', 'data-toggle': 'collapse', 'data-target': '#demo' },
-                    'Simple collapsible'
+                    'Click for Search & Sort'
                 ),
                 _react2.default.createElement(
                     'div',
@@ -31369,6 +31509,23 @@ var Sort = function (_React$Component) {
                                     },
                                     onChange: this.handleMovieSearchChange
                                 }),
+                                _react2.default.createElement('br', null),
+                                'Currently sorted by ',
+                                this.props.currentSort,
+                                ' in ',
+                                this.props.currentOrder,
+                                ' order',
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', value: 'MOVIE_TITLE', className: 'btn btn-info', onClick: this.handleMovieSort.bind(this) },
+                                    'Sort by Name'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', value: 'RELEASE_DATE', className: 'btn btn-info', onClick: this.handleMovieSort.bind(this) },
+                                    'Sort by Release Date'
+                                ),
                                 _react2.default.createElement(
                                     'div',
                                     null,
@@ -31583,6 +31740,7 @@ exports.filterMoviesBySearch = filterMoviesBySearch;
 exports.filterMoviesByGenre = filterMoviesByGenre;
 exports.filterMoviesByClassification = filterMoviesByClassification;
 exports.filterMovies = filterMovies;
+exports.sortMovies = sortMovies;
 
 var _dispatcher = __webpack_require__(249);
 
@@ -31612,11 +31770,19 @@ function filterMoviesByClassification(classificationArray) {
 	});
 }
 
-function filterMovies(searchParameters, genreArray, classificationArray) {
-	var parameterArray = [searchParameters, genreArray, classificationArray];
+function filterMovies(searchParameters, genreArray, classificationArray, sortType, sortOrder) {
+	var parameterArray = [searchParameters, genreArray, classificationArray, sortType, sortOrder];
 	_dispatcher2.default.dispatch({
 		type: "MOVIE_SEARCH",
 		parameterArray: parameterArray
+	});
+}
+
+function sortMovies(sortType, sortOrder) {
+
+	_dispatcher2.default.dispatch({
+		type: "SORT_MOVIES",
+		sortType: sortType, sortOrder: sortOrder
 	});
 }
 

@@ -9,8 +9,10 @@ export default class ListingGallery extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
+			currentSort: "MOVIE_TITLE",
+			currentOrder: "ASCENDING",
 			movieListings:[],
-			movies: CinemaStore.getAllMovies(),
+			movies: CinemaStore.getSortedMovies(),
 			filterText:'',
 			classifications: CinemaStore.generateClassificationList(),
 			selectedClassifications: [],
@@ -21,16 +23,20 @@ export default class ListingGallery extends React.Component{
 		this.handleSearchInput = this.handleSearchInput.bind(this);
 		this.handleClassCheck = this.handleClassCheck.bind(this);
 		this.handleGenreCheck = this.handleGenreCheck.bind(this);
+		this.handleSortSelection = this.handleSortSelection.bind(this);
+		this.sortOrderToggle = this.sortOrderToggle.bind(this);
+		
+		
 		
 	}
 	
 	
 	render(){
-		
+
 		return(
 			<div className="parentContainer">
 
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck}/>
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck} currentSort={this.state.currentSort} currentOrder={this.state.currentOrder} onSortSelection={this.handleSortSelection}/>
 				<br />
 
 				<div className="container ListingGallery-ListOfFilms">
@@ -52,22 +58,72 @@ export default class ListingGallery extends React.Component{
 	
 	handleClassCheck(selectedClassificationArray){
 		this.setState({selectedClassifications: selectedClassificationArray});
-		CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray);
+		CinemaActions.filterMovies(this.state.filterText, this.state.selectedGenres, selectedClassificationArray, this.state.currentSort, this.state.currentOrder);
 	}
 
 	handleGenreCheck(selectedGenreArray){
 /*		console.log(genreArray);*/		
 		this.setState({selectedGenres: selectedGenreArray});
-		CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications);
+		CinemaActions.filterMovies(this.state.filterText, selectedGenreArray, this.state.selectedClassifications, this.state.currentSort, this.state.currentOrder);
 	}
 
 	handleSearchInput (filterText){
 		this.setState({filterText});
-		CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications);
+		CinemaActions.filterMovies(filterText, this.state.selectedGenres, this.state.selectedClassifications, this.state.currentSort, this.state.currentOrder);
+	}
+	
+	sortOrderToggle(){
+
+		
+		
+	}
+	
+	handleSortSelection (sortType){
+		
+		console.log(sortType);
+		let sortOrder = this.state.currentOrder;
+			switch(sortType) {
+			case "RELEASE_DATE":
+				if(this.state.currentSort == "RELEASE_DATE"){
+					if (sortOrder == "ASCENDING")
+					{
+						sortOrder = "DESCENDING";
+					}else if (sortOrder == "DESCENDING")
+					{
+						sortOrder = "ASCENDING";
+					}
+				}else{
+					sortOrder = "DESCENDING";
+					}
+				this.setState({currentSort: "RELEASE_DATE"});
+
+			break;
+			case "MOVIE_TITLE":
+
+				if(this.state.currentSort == "MOVIE_TITLE"){
+					if (sortOrder == "ASCENDING")
+					{
+						sortOrder = "DESCENDING";
+					}else if (sortOrder == "DESCENDING")
+					{
+						sortOrder = "ASCENDING";
+					}
+				}else{
+					sortOrder = "ASCENDING";
+				}
+				this.setState({currentSort: "MOVIE_TITLE"});
+			
+			break;
+			default:
+			break;
+		}
+		this.setState({currentOrder: sortOrder});
+		CinemaActions.sortMovies(sortType, sortOrder);
 	}
 	
 	componentWillMount(){
-		CinemaStore.on("moviesChange", this._onChange);		
+		CinemaStore.on("moviesChange", this._onChange);
+		CinemaActions.sortMovies("MOVIE_TITLE", "ASCENDING");		
 	}
 	
 	componentWillUnmount() {
@@ -75,6 +131,6 @@ export default class ListingGallery extends React.Component{
     }
   
 	_onChange() {	
-		this.setState({movies: CinemaStore.getFilteredMovies()});
+		this.setState({movies: CinemaStore.getSortedMovies()});
 	}
 }

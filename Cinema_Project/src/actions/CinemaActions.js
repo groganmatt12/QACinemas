@@ -22,10 +22,18 @@ export function filterMoviesByClassification(classificationArray){
 	});
 }
 
-export function filterMovies(searchParameters, genreArray, classificationArray){
-	let parameterArray = [searchParameters, genreArray, classificationArray];
+export function filterMovies(searchParameters, genreArray, classificationArray, sortType, sortOrder){
+	let parameterArray = [searchParameters, genreArray, classificationArray, sortType, sortOrder];
 		dispatcher.dispatch({
 			type: "MOVIE_SEARCH",
 			parameterArray,
 		});
+}
+
+export function sortMovies(sortType, sortOrder) {
+    
+    dispatcher.dispatch({
+        type: "SORT_MOVIES",
+        sortType, sortOrder,
+    });
 }

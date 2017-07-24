@@ -8326,7 +8326,8 @@ var CinemaStore = function (_EventEmitter) {
 		_this.cinemas = _CinemaLocations2.default.cinemas;
 		_this.movies = _MovieDetails2.default.movieDetails;
 		_this.showings = _ShowingTimes2.default.showingTimes;
-		_this.filteredMovies = [];
+		_this.filteredMovies = _this.movies.slice();
+		_this.sortedMovies = _this.movies.slice();
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
 		_this.genres = _this.generateGenreList();
 		_this.classification = _this.generateClassificationList();
@@ -8335,6 +8336,11 @@ var CinemaStore = function (_EventEmitter) {
 	}
 
 	_createClass(CinemaStore, [{
+		key: 'getSortedMovies',
+		value: function getSortedMovies() {
+			return this.sortedMovies;
+		}
+	}, {
 		key: 'getArrayOfGenres',
 		value: function getArrayOfGenres() {
 			return this.genres;
@@ -8483,10 +8489,91 @@ var CinemaStore = function (_EventEmitter) {
 				case "MOVIE_SEARCH":
 					this.filterMovies(action.parameterArray);
 					break;
+				case "SORT_MOVIES":
+					console.log(action.sortType + " -- " + action.sortOrder);
+					this.sortMovies(action.sortType, action.sortOrder);
+					break;
 				default:
 					break;
 			}
 		}
+		/*
+  
+  	let sortArray = this.movies.slice();
+  	for(let i=0 ; i<sortArray.length; i++){
+  		for(let j=i; j<sortArray.length; j++){
+  				let a = new Date(sortArray[i].releaseDate);
+  			let b = new Date(sortArray[j].releaseDate);
+  			
+  			if (a>b){
+  				let tempObj=sortArray[i];
+  				sortArray[i]=sortArray[j]
+  				sortArray[j]=tempObj;
+  				}
+  		}
+  	}
+  	sortArray.reverse();
+  	this.moviesByDate = sortArray;
+  	return this.moviesByDate;
+  
+  */
+
+	}, {
+		key: 'sortMovies',
+		value: function sortMovies(sortType, sortOrder) {
+
+			console.log("Sorting " + sortType + " - " + sortOrder);
+			this.sortedMovies = this.filteredMovies.slice();
+
+			switch (sortType) {
+				case "RELEASE_DATE":
+					this.sortedMovies.sort(function (a, b) {
+						var aAsMilliseconds = Date.parse(a.releaseDate);
+						var bAsMilliseconds = Date.parse(b.releaseDate);
+
+						if (sortOrder == "ASCENDING") {
+							return aAsMilliseconds - bAsMilliseconds;
+						} else {
+							return bAsMilliseconds - aAsMilliseconds;
+						}
+					});
+					break;
+				case "MOVIE_TITLE":
+					this.sortedMovies.sort(function (a, b) {
+						var movieTitleA = a.name.toUpperCase();
+						var movieTitleB = b.name.toUpperCase();
+
+						if (sortOrder == "ASCENDING") {
+
+							if (movieTitleA < movieTitleB) {
+								return -1;
+							}
+							if (movieTitleA > movieTitleB) {
+								return 1;
+							}
+							return 0;
+						} else {
+
+							if (movieTitleA > movieTitleB) {
+								return -1;
+							}
+							if (movieTitleA < movieTitleB) {
+								return 1;
+							}
+							return 0;
+						}
+					});
+					break;
+				default:
+					break;
+			}
+
+			console.log(this.sortedMovies);
+			this.emit("moviesChange");
+		}
+	}, {
+		key: 'sortMoviesByName',
+		value: function sortMoviesByName() {}
 	}, {
 		key: 'filterMovies',
 		value: function filterMovies(parameterArray) {
@@ -8494,6 +8581,7 @@ var CinemaStore = function (_EventEmitter) {
 
 			this.filteredMovies_Search = [];
 
+			console.log("Testing sort params: " + parameterArray[3] + " : " + parameterArray[4]);
 			var searchParameters = parameterArray[0];
 			var selectedGenreList = parameterArray[1];
 			var selectedClassificationList = parameterArray[2];
@@ -8566,7 +8654,7 @@ var CinemaStore = function (_EventEmitter) {
 
 			{/*Final Result*/}
 
-			this.emit("moviesChange");
+			this.sortMovies(parameterArray[3], parameterArray[4]);
 		}
 	}, {
 		key: 'filterMoviesByGenre',
@@ -8598,7 +8686,6 @@ var CinemaStore = function (_EventEmitter) {
 					}
 				});
 			}
-			this.emit("moviesChange");
 		}
 	}, {
 		key: 'filterMoviesByClassification',

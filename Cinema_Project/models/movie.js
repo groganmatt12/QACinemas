@@ -3,9 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var movieSchema = new Schema({
-	id:{
-		type:Number,
-		required:true,
+	movID:{
+		type:String,
 	},
 	name: {
 		type: String,
@@ -16,12 +15,6 @@ var movieSchema = new Schema({
 	director:{
 		type:String,
 	},
-	genre:{
-		type:Array,
-	},
-	actors:{
-		type:Array,
-	},
 	trailer:{
 		type:String,
 	},
@@ -31,7 +24,7 @@ var movieSchema = new Schema({
 	carousel:{
 		type:String,
 	},
-	image:{
+	img:{
 		type:String,
 	},
 	description:{
@@ -41,4 +34,5 @@ var movieSchema = new Schema({
 	
 });
 
-module.exports = mongoose.model('MovieModel', movieSchema);
+const movieModel = mongoose.model("movie", movieSchema);
+module.exports = movieModel;

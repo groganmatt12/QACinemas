@@ -6,7 +6,9 @@ import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';
 import movieJson from '../../MovieDetails.json';
 import showingsJson from '../data/ShowingTimes.json';
-import loader from '../../loader.js';
+
+import mongoose from '../../node_modules/mongoose';
+//var MovieModel = require('./models/movies');
 
 
 class CinemaStore extends EventEmitter {
@@ -27,35 +29,9 @@ class CinemaStore extends EventEmitter {
 		
 	}
 	loadMovies(){
-		var json = movieJson;
-		console.log(json);
-	}
-	/*
-	loadMovies(){
-		var load = fetch('http://localhost:8081/test').then(function(response) {  
-			if (response.status !== 200) {  
-				console.log('Looks like there was a problem. Status Code: ' + response.status);  
-			return;  
-			}
-			// Examine the text in the response  
-			response.json().then(function(data) {  
-				this.setFilms(data);
-			});  
-			}  
-		).catch(function(err) {  
-			console.log('Fetch Error :-S', err);  
-		});
 		
-		//loader.fetchMovies();
-		//console.log(load);
-	}	
-	setFilms(data){
-		this.films = data; 
-		console.log(data);
-		console.log(this.films);
 	}
-	*/
-	getGenreList() {
+	getGenreList(){
 		return this.genres;
 	}
 

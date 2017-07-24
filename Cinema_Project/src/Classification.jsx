@@ -1,11 +1,14 @@
 import React from 'react';
 import QuickBookBar from './QuickBookBar';
+import CinemaStore from './store/CinemaStore';
+
 
 export default class Classification extends React.Component{
 	constructor(props){
 		super();
 	}
 	render(){
+		console.log(CinemaStore.getMoviesFromDB());
 		return(
 			<div className="row Classifications-Row" >
 				<div className="Container Classifications-Div" >

@@ -27,7 +27,7 @@ router.put('/movies/:id', function(req,res,next){
 });
 
 //delete a item:: DELETE
-router.delete('/posts/:id', function(req,res,next){
+router.delete('/movies/:id', function(req,res,next){
 	Post.findByIdAndRemove({_id: req.params.id}).then(function(post){
 		res.send(post);
 	});

@@ -3699,21 +3699,42 @@ var CinemaStore = function (_EventEmitter) {
 
 		_this.bookings = _BookingInfo2.default.bookingInfo;
 		_this.cinemas = _CinemaLocations2.default.cinemas;
-		_this.movies = _MovieDetails2.default;
+		_this.movies = [];
+		_this.moviesFromDB = [];
 		_this.showings = _ShowingTimes2.default.showingTimes;
 		_this.films = [];
 		_this.moviesByDate = [];
 		_this.filteredMovies = [];
 		_this.moviesByDate = _MovieDetails2.default.movieDetails;
-
-		_this.genres = _this.generateGenreList();
+		_this.carouselMovies = [];
 
 		return _this;
 	}
 
 	_createClass(CinemaStore, [{
-		key: 'loadMovies',
-		value: function loadMovies() {}
+		key: 'loadMoviesFromAPI',
+		value: function loadMoviesFromAPI() {
+			var _this2 = this;
+
+			this.movies = [];
+			fetch("/api/movies").then(function (data) {
+				return data.json();
+			}).then(function (json) {
+				json.forEach(function (movie) {
+					//post objects
+					console.log(movie);
+					_this2.movies.push(movie);
+				});
+			}).then(console.log(this.movies));
+
+			this.genres = this.generateGenreList();
+			this.setAllCarouselMovies();
+		}
+	}, {
+		key: 'getMoviesFromDB',
+		value: function getMoviesFromDB() {
+			return this.moviesFromDB;
+		}
 	}, {
 		key: 'getGenreList',
 		value: function getGenreList() {
@@ -3742,15 +3763,18 @@ var CinemaStore = function (_EventEmitter) {
 	}, {
 		key: 'getAllCarouselMovies',
 		value: function getAllCarouselMovies() {
-			var carouselMovies = [];
+			return this.carouselMovies;
+		}
+	}, {
+		key: 'setAllCarouselMovies',
+		value: function setAllCarouselMovies() {
+
 			for (var i = 0; i < this.movies.length; i++) {
 				var curMovie = this.movies[i];
 				if (curMovie.carousel != null) {
-					carouselMovies.push(curMovie);
+					this.carouselMovies.push(curMovie);
 				}
 			}
-
-			return carouselMovies;
 		}
 	}, {
 		key: 'getMovieByIndex',
@@ -3838,12 +3862,12 @@ var CinemaStore = function (_EventEmitter) {
 	}, {
 		key: 'filterMoviesBySearch',
 		value: function filterMoviesBySearch(searchParameters) {
-			var _this2 = this;
+			var _this3 = this;
 
 			this.filteredMovies = [];
 			this.movies.forEach(function (movie) {
 				if (movie.name.indexOf(searchParameters) !== -1) {
-					_this2.filteredMovies.push(movie);
+					_this3.filteredMovies.push(movie);
 				}
 			});
 			this.emit('moviesChange');
@@ -3866,7 +3890,7 @@ var CinemaStore = function (_EventEmitter) {
 	}, {
 		key: 'filterMoviesByGenre',
 		value: function filterMoviesByGenre(genreArray) {
-			var _this3 = this;
+			var _this4 = this;
 
 			this.filteredMovies = [];
 			var tempSet = new Set([]);
@@ -3880,7 +3904,7 @@ var CinemaStore = function (_EventEmitter) {
 							//console.log(tempSet);
 
 							{
-								_this3.filteredMovies = Array.from(tempSet);
+								_this4.filteredMovies = Array.from(tempSet);
 							}
 						}
 					}
@@ -3890,15 +3914,12 @@ var CinemaStore = function (_EventEmitter) {
 			if (this.filteredMovies.length == 0) {
 				this.movies.forEach(function (movie) {
 					{
-						_this3.filteredMovies.push(movie);
+						_this4.filteredMovies.push(movie);
 					}
 				});
 			}
 			this.emit("moviesChange");
 		}
-	}, {
-		key: 'generateGenreList',
-		value: function generateGenreList() {}
 	}, {
 		key: 'generateGenreList',
 		value: function generateGenreList() {
@@ -34704,7 +34725,7 @@ exports.default = QuickBookBar;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -34738,41 +34759,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var App = function (_React$Component) {
-    _inherits(App, _React$Component);
+	_inherits(App, _React$Component);
 
-    function App() {
-        _classCallCheck(this, App);
+	function App() {
+		_classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	}
 
-    _createClass(App, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_Header2.default, null),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'domMain' },
-                    _react2.default.createElement(
-                        'main',
-                        null,
-                        this.props.children
-                    )
-                ),
-                _react2.default.createElement(_Footer2.default, null)
-            );
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            _CinemaStore2.default.loadMovies();
-        }
-    }]);
+	_createClass(App, [{
+		key: 'getInitialState',
+		value: function getInitialState() {
+			_CinemaStore2.default.loadMoviesFromAPI();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			_CinemaStore2.default.loadMoviesFromAPI();
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_Header2.default, null),
+				_react2.default.createElement(
+					'div',
+					{ id: 'domMain' },
+					_react2.default.createElement(
+						'main',
+						null,
+						this.props.children
+					)
+				),
+				_react2.default.createElement(_Footer2.default, null)
+			);
+		}
+	}]);
 
-    return App;
+	return App;
 }(_react2.default.Component);
 
 exports.default = App;
@@ -34921,7 +34943,7 @@ exports.default = Booking;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(console) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -34936,6 +34958,10 @@ var _react2 = _interopRequireDefault(_react);
 var _QuickBookBar = __webpack_require__(76);
 
 var _QuickBookBar2 = _interopRequireDefault(_QuickBookBar);
+
+var _CinemaStore = __webpack_require__(12);
+
+var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34957,6 +34983,7 @@ var Classification = function (_React$Component) {
 	_createClass(Classification, [{
 		key: 'render',
 		value: function render() {
+			console.log(_CinemaStore2.default.getMoviesFromDB());
 			return _react2.default.createElement(
 				'div',
 				{ className: 'row Classifications-Row' },
@@ -35023,6 +35050,7 @@ var Classification = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Classification;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 201 */
@@ -35509,6 +35537,7 @@ var Carousel = function (_React$Component) {
 	_createClass(Carousel, [{
 		key: 'componentWillMount',
 		value: function componentWillMount() {
+
 			this.generateItemDivs();
 		}
 	}, {
@@ -36772,9 +36801,15 @@ var _ = __webpack_require__(197);
 
 var _2 = _interopRequireDefault(_);
 
+var _CinemaStore = __webpack_require__(12);
+
+var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+_CinemaStore2.default.loadMoviesFromAPI();
 /*import ContactUs from './ContactUs';*/
+
 
 _reactDom2.default.render(_react2.default.createElement(
 	_reactRouter.Router,

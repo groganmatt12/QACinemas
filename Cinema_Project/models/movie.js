@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var movieSchema = new Schema({
-	movID:{
+	id:{
 		type:String,
 	},
 	name: {
@@ -11,6 +11,12 @@ var movieSchema = new Schema({
 	},
 	classification:{
 		type:String,
+	},
+	genre:{
+		type:[String],
+	},
+	actors:{
+		type:[String],
 	},
 	director:{
 		type:String,

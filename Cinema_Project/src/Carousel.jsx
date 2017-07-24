@@ -13,6 +13,7 @@ export default class Carousel extends React.Component{
 	 
 	
 	componentWillMount(){
+		
 		this.generateItemDivs();
 	}
 	

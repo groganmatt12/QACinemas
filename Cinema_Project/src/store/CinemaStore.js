@@ -18,18 +18,35 @@ class CinemaStore extends EventEmitter {
 		
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
-		this.movies = movieJson;
+		this.movies = [];
+		this.moviesFromDB=[];
 		this.showings = showingsJson.showingTimes;		
 		this.films=[];
 		this.moviesByDate = [];
 		this.filteredMovies = [];
 		this.moviesByDate=movieJson.movieDetails;
+		this.carouselMovies = [];
 		
-		this.genres = this.generateGenreList();
 		
 	}
-	loadMovies(){
+	loadMoviesFromAPI(){
+		this.movies = [];
+		fetch("/api/movies").then(function(data){
+			return data.json();
+		}).then( json => {
+			json.forEach((movie) =>{
+				//post objects
+				console.log(movie);
+				this.movies.push(movie);
+			});
+		}).then(console.log(this.movies));
 		
+		this.genres = this.generateGenreList();
+		this.setAllCarouselMovies();
+	}
+	
+	getMoviesFromDB(){
+		return this.moviesFromDB;
 	}
 	getGenreList(){
 		return this.genres;
@@ -51,17 +68,21 @@ class CinemaStore extends EventEmitter {
 		return this.movies;
 		
 	}	
-
-	getAllCarouselMovies() {
-		let carouselMovies=[];
+	
+	getAllCarouselMovies(){
+		return this.carouselMovies;
+	}
+	
+	setAllCarouselMovies() {
+		
 		for(let i =0; i<this.movies.length; i++){
 			let curMovie = this.movies[i];
 			if(curMovie.carousel != null){
-				carouselMovies.push(curMovie);
+				this.carouselMovies.push(curMovie);
 			}
 		}
 		
-		return carouselMovies;
+		
 	}	
 
 	getMovieByIndex(index){
@@ -188,7 +209,7 @@ class CinemaStore extends EventEmitter {
 		}
 		this.emit("moviesChange");
 	}
-	generateGenreList(){};
+	
 	generateGenreList() {
 		let genreSet = new Set([]);
 		let sortArray = this.movies.slice();

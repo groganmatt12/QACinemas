@@ -5,13 +5,14 @@ import Footer from './Footer'
 import movieJson from '../MovieDetails.json';
 
 export default class App extends React.Component{
-   getInitialState(){
+  
+  componentWillMount(){
 		CinemaStore.loadMoviesFromAPI();
 	}
 
 
    render(){
-	   CinemaStore.loadMoviesFromAPI();
+	  
 			return(
 				<div>
 					<Header />

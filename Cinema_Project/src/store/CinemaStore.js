@@ -31,21 +31,30 @@ class CinemaStore extends EventEmitter {
 	}
 	loadMoviesFromAPI(){
 		this.movies = [];
+		let myStore = this;
 		fetch("/api/movies").then(function(data){
-			return data.json();
+			return data.json()
 		}).then( json => {
 			json.forEach((movie) =>{
 				//post objects
 				console.log(movie);
 				this.movies.push(movie);
+				
 			});
-		}).then(console.log(this.movies));
+			this.setInitials();
+			setTimeout(function(){myStore.emit('DATALOAD');},3000);
+		});
 		
+		
+	}
+	
+	setInitials(){
+		console.log("timingtest")
 		this.genres = this.generateGenreList();
 		this.setAllCarouselMovies();
 	}
-	
-	getMoviesFromDB(){
+	get
+	MoviesFromDB(){
 		return this.moviesFromDB;
 	}
 	getGenreList(){

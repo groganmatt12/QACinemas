@@ -30,7 +30,7 @@ var movieSchema = new Schema({
 	carousel:{
 		type:String,
 	},
-	img:{
+	image:{
 		type:String,
 	},
 	description:{

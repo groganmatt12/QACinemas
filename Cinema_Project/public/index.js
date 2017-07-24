@@ -3717,6 +3717,7 @@ var CinemaStore = function (_EventEmitter) {
 			var _this2 = this;
 
 			this.movies = [];
+			var myStore = this;
 			fetch("/api/movies").then(function (data) {
 				return data.json();
 			}).then(function (json) {
@@ -3725,15 +3726,18 @@ var CinemaStore = function (_EventEmitter) {
 					console.log(movie);
 					_this2.movies.push(movie);
 				});
-			}).then(console.log(this.movies));
-
-			this.genres = this.generateGenreList();
-			this.setAllCarouselMovies();
+				_this2.setInitials();
+				setTimeout(function () {
+					myStore.emit('DATALOAD');
+				}, 3000);
+			});
 		}
 	}, {
-		key: 'getMoviesFromDB',
-		value: function getMoviesFromDB() {
-			return this.moviesFromDB;
+		key: 'setInitials',
+		value: function setInitials() {
+			console.log("timingtest");
+			this.genres = this.generateGenreList();
+			this.setAllCarouselMovies();
 		}
 	}, {
 		key: 'getGenreList',
@@ -3932,6 +3936,11 @@ var CinemaStore = function (_EventEmitter) {
 				}
 			}
 			return genreSet;
+		}
+	}, {
+		key: 'MoviesFromDB',
+		get: function get() {
+			return this.moviesFromDB;
 		}
 	}]);
 
@@ -34768,14 +34777,14 @@ var App = function (_React$Component) {
 	}
 
 	_createClass(App, [{
-		key: 'getInitialState',
-		value: function getInitialState() {
+		key: 'componentWillMount',
+		value: function componentWillMount() {
 			_CinemaStore2.default.loadMoviesFromAPI();
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			_CinemaStore2.default.loadMoviesFromAPI();
+
 			return _react2.default.createElement(
 				'div',
 				null,
@@ -34943,7 +34952,7 @@ exports.default = Booking;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(console) {
+
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -34958,10 +34967,6 @@ var _react2 = _interopRequireDefault(_react);
 var _QuickBookBar = __webpack_require__(76);
 
 var _QuickBookBar2 = _interopRequireDefault(_QuickBookBar);
-
-var _CinemaStore = __webpack_require__(12);
-
-var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34983,7 +34988,7 @@ var Classification = function (_React$Component) {
 	_createClass(Classification, [{
 		key: 'render',
 		value: function render() {
-			console.log(_CinemaStore2.default.getMoviesFromDB());
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'row Classifications-Row' },
@@ -35050,7 +35055,6 @@ var Classification = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Classification;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 201 */
@@ -35129,10 +35133,10 @@ exports.default = Confirmation;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(console) {
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -35157,6 +35161,10 @@ var _QuickBookBar = __webpack_require__(76);
 
 var _QuickBookBar2 = _interopRequireDefault(_QuickBookBar);
 
+var _CinemaStore = __webpack_require__(12);
+
+var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35166,50 +35174,73 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Home = function (_React$Component) {
-    _inherits(Home, _React$Component);
+	_inherits(Home, _React$Component);
 
-    function Home() {
-        _classCallCheck(this, Home);
+	function Home() {
+		_classCallCheck(this, Home);
 
-        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-    }
+		var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
 
-    _createClass(Home, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row Home-Carousel' },
-                    _react2.default.createElement(_Carousel2.default, null)
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row Home-OfferRow' },
-                    _react2.default.createElement(_Offers2.default, null)
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row Home-TopFilmRow' },
-                    _react2.default.createElement(_TopFilms2.default, { rowNum: 0 }),
-                    _react2.default.createElement(_TopFilms2.default, { rowNum: 1 }),
-                    _react2.default.createElement(_TopFilms2.default, { rowNum: 2 })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row Home-QuickBookRow' },
-                    _react2.default.createElement(_QuickBookBar2.default, null)
-                )
-            );
-        }
-    }]);
+		_this.state = {
+			carouselMovies: []
+		};
+		_this._dataload = _this._dataload.bind(_this);
+		return _this;
+	}
 
-    return Home;
+	_createClass(Home, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			_CinemaStore2.default.on('DATALOAD', this._dataload);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			_CinemaStore2.default.removeListener('DATALOAD', this._dataload);
+		}
+	}, {
+		key: '_dataload',
+		value: function _dataload() {
+			console.log("loading data");
+			this.setState({ carouselMovies: _CinemaStore2.default.getAllCarouselMovies() });
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'div',
+					{ className: 'row Home-Carousel' },
+					_react2.default.createElement(_Carousel2.default, { movies: this.state.carouselMovies })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row Home-OfferRow' },
+					_react2.default.createElement(_Offers2.default, null)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row Home-TopFilmRow' },
+					_react2.default.createElement(_TopFilms2.default, { rowNum: 0 }),
+					_react2.default.createElement(_TopFilms2.default, { rowNum: 1 }),
+					_react2.default.createElement(_TopFilms2.default, { rowNum: 2 })
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row Home-QuickBookRow' },
+					_react2.default.createElement(_QuickBookBar2.default, null)
+				)
+			);
+		}
+	}]);
+
+	return Home;
 }(_react2.default.Component);
 
 exports.default = Home;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 203 */
@@ -35535,14 +35566,12 @@ var Carousel = function (_React$Component) {
 	}
 
 	_createClass(Carousel, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-
-			this.generateItemDivs();
-		}
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
 	}, {
 		key: 'render',
 		value: function render() {
+			var carImg = this.generateItemDivs();
 			return _react2.default.createElement(
 				'div',
 				{ className: 'container Carousel-Parent' },
@@ -35552,7 +35581,7 @@ var Carousel = function (_React$Component) {
 					_react2.default.createElement(
 						'div',
 						{ className: 'carousel-inner Carousel-Contents', role: 'listbox' },
-						this.state.imgLinks
+						carImg
 					),
 					_react2.default.createElement(
 						'a',
@@ -35581,37 +35610,43 @@ var Carousel = function (_React$Component) {
 		key: 'generateItemDivs',
 		value: function generateItemDivs() {
 
-			var initArray = _CinemaStore2.default.getAllCarouselMovies();
+			var initArray = this.props.movies;
 
 			var tempImgArray = [];
-			var path0 = "/images/" + initArray[0].carousel;
-			var initialLink = "MovieDetails/" + initArray[0].id;
 
-			tempImgArray.push(_react2.default.createElement(
-				'div',
-				{ key: 0, className: 'item active' },
-				_react2.default.createElement(
-					_reactRouter.Link,
-					{ to: initialLink },
-					_react2.default.createElement('img', { className: 'd-block img-fluid', src: path0, alt: 'first slide' })
-				)
-			));
+			for (var i = 0; i < initArray.length; i++) {
 
-			for (var i = 1; i < initArray.length; i++) {
-				var filmUrl = "MovieDetails/" + initArray[i].id;
-				var path = "/images/" + initArray[i].carousel;
+				if (i == 0) {
 
-				tempImgArray.push(_react2.default.createElement(
-					'div',
-					{ key: i, className: 'item' },
-					_react2.default.createElement(
-						_reactRouter.Link,
-						{ to: filmUrl },
-						_react2.default.createElement('img', { className: 'd-block img fluid', src: path, alt: '{i} slide' })
-					)
-				));
+					var path0 = "/images/" + initArray[0].carousel;
+					var initialLink = "MovieDetails/" + initArray[0].id;
+
+					tempImgArray.push(_react2.default.createElement(
+						'div',
+						{ key: 0, className: 'item active' },
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: initialLink },
+							_react2.default.createElement('img', { className: 'd-block img-fluid', src: path0, alt: 'first slide' })
+						)
+					));
+				} else {
+
+					var filmUrl = "MovieDetails/" + initArray[i].id;
+					var path = "/images/" + initArray[i].carousel;
+
+					tempImgArray.push(_react2.default.createElement(
+						'div',
+						{ key: i, className: 'item' },
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: filmUrl },
+							_react2.default.createElement('img', { className: 'd-block img fluid', src: path, alt: '{i} slide' })
+						)
+					));
+				}
 			}
-			this.setState({ imgLinks: tempImgArray });
+			return tempImgArray;
 		}
 	}]);
 
@@ -36055,8 +36090,8 @@ var Offers = function (_React$Component) {
     }
 
     _createClass(Offers, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
 
             var newest = _CinemaStore2.default.getMoviesByRelease()[0].image;
             var newestName = _CinemaStore2.default.getMoviesByRelease()[0].name;
@@ -36595,8 +36630,8 @@ var TopFilms = function (_React$Component) {
   }
 
   _createClass(TopFilms, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       this.generateTopFilmDivs();
       this.generateTitle();
     }
@@ -36801,15 +36836,9 @@ var _ = __webpack_require__(197);
 
 var _2 = _interopRequireDefault(_);
 
-var _CinemaStore = __webpack_require__(12);
-
-var _CinemaStore2 = _interopRequireDefault(_CinemaStore);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_CinemaStore2.default.loadMoviesFromAPI();
 /*import ContactUs from './ContactUs';*/
-
 
 _reactDom2.default.render(_react2.default.createElement(
 	_reactRouter.Router,

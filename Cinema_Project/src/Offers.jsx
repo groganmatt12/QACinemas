@@ -14,7 +14,7 @@ export default class Offers extends React.Component{
     }
 
 
-    componentWillMount(){
+    componentDidMount(){
 		
         let newest = CinemaStore.getMoviesByRelease()[0].image;
         let newestName = CinemaStore.getMoviesByRelease()[0].name;

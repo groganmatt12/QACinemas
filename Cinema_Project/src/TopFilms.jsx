@@ -13,7 +13,7 @@ export default class TopFilms extends React.Component{
         };
     }
 
-	componentWillMount(){
+	componentDidMount(){
         this.generateTopFilmDivs(); 
 		this.generateTitle();
 		

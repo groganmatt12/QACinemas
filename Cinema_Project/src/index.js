@@ -11,8 +11,7 @@ import Confirmation from './Confirmation';
 import Classification from './Classification';
 import Error_Page from './404';
 /*import ContactUs from './ContactUs';*/
-import CinemaStore from './store/CinemaStore';
-CinemaStore.loadMoviesFromAPI();
+
 
 ReactDOM.render(
 	<Router history = {browserHistory}>

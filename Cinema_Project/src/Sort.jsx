@@ -7,6 +7,7 @@ export default class Sort extends React.Component{
 	constructor(props){
 		super(props);
 		this.handleMovieSearchChange = this.handleMovieSearchChange.bind(this);
+		this.handleMovieSort = this.handleMovieSort.bind(this);
         
         this.state = {
             genres: [],
@@ -30,7 +31,11 @@ export default class Sort extends React.Component{
 	
 	handleMovieSearchChange(){
 		this.props.onUserSearchInput(this.filterTextInput.value);
-		this.generateClassificationCheckbox();
+
+	}
+	
+	handleMovieSort(e){
+		this.props.onSortSelection(e.target.value);
 	}
    
 	generateCheckboxes() {
@@ -130,9 +135,7 @@ export default class Sort extends React.Component{
 		/*
 		let check = false;
         let tempArray = this.state.genre_array;
-
         if(checkStatus == true){
-
             if(tempArray != null){
                 for(let i = 0; i<tempArray.length; i++){
                     if(tempArray[i] != label){
@@ -140,7 +143,6 @@ export default class Sort extends React.Component{
                     }
                 }
             }
-
             if(check == true || tempArray.length == 0){
                 tempArray.push(label);
                 this.setState({genre_array: tempArray});
@@ -207,13 +209,11 @@ export default class Sort extends React.Component{
 		let genreName = [];
         let arrayOfGenres = Array.from(CinemaStore.getArrayOfGenres()); 
         this.setState({ genres: arrayOfGenres}); 
-
 		for(let i = 0; i < arrayOfGenres.length; i++){
             arrayOfRequiredGenres.push(
                 <Checkbox passedValue={arrayOfGenres[i]} key={arrayOfGenres[i]} handleCheckboxChange={this.onToggleGenre.bind(this)} currentCheckboxStatus={this.findGenresCheckStatusFromArray(arrayOfGenres[i])}/>
             );
         }
-
         this.setState({ genre_objects: arrayOfRequiredGenres });
     }
 	
@@ -232,7 +232,7 @@ export default class Sort extends React.Component{
         return(
             <div className="sort-bar col-md-6 col-md-offset-3">
 
-			<button type="button" className="btn btn-info btn-block" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+			<button type="button" className="btn btn-info btn-block" data-toggle="collapse" data-target="#demo">Click for Search & Sort</button>
 				<div id="demo" className="collapse">
 				<div className="panel panel-default">
 					<div className="panel-body">
@@ -243,7 +243,9 @@ export default class Sort extends React.Component{
 							value={this.props.filterText}
 							ref={(input) => this.filterTextInput = input}
 							onChange = {this.handleMovieSearchChange}
-						/>
+						/><br />Currently sorted by {this.props.currentSort} in {this.props.currentOrder} order<br />
+						<button type="button" value="MOVIE_TITLE" className="btn btn-info" onClick={this.handleMovieSort.bind(this)}>Sort by Name</button>
+						<button type="button" value="RELEASE_DATE" className="btn btn-info" onClick={this.handleMovieSort.bind(this)}>Sort by Release Date</button>
                         <div>
                             <h4>Filter by Genre...</h4>
                             {genreCheckboxesToRender}

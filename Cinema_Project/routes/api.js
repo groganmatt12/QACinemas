@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie');
+const Booking = require('../models/booking');
 
 //////////////////////////////
 //			movies		 	//
@@ -36,23 +37,27 @@ router.delete('/movies/:id', function(req,res,next){
 	});
 });
 
-router.get('/movies', function(req,res,next){
-	Movie.find({}).then(function(post){
+//////////////////////////////
+//			bookings	 	//
+//////////////////////////////
+
+router.get('/bookings', function(req,res,next){
+	Booking.find({}).then(function(post){
 		res.send(post);
 	});
 });
 
 //add a new item:: CREATE
-router.post('/movies', function(req,res,next){
-	Movie.create(req.body).then(function(post){
+router.post('/bookings', function(req,res,next){
+	Booking.create(req.body).then(function(post){
 		res.send(post);
 	}).catch(next);
 });
 
 //update a item:: UPDATE
-router.put('/movies/:id', function(req,res,next){
-	Movie.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
-		Movie.findOne({_id: req.params.id}).then(function(post){
+router.put('/bookings/:id', function(req,res,next){
+	Booking.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+		Booking.findOne({_id: req.params.id}).then(function(post){
 			res.send(post);
 		});	
 	});
@@ -60,10 +65,11 @@ router.put('/movies/:id', function(req,res,next){
 });
 
 //delete a item:: DELETE
-router.delete('/movies/:id', function(req,res,next){
-	Movie.findByIdAndRemove({_id: req.params.id}).then(function(post){
+router.delete('/bookings/:id', function(req,res,next){
+	Booking.findByIdAndRemove({_id: req.params.id}).then(function(post){
 		res.send(post);
 	});
 });
+
 module.exports = router;
 

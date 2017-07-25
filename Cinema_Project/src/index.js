@@ -22,7 +22,7 @@ ReactDOM.render(
 			<Route path = "/MovieDetails" component={MovieDetails} />
 			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
-			<Route path = "/Confimation/:showingID/:quantity" component={Confirmation}/>
+			<Route path = "/Confimation" component={Confirmation}/>
 					
 		</Route>	
 	</Router>

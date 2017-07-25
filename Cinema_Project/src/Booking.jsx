@@ -1,6 +1,7 @@
 import React from 'react';
 import CinemaStore from './store/CinemaStore';
 import Paypal from './Paypal';
+import {Link} from 'react-router'; 
 
 export default class Booking extends React.Component{
 	constructor(props){
@@ -10,7 +11,7 @@ export default class Booking extends React.Component{
 		this.state = {
 			ticketQuantity: 0,
 
-		showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
+			showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
 		
 
 		}
@@ -29,6 +30,25 @@ export default class Booking extends React.Component{
 	decrement(){
 		if(this.state.ticketQuantity > 0)
 			this.setState({ticketQuantity: this.state.ticketQuantity - 1});
+	}
+	
+	bookToDb(showingId, quantity){
+		
+        //POST to api. 
+        fetch("/api/bookings",{
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                showingId: showingId,
+                quantity: quantity,
+            })
+        }).then( (res) => {
+            console.log("Req success: ", res);
+           
+        });
 	}
 	
     render() {
@@ -61,8 +81,9 @@ export default class Booking extends React.Component{
 						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 					</div>
 					<br></br>
-					
-					<Paypal price={price}/>
+						<Link to ="Confirmation" >
+							<button className="Standard-Button btn btn-default" onClick={this.bookToDb(this.state.showingChoice, this.state.ticketQuantity).bind(this)}>BOOK</button>
+						</Link>
 					</div>
 
 			</div>

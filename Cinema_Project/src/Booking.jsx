@@ -11,10 +11,13 @@ export default class Booking extends React.Component{
 		this.state = {
 			ticketQuantity: 0,
 
-			showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
+			showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.showingId),
+			showingInfo: CinemaStore.getAllShowings()		
 		
 
 		}
+		this.bookToDb = this.bookToDb.bind(this)
+
 	}
 	
 	componentWillMount(){
@@ -32,8 +35,9 @@ export default class Booking extends React.Component{
 			this.setState({ticketQuantity: this.state.ticketQuantity - 1});
 	}
 	
-	bookToDb(showingId, quantity){
-		
+	bookToDb(){
+		let showingId = this.props.location.query.showingId;
+		let quantity = this.state.ticketQuantity;
         //POST to api. 
         fetch("/api/bookings",{
             method: "POST",
@@ -81,8 +85,8 @@ export default class Booking extends React.Component{
 						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
 					</div>
 					<br></br>
-						<Link to ="Confirmation" >
-							<button className="Standard-Button btn btn-default" onClick={this.bookToDb(this.state.showingChoice, this.state.ticketQuantity).bind(this)}>BOOK</button>
+						<Link to ="/Confirmation" >
+							<button className="Standard-Button btn btn-default" onClick={this.bookToDb}>BOOK</button>
 						</Link>
 					</div>
 

@@ -44,7 +44,7 @@ export default class Showings extends React.Component{
 		if (showingDetails.cinemaID == self.state.cinemaID && showingDetails.movieID == self.state.movieID){
 			let bookingURL = "Booking";
 				  	
-		return <button type="button" className="btn btn-info" key={showingIndex}><Link to={{ pathname: bookingURL, query: { cName: self.state.selection , index: showingIndex}}}>{showingDetails.showingTime}</Link> </button> ;
+		return <button type="button" className="btn btn-info" key={showingIndex}><Link to={{ pathname: bookingURL, query: { cName: self.state.selection , showingId:showingDetails._id }}}>{showingDetails.showingTime}</Link> </button> ;
 		}return;
     });
 	

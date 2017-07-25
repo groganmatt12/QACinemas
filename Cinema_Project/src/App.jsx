@@ -8,7 +8,7 @@ export default class App extends React.Component{
 
   
   componentWillMount(){
-		CinemaStore.loadMoviesFromAPI();
+		CinemaStore.loadAllDataFromAPI();
 	}
 
 

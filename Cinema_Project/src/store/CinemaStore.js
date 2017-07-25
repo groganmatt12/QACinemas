@@ -19,8 +19,8 @@ class CinemaStore extends EventEmitter {
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
 		this.movies = [];
-		this.moviesFromDB=[];
-		this.showings = showingsJson.showingTimes;		
+		
+		this.showings = [];		
 		
 		this.filteredMovies = [];
 		this.sortedMovies = [];
@@ -29,8 +29,16 @@ class CinemaStore extends EventEmitter {
 		this.carouselMovies = [];
 		this.genres = this.generateGenreList();
 		this.classification = this.generateClassificationList();
+		this.showingByIndex = [];
 		
 	}
+	loadAllDataFromAPI(){
+		let myStore = this;
+		this.loadMoviesFromAPI();
+		this.loadShowingsFromAPI();
+		setTimeout(function(){myStore.emit('DATALOAD');},200);
+	}
+	
 	loadMoviesFromAPI(){
 		this.movies = [];
 		let myStore = this;
@@ -39,19 +47,30 @@ class CinemaStore extends EventEmitter {
 		}).then( json => {
 			json.forEach((movie) =>{
 				//post objects
-				console.log(movie);
 				this.movies.push(movie);
 				
 			});
-			this.setInitials();
-			setTimeout(function(){myStore.emit('DATALOAD');},1);
+			this.setInitialMovieDependants();
+			//setTimeout(function(){myStore.emit('DATALOAD');},1);
 		});
-		
-		
+	}
+	loadShowingsFromAPI(){
+		this.showings = [];
+		let myStore = this;
+		fetch("/api/showings").then(function(data){
+			return data.json()
+		}).then( json => {
+			json.forEach((showing) =>{
+				//post objects
+				this.showings.push(showing);
+				
+			});
+			this.setInitialShowingDependants();
+			//setTimeout(function(){myStore.emit('DATALOAD');},1);
+		});	
 	}
 	
-	setInitials(){
-		console.log("timingtest")
+	setInitialMovieDependants(){
 		this.genres = this.generateGenreList();
 		this.classification = this.generateClassificationList();
 		this.setAllCarouselMovies();
@@ -59,6 +78,10 @@ class CinemaStore extends EventEmitter {
 		this.filteredMovies = this.movies.slice();
 		this.sortedMovies = this.movies.slice();
 	}
+	setInitialShowingDependants(){
+		
+	}
+	
 	getSortedMovies() {
 		return this.sortedMovies;
 	}
@@ -104,7 +127,13 @@ class CinemaStore extends EventEmitter {
 	}	
 
 	getMovieByIndex(index){
-		return this.movies[index];
+		let selectedMovie = false;
+		this.movies.forEach(function(movie){
+			if(movie.id == index){
+			selectedMovie = movie;	
+			}
+		});
+		return selectedMovie;
 	}
 
 	/*cinemaID, movieID & viewing time */
@@ -113,8 +142,19 @@ class CinemaStore extends EventEmitter {
 	}
 
 	getShowingByIndex(index){
-		return this.showings[index];
+		console.log("finding index: " + index);
+		let selectedShowing = 10;
+		console.log("showing: " + selectedShowing);
+		this.showings.forEach(function(showing){
+			if(showing._id == index){
+			selectedShowing = showing;	
+			}
+		});
+		console.log("to return: " + selectedShowing);
+		return selectedShowing;
+
 	}
+	
 
 	getShowingByCinemaAndMovie(cinema_id, movie_id){
 		var showingsByCinemaAndMovie = [];
@@ -163,9 +203,7 @@ class CinemaStore extends EventEmitter {
 		this.moviesByDate = sortArray;
 	}
 	
-	getShowingByIndex(index){
-		return this.showings[index];
-	}
+
 
 
 	filterMoviesBySearch(searchParameters) {

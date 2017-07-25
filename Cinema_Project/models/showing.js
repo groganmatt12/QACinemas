@@ -3,13 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var showingSchema = new Schema({
-	cinemaId:{
+	cinemaID:{
 		type:String,
 	},
-	movieId:{
-		type:String,
-	},
-	showingId:{
+	movieID:{
 		type:String,
 	},
 	showingTime:{

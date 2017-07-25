@@ -2,7 +2,6 @@ import React from 'react';
 import CinemaStore from './store/CinemaStore';
 import Sort from './Sort';
 import * as CinemaActions from './actions/CinemaActions';
-import ListOfMovies from './ListOfMovies';
 import QuickBookBar from './QuickBookBar';
 import MovieListing from './MovieListing';
 
@@ -44,7 +43,7 @@ export default class ListingGallery extends React.Component{
     }
   
 	_onChange() {	
-		this.setState({movies: CinemaStore.getFilteredMovies()});
+		this.setState({movies: CinemaStore.getSortedMovies()});
 	}
 	
 	_dataload(){
@@ -129,7 +128,7 @@ export default class ListingGallery extends React.Component{
 		return(
 			<div className="parentContainer">
 
-				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck}/>
+				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck} currentSort={this.state.currentSort} currentOrder={this.state.currentOrder} onSortSelection={this.handleSortSelection}/>
 				<br />
 
 					

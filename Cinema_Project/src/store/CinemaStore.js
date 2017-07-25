@@ -4,27 +4,62 @@ import dispatcher from './dispatcher';
 
 import bookingJson from '../data/BookingInfo.json';
 import cinemaJson from '../data/CinemaLocations.json';
-import movieJson from '../data/MovieDetails.json';
+import movieJson from '../../MovieDetails.json';
 import showingsJson from '../data/ShowingTimes.json';
+
+import mongoose from '../../node_modules/mongoose';
+//var MovieModel = require('./models/movies');
+
 
 class CinemaStore extends EventEmitter {
 	
 	constructor() {
-		
 		super();
-
+		
 		this.bookings = bookingJson.bookingInfo;
 		this.cinemas = cinemaJson.cinemas;
-		this.movies = movieJson.movieDetails;
+		this.movies = [];
+		this.moviesFromDB=[];
 		this.showings = showingsJson.showingTimes;		
+		
 		this.filteredMovies = [];
-		this.moviesByDate=movieJson.movieDetails;
+		this.moviesByDate=[];
+		this.carouselMovies = [];
 		this.genres = this.generateGenreList();
 		this.classification = this.generateClassificationList();
-
+		
 	}
+	loadMoviesFromAPI(){
+		this.movies = [];
+		let myStore = this;
+		fetch("/api/movies").then(function(data){
+			return data.json()
+		}).then( json => {
+			json.forEach((movie) =>{
+				//post objects
+				console.log(movie);
+				this.movies.push(movie);
+				
+			});
+			this.setInitials();
+			setTimeout(function(){myStore.emit('DATALOAD');},1);
+		});
+		
+		
+	}
+	
+	setInitials(){
+		console.log("timingtest")
+		this.genres = this.generateGenreList();
+		this.classification = this.generateClassificationList();
+		this.setAllCarouselMovies();
+		this.setMoviesByRelease();
+	}
+	getArrayOfGenres(){
+		return this.genres;
+	}
+	getGenreList(){
 
-	getArrayOfGenres() {
 		return this.genres;
 	}
 
@@ -42,17 +77,23 @@ class CinemaStore extends EventEmitter {
 
 	getAllMovies() {
 		return this.movies;
+		
 	}	
-
-	getAllCarouselMovies() {
-		let carouselMovies=[];
+	
+	getAllCarouselMovies(){
+		return this.carouselMovies;
+	}
+	
+	setAllCarouselMovies() {
+		
 		for(let i =0; i<this.movies.length; i++){
 			let curMovie = this.movies[i];
 			if(curMovie.carousel != null){
-				carouselMovies.push(curMovie);
+				this.carouselMovies.push(curMovie);
 			}
 		}
-		return carouselMovies;
+		
+		
 	}	
 
 	getMovieByIndex(index){
@@ -90,16 +131,11 @@ class CinemaStore extends EventEmitter {
 	getFilteredMovies() {
 		return this.filteredMovies;
 	}
-
-	getMovieByIndex(index){
-		return this.movies[index];
-	}
-
-	getAllShowings() {
-		return this.showings;
-	}
-
 	getMoviesByRelease(){
+		return this.moviesByDate;
+	}
+
+	setMoviesByRelease(){
 		
 		let sortArray = this.movies.slice();
 		for(let i=0 ; i<sortArray.length; i++){
@@ -118,15 +154,10 @@ class CinemaStore extends EventEmitter {
 		}
 		sortArray.reverse();
 		this.moviesByDate = sortArray;
-		return this.moviesByDate;
 	}
 	
 	getShowingByIndex(index){
 		return this.showings[index];
-	}
-
-	getFilteredMovies() {
-		return this.filteredMovies;
 	}
 
 
@@ -135,6 +166,7 @@ class CinemaStore extends EventEmitter {
 		this.movies.forEach((movie) => {
 			if(movie.name.toUpperCase().indexOf(searchParameters.toUpperCase()) !== -1) {this.filteredMovies.push(movie);}});
 		this.emit('moviesChange');
+		
 	}
 
 	handleActions(action) {
@@ -155,6 +187,7 @@ class CinemaStore extends EventEmitter {
 			break;
 		}
 	}
+
 
 	filterMovies(parameterArray){
 		this.filteredMovies_Search = [];
@@ -238,7 +271,10 @@ class CinemaStore extends EventEmitter {
 	}
 	
 	
-		filterMoviesByGenre(genreArray){
+		
+
+	filterMoviesByGenre(genreArray){
+		
 
 		this.filteredMovies = [];
 		let tempSet = new Set([]);
@@ -249,7 +285,7 @@ class CinemaStore extends EventEmitter {
 				for(let j=0; j<genreArray.length; j++){
 					if(genreArray[j] == curMovGenres[i]){
 						tempSet.add(movie);
-						console.log(Array.from(tempSet));
+
 						{this.filteredMovies = Array.from(tempSet)}
 					}
 				}
@@ -265,6 +301,7 @@ class CinemaStore extends EventEmitter {
 		this.emit("moviesChange");
 	}
 	
+
 	
 	
 	filterMoviesByClassification(classArray){
@@ -289,6 +326,8 @@ class CinemaStore extends EventEmitter {
 		}
 		this.emit("moviesChange");
 	}
+
+
 
 
 

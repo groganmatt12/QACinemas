@@ -6,30 +6,21 @@ export default class TopFilms extends React.Component{
      
     constructor(){
         super();
-        this.state = {
-            arrayOfTopFilms: [],
-			arrayOfTopHeadings:[],
-			title:[]
-        };
+       
     }
 
-	componentWillMount(){
-        this.generateTopFilmDivs(); 
-		this.generateTitle();
-		
-	}
-
     generateTopFilmDivs(){
-        let movObjArrayByDate=CinemaStore.getMoviesByRelease();
+        let movObjArrayByDate=this.props.movies;
+	
         let tempImgArray = [];
 		let tempNameArray=[];
 		let num = (this.props.rowNum*3)+1;
-
+		
         for(let i=num; i<num+3; i++){
            
             let path = "images/"+movObjArrayByDate[i].image;
             let curFilmIndex=i+1;
-            let filmUrl = "MovieDetails/" + movObjArrayByDate[i].id;
+            let filmUrl = "MovieDetails/?filmID=" + movObjArrayByDate[i].id;
 			
             
             tempImgArray.push(
@@ -62,33 +53,38 @@ export default class TopFilms extends React.Component{
                 </div>
 			</div>
 			);
-		this.setState({arrayOfTopFilms: tempImgArray});
-		this.setState({arrayOfTopHeadings:tempNameArray});
+		let outputArray =[];	
+		outputArray.push(tempImgArray);
+		outputArray.push(tempNameArray);
+		return outputArray;
     }
 	generateTitle(){
+		let title=[];
 		if (this.props.rowNum == 0){
-			let title = (<p>Top Films</p>)
-			this.setState({title:title});
+			title = (<p>Top Films</p>)
+			
+			
 		}
-		
+		return title;
 	} 
 
 
     render(){
-        
+		let title = this.generateTitle();
+        let arrayOfOutputs = this.generateTopFilmDivs();
         return(
 
             <div className="container TopFilms-Grouping">
                 <div className="row TopFilms-Header">
-					{this.state.title}
+					{title}
                 </div>
                 <div className="row TopFilms-Row">
-                    {this.state.arrayOfTopFilms}
+                    {arrayOfOutputs[0]}
 
                 </div>
                 
                 <div className="row TopFilms-Title hidden-xs">
-					{this.state.arrayOfTopHeadings}
+					{arrayOfOutputs[1]}
                 </div>
             </div>
         );

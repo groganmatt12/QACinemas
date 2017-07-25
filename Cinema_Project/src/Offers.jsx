@@ -6,32 +6,33 @@ export default class Offers extends React.Component{
 
     constructor(){
         super();
-        this.state = {
-            newestRelease: "",
-            newestReleaseName: "",
-			newestId:''
-        };
+       
     }
 
 
-    componentWillMount(){
-		
-        let newest = CinemaStore.getMoviesByRelease()[0].image;
-        let newestName = CinemaStore.getMoviesByRelease()[0].name;
-		let newId =  CinemaStore.getMoviesByRelease()[0].id;
-        this.setState({newestRelease: newest});
-        this.setState({newestReleaseName: newestName});
-		this.setState({newestId: newId});
-    }
+ 
 
-
+	createNewestRelease(){
+		let returnVar = [];
+		if (this.props.movies.length > 0){
+			let newestPath = "./images/" + this.props.movies[0].image;
+			let path = "MovieDetails?filmID=" + this.props.movies[0].id;
+			
+			returnVar.push(
+				<Link to = {path} key= "offerKey">
+					<img src={newestPath} alt="offer1 top film" />
+					<p>{this.props.movies[0].name}</p>
+				</Link>
+			)
+		}
+		return(returnVar);
+	}
 
     render(){
         let offer1 = "./images/offers/broffer.jpg";
         let offer2 = "./images/offers/2001offer.jpg";
 
-        let newestPath = "./images/"+this.state.newestRelease;
-		let path = "MovieDetails/" + this.state.newestId;
+		let newestRelease = this.createNewestRelease();
 		
         return(
 
@@ -68,10 +69,7 @@ export default class Offers extends React.Component{
 
                     <div className="col-sm-4 Offer-Panel">
                         <div className="Offer-Item">
-                            <Link to = {path} >
-								<img src={newestPath} alt="offer1 top film" />
-								<p>{this.state.newestReleaseName}</p>
-							</Link>
+						{newestRelease}
 
                         </div>
                     </div>	

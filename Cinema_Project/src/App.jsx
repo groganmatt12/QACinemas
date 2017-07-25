@@ -1,19 +1,30 @@
 import React from 'react';
+import CinemaStore from './store/CinemaStore'
 import Header from './Header'
 import Footer from './Footer'
 
+
 export default class App extends React.Component{
-    render(){
-        return(
-            <div>
-                <Header />
-                <div id="domMain">
-                    <main>
-						{this.props.children}
-					</main>
-                </div>
-                <Footer ref="App_FooterTag"/>
-            </div>
-        );
+
+  
+  componentWillMount(){
+		CinemaStore.loadMoviesFromAPI();
+	}
+
+
+   render(){
+	  
+			return(
+				<div>
+					<Header />
+					<div id="domMain">
+						<main>{this.props.children}</main>
+					</div>
+					<Footer />
+				</div>
+			);
+		
+
     }
+	
 }

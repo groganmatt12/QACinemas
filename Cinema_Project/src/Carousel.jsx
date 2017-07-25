@@ -10,13 +10,13 @@ export default class Carousel extends React.Component{
 			imgLinks:[]
 		};
 	}
-	 
-	
-	componentWillMount(){
-		this.generateItemDivs();
+ 
+	componentDidMount(){
+		
 	}
 	
     render() {
+		let carImg = this.generateItemDivs();
 	    return(
 		<div className="container Carousel-Parent">
             <div id="Carousel" className="carousel slide"> 
@@ -24,7 +24,7 @@ export default class Carousel extends React.Component{
       
                 
                 <div className="carousel-inner Carousel-Contents" role="listbox">
-			        {this.state.imgLinks}
+			        {carImg}
                 </div>
                 
                 <a className="left carousel-control" href="#Carousel" role="button" data-slide="prev">
@@ -41,15 +41,24 @@ export default class Carousel extends React.Component{
     }
 	generateItemDivs(){
 		
-		let initArray = CinemaStore.getAllCarouselMovies();
+		let initArray = this.props.movies;
 		
 		let tempImgArray=[];
-		let path0="/images/"+initArray[0].carousel;
-		let initialLink = "MovieDetails/" + initArray[0].id;
+
 		
-		tempImgArray.push(<div key ={0} className="item active"><Link to={initialLink}><img className="d-block img-fluid" src={path0}  alt="first slide"></img></Link></div>);
+		for(let i=0; i< initArray.length; i++){
+			
+			if(i==0){
+				
+			let path0="/images/"+initArray[0].carousel;
+			let initialLink = "MovieDetails/" + initArray[0].id;
 		
-		for(let i=1; i< initArray.length; i++){
+			tempImgArray.push(<div key ={0} className="item active"><Link to={initialLink}><img className="d-block img-fluid" src={path0}  alt="first slide"></img></Link></div>);
+				
+				
+			}else{
+			
+			
 			let filmUrl = "MovieDetails/" + initArray[i].id;
 			let path="/images/"+initArray[i].carousel;
 			 
@@ -60,7 +69,8 @@ export default class Carousel extends React.Component{
 					</Link>
                 </div>
 			)
+		}
 		}	 
-		this.setState({imgLinks: tempImgArray});
+		return tempImgArray;
 	}
 }

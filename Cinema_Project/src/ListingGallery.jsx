@@ -4,6 +4,7 @@ import Sort from './Sort';
 import * as CinemaActions from './actions/CinemaActions';
 import ListOfMovies from './ListOfMovies';
 import QuickBookBar from './QuickBookBar';
+import MovieListing from './MovieListing';
 
 export default class ListingGallery extends React.Component{
 	constructor(props){
@@ -26,6 +27,14 @@ export default class ListingGallery extends React.Component{
 	
 	
 	render(){
+		let movieArr = this.state.movies;
+		let array = [];
+		
+		for(let i = 0; i < movieArr.length; i++){
+			array.push(
+				<MovieListing key={i} id={movieArr[i].id} name={movieArr[i].name} img={movieArr[i].image} desc={movieArr[i].description} classification={movieArr[i].classification}/>
+			);
+		}
 		
 		return(
 			<div className="parentContainer">
@@ -33,8 +42,9 @@ export default class ListingGallery extends React.Component{
 				<Sort filterText={this.state.filterText} onUserSearchInput={this.handleSearchInput} genresArray={this.state.genres} genresSelected={this.state.selectedGenres} onGenreCheckInput={this.handleGenreCheck} classificationArray={this.state.classifications} classificationsSelected={this.state.selectedClassifications} onClassificationCheckInput={this.handleClassCheck}/>
 				<br />
 
+					
 				<div className="container ListingGallery-ListOfFilms">
-					<ListOfMovies movies={this.state.movies} target={this.props.target} />
+					{array}
 				</div>
 				<div>
                     <QuickBookBar />

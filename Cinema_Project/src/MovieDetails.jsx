@@ -16,7 +16,7 @@ export default class MovieDetails extends React.Component{
     }
 
     componentWillMount(){
-        let filmIndex = this.props.params.key;        
+        let filmIndex = this.props.location.query.filmID;        
         let movieArr = CinemaStore.getAllMovies();
         for(let i = 0; i < movieArr.length; i++){
             if(i == filmIndex){

@@ -1,4 +1,5 @@
 module.exports = {
+
     entry:{
 		Footer: './spec/footerTest.jsx',
 		SiteMap: './spec/siteMapTest.jsx',
@@ -12,6 +13,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx']
     },
+    
     devServer: {
         inline: true,
         port: 6969
@@ -31,5 +33,15 @@ module.exports = {
                 loader: 'json-loader'
             },
         ]
-    }
+    },
+	 resolve: {
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
+  },
+  
+	 node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  }
 }

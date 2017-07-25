@@ -9,7 +9,10 @@ export default class Booking extends React.Component{
 		
 		this.state = {
 			ticketQuantity: 0,
-			showingChoice: CinemaStore.getShowingByIndex(this.props.params.showingID)
+
+		showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.index)
+		
+
 		}
 	}
 	
@@ -31,40 +34,37 @@ export default class Booking extends React.Component{
     render() {
 		
 		let price = 10 * this.state.ticketQuantity;
-		
+		console.log(this.props.location.query);
         return(
 		
+		
+			
 			<div className="Shadow-Box Booking-Group">
-				<div className="Booking-Film-Name">
-					<p>
-						Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}
-					</p>
-				</div>
-				
-				<div>
-					<p ref="Booking_LocationParagraph">
-						Location: {this.props.location.query.cName}
-					</p>
-				</div>
-				
-				<div>
-					<p>
-						Time: {this.state.showingChoice.showingTime}
-					</p>
-				</div>
-				
-				<div>
-					<p>
-						Quantity&nbsp;
+				<div className="Booking-Test">
+					<div className="Booking-Film-Name">
+						<p>Film: {CinemaStore.getMovieByIndex(this.state.showingChoice.movieID).name}</p>
+					</div>
+					
+					<div>
+						<p>Location: {this.props.location.query.cName}</p>
+					</div>
+					
+					<div>
+						<p>Time: {this.state.showingChoice.showingTime}</p>
+					</div>
+					
+					<div>
+						<p>Quantity&nbsp;
 						<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
-					</p>
-					<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
-					<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
-				</div>
-				<br></br>
-				
-				<Paypal price={price}/>
-				
+						</p>
+						<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
+						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
+					</div>
+					<br></br>
+					
+					<Paypal price={price}/>
+					</div>
+
 			</div>
         );
     }

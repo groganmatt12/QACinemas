@@ -10,7 +10,7 @@ export default class MovieListing extends React.Component {
 		
 		let imgLink="images/"+this.props.img;
 
-		let filmUrl = "MovieDetails/" + this.props.id;
+		let filmUrl = "MovieDetails";
 
 		let classificationURL = "images/classifications/"+this.props.classification+".png";
 
@@ -34,7 +34,8 @@ export default class MovieListing extends React.Component {
 						</div>
 
 						<div className="MovieListing-BookingButton">
-							<button className="btn btn-info"><Link to={filmUrl}>BOOK</Link></button>
+							<button className="btn btn-info"><Link to={{pathname: filmUrl, query: { filmID: this.props.id }}}>BOOK</Link></button>
+							
 						</div>
 						
 						<div>

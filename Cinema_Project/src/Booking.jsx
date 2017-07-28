@@ -50,7 +50,11 @@ export default class Booking extends React.Component{
                 quantity: quantity,
             })
         }).then( (res) => {
-            console.log("Req success: ", res);
+            console.log("Req success a: ", res);
+			console.log(JSON.stringify({
+                showingId: showingId,
+                quantity: quantity,
+            }));
            
         });
 	}
@@ -86,7 +90,7 @@ export default class Booking extends React.Component{
 					</div>
 					<br></br>
 						<Link to ="/Confirmation" >
-							<button className="Standard-Button btn btn-default" onClick={this.bookToDb}>BOOK</button>
+							<button className="Standard-Button btn btn-default" onClick={this.bookToDb}>BOOK NOW</button>
 						</Link>
 					</div>
 

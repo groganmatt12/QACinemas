@@ -10,6 +10,7 @@ import Showings from './Showings';
 import Confirmation from './Confirmation';
 import Classification from './Classification';
 import Error_Page from './404';
+import Location from './Location';
 /*import ContactUs from './ContactUs';*/
 
 
@@ -23,6 +24,7 @@ ReactDOM.render(
 			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
 			<Route path = "/Confimation" component={Confirmation}/>
+			<Route path = "/Phil" component={Location}/>
 					
 		</Route>	
 	</Router>

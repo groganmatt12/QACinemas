@@ -90,7 +90,7 @@ export default class Forum extends React.Component{
                     </div>
                     <div className="row"> 
                         <div className="col-md-4">
-                            Post as user:
+                            
                         </div>
                         <div className="col-md-4 col-sm-12">
                             {/*Drop down, create new post*/}

@@ -51,7 +51,7 @@ export default class Carousel extends React.Component{
 			if(i==0){
 				
 			let path0="/images/"+initArray[0].carousel;
-			let initialLink = "MovieDetails/" + initArray[0].id;
+			let initialLink = "MovieDetails?filmID=" + initArray[0].id;
 		
 			tempImgArray.push(<div key ={0} className="item active"><Link to={initialLink}><img className="d-block img-fluid" src={path0}  alt="first slide"></img></Link></div>);
 				
@@ -59,7 +59,7 @@ export default class Carousel extends React.Component{
 			}else{
 			
 			
-			let filmUrl = "MovieDetails/" + initArray[i].id;
+			let filmUrl = "MovieDetails?filmID=" + initArray[i].id;
 			let path="/images/"+initArray[i].carousel;
 			 
 			tempImgArray.push(

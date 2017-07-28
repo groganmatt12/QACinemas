@@ -53,17 +53,16 @@ export default class Offers extends React.Component{
                 <div className="row Offer-Row" id="">
                     <div className="col-sm-4 Offer-Panel">
                         <div className="Offer-Item">
-                            <img src={offer1} alt="offer1 top film" />
+                            <Link to='MovieDetails?filmID=1'><img src={offer1} alt="offer1 top film" /></Link>
                             <p>Battle Royale</p>
                         </div>
                     </div>
 
                     <div className="col-sm-4 Offer-Panel">
                         <ul className="list-group Offer-Item">{/*list-group is bootstrap*/}
-                            <li className="list-group-item list-group-item-info"><a href="#">Kids under 10 go free!</a></li>
+                            <li className="list-group-item list-group-item-info"><a href="#">Kids under 5 go free!</a></li>
                             <li className="list-group-item list-group-item-info"><a href="#">Free drink with any special meal deal!</a></li>
                             <li className="list-group-item list-group-item-danger"><a href="#">Wallace and Gromit merchandice in store!</a></li>
-                            <li className="list-group-item list-group-item-info">...<a href="#"></a></li>
                         </ul>
                     </div>
 

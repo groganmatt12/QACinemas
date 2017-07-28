@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+//import mongoose models
 const Movie = require('../models/movie');
 const Booking = require('../models/booking');
 const Showing = require('../models/showing');
@@ -7,7 +9,8 @@ const Showing = require('../models/showing');
 //////////////////////////////
 //			movies		 	//
 //////////////////////////////
-//get list from the database
+
+//get list from the database: READ
 router.get('/movies', function(req,res,next){
 	Movie.find({}).then(function(post){
 		res.send(post);

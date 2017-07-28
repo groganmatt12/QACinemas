@@ -10,22 +10,21 @@ import Showings from './Showings';
 import Confirmation from './Confirmation';
 import Classification from './Classification';
 import Error_Page from './404';
-import Location from './Location';
-/*import ContactUs from './ContactUs';*/
+import Forum from './Forum';
+import Post from './Post';
 
 
 ReactDOM.render(
 	<Router history = {browserHistory}>
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}></IndexRoute>
-
 			<Route path = "/ListingGallery" component={ListingGallery} />	
 			<Route path = "/MovieDetails" component={MovieDetails} />
 			<Route path = "/Booking" component={Booking} />
 			<Route path = "/Classification" component={Classification} />
-			<Route path = "/Confimation" component={Confirmation}/>
-			<Route path = "/Phil" component={Location}/>
-					
+			<Route path = "/Confimation" component={Confirmation}/>	
+			<Route path="/Forum" component={Forum} />
+    		<Route path="/Forum/:id" component={Post} />			
 		</Route>	
 	</Router>
 , document.querySelector('#app'));

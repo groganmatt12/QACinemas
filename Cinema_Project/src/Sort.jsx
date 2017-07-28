@@ -246,9 +246,13 @@ export default class Sort extends React.Component{
 						/><br />Currently sorted by {this.props.currentSort} in {this.props.currentOrder} order<br />
 						<button type="button" value="MOVIE_TITLE" className="btn btn-info" onClick={this.handleMovieSort.bind(this)}>Sort by Name</button>
 						<button type="button" value="RELEASE_DATE" className="btn btn-info" onClick={this.handleMovieSort.bind(this)}>Sort by Release Date</button>
-                        <div>
+                        <div className="row container-fluid">
+							<div className="col-md-12">
                             <h4>Filter by Genre...</h4>
+							</div>
+							<div className="col-md-12">
                             {genreCheckboxesToRender}
+							</div>
                         </div>
                         <div>
                             <h4>Classifications</h4>

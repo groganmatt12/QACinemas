@@ -20,7 +20,7 @@ export default class Checkbox extends React.Component{
 	
 	render(){
 		return(
-			<div className="checkbox">
+			<div className="checkbox col-xs-6 col-sm-4 col-md-4">
 				<label>
 				
 					<input 

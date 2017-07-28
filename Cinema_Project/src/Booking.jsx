@@ -12,16 +12,32 @@ export default class Booking extends React.Component{
 			ticketQuantity: 0,
 
 			showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.showingId),
-			showingInfo: CinemaStore.getAllShowings()		
+			showingInfo: CinemaStore.getAllShowings(),
+			bookingMade: false
 		
 
 		}
-		this.bookToDb = this.bookToDb.bind(this)
+		this.bookToDb = this.bookToDb.bind(this);
+		this.showTicketBooked = this.showTicketBooked.bind(this);
+		this.returnToHome = this.returnToHome.bind(this);
+		
+		this._dataload = this._dataload.bind(this);
 
 	}
 	
 	componentWillMount(){
 		console.log(this.state.showingChoice);
+		CinemaStore.on('DATALOAD',this._dataload);
+	}
+	
+		componentWillUnmount() {
+		CinemaStore.removeListener('DATALOAD',this._dataload);
+    }
+	
+	_dataload(){
+		console.log("loading data");
+		this.setState({showingChoice: CinemaStore.getShowingByIndex(this.props.location.query.showingId)});
+		this.setState({showingInfo: CinemaStore.getAllShowings()});
 	}
 	
 	increment(){
@@ -55,14 +71,31 @@ export default class Booking extends React.Component{
                 showingId: showingId,
                 quantity: quantity,
             }));
+			ticketInc
+			document.getElementById("bookNowButton").disabled = true;
+			document.getElementById("ticketInc").disabled = true;
+			document.getElementById("ticketDec").disabled = true;
+			this.setState({bookingMade: true});
            
         });
+	}
+	
+	showTicketBooked(){
+		let output = [];
+		if(this.state.bookingMade){
+			output.push(<div><h2>Your booking has been made!</h2><br /> <button className="Standard-Button btn btn-default" onClick={this.returnToHome} id="backToHomeButton">Return to Homepage</button> </div>);
+		}
+		return output;
+	}
+	returnToHome(){
+		this.props.router.push('/');
 	}
 	
     render() {
 		
 		let price = 10 * this.state.ticketQuantity;
 		console.log(this.props.location.query);
+		let shownIfBooked = this.showTicketBooked();
         return(
 		
 		
@@ -85,15 +118,16 @@ export default class Booking extends React.Component{
 						<p>Quantity&nbsp;
 						<input type="text" value={this.state.ticketQuantity} className="Booking-Quantity-box" disabled/>
 						</p>
-						<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)}>+1</button>
-						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)}>-1</button>
+						<button className="Standard-Button btn btn-default" onClick={this.increment.bind(this)} id="ticketInc">+1</button>
+						<button className="Standard-Button btn btn-default" onClick={this.decrement.bind(this)} id="ticketDec">-1</button>
 					</div>
 					<br></br>
 						<Link to ="/Confirmation" >
-							<button className="Standard-Button btn btn-default" onClick={this.bookToDb}>BOOK NOW</button>
+							<button className="Standard-Button btn btn-default" onClick={this.bookToDb} id="bookNowButton">BOOK NOW</button>
 						</Link>
 					</div>
-
+					<br />
+					{shownIfBooked}
 			</div>
         );
     }

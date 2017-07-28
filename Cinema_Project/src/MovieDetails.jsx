@@ -95,7 +95,7 @@ export default class MovieDetails extends React.Component{
 				
 				</div>
 				<div className="MovieDetails-Trailer-Container">
-                    <iframe className="Youtube-Video" src={this.state.trailerLink}></iframe>
+                    <iframe className="Youtube-Video" src={this.state.trailerLink} ></iframe>
                 </div>
             </div>
 

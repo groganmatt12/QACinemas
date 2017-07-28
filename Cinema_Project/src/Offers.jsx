@@ -36,9 +36,9 @@ export default class Offers extends React.Component{
 		
         return(
 
-            <div className="Container Offer-Parent">
+            <div className="Container Offer-Parent col-md-12 col-sm-12">
 
-                <div className="row Offer-Headings">
+                <div className="row Offer-Headings hidden-xs">
                     <div className="col-sm-4 Offer-Most-Popular">
                         <p>Most Popular</p> 
                     </div>

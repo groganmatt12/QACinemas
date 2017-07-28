@@ -41,7 +41,7 @@ export default class HiddenCPB extends React.Component{
 
     render(){
         return(
-            <form className="HCP" onSubmit={this.handleSubmit.bind(this)}>
+            <form className="HCP panel panel-default" onSubmit={this.handleSubmit.bind(this)}>
                 <div className="form-group row">
                     <label htmlFor="HCP-name" className="col-sm-2 col-form-label col-form-label-sm">Name</label>
                     <div className="col-sm-10">

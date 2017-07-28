@@ -17,7 +17,8 @@ export default class Post extends React.Component{
             postData : [],
             commentArray : [],
             commentDomObj: [],
-            postDomObj: []
+            postDomObj: [],
+            showEdit: false
         };
         this._onChange = this._onChange.bind(this);
         //old
@@ -67,8 +68,8 @@ export default class Post extends React.Component{
         commentsFromAPI.forEach( (curCom) => {
         let curID = curCom._id;
           reqCommentDOM.push(
-                <div className="row card Post-individual" key={curCom._id}>
-                    <div className="card-block row">
+                <div className="row panel panel-default Post-individual" key={curCom._id}>
+                    <div className="panel-body row">
                         <div className="col-sm-1 Post-username">
                             <p>{curCom.name}</p>
                         </div>
@@ -86,14 +87,19 @@ export default class Post extends React.Component{
         this.setState({commentDomObj: reqCommentDOM});
     }
 
+
+    showEditBtn(){
+        this.setState({showEdit: !(this.state.showEdit)});
+    }
+
     render(){
         //const postTitle = this.state.pTitle;
         const postAuth = this.state.pAuth;
         const postCont = this.state.pPost;
-
+        const isEdit = this.state.showEdit;
         return(
             <div className="container-fluid post-main">
-                <div className="Post-Header">
+                <div className="panel panel-default Post-Header">
                     <div className="row">
                         <div className="col-sm-1">
                             <p className="Post-username">{postAuth}</p>
@@ -103,7 +109,16 @@ export default class Post extends React.Component{
                         <div className="col-sm-8">
                             <div className="row">
                                 <h1>{this.state.pTitle}</h1>
-                                <EditPostTitleBox postID={this.props.params.id} />
+                                <button type="button" className="btn btn-warning" onClick={this.showEditBtn.bind(this)}>Edit title!</button>
+                                { isEdit ?
+                                    (
+                                        <EditPostTitleBox postID={this.props.params.id} />
+                                        ): (
+                                         null
+                                        )
+
+                                }
+                                
                             </div>
                             <div className="row">
                                 <p>{postCont}</p>
@@ -111,9 +126,9 @@ export default class Post extends React.Component{
                         </div>
                         <div className="col-sm-2">
                         </div>
-                        <hr/>
+                  
                     </div>
-                    <hr />
+                 
                 </div>
 
                 <div className="Post-comments">

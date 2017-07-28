@@ -451,12 +451,12 @@
 
 }
 
-.forum-h1{
+/*.forum-main .forum-h1 .forum-h1{
     justify-content: center;
     color: red;
     font-family: helvetica;
     font-weight: bold;
-}
+}*/
 
 .forum-postsBody{
 
@@ -469,7 +469,7 @@
 
 .forum-postUser{
     font-size: 12px;
-    color: grey;
+    color: orange;
     font-weight: 400;
 }
 
@@ -489,6 +489,10 @@
     margin-top: 1em;
     margin-bottom: 1em;
 }
+.forum-banner{
+	justify-content: center;
+	text-align: center;
+}
     
 .forum-createPostForm{
     
@@ -503,6 +507,7 @@
 .Post-Header{
     margin-top: 1em;
     margin-bottom: 1em;
+    
 }
 
 .Post-comments{
@@ -511,14 +516,20 @@
 .Post-username{
 	font-size: 16px;
     font-weight: 600;
-    color: grey;
+    color: orange;
     border-top: solid orange;
 }
 
 .Post-individual{
+	background-color: white;
 }
 
 /*----Reply---*/
 .Reply-form{
     margin-bottom: 0;
+    color: orange;
+}
+
+.HCP{
+	padding: 1em;
 }

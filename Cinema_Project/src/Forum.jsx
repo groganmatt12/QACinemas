@@ -50,12 +50,12 @@ export default class Forum extends React.Component{
             let curName = postsFromAPI[i].name;
             let curPostID = postsFromAPI[i]._id;
             reqPostArray.push(
-                <div className="card forum-postCards" key={curPostID}>
-                    <div className="card-block">
+                <div className="panel panel-default forum-postCards" key={curPostID}>
+                    <div className="panel-body">
                         <Link to={"/Forum/"+curPostID} style={{textDecoration: 'none'}} >
-                            <p className="card-title forum-postTitle">{curPostTitle}</p>
+                            <p className="panel-heading forum-postTitle">{curPostTitle}</p>
                         </Link>
-                        <p className="card-text forum-postUser">{curName}</p>
+                        <p className="panel-body forum-postUser">{curName}</p>
                     </div>
                 </div>
             );
@@ -86,7 +86,7 @@ export default class Forum extends React.Component{
             <div className="container-fluid forum-main">
                 <div className="forum-banner">
                     <div className="row forum-h1">
-                        <a onClick={this._onCPBClick.bind(this)}><p>[New Post]</p></a>
+                        <button type="button" className="btn btn-warning" onClick={this._onCPBClick.bind(this)}>Create a Post!</button>
                     </div>
                     <div className="row"> 
                         <div className="col-md-4">
@@ -106,8 +106,8 @@ export default class Forum extends React.Component{
 
                 <div className="forum-postsBody col-sm-10">
                     {/* {this.state.forumData}*/}
-                    <div className="card">
-                        <div className="card-header h-20">
+                    <div className="panel panel-default">
+                        <div className="panel-body h-20">
                         <div className="col-sm-11">
                             Discussions
                         </div>
